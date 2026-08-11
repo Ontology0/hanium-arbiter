@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath // empty' | grep -q 'docs/goal\\.md$' && python3 \"${CLAUDE_PROJECT_DIR:-.}/tools/sync_checklist.py\" || true",
+            "statusMessage": "checklist 대조 중",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

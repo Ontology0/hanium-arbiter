@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 의존성 설치
+        run: pip install pytest
+
+      # 훅은 사람이 로컬에서 안 돌릴 수 있다. 여기서 다시 확인한다.
+      - name: goal.md ↔ checklist.json 대조
+        run: python3 tools/sync_checklist.py --check
+
+      - name: 테스트
+        run: pytest -q

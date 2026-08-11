@@ -1,0 +1,607 @@
+{
+  "schema_version": 1,
+  "source": "docs/goal.md",
+  "source_digest": "sha256:570acb301c8045f75e6b9be80b4ce5234e6d5d5bdab4f3a594f8dea45b7ffbd0",
+  "items": [
+    {
+      "id": "UR-01",
+      "title": "사용자는 만들고 싶은 앱을 자연어로 입력할 수 있다",
+      "category": "user",
+      "priority": "must",
+      "traces": [
+        "R1",
+        "S3"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-02",
+      "title": "사용자는 시스템이 도출한 요구사항을 확인·수정·승인할 수 있다. 승인본이 이후 모든 판정의 기준점이 된다",
+      "category": "user",
+      "priority": "must",
+      "traces": [
+        "R2",
+        "S4"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-03",
+      "title": "사용자는 자기 에이전트를 등록할 수 있다 (소유자·전송 경로·git 권한·브랜치 규칙)",
+      "category": "user",
+      "priority": "must",
+      "traces": [
+        "F3",
+        "S5"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-04",
+      "title": "사용자는 태스크 배정 제안을 수락하거나 거절할 수 있다",
+      "category": "user",
+      "priority": "must",
+      "traces": [
+        "R3",
+        "S6"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-05",
+      "title": "사용자는 충돌 상세에서 후보별 근거를 좌우 비교로 볼 수 있다. 근거마다 등급 배지가 노출된다",
+      "category": "user",
+      "priority": "must",
+      "traces": [
+        "R17",
+        "S7"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-06",
+      "title": "사용자는 에스컬레이션된 건에 대해 선택지를 고르거나 직접 지시를 입력할 수 있다",
+      "category": "user",
+      "priority": "must",
+      "traces": [
+        "R15",
+        "S8"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-07",
+      "title": "사용자는 충돌→근거→판정→결과 타임라인을 조회할 수 있다",
+      "category": "user",
+      "priority": "must",
+      "traces": [
+        "R17",
+        "S9"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-08",
+      "title": "사용자는 생성 결과를 샌드박스에서 빌드·프리뷰할 수 있다",
+      "category": "user",
+      "priority": "should",
+      "traces": [
+        "R18",
+        "S10"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-09",
+      "title": "사용자는 판정·에스컬레이션 결과를 사람 채널 알림 카드로 받는다",
+      "category": "user",
+      "priority": "must",
+      "traces": [
+        "R16",
+        "S8"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-10",
+      "title": "사용자는 프로젝트를 생성·조회·전환할 수 있다",
+      "category": "user",
+      "priority": "must",
+      "traces": [
+        "F1",
+        "S2"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "UR-11",
+      "title": "연구자는 전략별 실험 지표를 대시보드에서 비교할 수 있다",
+      "category": "user",
+      "priority": "later",
+      "traces": [
+        "S11",
+        "F16"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-01",
+      "title": "시스템은 자연어 요청을 요구사항 목록과 태스크로 분해한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "F2"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-02",
+      "title": "시스템은 승인된 요구사항을 판정 기준점으로 고정 보관한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R2"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-03",
+      "title": "시스템은 태스크별 배정 제안을 생성하고 수락·거절을 수집한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "F4"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-04",
+      "title": "시스템은 중복 수락과 미배정을 충돌(C0)로 처리한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R4"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-05",
+      "title": "시스템은 `POST /reports`로 에이전트의 작업 보고를 수신한다 (경로 A)",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R5",
+        "F5"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-06",
+      "title": "시스템은 브랜치 push를 감지해 산출물을 수집한다 (경로 B)",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R6",
+        "F6"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-07",
+      "title": "시스템은 경로 A/B 보고를 동일 스키마로 정규화한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "D4",
+        "N5"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-08",
+      "title": "시스템은 보고에 포함된 commit SHA의 실재 여부를 검증한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R7"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-09",
+      "title": "시스템은 해당 SHA를 체크아웃해 산출물을 추출한다 (API 스펙·DB 스키마·호출부)",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "F7"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-10",
+      "title": "시스템은 C0~C4 충돌을 자동 탐지한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R8",
+        "F8"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-11",
+      "title": "시스템은 각 후보의 근거를 CLAIMED / REFERENCED / VERIFIED로 등급화한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R9",
+        "F9"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-12",
+      "title": "시스템은 REFERENCED 근거를 직접 재현(테스트 실행·스캔·diff)해 VERIFIED로 승격한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R10",
+        "F9"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-13",
+      "title": "시스템은 재현 실행의 입력·출력·종료코드를 증거로 저장한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "N1"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-14",
+      "title": "시스템은 근거를 정렬해 채택안·이유·확신도를 판정한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R11",
+        "F10"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-15",
+      "title": "시스템은 근거가 부족한 후보에게 검증 요청을 보내고 타임아웃을 관리한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R12",
+        "F11"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-16",
+      "title": "시스템은 채택 후 상충하는 쪽 소유자 에이전트에게 수정 요청을 발행한다. 코드를 직접 수정하지 않는다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R13",
+        "F11"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-17",
+      "title": "시스템은 중재 전략을 교체 가능한 형태로 구현한다 (동일 충돌을 전략만 바꿔 재실행 가능)",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "F10",
+        "D5"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-18",
+      "title": "시스템은 판정 불가·고위험 건을 선택지로 만들어 사람에게 넘긴다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R14",
+        "F12"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-19",
+      "title": "시스템은 사람의 응답을 수집해 판정에 반영한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R15",
+        "F12"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-20",
+      "title": "시스템은 판정·에스컬레이션 결과를 사람 채널로 발송한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R16",
+        "F13"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-21",
+      "title": "시스템은 충돌→근거→판정→결과를 타임라인으로 조회 가능하게 한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "R17",
+        "F14"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-22",
+      "title": "시스템은 격리 샌드박스에서 결과물을 빌드하고 프리뷰 URL을 제공한다",
+      "category": "functional",
+      "priority": "should",
+      "traces": [
+        "R18",
+        "F15"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-23",
+      "title": "시스템은 합성 충돌을 주입하고 전략별로 반복 실행해 지표를 집계한다",
+      "category": "functional",
+      "priority": "later",
+      "traces": [
+        "F16"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-24",
+      "title": "시스템은 에이전트×충돌유형 적중률을 누적한다",
+      "category": "functional",
+      "priority": "later",
+      "traces": [
+        "F17",
+        "E1"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "FR-25",
+      "title": "시스템은 계정 인증과 프로젝트 CRUD를 제공한다",
+      "category": "functional",
+      "priority": "must",
+      "traces": [
+        "F1"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "NFR-01",
+      "title": "근거 레코드는 원본 그대로 보존되며 사후 수정되지 않는다",
+      "category": "non_functional",
+      "priority": "must",
+      "traces": [
+        "N1"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "NFR-02",
+      "title": "프로젝트별 비용·시간 상한을 초과하면 파이프라인을 중단한다",
+      "category": "non_functional",
+      "priority": "must",
+      "traces": [
+        "N2"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "NFR-03",
+      "title": "에이전트 무응답은 타임아웃으로 처리하고 파이프라인은 계속 진행한다",
+      "category": "non_functional",
+      "priority": "must",
+      "traces": [
+        "N3"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "NFR-04",
+      "title": "외부 코드 실행은 격리 샌드박스 안에서만 수행한다",
+      "category": "non_functional",
+      "priority": "must",
+      "traces": [
+        "N4"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "NFR-05",
+      "title": "중재 엔진은 보고 전송 경로(A/B)에 의존하지 않는다",
+      "category": "non_functional",
+      "priority": "must",
+      "traces": [
+        "N5"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "NFR-06",
+      "title": "상태가 `done`인 요구사항은 대응 테스트를 최소 1개 보유한다",
+      "category": "non_functional",
+      "priority": "must",
+      "traces": [
+        "(팀 규칙)"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "NFR-07",
+      "title": "판정에 쓰인 근거와 그 등급은 결과와 함께 항상 노출된다",
+      "category": "non_functional",
+      "priority": "must",
+      "traces": [
+        "S7 원칙"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    },
+    {
+      "id": "NFR-08",
+      "title": "시스템은 에이전트의 비공개 로컬 컨텍스트를 요구하지 않는다",
+      "category": "non_functional",
+      "priority": "must",
+      "traces": [
+        "설계원칙 1"
+      ],
+      "status": "todo",
+      "tests": [],
+      "retired": false,
+      "history": []
+    }
+  ],
+  "decisions": []
+}

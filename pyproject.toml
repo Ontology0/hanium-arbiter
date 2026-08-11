@@ -1,0 +1,9 @@
+[project]
+name = "hanium-arbiter"
+version = "0.1.0"
+description = "개인 소유 AI 에이전트 간 협업에서 근거 기반으로 충돌을 중재하는 시스템"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
