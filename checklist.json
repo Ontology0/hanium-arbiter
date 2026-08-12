@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "docs/goal.md",
-  "source_digest": "sha256:770b1b7b65dbcbecb74a7bb1c56a8b7238a6579dcdf583272fcaadf0be19548a",
+  "source_digest": "sha256:4a07b1ac21cb63673aec76f0c8e4f4f46894cee02fd67653500d08b6a80e57b4",
   "items": [
     {
       "id": "UR-01",
@@ -317,7 +317,13 @@
       "status": "todo",
       "tests": [],
       "retired": false,
-      "history": []
+      "history": [
+        {
+          "at": "2026-08-12T15:30:33+00:00",
+          "decision": "D-0001",
+          "summary": "외부 샌드박스 서비스 사용"
+        }
+      ]
     },
     {
       "id": "FR-13",
@@ -456,7 +462,13 @@
       "status": "todo",
       "tests": [],
       "retired": false,
-      "history": []
+      "history": [
+        {
+          "at": "2026-08-12T15:30:33+00:00",
+          "decision": "D-0001",
+          "summary": "외부 샌드박스 서비스 사용"
+        }
+      ]
     },
     {
       "id": "FR-23",
@@ -549,7 +561,13 @@
       "status": "todo",
       "tests": [],
       "retired": false,
-      "history": []
+      "history": [
+        {
+          "at": "2026-08-12T15:30:33+00:00",
+          "decision": "D-0001",
+          "summary": "외부 샌드박스 서비스 사용"
+        }
+      ]
     },
     {
       "id": "NFR-05",
@@ -604,5 +622,24 @@
       "history": []
     }
   ],
-  "decisions": []
+  "decisions": [
+    {
+      "id": "D-0001",
+      "at": "2026-08-12T15:30:33+00:00",
+      "by": "세령",
+      "affects": [
+        "FR-12",
+        "FR-22",
+        "NFR-04"
+      ],
+      "question": "O3: 근거 재현(테스트 실행·스캔·diff)을 돌릴 코드 실행 샌드박스를 무엇으로 할까",
+      "decision": "외부 샌드박스 서비스 사용",
+      "why": "팀원마다 PC 사양·OS가 달라 Docker 로컬은 재현성이 깨짐. 외부 서비스는 누가 돌려도 같은 환경",
+      "rejected": [
+        "Docker 로컬",
+        "하이브리드(개발은 로컬·프리뷰만 외부)"
+      ],
+      "status_changes": []
+    }
+  ]
 }
