@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "docs/goal.md",
-  "source_digest": "sha256:570acb301c8045f75e6b9be80b4ce5234e6d5d5bdab4f3a594f8dea45b7ffbd0",
+  "source_digest": "sha256:770b1b7b65dbcbecb74a7bb1c56a8b7238a6579dcdf583272fcaadf0be19548a",
   "items": [
     {
       "id": "UR-01",
@@ -491,7 +491,8 @@
       "category": "functional",
       "priority": "must",
       "traces": [
-        "F1"
+        "F1",
+        "S1"
       ],
       "status": "todo",
       "tests": [],

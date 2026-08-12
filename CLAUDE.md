@@ -73,6 +73,7 @@ python3 tools/record_decision.py ... --set-status FR-11=done
 | 테스트 | `pytest` |
 | goal.md 대조 | `python3 tools/sync_checklist.py` |
 | 어긋났는지만 확인 | `python3 tools/sync_checklist.py --check` |
+| 매핑표 재생성 | `python3 tools/gen_traceability.py` |
 | 결정 기록 | `python3 tools/record_decision.py --help` |
 | 진행 현황 | `python3 tools/status_report.py` |
 
@@ -83,7 +84,9 @@ hanium-arbiter/
 ├── docs/
 │   ├── goal.md           요구사항 정의 (단일 소스, 사람이 씀)
 │   ├── design/v0.3.md    설계 문서
-│   └── decision_log.md   설계 수준 결정 (산문)
+│   ├── decision_log.md   설계 수준 결정 (산문)
+│   ├── traceability.md   요구사항↔화면↔ERD 매핑표 (도구가 생성, 손대지 말 것)
+│   └── evidence/         실측 근거 자료 (제안서·보고서용)
 ├── checklist.json        상태·이력 (도구가 씀, 손대지 말 것)
 ├── tools/                동기화·기록 도구
 ├── tests/                pytest
