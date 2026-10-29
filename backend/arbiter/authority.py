@@ -62,7 +62,7 @@ def evaluate_authority(registry: dict, scope: str, action: str, agents: list[str
     """
     result = {
         "status": "unknown", "authorized_agents": [], "decision_owner": None,
-        "required_owners": [], "reason": "권한 기록을 판정할 수 없습니다.", "grant_ids": [],
+        "required_owners": [], "reason": "The authority records cannot be evaluated.", "grant_ids": [],
         "scope": scope, "action": action, "source": SOURCE,
         "precedence_applied": False, "priority_order": [], "conditional_agents": [],
         "owner_by_agent": {}, "authority_only": True,
@@ -70,20 +70,20 @@ def evaluate_authority(registry: dict, scope: str, action: str, agents: list[str
         "grant_revision": None,
     }
     if not _text(scope) or not _text(action) or not isinstance(registry, dict):
-        result["reason"] = "명시적인 scope와 action 및 사람의 권한 레지스트리가 필요합니다."
+        result["reason"] = "An explicit scope, action, and human-maintained authority registry are required."
         return result
     if not isinstance(registry.get("grants", []), list) or not isinstance(registry.get("precedence", []), list):
-        result["reason"] = "권한 레지스트리 형식이 올바르지 않습니다."
+        result["reason"] = "The authority registry has an invalid format."
         return result
     result["registry_revision"] = registry_revision(registry)
     result["grant_revision"] = grant_revision(registry, scope, action)
     if agents is not None and (not isinstance(agents, (list, tuple, set, frozenset)) or any(not _text(agent) for agent in agents)):
-        result["reason"] = "참여 에이전트 집합이 올바르지 않습니다."
+        result["reason"] = "The participating agent set is invalid."
         return result
     participating = set(agents) if agents is not None else None
     clock = now if now is not None else datetime.now(timezone.utc)
     if not isinstance(clock, datetime) or clock.tzinfo is None or clock.utcoffset() is None:
-        result["reason"] = "권한 만료 확인에는 시간대가 명시된 현재 시각이 필요합니다."
+        result["reason"] = "Checking grant expiration requires a current time with an explicit time zone."
         return result
     clock = clock.astimezone(timezone.utc)
     unconditional, conditional, invalid = [], [], []
@@ -129,22 +129,22 @@ def evaluate_authority(registry: dict, scope: str, action: str, agents: list[str
     result["required_owners"] = owners
     if invalid:
         result["invalid_grant_ids"] = invalid
-        result["reason"] = "해당 범위의 사람 권한 기록에 소유자·조건·만료 등 불명확한 정보가 있어 우선권을 확정하지 않습니다."
+        result["reason"] = "Priority cannot be established because this scope's grant records contain unclear owner, condition, or expiration information."
         return result
     if any(len(values) != 1 for values in owners_by_agent.values()):
-        result["reason"] = "같은 에이전트의 유효 권한에 서로 다른 소유자가 기록되어 사람의 확인이 필요합니다."
+        result["reason"] = "Valid grants for the same agent name different owners. Human clarification is required."
         return result
     if not valid_agents:
         if conditional:
             result.update(status="conditional", required_owners=sorted({grant["owner"] for grant in conditional}),
                           grant_ids=sorted({grant["id"] for grant in conditional}),
-                          reason="조건부 권한만 존재하며 조건 충족을 검증하지 않았습니다. 자동으로 권한을 인정하지 않습니다.")
+                          reason="Only conditional grants exist, and their conditions have not been verified. Authority is not automatically granted.")
         else:
-            result.update(status="authority_gap", reason="이 scope/action에서 참여 에이전트에게 부여된 유효한 사람 권한이 없습니다.")
+            result.update(status="authority_gap", reason="No participating agent has a valid human-issued grant for this scope/action.")
         return result
     if len(valid_agents) == 1:
         result.update(status="authorized", decision_owner=valid_agents[0],
-                      reason="정확히 일치하는 scope/action에서 조건 없는 유효 권한 보유자가 한 명입니다.")
+                      reason="Exactly one agent holds a valid, unconditional grant for this exact scope/action.")
         return result
 
     cross_owner = len(owners) > 1
@@ -174,13 +174,13 @@ def evaluate_authority(registry: dict, scope: str, action: str, agents: list[str
         winner = next(iter(winners))
         result.update(status="authorized", decision_owner=winner, precedence_applied=True,
                       priority_order=next(order for order in applicable_orders if order[0] == winner),
-                      reason="이 scope/action의 유효 권한 보유자 사이에 사람이 기록한 우선권을 적용했습니다."
-                      + (" 관련 소유자 전원의 승인 기록이 있으며 원격 본인 인증을 수행한 것은 아닙니다." if cross_owner else ""))
+                      reason="Human-recorded priority was applied among the valid grant holders for this scope/action."
+                      + (" Approval from every relevant owner is recorded; remote identity verification has not been performed." if cross_owner else ""))
         return result
     if cross_owner:
         result.update(status="cross_owner_conflict",
-                      reason="서로 다른 소유자의 권한이 겹칩니다. 관련 소유자 모두의 승인 기록이 있는 일관된 우선권이 필요합니다.")
+                      reason="Grants from different owners overlap. A consistent priority order with recorded approval from every relevant owner is required.")
     else:
         result.update(status="authority_conflict",
-                      reason="같은 범위의 유효 권한 보유자가 여러 명이고 적용 가능한 우선권이 없거나 서로 충돌합니다.")
+                      reason="Multiple agents hold valid grants for this scope, and applicable priority is either missing or conflicting.")
     return result

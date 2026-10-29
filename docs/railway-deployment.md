@@ -19,6 +19,14 @@ ARBITER_DEMO_DATA_DIR=.runtime/visitor-demo \
 
 ## Railway 설정
 
+Docker 빌드나 Railway 업로드 전에 공개 다운로드 패키지를 생성합니다. 새로 복제한 저장소와 소스 ZIP에는 생성된 ZIP이 들어 있지 않으므로 이 단계가 필요합니다.
+
+```bash
+uv run python scripts/package_downloads.py
+```
+
+이 명령은 `frontend/downloads/culture-fit-source.zip`과 `frontend/downloads/culture-fit-skill.zip`을 만들고 파일 목록·SHA-256을 로컬 `.runtime/download-package-manifest.json`에 기록합니다. 모델 호출이나 외부 게시를 수행하지 않습니다. 소스 또는 설치 문서를 수정한 뒤에는 다시 생성하고, 이후 Docker를 빌드하거나 실행 파일을 업로드합니다.
+
 | 항목 | 설정 |
 |---|---|
 | 빌드 | 저장소의 `Dockerfile`, Python 3.12, `uv sync --frozen --no-dev` |
@@ -37,7 +45,9 @@ ARBITER_DEMO_DATA_DIR=.runtime/visitor-demo \
 
 ## 업로드 범위
 
-`.dockerignore`와 `.railwayignore`는 기본 제외 목록으로 작성되어 있습니다. 로컬 `.runtime`, `.env`, 계정 인증 파일, 개인 연락처, 보고서와 영상은 포함하지 않습니다. Dockerfile도 백엔드 Python 코드, 프런트 5개 파일, 공개 실험 요약, Slack 앱 매니페스트만 복사합니다.
+`.dockerignore`와 `.railwayignore`는 기본 제외 목록으로 작성되어 있습니다. Dockerfile은 백엔드 Python 코드, 다운로드 페이지를 포함한 프런트 7개 파일, 위의 공개 ZIP 2개, 공개 실험 요약, Slack 앱 매니페스트를 복사합니다. 소스 ZIP에는 검토된 소스·설치 문서·테스트·합성 실험 자료가 들어가고 Skill ZIP에는 지침·Python 도우미·라이선스가 들어갑니다.
+
+로컬 `.runtime`, `.env`, 계정 인증 파일, 개인 연락처, 제출 보고서, 영상, 스크린샷과 로고 원본은 실행 이미지 및 공개 ZIP에 포함하지 않습니다. 패키지 생성기는 포함 경로를 제한하며 생성된 ZIP을 다시 소스 ZIP에 담지 않습니다. `/download` 페이지에서 이 두 공개 패키지를 제공하므로 업로드할 임시 폴더에도 해당 ZIP을 포함해야 합니다.
 
 중첩 Git 저장소의 상위 프로젝트가 잘못 포함되지 않도록 검토한 실행 파일만 별도 임시 폴더에 복사하고, 다음처럼 명시적으로 그 폴더를 업로드합니다.
 

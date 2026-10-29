@@ -190,7 +190,7 @@ def create_state(scenario_id: str, policy: str = "adaptive", mode: str = "demo",
             "input_tokens": 0, "output_tokens": 0, "measured_calls": 0, "unmetered_calls": 0,
             "human_requests": 0, "progress_events": 0, "success": False,
         },
-        "detector": {"stalled_turns": 0, "reason": "아직 에이전트 작업이 없습니다.", "conflicts": []},
+        "detector": {"stalled_turns": 0, "reason": "No agent work has been recorded yet.", "conflicts": []},
         "task": task,
         "_decision_values": {},
         "_progress": {"seen_passed_checks": [], "seen_references": [], "epoch": 0},
@@ -399,7 +399,7 @@ def _detect_conflicts(state: dict) -> list[dict]:
             "agents": sorted({claim["agent"] for claim in claims}),
             "values": [json.loads(value) for value in sorted(values)],
             "status": "decision_recorded" if resolved else "open",
-            "summary": f"{scope}의 {key}에 대해 {len(values)}개 값이 충돌합니다.",
+            "summary": f"There are {len(values)} conflicting values for {key} in {scope}.",
             "relevant": any(claim["relevant"] for claim in claims),
         })
     return conflicts
@@ -410,7 +410,7 @@ def _record_validation(state: dict, validation: dict) -> None:
     artifact_hash = sha256(_canonical(state["artifact"]).encode()).hexdigest()
     state["evidence"].append({
         "id": f"evidence-{len(state['evidence']) + 1}", "type": "Evidence", "origin": "local_validator",
-        "summary": f"로컬 계약 검사 {validation['passed']}/{validation['total']} 통과",
+        "summary": f"Passed {validation['passed']}/{validation['total']} local contract checks",
         "source": "local://artifact-validator", "grade": "VERIFIED", "status": "active", "relevant": True,
         "turn": state["turn"], "artifact_hash": artifact_hash, "artifact_revision": state["_artifact_revision"],
         "checks": deepcopy(validation["checks"]),
@@ -431,7 +431,7 @@ def _ingest_coordination(state: dict, event: dict) -> None:
         current["commitments"].append({
             "id": commitment["id"], "type": "Commitment", "agent": agent,
             "to_person": commitment["to_person"], "topic": commitment["topic"],
-            "summary": commitment.get("summary", "확인 후 회신하겠다는 약속"),
+            "summary": commitment.get("summary", "A promise to check and reply"),
             "status": "promised", "created_turn": state["turn"], "last_seen_turn": state["turn"],
         })
     for request in incoming.get("human_input_requests", []):
@@ -465,7 +465,7 @@ def _ingest_coordination(state: dict, event: dict) -> None:
             current["review_requests"].append({**deepcopy(request), "type": "ReviewRequest", "agent": agent, "status": "pending", "created_turn": state["turn"]})
     if "waits_for" in incoming:
         current["waits_for"] = [item for item in current["waits_for"] if item["source"] != agent]
-        current["waits_for"].extend({"source": agent, "target": item["target"], "reason": item.get("reason", "리뷰 대기")} for item in incoming["waits_for"])
+        current["waits_for"].extend({"source": agent, "target": item["target"], "reason": item.get("reason", "Waiting for review")} for item in incoming["waits_for"])
     owner = state["_decision_values"].get("review.decision_owner")
     if owner is not None:
         current["decision_owner"] = owner
@@ -505,11 +505,11 @@ def _update_coordination_detector(state: dict) -> None:
     state["detector"]["wait_cycles"] = cycles
     state["detector"]["missing_decision_owner"] = bool(current["review_requests"] and not current["decision_owner"])
     if intentional_wait:
-        state["detector"]["reason"] = "독립된 전달 기록을 확인했습니다. 사람의 응답을 기다리는 상태이며 대화 반복으로 단정하지 않습니다."
+        state["detector"]["reason"] = "An independent delivery record was confirmed. Waiting for a human response does not establish a conversation loop."
     elif unknown:
-        state["detector"]["reason"] += " 주인에게 확인하겠다는 약속은 있으나 요청 전달 여부는 확인되지 않았습니다."
+        state["detector"]["reason"] += " An agent promised to ask its owner, but request delivery remains unknown."
     elif cycles:
-        state["detector"]["reason"] += " 리뷰 대기가 순환하며 최종 결정 담당이 필요합니다."
+        state["detector"]["reason"] += " Review waits form a cycle, and a final decision owner is needed."
 
 
 def _request_intervention(state: dict, trigger: str) -> None:
@@ -528,11 +528,11 @@ def _request_intervention(state: dict, trigger: str) -> None:
         decision_key = decision["key"]
     else:
         options = [
-            {"id": "continue", "label": "작업 계속", "description": "현재 목표를 유지하고 다음 검증 가능한 산출물을 요청합니다."},
-            {"id": "stop", "label": "작업 종료", "description": "현재 실행을 종료합니다. 완료로 처리하지 않습니다."},
+            {"id": "continue", "label": "Continue work", "description": "Keep the current goal and request the next verifiable artifact."},
+            {"id": "stop", "label": "Stop this run", "description": "End the current run without marking the task complete."},
         ]
-        title = "정기 진행 확인" if trigger == "periodic" else "작업 정체 확인"
-        question, kind, decision_key = "현재 작업을 계속할까요?", "checkpoint" if trigger == "periodic" else "stagnation", None
+        title = "Scheduled progress check" if trigger == "periodic" else "Check stalled work"
+        question, kind, decision_key = "Should the current work continue?", "checkpoint" if trigger == "periodic" else "stagnation", None
     request = {
         "id": f"request-{len(state['requests']) + 1}", "status": "pending", "kind": kind,
         "title": title, "summary": state["detector"]["reason"], "question": question, "options": options,
@@ -577,10 +577,10 @@ def ingest_event(state: dict, event: dict) -> dict:
         state["metrics"]["progress_events"] += 1
         state["_progress"]["epoch"] += 1
         state["detector"]["stalled_turns"] = 0
-        state["detector"]["reason"] = f"새 검사항목 {len(newly_passed)}개·관련 근거 {len(new_references)}개로 진전했습니다."
+        state["detector"]["reason"] = f"Progress: {len(newly_passed)} newly passed checks and {len(new_references)} new relevant evidence items."
     else:
         state["detector"]["stalled_turns"] += 1
-        state["detector"]["reason"] = f"검증 가능한 새 진전 없이 {state['detector']['stalled_turns']}차례가 이어졌습니다."
+        state["detector"]["reason"] = f"There have been {state['detector']['stalled_turns']} turns without new verifiable progress."
     state["detector"]["conflicts"] = _detect_conflicts(state)
     _update_coordination_detector(state)
     state["detector"]["last_progress"] = {"check_ids": newly_passed, "reference_ids": new_references}
@@ -595,10 +595,10 @@ def ingest_event(state: dict, event: dict) -> dict:
     })
     if validation["success"]:
         state["status"] = "completed"
-        state["detector"]["reason"] = "모든 로컬 계약 검사가 통과했습니다."
+        state["detector"]["reason"] = "All local contract checks passed."
     elif state["turn"] >= state["max_turns"]:
         state["status"] = "budget_exhausted"
-        state["detector"]["reason"] = "누적 대화 상한에 도달했습니다. 완료되지 않은 상태로 종료합니다."
+        state["detector"]["reason"] = "The cumulative turn limit was reached. The run ends without completing the task."
     elif state["policy"] == "periodic" and state["turn"] % state["periodic_every"] == 0:
         _request_intervention(state, "periodic")
     elif state["policy"] == "adaptive" and not state["detector"].get("intentional_human_wait") and state["detector"]["stalled_turns"] >= state["stall_window"]:
@@ -639,7 +639,7 @@ def apply_decision(state: dict, request_id: str, choice: str, note: str = "") ->
     state["_progress"]["epoch"] += 1
     state["metrics"]["progress_events"] += 1
     state["detector"]["stalled_turns"] = 0
-    state["detector"]["reason"] = "사람의 결정을 기록했습니다. 다음 산출물을 다시 검사합니다."
+    state["detector"]["reason"] = "The human decision was recorded. The next artifact will be checked again."
     state["detector"]["conflicts"] = _detect_conflicts(state)
     _update_coordination_detector(state)
     validation = evaluate_state(state)
@@ -680,20 +680,20 @@ def ontology_graph(state: dict) -> dict:
     for agent in agents:
         identifier = "agent:" + agent
         nodes.append({"id": identifier, "type": "Agent", "label": agent})
-        edges.append({"source": identifier, "target": task_id, "type": "worksOn", "label": "담당 작업"})
+        edges.append({"source": identifier, "target": task_id, "type": "worksOn", "label": "Works on"})
         if agent in owners:
-            edges.append({"source": identifier, "target": "person:" + owners[agent], "type": "represents", "label": "개인 에이전트"})
+            edges.append({"source": identifier, "target": "person:" + owners[agent], "type": "represents", "label": "Represents owner"})
     evidence_ids = {item["id"] for item in state["evidence"]}
     for claim in state["claims"]:
         identifier = "claim:" + claim["id"]
         nodes.append({**deepcopy(claim), "id": identifier, "label": f"{claim['key']} = {_canonical(claim['value'])}"})
-        edges.append({"source": "agent:" + claim["agent"], "target": identifier, "type": "asserts", "label": "주장"})
-        edges.append({"source": identifier, "target": task_id, "type": "about", "label": "작업 범위"})
+        edges.append({"source": "agent:" + claim["agent"], "target": identifier, "type": "asserts", "label": "Asserts"})
+        edges.append({"source": identifier, "target": task_id, "type": "about", "label": "Task scope"})
         for reference in claim.get("evidence_ids", []):
             if reference in evidence_ids:
-                edges.append({"source": identifier, "target": "evidence:" + reference, "type": "supportedBy", "label": "근거 연결"})
+                edges.append({"source": identifier, "target": "evidence:" + reference, "type": "supportedBy", "label": "Supported by"})
         for previous in claim.get("supersedes", []):
-            edges.append({"source": identifier, "target": "claim:" + previous, "type": "supersedes", "label": "이전 주장 갱신"})
+            edges.append({"source": identifier, "target": "claim:" + previous, "type": "supersedes", "label": "Supersedes earlier claim"})
     for conflict in state["detector"]["conflicts"]:
         candidates = [claim for claim in state["claims"] if claim["id"] in conflict["claim_ids"]]
         for index, left in enumerate(candidates):
@@ -705,46 +705,46 @@ def ontology_graph(state: dict) -> dict:
         nodes.append({**deepcopy(item), "id": identifier, "label": item["summary"]})
         if item["origin"] == "local_validator" and state["artifact"]:
             revision_id = artifact_id + f":revision-{item['artifact_revision']}"
-            nodes.append({"id": revision_id, "type": "Artifact", "label": f"검사 당시 산출물 r{item['artifact_revision']}", "data": deepcopy(item.get("artifact_snapshot", {})), "revision": item["artifact_revision"]})
-            edges.append({"source": identifier, "target": revision_id, "type": "verifies", "label": "해당 시점 산출물 검사"})
-            edges.append({"source": revision_id, "target": task_id, "type": "forTask", "label": "검사 대상"})
+            nodes.append({"id": revision_id, "type": "Artifact", "label": f"Checked artifact r{item['artifact_revision']}", "data": deepcopy(item.get("artifact_snapshot", {})), "revision": item["artifact_revision"]})
+            edges.append({"source": identifier, "target": revision_id, "type": "verifies", "label": "Checks this artifact revision"})
+            edges.append({"source": revision_id, "target": task_id, "type": "forTask", "label": "Validation target"})
     for decision in state["decisions"]:
         identifier = "decision:" + decision["id"]
         nodes.append({**deepcopy(decision), "id": identifier, "label": decision["choice"]})
-        edges.append({"source": identifier, "target": task_id, "type": "addresses", "label": "사람 결정"})
+        edges.append({"source": identifier, "target": task_id, "type": "addresses", "label": "Human decision"})
         addressed_claims = {claim["id"] for claim in state["claims"] if claim["key"] == decision.get("decision_key")}
         for claim_id in decision.get("claim_ids", []):
             if claim_id in addressed_claims:
-                edges.append({"source": identifier, "target": "claim:" + claim_id, "type": "resolves", "label": "쟁점 결정"})
+                edges.append({"source": identifier, "target": "claim:" + claim_id, "type": "resolves", "label": "Resolves dispute"})
     if state["artifact"]:
-        nodes.append({"id": artifact_id, "type": "Artifact", "label": "현재 계약·작업 계획", "data": deepcopy(state["artifact"]), "revision": state["_artifact_revision"]})
-        edges.append({"source": artifact_id, "target": task_id, "type": "forTask", "label": "검사 대상"})
+        nodes.append({"id": artifact_id, "type": "Artifact", "label": "Current contract or work plan", "data": deepcopy(state["artifact"]), "revision": state["_artifact_revision"]})
+        edges.append({"source": artifact_id, "target": task_id, "type": "forTask", "label": "Validation target"})
         contributing = {message["agent"] for message in state["messages"] if message.get("artifact")}
         for agent in sorted(contributing):
-            edges.append({"source": "agent:" + agent, "target": artifact_id, "type": "contributesTo", "label": "산출물 기여"})
+            edges.append({"source": "agent:" + agent, "target": artifact_id, "type": "contributesTo", "label": "Contributes to artifact"})
     for item in coordination.get("commitments", []):
         identifier = "commitment:" + item["agent"] + ":" + item["id"]
         nodes.append({**deepcopy(item), "id": identifier, "label": item["summary"]})
-        edges.append({"source": "agent:" + item["agent"], "target": identifier, "type": "promises", "label": "확인 약속"})
-        edges.append({"source": identifier, "target": "person:" + item["to_person"], "type": "promisedTo", "label": "확인 대상"})
+        edges.append({"source": "agent:" + item["agent"], "target": identifier, "type": "promises", "label": "Promises to check"})
+        edges.append({"source": identifier, "target": "person:" + item["to_person"], "type": "promisedTo", "label": "Person to ask"})
     for item in coordination.get("human_input_requests", []):
         identifier = "human-input:" + item["agent"] + ":" + item["id"]
-        nodes.append({**deepcopy(item), "id": identifier, "label": f"{item['topic']} · 전달 {'확인' if item['delivery_status'] == 'delivered' else '여부 미확인'}"})
-        edges.append({"source": "agent:" + item["agent"], "target": identifier, "type": "requestsInput", "label": "사람 입력 필요"})
-        edges.append({"source": identifier, "target": "person:" + item["recipient"], "type": "addressedTo", "label": "응답 주체"})
+        nodes.append({**deepcopy(item), "id": identifier, "label": f"{item['topic']} · delivery {'confirmed' if item['delivery_status'] == 'delivered' else 'unknown'}"})
+        edges.append({"source": "agent:" + item["agent"], "target": identifier, "type": "requestsInput", "label": "Requires human input"})
+        edges.append({"source": identifier, "target": "person:" + item["recipient"], "type": "addressedTo", "label": "Respondent"})
     for item in coordination.get("review_requests", []):
         identifier = "review:" + item["agent"] + ":" + item["id"]
-        nodes.append({**deepcopy(item), "id": identifier, "label": f"{item['artifact']} 검토 요청"})
-        edges.append({"source": "agent:" + item["agent"], "target": identifier, "type": "requestsReview", "label": "검토 요청"})
-        edges.append({"source": identifier, "target": "agent:" + item["target"], "type": "reviewAssignedTo", "label": "검토 대기 대상"})
+        nodes.append({**deepcopy(item), "id": identifier, "label": f"Review request: {item['artifact']}"})
+        edges.append({"source": "agent:" + item["agent"], "target": identifier, "type": "requestsReview", "label": "Requests review"})
+        edges.append({"source": identifier, "target": "agent:" + item["target"], "type": "reviewAssignedTo", "label": "Awaited reviewer"})
     for item in coordination.get("waits_for", []):
         edges.append({"source": "agent:" + item["source"], "target": "agent:" + item["target"], "type": "waits_for", "label": item["reason"]})
     owner = coordination.get("decision_owner")
     if owner:
         identifier = "decision-owner:" + state["task"]["id"]
-        nodes.append({"id": identifier, "type": "DecisionOwner", "label": "최종 책임 리뷰어"})
+        nodes.append({"id": identifier, "type": "DecisionOwner", "label": "Final accountable reviewer"})
         if owner not in people:
             nodes.append({"id": "person:" + owner, "type": "Person", "label": owner})
-        edges.append({"source": "person:" + owner, "target": identifier, "type": "fillsRole", "label": "승인된 책임자"})
-        edges.append({"source": identifier, "target": task_id, "type": "accountableFor", "label": "최종 결정 책임"})
+        edges.append({"source": "person:" + owner, "target": identifier, "type": "fillsRole", "label": "Approved owner"})
+        edges.append({"source": identifier, "target": task_id, "type": "accountableFor", "label": "Final decision responsibility"})
     return {"nodes": nodes, "edges": edges, "ontology": deepcopy(ONTOLOGY)}

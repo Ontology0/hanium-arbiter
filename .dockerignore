@@ -25,6 +25,12 @@ frontend/**
 !frontend/app.js
 !frontend/styles.css
 !frontend/landing.css
+!frontend/download.html
+!frontend/download.js
+!frontend/downloads/
+frontend/downloads/**
+!frontend/downloads/culture-fit-source.zip
+!frontend/downloads/culture-fit-skill.zip
 
 !experiments/
 experiments/**

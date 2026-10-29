@@ -70,29 +70,29 @@ def parse_transcript(text: str) -> list[dict]:
             messages.append({"id": f"m{len(messages)+1}", "agent": match.group(1).strip(), "content": match.group(2).strip()})
         elif line.strip():
             if not messages:
-                messages.append({"id": "m1", "agent": "발화자 미지정", "content": line.strip()})
+                messages.append({"id": "m1", "agent": "Unspecified speaker", "content": line.strip()})
             else:
                 messages[-1]["content"] += "\n" + line.strip()
     return messages
 
 
-def create_import(text: str, title: str = "가져온 협업 대화", source: str = "manual") -> dict:
+def create_import(text: str, title: str = "Imported collaboration conversation", source: str = "manual") -> dict:
     messages = parse_transcript(text)
     if not messages:
-        raise ValueError("분석할 대화를 입력해 주세요.")
+        raise ValueError("Enter a conversation to analyze.")
     state: dict[str, Any] = {
         "id": uuid4().hex, "scenario_id": "conversation-intake", "title": title,
-        "description": "제공된 대화에 근거한 확인 요청·대기 관계 점검", "policy": "adaptive", "mode": "import",
+        "description": "Review confirmation requests and waiting relationships in the supplied conversation", "policy": "adaptive", "mode": "import",
         "source": source, "status": "stopped", "turn": len(messages), "max_turns": len(messages),
         "messages": [], "requests": [], "decisions": [], "claims": [], "evidence": [], "artifact": {},
         "metrics": {"input_tokens": 0, "output_tokens": 0, "measured_calls": 0, "unmetered_calls": 0,
                     "human_requests": 0, "progress_events": 0, "success": None},
-        "detector": {"stalled_turns": 0, "reason": "대화의 명시적 확인·대기 표현을 점검합니다.", "conflicts": []},
-        "task": {"id": "coordination", "description": "담당자와 다음 확인 행동을 명확히 한다.", "checklist": []},
+        "detector": {"stalled_turns": 0, "reason": "Reviewing explicit confirmation and waiting statements in the conversation.", "conflicts": []},
+        "task": {"id": "coordination", "description": "Clarify who is responsible and what to check next.", "checklist": []},
         "coordination": {"summary": "", "issues": [], "commitments": [], "waits": [], "people": [],
-                         "analyzer": "규칙 기반 후보 추출", "delivery_status": "unknown", "next_actions": []},
+                         "analyzer": "Rule-based candidate extraction", "delivery_status": "unknown", "next_actions": []},
         "validation": {"success": None, "passed": 0, "total": 0, "checks": [],
-                       "reason": "실제 외부 작업의 완료는 대화 가져오기만으로 판정하지 않습니다."},
+                       "reason": "Importing a conversation does not establish completion of external work."},
     }
     for position, message in enumerate(messages, 1):
         message.update(turn=position, claims=[], evidence=[], input_tokens=None, output_tokens=None,
@@ -134,7 +134,7 @@ def _analyze(state: dict) -> None:
                                 "kind": "promise", "status": "delivery_unknown", "message_id": message["id"],
                                 "target": scope["target"], "scope_id": scope["id"],
                                 "request_id": f"request-handoff-status-{scope['id']}",
-                                "label": "확인하겠다는 약속 · 전달 상태 미확인"})
+                                "label": "Promise to check · delivery unknown"})
         if REVIEW.search(text) and not EXPLICIT_OWNER.search(text):
             scope = _obligation_scope("decision-owner", actor, text)
             group = review_groups.setdefault(scope["id"], {"scope": scope, "message_ids": [], "scope_message_ids": [message["id"]]})
@@ -162,39 +162,39 @@ def _analyze(state: dict) -> None:
             issues.append({"id": "wait-cycle", "scope_id": scope_id,
                            "scope": {"id": scope_id, "actors": sorted([left["from"], right["from"]]), "wait_scope_ids": sorted([left["scope_id"], right["scope_id"]])},
                            "scope_message_ids": left["scope_message_ids"] + right["scope_message_ids"],
-                           "kind": "coordination", "title": f"{left['from']} · {right['from']} 상호 대기 확인",
-                           "summary": "이 두 발화에서 상호 대기 표현이 확인됩니다. 먼저 움직일 담당자를 정하고 실제 의존 관계를 확인해야 합니다.",
+                           "kind": "coordination", "title": f"Review mutual waits: {left['from']} · {right['from']}",
+                           "summary": "These two statements describe mutual waiting. Assign someone to act first and verify the actual dependencies.",
                            "message_ids": sorted(set(left["evidence_ids"] + right["evidence_ids"]))})
     for group in review_groups.values():
         issues.append({"id": "decision-owner", "scope_id": group["scope"]["id"], **group,
-                       "kind": "authority", "title": f"{group['scope']['actor']}의 검토 결정권자 확인",
-                       "summary": "이 검토 발화에는 최종 승인자가 명시되지 않았습니다. 다른 주제의 승인자나 이전 결정이 적용되는지는 별도 확인이 필요합니다."})
+                       "kind": "authority", "title": f"Confirm the review decision owner for {group['scope']['actor']}",
+                       "summary": "This review statement names no final approver. Check separately whether an approver from another topic or an earlier decision applies."})
     for group in promise_groups.values():
         issues.append({"id": "handoff-status", "scope_id": group["scope"]["id"], **group,
-                       "kind": "handoff", "title": f"{group['scope']['actor']}의 확인 요청 전달 상태",
-                       "summary": "이 확인 약속의 실제 전달 영수증은 제공되지 않았습니다. 이미 요청했다면 응답을 기다리고, 아직이라면 요청 담당자를 정합니다."})
+                       "kind": "handoff", "title": f"Request delivery status for {group['scope']['actor']}",
+                       "summary": "No actual delivery receipt was supplied for this promise. If the request was already sent, wait for the reply; otherwise assign someone to send it."})
     coordination["issues"] = issues
     coordination["summary"] = (
-        f"{len(actors)}개 발화 주체, 확인 약속 {len(commitments)}건, 대기 관계 {len(waits)}건을 추출했습니다. "
-        "다른 채널에서 이루어진 요청·응답 여부는 알 수 없습니다."
+        f"Extracted {len(actors)} speakers, {len(commitments)} promises to check, and {len(waits)} waiting relationships. "
+        "Requests or responses in other channels are not observable."
     )
     updated = {}
     old_by_id = {item["id"]: item for item in old_requests}
     for issue in issues:
         if issue["id"] == "handoff-status":
             options = [
-                {"id": "already_delivered", "label": "이미 요청함 · 응답 대기", "description": "전달 근거와 응답할 사람을 메모에 기록합니다. 중복 요청을 보류합니다."},
-                {"id": "assign_sender", "label": "요청 담당자 지정", "description": "메모에 담당자와 확인할 질문을 적어 다음 행동으로 기록합니다."},
-                {"id": "need_details", "label": "전달 여부 먼저 확인", "description": "실제 요청 여부를 확인할 담당자를 메모에 기록합니다."},
+                {"id": "already_delivered", "label": "Already requested · awaiting reply", "description": "Record the delivery evidence and expected respondent in the note. Hold duplicate requests."},
+                {"id": "assign_sender", "label": "Assign a sender", "description": "Record the responsible person and question in the note as the next action."},
+                {"id": "need_details", "label": "Check delivery first", "description": "Name the person who will check whether the request was actually sent."},
             ]
-            question = "이 확인 요청은 사람에게 실제로 전달됐나요?"
+            question = "Was this request actually delivered to the person?"
         else:
             options = [
-                {"id": "assign_owner", "label": "담당자 직접 지정", "description": "메모에 사람 또는 에이전트 이름과 권한 범위를 적습니다."},
-                {"id": "ask_initiator", "label": "요청자에게 권한 확인", "description": "누가 최종 결정할 수 있는지 원래 요청자에게 확인할 행동을 기록합니다."},
-                {"id": "not_blocked", "label": "정상적인 대기", "description": "이미 정해진 담당자·기한·대기 사유를 메모에 기록하고 이 후보를 해제합니다."},
+                {"id": "assign_owner", "label": "Assign an owner", "description": "Name the person or agent and their authority scope in the note."},
+                {"id": "ask_initiator", "label": "Ask the requester about authority", "description": "Record an action to ask the original requester who can make the final decision."},
+                {"id": "not_blocked", "label": "Expected waiting", "description": "Record the established owner, deadline, and reason for waiting, then dismiss this candidate."},
             ]
-            question = "누가 먼저 확인하고 다음 응답을 맡을까요?" if issue["id"] == "wait-cycle" else "이 검토의 최종 승인자는 누구인가요?"
+            question = "Who should check first and provide the next response?" if issue["id"] == "wait-cycle" else "Who is the final approver for this review?"
         identifier = f"request-{issue['id']}-{issue['scope_id']}"
         request = {"id": identifier, "status": "pending", "active": True, "kind": issue["kind"],
                    "issue_type": issue["id"], "scope_id": issue["scope_id"], "scope": deepcopy(issue["scope"]),
@@ -237,11 +237,11 @@ def _analyze(state: dict) -> None:
 def decide_import(state: dict, request_id: str, choice: str, note: str) -> None:
     request = next((item for item in state["requests"] if item["id"] == request_id), None)
     if not request or request["status"] != "pending":
-        raise ValueError("이미 처리했거나 유효하지 않은 결정 요청입니다.")
+        raise ValueError("This decision request is already resolved or invalid.")
     if choice not in {option["id"] for option in request["options"]}:
-        raise ValueError("제시된 선택지에서 선택해 주세요.")
+        raise ValueError("Choose one of the provided options.")
     if not note.strip():
-        raise ValueError("담당자, 근거 또는 다음 행동을 메모에 기록해 주세요.")
+        raise ValueError("Record the responsible person, evidence, or next action in the note.")
     request["status"] = "resolved"
     request["choice"] = choice
     request["resolved_turn"] = state["turn"]
@@ -268,7 +268,7 @@ def conversation_graph(state: dict) -> dict:
         nodes.append({"id": identifier, "type": "Agent", "label": actor})
         edges.append({"source": identifier, "target": "task", "label": "participatesIn"})
     for commitment in state["coordination"]["commitments"]:
-        nodes.append({"id": commitment["id"], "type": "Commitment", "label": "확인 약속",
+        nodes.append({"id": commitment["id"], "type": "Commitment", "label": "Promise to check",
                       "status": commitment["status"], "detail": commitment["action"]})
         edges.append({"source": actor_ids[commitment["actor"]], "target": commitment["id"], "label": "promises"})
     for item in state["coordination"]["waits"]:

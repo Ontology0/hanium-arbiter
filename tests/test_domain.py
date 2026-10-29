@@ -221,7 +221,7 @@ class DomainTests(unittest.TestCase):
         self.assertTrue(state["detector"]["delivery_unknown"])
         self.assertFalse(state["detector"]["intentional_human_wait"])
         self.assertEqual(state["status"], "waiting")
-        self.assertIn("전달 여부는 확인되지", state["requests"][0]["summary"])
+        self.assertIn("request delivery remains unknown", state["requests"][0]["summary"])
 
     def test_independent_delivery_record_preserves_intentional_human_wait(self):
         state = create_state("social-handoff", stall_window=1)

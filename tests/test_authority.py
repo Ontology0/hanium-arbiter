@@ -113,7 +113,7 @@ def test_different_owners_require_joint_approval_of_the_specific_precedence():
     assert approved["status"] == "authorized"
     assert approved["decision_owner"] == "B"
     assert approved["source"] == "local_operator_record"
-    assert "원격 본인 인증" in approved["reason"]
+    assert "remote identity verification has not been performed" in approved["reason"]
 
 
 def test_agent_authored_order_cannot_resolve_a_conflict_even_with_claimed_approvals():

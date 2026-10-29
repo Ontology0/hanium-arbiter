@@ -27,6 +27,8 @@ RUN uv sync --frozen --no-dev
 
 # Explicit runtime assets; no personal state, reports, videos, or uploads.
 COPY frontend/index.html frontend/landing.html frontend/app.js frontend/styles.css frontend/landing.css ./frontend/
+COPY frontend/download.html frontend/download.js ./frontend/
+COPY frontend/downloads/culture-fit-source.zip frontend/downloads/culture-fit-skill.zip ./frontend/downloads/
 COPY experiments/results/latest/summary.json ./experiments/results/latest/summary.json
 COPY slack-app-manifest.json ./slack-app-manifest.json
 

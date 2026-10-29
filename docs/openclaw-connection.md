@@ -114,6 +114,6 @@ uv --directory "$ARBITER_ROOT" run python -m arbiter.mcp_server --transport stre
 
 검증 결과: `test_mcp.py` **20개**, `test_skill_client.py` **13개**, 합계 **33개 통과**. 실제 임시 API·SQLite·stdio MCP 연결에서는 agents 일부 지정으로 충돌을 숨길 수 없는 점, 부분 승인과 공동 승인, 관련 질문만 재질문 대상에서 제외하는 처리, 원본 pending·사람 결정 보존, 철회·대화 변경 후 재판정을 확인했다. 구조화된 브리핑을 시험 데이터로 주입했으며 이 흐름에서 모델은 호출하지 않았다. Python 도우미의 `next-action`도 같은 API 응답을 반환했다.
 
-2026-10-29 완료된 전체 테스트 실행은 **151개·8개 하위검증 통과(8.93초)**다. 별도 로컬 UI 점검은 **18개 행동 검증 통과·모델 요청 0회**이며, OpenClaw의 실제 모델 실행 검증은 아니다. `.runtime/verification-20261029.json`은 완료된 실행의 기록 요약으로 원시 pytest stdout 로그와 구분한다.
+2026-10-29 방문자 체험 격리 기능까지 포함한 최신 전체 테스트 실행은 **182개·8개 하위검증 통과(10.50초)**다. 별도 권한 흐름 UI 점검은 **18개 행동 검증 통과·모델 요청 0회**이며, OpenClaw의 실제 모델 실행 검증은 아니다. 최신 전체 실행은 `.runtime/verification-railway.json`, 앞선 권한 흐름 검증은 `.runtime/verification-20261029.json`에 보존한다. 두 파일은 완료 실행의 기록 요약이며 원시 pytest stdout 로그가 아니다.
 
 OpenClaw에서는 격리된 설정 검증과 `skills info arbiter-coordination --json`의 `eligible=true`를 확인했다. 스킬의 정적 형식 검증도 통과했다. **OpenClaw 에이전트의 실제 모델 실행 및 실제 Pickle·Slack 연결 성공으로 보고하지 않는다.**

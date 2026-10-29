@@ -48,7 +48,7 @@ class DecisionInput(BaseModel):
 
 class IntakeInput(BaseModel):
     transcript: str = Field(min_length=1, max_length=40000)
-    title: str = Field(default="가져온 협업 대화", min_length=1, max_length=150)
+    title: str = Field(default="Imported conversation", min_length=1, max_length=150)
     source: Literal["pickle", "slack", "manual"] = "manual"
 
 
@@ -113,7 +113,7 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
     def fetch(session_id: str) -> dict:
         state = store.get(session_id)
         if state is None:
-            raise HTTPException(404, "실행을 찾을 수 없습니다.")
+            raise HTTPException(404, "Session not found.")
         return state
 
     @app.middleware("http")
@@ -122,9 +122,9 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
         if request.method in {"POST", "PUT", "DELETE", "PATCH"}:
             origin = request.headers.get("origin")
             if origin and urlsplit(origin).netloc != request.headers.get("host"):
-                return JSONResponse({"detail": "다른 출처의 실행 요청은 허용하지 않습니다."}, status_code=403)
+                return JSONResponse({"detail": "Cross-origin changes are not allowed."}, status_code=403)
             if request.headers.get("sec-fetch-site") == "cross-site":
-                return JSONResponse({"detail": "다른 출처의 실행 요청은 허용하지 않습니다."}, status_code=403)
+                return JSONResponse({"detail": "Cross-origin changes are not allowed."}, status_code=403)
         response = await call_next(request)
         response.headers["X-Content-Type-Options"] = "nosniff"
         return response
@@ -141,17 +141,17 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
                 "isolated": demo_mode,
                 "live_model_available": not demo_mode and codex_available(),
                 "reset_url": "/api/demo/reset" if demo_mode else None,
-                "notice": "방문자별로 분리된 예시 체험입니다. 실제 외부 에이전트·소유자와 연결되지 않습니다." if demo_mode else "",
+                "notice": "Your sandbox is isolated. It is not connected to external agents or real owners." if demo_mode else "",
             },
             "scenarios": scenario_catalog(),
             "providers": [
-                {"id": "demo", "label": "통제 시뮬레이션", "available": True},
-                {"id": "codex", "label": "실제 에이전트 · Codex", "available": not demo_mode and codex_available()},
+                {"id": "demo", "label": "Controlled simulation", "available": True},
+                {"id": "codex", "label": "Live agent · Codex", "available": not demo_mode and codex_available()},
             ],
             "policies": [
-                {"id": "capped", "label": "횟수 제한"},
-                {"id": "periodic", "label": "주기적 HITL"},
-                {"id": "adaptive", "label": "정체 감지 HITL"},
+                {"id": "capped", "label": "Turn limit"},
+                {"id": "periodic", "label": "Periodic check-in"},
+                {"id": "adaptive", "label": "Stall-aware check-in"},
             ],
         }
 
@@ -165,9 +165,9 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
                 "mcp": {"available": False, "tools": [], "config": None},
                 "slack": {"configured": False, "status": "not_connected", "allowed_channels": [], "received_events": 0},
                 "limitations": [
-                    "이 주소는 방문자별 체험 페이지이며 외부 에이전트용 MCP 서버가 아닙니다.",
-                    "MCP·A2A·Slack 연결은 오픈소스를 내려받아 자신의 환경에서 설정할 수 있습니다.",
-                    "기록된 모델 분석과 통제 시뮬레이션을 사용하며 외부 모델·Slack을 호출하지 않습니다.",
+                    "This visitor sandbox is not a remote MCP endpoint.",
+                    "Install the open-source project to configure MCP, A2A, and Slack in your environment.",
+                    "This demo uses recorded analysis and controlled simulations, without live model or Slack calls.",
                 ],
             }
         command = shutil.which("uv") or "uv"
@@ -193,16 +193,16 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
                 "last_received_at": max((s["slack"].get("last_received_at", "") for s in slack_sessions), default=None),
                 "command": shlex.join([command, "--directory", str(ROOT), "run", "--env-file", ".env", "python", "-m", "arbiter.slack_bridge"]),
                 "setup_url": "/api/integration/slack-manifest",
-                "limitations": ["앱 설치와 채널 초대, 로컬 .env의 토큰·채널 설정이 필요합니다.",
-                                "수신 상태는 저장된 이벤트 기준입니다. 현재 WebSocket 연결 상태를 보장하지 않습니다.",
-                                "수신한 스레드만 관찰하며 과거 대화를 자동으로 가져오거나 Slack에 메시지를 보내지 않습니다."],
+                "limitations": ["Install the app, invite it to a channel, and configure tokens and channel IDs in your local .env.",
+                                "Reception status reflects stored events, not the current WebSocket connection.",
+                                "Only received threads are observed. History is not imported automatically and no Slack messages are sent."],
             },
             "limitations": [
-                "MCP를 추가한 뒤 에이전트에게 대화 등록·새 메시지 보고·다음 행동 조회를 지시해야 합니다. 연결만으로 대화를 자동 수집하지 않습니다.",
-                "Streamable HTTP 주소는 별도 서버를 --transport streamable-http 옵션으로 실행했을 때 사용할 수 있습니다.",
-                "MCP와 API 연결은 같은 컴퓨터에서 사용합니다. Slack 수신은 별도 Socket Mode 연결을 설정해야 합니다.",
-                "사람은 관제 화면에서 결정합니다. 에이전트에 사람의 결정을 생성하는 MCP 도구는 제공하지 않습니다.",
-                "기록된 다음 행동은 외부 메시지 발송이나 작업 실행 완료를 의미하지 않습니다.",
+                "Configure MCP and instruct your agent to register conversations, report messages, and check its next action. Connecting alone does not collect conversations.",
+                "Start a separate server with --transport streamable-http to use this endpoint.",
+                "Run MCP and the API on the same machine. Slack requires a separate Socket Mode connection.",
+                "People record decisions in the dashboard. MCP does not expose tools for creating human decisions.",
+                "A recorded next action does not confirm delivery or external task completion.",
             ],
         }
 
@@ -210,13 +210,13 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
     def slack_manifest():
         path = ROOT / "slack-app-manifest.json"
         if not path.exists():
-            raise HTTPException(404, "Slack 앱 설정 파일을 준비 중입니다.")
+            raise HTTPException(404, "Slack app manifest is unavailable.")
         return FileResponse(path, media_type="application/json")
 
     @app.post("/api/slack/events")
     def slack_events(payload: dict):
         if demo_mode:
-            raise HTTPException(403, "공개 체험에서는 외부 Slack 수신을 제공하지 않습니다.")
+            raise HTTPException(403, "Slack ingestion is disabled in the public demo.")
         try:
             with slack_lock:
                 # Session read-modify-write also shares the normal decision lock.
@@ -241,7 +241,7 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
         from .authority import registry_revision
         registry = store.get_authority()
         return {**registry, "registry_revision": registry_revision(registry), "source": "local_operator_record",
-                "notice": "로컬 운영자가 기록한 위임 정보입니다. 외부 소유자의 신원·동의를 인증한 결과는 아닙니다."}
+                "notice": "Delegations are local operator records. External owner identities and consent are not authenticated."}
 
     @app.post("/api/authority/evaluate")
     def check_authority(body: AuthorityQuery):
@@ -263,11 +263,11 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
                 if expiration.tzinfo is None:
                     raise ValueError("timezone missing")
             except ValueError as error:
-                raise HTTPException(422, "권한 만료 시각은 시간대가 포함된 ISO 날짜로 입력해 주세요.") from error
+                raise HTTPException(422, "Enter an ISO expiry timestamp including its time zone.") from error
         with authority_lock:
             registry = store.get_authority()
             if demo_mode and len(registry["grants"]) >= 100:
-                raise HTTPException(429, "체험 위임 기록 한도에 도달했습니다. 내 체험을 초기화해 주세요.")
+                raise HTTPException(429, "The sandbox grant limit has been reached. Reset your sandbox to continue.")
             grant = {**body.model_dump(), "id": "grant-" + uuid.uuid4().hex, "issuer": "local-human",
                      "source": "local_operator_record", "created_at": now(), "revoked": False}
             registry["grants"].append(grant)
@@ -280,7 +280,7 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
             registry = store.get_authority()
             grant = next((item for item in registry["grants"] if item["id"] == grant_id), None)
             if not grant:
-                raise HTTPException(404, "위임 기록을 찾을 수 없습니다.")
+                raise HTTPException(404, "Delegation record not found.")
             grant.update(revoked=True, revoked_at=now())
             store.save_authority(registry)
             return grant
@@ -289,21 +289,21 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
     def set_authority_precedence(body: AuthorityPrecedence):
         from .authority import evaluate_authority, grant_revision, registry_revision
         if len(set(body.agents)) != len(body.agents):
-            raise HTTPException(422, "우선순위에 같은 에이전트를 두 번 지정할 수 없습니다.")
+            raise HTTPException(422, "An agent can appear only once in a priority order.")
         if (not body.scope.strip() or not body.action.strip()
                 or any(not item.strip() for item in body.agents + body.approved_by)
                 or len(set(body.approved_by)) != len(body.approved_by)):
-            raise HTTPException(422, "범위·행동·에이전트·소유자는 빈 값 없이 입력하고 승인 소유자는 중복 없이 선택해 주세요.")
+            raise HTTPException(422, "Scope, action, agents, and owners must be non-empty. Select each approving owner only once.")
         with authority_lock:
             registry = store.get_authority()
             if body.expected_revision is not None and body.expected_revision != registry_revision(registry):
-                raise HTTPException(409, "확인 중 권한 기록이 바뀌었습니다. 최신 위임과 우선순위를 다시 확인해 주세요.")
+                raise HTTPException(409, "Authority records changed during review. Reload the current grants and priority order.")
             current = evaluate_authority(registry, body.scope, body.action)
             if (current["status"] not in {"authorized", "authority_conflict", "cross_owner_conflict"}
                     or set(body.agents) != set(current["authorized_agents"])):
-                raise HTTPException(422, "이 범위·행동에서 현재 유효한 위임을 가진 에이전트를 모두 포함해야 합니다.")
+                raise HTTPException(422, "Include every agent with a valid delegation for this scope and action.")
             if not set(body.approved_by).issubset(current["required_owners"]):
-                raise HTTPException(422, "이 위임과 관련된 소유자의 승인만 기록할 수 있습니다.")
+                raise HTTPException(422, "Only owners involved in these delegations can be recorded as approving.")
             record = {**body.model_dump(exclude={"expected_revision"}), "issuer": "local-human",
                       "source": "local_operator_record", "created_at": now(),
                       "grant_revision": grant_revision(registry, body.scope, body.action)}
@@ -314,9 +314,9 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
     @app.post("/api/sessions", status_code=201)
     def new_session(body: NewSession):
         if demo_mode and body.mode != "demo":
-            raise HTTPException(403, "공개 체험에서는 통제 시뮬레이션만 실행할 수 있습니다.")
+            raise HTTPException(403, "Only controlled simulations can run in the public demo.")
         if body.mode == "codex" and not codex_available():
-            raise HTTPException(422, "Codex CLI 설치와 로그인이 필요합니다.")
+            raise HTTPException(422, "Install Codex CLI and sign in to continue.")
         try:
             state = create_state(**body.model_dump())
         except (ValueError, KeyError) as error:
@@ -325,7 +325,7 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
         state["validation"] = evaluate_state(state)
         with creation_lock:
             if demo_mode and len(store.list()) >= 12:
-                raise HTTPException(429, "체험 대화 한도에 도달했습니다. 내 체험을 초기화해 주세요.")
+                raise HTTPException(429, "The sandbox session limit has been reached. Reset your sandbox to continue.")
             store.save(state)
         return state
 
@@ -362,19 +362,19 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
             with session_lock(session_id):
                 current = fetch(session_id)
                 if current.get("brief_generation_id") == generation_id:
-                    current.update(brief_status="error", brief_error=str(error) if isinstance(error, ProviderError) else "브리핑 생성에 실패했습니다.")
+                    current.update(brief_status="error", brief_error=str(error) if isinstance(error, ProviderError) else "Briefing generation failed.")
                     store.save(current)
 
     @app.post("/api/sessions/{session_id}/brief", status_code=202)
     def start_brief(session_id: str):
         if demo_mode:
-            raise HTTPException(403, "공개 체험은 기록된 분석을 사용합니다. 새 모델 호출은 자신의 설치 환경에서 사용할 수 있습니다.")
+            raise HTTPException(403, "The public demo uses recorded analysis. Generate new analysis in your own installation.")
         with session_lock(session_id):
             state = fetch(session_id)
             if state.get("brief_status") == "generating":
-                raise HTTPException(409, "브리핑을 생성 중입니다.")
+                raise HTTPException(409, "A briefing is already being generated.")
             if not codex_available():
-                raise HTTPException(422, "브리핑에는 설치·로그인된 Codex CLI가 필요합니다.")
+                raise HTTPException(422, "Briefing generation requires an installed and signed-in Codex CLI.")
             generation_id = uuid.uuid4().hex
             state.update(brief_status="generating", brief_error=None, brief_generation_id=generation_id)
             store.save(state)
@@ -389,7 +389,7 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
                          brief_error=None)
             store.save(state)
             return {**brief_view(state, store.get_authority()), "cancelled": True,
-                    "note": "진행 중인 모델 호출은 끝날 수 있지만 결과는 적용하지 않습니다. 외부 에이전트는 중단하지 않습니다."}
+                    "note": "An in-flight model call may finish but its result will not be applied. External agents are not stopped."}
 
     @app.post("/api/intake", status_code=201)
     def intake(body: IntakeInput):
@@ -399,10 +399,10 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
             raise HTTPException(422, str(error)) from error
         state.update(created_at=now(), busy=False, stop_requested=False, last_error=None)
         if demo_mode and len(state.get("messages", [])) > 200:
-            raise HTTPException(422, "체험 대화는 200개 메시지 이내로 입력해 주세요.")
+            raise HTTPException(422, "Limit imported demo conversations to 200 messages.")
         with creation_lock:
             if demo_mode and len(store.list()) >= 12:
-                raise HTTPException(429, "체험 대화 한도에 도달했습니다. 내 체험을 초기화해 주세요.")
+                raise HTTPException(429, "The sandbox session limit has been reached. Reset your sandbox to continue.")
             store.save(state)
         return state
 
@@ -411,10 +411,10 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
         with session_lock(session_id):
             state = fetch(session_id)
             if state["mode"] != "import":
-                raise HTTPException(409, "가져온 대화 세션에서만 외부 이벤트를 받을 수 있습니다.")
+                raise HTTPException(409, "Only imported sessions accept external message events.")
             append_external_event(state, body.model_dump())
             if demo_mode and len(state.get("messages", [])) > 200:
-                raise HTTPException(429, "체험 메시지 한도에 도달했습니다. 새 대화를 만들거나 내 체험을 초기화해 주세요.")
+                raise HTTPException(429, "The sandbox message limit has been reached. Create a new conversation or reset your sandbox.")
             store.save(state)
             return state
 
@@ -428,15 +428,15 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
         with session_lock(session_id):
             state = fetch(session_id)
             if demo_mode and state["mode"] == "codex":
-                raise HTTPException(403, "공개 체험에서는 외부 모델을 실행할 수 없습니다.")
+                raise HTTPException(403, "Live model execution is disabled in the public demo.")
             if state["mode"] == "import":
-                raise HTTPException(409, "가져온 대화는 새 에이전트 발화를 생성하지 않습니다. 이벤트 API로 후속 대화를 추가해 주세요.")
+                raise HTTPException(409, "Imported sessions do not generate agent messages. Append follow-up messages through the event API.")
             if state.get("busy"):
-                raise HTTPException(409, "이미 실행 중입니다.")
+                raise HTTPException(409, "This session is already running.")
             if state["status"] == "waiting":
-                raise HTTPException(409, "대기 중인 결정에 먼저 응답해 주세요.")
+                raise HTTPException(409, "Resolve the pending decision before continuing.")
             if state["status"] in {"completed", "budget_exhausted"}:
-                raise HTTPException(409, "완료되었거나 실행 예산에 도달했습니다.")
+                raise HTTPException(409, "The session has completed or reached its execution budget.")
             state.update(busy=True, stop_requested=False, status="running", last_error=None)
             store.save(state)
             return state
@@ -472,7 +472,7 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
             with session_lock(session_id):
                 state = fetch(session_id)
                 state.update(status="error", busy=False,
-                             last_error=str(error) if isinstance(error, (ProviderError, ValueError)) else "실행 처리 중 오류가 발생했습니다.")
+                             last_error=str(error) if isinstance(error, (ProviderError, ValueError)) else "An error occurred during execution.")
                 store.save(state)
                 return state
 
@@ -502,7 +502,7 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
         with session_lock(session_id):
             state = fetch(session_id)
             if state.get("busy"):
-                raise HTTPException(409, "실행이 멈춘 뒤 결정할 수 있습니다.")
+                raise HTTPException(409, "Stop the session before recording a decision.")
             try:
                 if state["mode"] == "import":
                     decide_import(state, body.request_id, body.choice, body.note)
@@ -533,8 +533,14 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
     def experiments():
         path = ROOT / "experiments" / "results" / "latest" / "summary.json"
         if not path.exists():
-            return {"available": False, "description": "아직 비교 실험 결과가 없습니다."}
+            return {"available": False, "description": "No comparison results are available yet."}
         data = json.loads(path.read_text(encoding="utf-8"))
+        # Translate display labels only; preserve the original measurements on disk.
+        if data.get("study_type") == "통제 시뮬레이션":
+            data["study_type"] = "Controlled simulation"
+        names = {item["id"]: item["title"] for item in scenario_catalog()}
+        for run in data.get("runs", []):
+            run["scenario_title"] = names.get(run.get("scenario_id"), run.get("scenario_title"))
         return {"available": True, **data}
 
     @app.get("/")
@@ -544,6 +550,10 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
     @app.get("/workspace")
     def workspace():
         return FileResponse(ROOT / "frontend" / "index.html")
+
+    @app.get("/download")
+    def download():
+        return FileResponse(ROOT / "frontend" / "download.html")
 
     frontend = ROOT / "frontend"
     frontend.mkdir(exist_ok=True)

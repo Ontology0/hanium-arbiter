@@ -56,9 +56,9 @@ class SessionStore:
         for state in self.list():
             if state.get("brief_status") == "generating":
                 state.update(brief_status="error", brief_generation_id=None,
-                             brief_error="서버 재시작으로 브리핑 생성이 중단되었습니다. 다시 생성해 주세요.")
+                             brief_error="Briefing generation was interrupted by a server restart. Please generate it again.")
                 self.save(state)
             if state.get("busy"):
                 state.update(busy=False, status="stopped", stop_requested=False,
-                             last_error="서버 재시작으로 실행이 중단되었습니다. 저장된 상태에서 다시 실행할 수 있습니다.")
+                             last_error="The run was interrupted by a server restart. You can resume from the saved state.")
                 self.save(state)

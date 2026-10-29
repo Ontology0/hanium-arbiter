@@ -182,7 +182,7 @@ class VisitorDeployment:
         while len(self.rates) > 2048:
             self.rates.popitem(last=False)
         if count > maximum:
-            raise DemoLimit(429, "체험 요청이 잠시 많습니다. 1분 후 다시 시도해 주세요.")
+            raise DemoLimit(429, "Too many demo requests. Please try again in one minute.")
 
     def _disk_bytes(self, visitor_id: str | None = None) -> int:
         if visitor_id:
@@ -246,17 +246,17 @@ class VisitorDeployment:
                 if reset and valid:
                     # Invalidates only the cookie's own sandbox; active work is not deleted.
                     if not await self._remove(visitor_id):
-                        raise DemoLimit(409, "진행 중인 체험이 끝난 뒤 초기화해 주세요.")
+                        raise DemoLimit(409, "Wait for the current demo operation to finish before resetting.")
                 count = self.registry.execute("SELECT COUNT(*) FROM visitors").fetchone()[0]
                 if count >= self.config.max_visitors or self._disk_bytes() >= self.config.total_bytes:
-                    raise DemoLimit(503, "체험 저장 공간이 가득 찼습니다. 잠시 후 다시 시도해 주세요.")
+                    raise DemoLimit(503, "Demo storage is full. Please try again later.")
                 visitor_id = secrets.token_hex(24)
             self._rate("visitor:" + visitor_id, self.config.requests_per_minute)
             if visitor_id not in self.residents:
                 while len(self.residents) >= self.config.max_resident:
                     candidate = next((key for key, item in self.residents.items() if not item.busy()), None)
                     if candidate is None:
-                        raise DemoLimit(503, "동시에 실행 중인 체험이 많습니다. 잠시 후 다시 시도해 주세요.")
+                        raise DemoLimit(503, "Too many demos are running at once. Please try again later.")
                     await self._close_resident(candidate)
                 from .app import create_app
                 from .demo_seed import seed_demo
@@ -284,19 +284,19 @@ class VisitorDeployment:
         try:
             length = int(headers.get("content-length", "0"))
         except ValueError:
-            raise DemoLimit(400, "요청 본문의 길이가 올바르지 않습니다.") from None
+            raise DemoLimit(400, "The request body length is invalid.") from None
         if length < 0:
-            raise DemoLimit(400, "요청 본문의 길이가 올바르지 않습니다.")
+            raise DemoLimit(400, "The request body length is invalid.")
         if length > self.config.body_limit:
-            raise DemoLimit(413, "체험 요청 본문은 256KiB 이내여야 합니다.")
+            raise DemoLimit(413, "Demo request bodies must not exceed 256 KiB.")
         body = bytearray()
         while True:
             message = await receive()
             if message["type"] == "http.disconnect":
-                raise DemoLimit(400, "요청 연결이 종료됐습니다.")
+                raise DemoLimit(400, "The request connection was closed.")
             body.extend(message.get("body", b""))
             if len(body) > self.config.body_limit:
-                raise DemoLimit(413, "체험 요청 본문이 허용 크기를 초과했습니다.")
+                raise DemoLimit(413, "The demo request body exceeds the allowed size.")
             if not message.get("more_body", False):
                 return bytes(body)
 
@@ -332,11 +332,11 @@ class VisitorDeployment:
                 except ValueError:
                     invalid_origin = True
                 if invalid_origin or headers.get("sec-fetch-site") == "cross-site":
-                    raise DemoLimit(403, "다른 출처의 체험 변경 요청은 허용하지 않습니다.")
+                    raise DemoLimit(403, "Cross-origin requests cannot modify the demo.")
             try:
                 body = await asyncio.wait_for(self._body(scope, receive, headers), BODY_TIMEOUT_SECONDS)
             except TimeoutError:
-                raise DemoLimit(408, "요청 본문 수신 시간이 초과됐습니다.") from None
+                raise DemoLimit(408, "Receiving the request body timed out.") from None
             visitor_id, resident, created = await self._acquire(headers, scope, reset=path == "/api/demo/reset" and method == "POST")
 
             async def wrapped_send(message):
@@ -351,7 +351,7 @@ class VisitorDeployment:
                 await send(message)
 
             if path == "/api/demo/reset":
-                result = {"reset": True, "mode": "visitor_demo", "identity_authenticated": False} if method == "POST" else {"detail": "POST 요청으로 초기화해 주세요."}
+                result = {"reset": True, "mode": "visitor_demo", "identity_authenticated": False} if method == "POST" else {"detail": "Use a POST request to reset the demo."}
                 await JSONResponse(result, status_code=200 if method == "POST" else 405)(scope, receive, wrapped_send)
                 return
 
@@ -366,7 +366,7 @@ class VisitorDeployment:
             if method in MUTATING:
                 async with resident.mutation_lock:
                     if self._disk_bytes(visitor_id) >= self.config.visitor_bytes or self._disk_bytes() >= self.config.total_bytes:
-                        raise DemoLimit(429, "체험 저장 한도에 도달했습니다. 내 체험 초기화 후 다시 시도해 주세요.")
+                        raise DemoLimit(429, "Your demo storage limit has been reached. Reset your demo and try again.")
                     await resident.app(scope, replay, wrapped_send)
             else:
                 await resident.app(scope, replay, wrapped_send)

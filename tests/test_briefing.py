@@ -13,8 +13,8 @@ from arbiter.providers import ProviderError
 
 def fixture_output():
     evidence = [{"message_id": "m1", "quote": "배포 승인은 누가 결정하나요?"}]
-    return {"overview": "배포 승인권이 미정입니다.", "agreements": [], "open_questions": [], "next_actions": [],
-            "decision_points": [{"text": "배포 승인권을 정해야 합니다.", "scope": "release", "action": "approve",
+    return {"overview": "Release approval authority is unresolved.", "agreements": [], "open_questions": [], "next_actions": [],
+            "decision_points": [{"text": "Release approval authority needs to be assigned.", "scope": "release", "action": "approve",
                                  "agents": ["A", "B"], "state": "unresolved", "evidence": evidence}],
             "input_tokens": 20, "output_tokens": 10, "usage_source": "measured"}
 
@@ -26,12 +26,19 @@ def grant(agent, owner):
 
 def test_literal_evidence_and_current_authority_precede_model_opinion(monkeypatch):
     state = create_import("A: 배포 승인은 누가 결정하나요?\nB: 제가 먼저 검토하겠습니다.")
-    monkeypatch.setattr("arbiter.briefing.run_codex_json", lambda *args: fixture_output())
+
+    def recorded_response(prompt, schema):
+        assert "Return the requested JSON in concise English." in prompt
+        assert "Preserve evidence quotes in the original input language." in prompt
+        return fixture_output()
+
+    monkeypatch.setattr("arbiter.briefing.run_codex_json", recorded_response)
     registry = {"grants": [grant("A", "owner-a"), grant("B", "owner-b")], "precedence": []}
     state["brief"] = build_brief(state, registry)
     state["brief_status"] = "ready"
     assert state["brief"]["authority_checks"][0]["status"] == "cross_owner_conflict"
     assert state["brief"]["intervention_points"][0]["required_owners"] == ["owner-a", "owner-b"]
+    assert state["brief"]["intervention_points"][0]["evidence"][0]["quote"] == "배포 승인은 누가 결정하나요?"
     registry["precedence"] = [{"scope": "release", "action": "approve", "agents": ["B", "A"],
                                "approved_by": ["owner-a", "owner-b"], "issuer": "local-human"}]
     viewed = brief_view(state, registry)
@@ -46,7 +53,7 @@ def test_unsupported_model_citations_are_rejected(monkeypatch, citation):
     output = fixture_output()
     output["decision_points"][0]["evidence"] = [citation]
     monkeypatch.setattr("arbiter.briefing.run_codex_json", lambda *args: output)
-    with pytest.raises(ProviderError, match="인용"):
+    with pytest.raises(ProviderError, match="citation"):
         build_brief(create_import("A: 배포 승인은 누가 결정하나요?"))
 
 
@@ -56,7 +63,7 @@ def test_already_authorized_task_gets_execution_guidance_not_reapproval(monkeypa
     monkeypatch.setattr("arbiter.briefing.run_codex_json", lambda *args: output)
     result = build_brief(create_import("A: 배포 승인은 누가 결정하나요?"), {"grants": [grant("B", "owner-b")], "precedence": []})
     assert result["intervention_points"] == []
-    assert "다시 요청하지" in result["next_actions"][0]["text"]
+    assert "Do not request approval for the same scope again." in result["next_actions"][0]["text"]
 
 
 def test_cancel_discards_late_result_and_concurrent_events_survive(tmp_path, monkeypatch):

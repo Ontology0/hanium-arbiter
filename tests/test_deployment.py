@@ -1,12 +1,15 @@
 import asyncio
 from contextlib import asynccontextmanager
+import json
+from pathlib import Path
 import time
 
 import httpx
 import pytest
 
 from arbiter.deployment import COOKIE_NAME, DemoConfig, create_deployment_app
-from arbiter.demo_seed import ACTION, SCOPE
+from arbiter.demo_seed import ACTION, RECORDED_SOURCE, SCOPE
+from arbiter.briefing import authority_digest, conversation_digest
 
 
 @asynccontextmanager
@@ -59,16 +62,16 @@ def test_two_visitors_have_isolated_approvals_and_session_access(tmp_path):
                 assert first["brief"]["authority_checks"][0]["status"] == "cross_owner_conflict"
                 registry = (await a.get("/api/authority")).json()
                 response = await a.post("/api/authority/precedence", json={
-                    "scope": SCOPE, "action": ACTION, "agents": ["검토봇B", "배포봇A"],
-                    "approved_by": ["시연 소유자A", "시연 소유자B"], "expected_revision": registry["registry_revision"]})
+                    "scope": SCOPE, "action": ACTION, "agents": ["Review Agent", "Release Agent"],
+                    "approved_by": ["Owner A", "Owner B"], "expected_revision": registry["registry_revision"]})
                 assert response.status_code == 201, response.text
                 after = (await a.get(f"/api/sessions/{sid_a}/brief")).json()["brief"]
                 assert after["authority_checks"][0]["status"] == "authorized"
-                assert after["authority_checks"][0]["decision_owner"] == "검토봇B"
+                assert after["authority_checks"][0]["decision_owner"] == "Review Agent"
                 assert after["intervention_points"] == []
                 advice = (await a.get(f"/api/sessions/{sid_a}/next-action")).json()
                 assert advice["action"] == "follow_authority"
-                assert advice["decision_owner"] == "검토봇B"
+                assert advice["decision_owner"] == "Review Agent"
                 other = (await b.get(f"/api/sessions/{sid_b}/brief")).json()["brief"]
                 assert other["authority_checks"][0]["status"] == "cross_owner_conflict"
                 assert (await b.get("/api/authority")).json()["precedence"] == []
@@ -93,6 +96,24 @@ def test_recorded_seed_citations_are_exact_and_never_call_a_model(tmp_path, monk
                 assert state["demo"]["live_model_called"] is False
                 assert brief["execution_mode"] == "recorded_sample"
                 assert brief["usage_source"] == "recorded_measurement"
+                for metadata in (state["demo"], brief):
+                    assert metadata["translated_replay"] is True
+                    assert metadata["source_language"] == "ko"
+                    assert metadata["language"] == "en"
+                    assert metadata["source_path"] == RECORDED_SOURCE
+                    assert "translated replay" in metadata["notice"]
+                original = json.loads((Path(__file__).resolve().parents[1] / RECORDED_SOURCE).read_text())
+                for key in ("input_tokens", "output_tokens", "duration_seconds"):
+                    assert brief[key] == original["brief"][key]
+                assert brief["source_digest"] == conversation_digest(state)
+                assert brief["source_digest"] != original["brief"]["source_digest"]
+                registry = (await c.get("/api/authority")).json()
+                assert brief["authority_digest"] == authority_digest({key: registry[key] for key in ("grants", "precedence")})
+                assert {grant["agent"] for grant in registry["grants"]} == {"Release Agent", "Review Agent"}
+                assert {grant["owner"] for grant in registry["grants"]} == {"Owner A", "Owner B"}
+                assert {message["agent"] for message in state["messages"]} == {"Release Agent", "Review Agent"}
+                assert state["brief_view"]["conversation_stale"] is False
+                assert state["brief_view"]["authority_stale"] is False
                 assert state["metrics"]["measured_calls"] == 0
                 messages = {m["id"]: m["content"] for m in state["messages"]}
                 for group in ("open_questions", "decision_points", "next_actions", "intervention_points"):
