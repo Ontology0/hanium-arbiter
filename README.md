@@ -6,6 +6,8 @@ Culture-Fit is an open-source, authority-aware **Human-in-the-Loop (HITL)** coor
 
 [Try the demo](https://culture-fit-demo-production.up.railway.app/workspace) · [Download and install](https://culture-fit-demo-production.up.railway.app/download) · [Installation guide](docs/install.md)
 
+**Interface: English · Conversation analysis: English & Korean.** Imported conversation text and source quotations retain their original language. Language support does not imply measured detection accuracy across all domains.
+
 ## What it does
 
 A release agent and a review agent both claim approval authority. Their owners disagree. Culture-Fit surfaces the decision and its source quotes, checks the recorded delegations, and asks for the missing owner approvals. When the operator records an agreed priority, the same decision is re-evaluated without another model call. The agent can query the resulting next action.
@@ -69,7 +71,7 @@ uv run pytest -q
 uv run python experiments/run_comparison.py --help
 ```
 
-The baseline suite passes 182 tests plus 8 subtests, including actual MCP protocol round trips, authority rules, cancellation, persistence, and visitor isolation. Public HTTPS checks and browser checks cover approvals, reset isolation, pagination, and blocked live model calls.
+The suite passes 199 tests plus 8 subtests, including actual MCP protocol round trips, authority rules, cancellation, persistence, visitor isolation, legacy-demo translation, and English/Korean rule candidates. Public HTTPS checks and browser checks cover approvals, reset isolation, pagination, and blocked live model calls.
 
 A separate live Codex-to-MCP smoke made four real tool calls across two model invocations: an initial authority conflict returned `wait_for_human`; a **mock operator approval** then produced `follow_authority` with Review Agent as owner. This verifies tool-mediated authority lookup in a synthetic task, not autonomous external execution, natural-language extraction accuracy, or live Slack/OpenClaw integration.
 

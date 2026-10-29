@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Download Culture-Fit, an open-source, authority-aware Human-in-the-Loop (HITL) layer for AI agents. Set up the MCP server, dashboard source, and OpenClaw Skill on macOS or Windows.">
-  <title>Download Culture-Fit · Run locally</title>
+  <title>How to use Culture-Fit · Install and connect</title>
   <link rel="stylesheet" href="/static/landing.css">
   <script src="/static/download.js" defer></script>
 </head>
@@ -17,8 +17,9 @@
   <main class="download-main">
     <header class="download-heading">
       <p class="eyebrow">OPEN-SOURCE HUMAN-IN-THE-LOOP (HITL) FOR AI AGENTS</p>
-      <h1>Run Culture-Fit locally.</h1>
+      <h1>How to use Culture-Fit.</h1>
       <p>An open-source, authority-aware Human-in-the-Loop (HITL) layer for AI agents. Bring your own agents, record scoped authority, and review decisions in your own workspace.</p>
+      <div class="download-note language-support">Interface: English · Conversation analysis: English &amp; Korean</div>
     </header>
 
     <section class="download-packages" aria-label="Download packages">
@@ -76,7 +77,7 @@ powershell -ExecutionPolicy Bypass -File .\start-windows.ps1</code></pre>
       <div class="download-section-heading"><span class="download-number">03</span><div><h2 id="skill-heading">Using OpenClaw instead?</h2><p>Extract the Skill ZIP. Add the folder containing <code>arbiter-coordination</code> to OpenClaw's <code>skills.load.extraDirs</code>, following the included setup notes.</p></div></div>
       <p>Start the Culture-Fit server first. Ensure OpenClaw can run <code>python3</code> (Python 3.10 or later); uv managing the server's Python does not guarantee this helper is on OpenClaw's path. The default API URL is <code>http://127.0.0.1:8787</code>.</p>
       <p class="download-note">The Skill reports messages through explicit agent actions. It does not automatically collect conversations, authenticate owners, or connect to the public demo. Follow your installed OpenClaw version's configuration requirements.</p>
-      <a class="download-text-link" href="https://github.com/Ontology0/hanium-arbiter/tree/feat/ontology-hitl">Browse source and documentation on GitHub ↗</a>
+      <a class="download-text-link" href="https://github.com/Ontology0/hanium-arbiter">Browse source and documentation on GitHub ↗</a>
     </section>
     <p id="download-status" class="download-status" role="status" aria-live="polite"></p>
   </main>

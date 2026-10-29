@@ -259,7 +259,7 @@ class VisitorDeployment:
                         raise DemoLimit(503, "Too many demos are running at once. Please try again later.")
                     await self._close_resident(candidate)
                 from .app import create_app
-                from .demo_seed import seed_demo
+                from .demo_seed import migrate_legacy_demo, seed_demo
                 child = create_app(self._db_path(visitor_id), demo_mode=True)
                 lifespan = child.router.lifespan_context(child)
                 try:
@@ -268,6 +268,8 @@ class VisitorDeployment:
                         seed_demo(child.state.store)
                         self.registry.execute("INSERT INTO visitors(id, created_at) VALUES (?, ?)", (visitor_id, time.time()))
                         self.registry.commit()
+                    else:
+                        migrate_legacy_demo(child.state.store)
                 except BaseException:
                     await lifespan.__aexit__(None, None, None)
                     child.state.workers.shutdown(wait=False, cancel_futures=True)

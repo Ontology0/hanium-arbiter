@@ -16,7 +16,7 @@ def allowed_channels() -> list[str]:
 def ingest_slack(store, payload: dict) -> dict:
     channels = allowed_channels()
     if not channels:
-        raise ValueError("SLACK_ALLOWED_CHANNELS에 수신할 채널 ID를 먼저 설정해 주세요.")
+        raise ValueError("Set the channel IDs to receive in SLACK_ALLOWED_CHANNELS first.")
     if payload.get("type") != "event_callback":
         return {"accepted": False, "reason": "unsupported_envelope"}
     event = payload.get("event", {})
@@ -26,7 +26,7 @@ def ingest_slack(store, payload: dict) -> dict:
     if channel not in channels:
         return {"accepted": False, "reason": "channel_not_allowed"}
     if not all(isinstance(value, str) and re.fullmatch(r"[A-Za-z0-9_-]{1,100}", value) for value in (channel, team, event_id)):
-        raise ValueError("Slack 이벤트 식별자가 올바르지 않습니다.")
+        raise ValueError("Invalid Slack event identifiers.")
     subtype = event.get("subtype")
     if subtype not in (None, "bot_message", "thread_broadcast", "message_changed", "message_deleted"):
         return {"accepted": False, "reason": "unsupported_subtype"}
@@ -34,10 +34,10 @@ def ingest_slack(store, payload: dict) -> dict:
     changed = subtype == "message_changed"
     message = event.get("message", {}) if changed else event.get("previous_message", {}) if deleted else event
     if not isinstance(message, dict):
-        raise ValueError("Slack 메시지 형식이 올바르지 않습니다.")
+        raise ValueError("Invalid Slack message format.")
     ts = event.get("deleted_ts") if deleted else message.get("ts")
     if not isinstance(ts, str) or not re.fullmatch(r"\d+\.\d+", ts):
-        raise ValueError("Slack 메시지 시각이 없습니다.")
+        raise ValueError("The Slack message timestamp is missing or invalid.")
     thread = message.get("thread_ts") or ts
     states = [item for item in store.list() if item.get("slack", {}).get("team_id") == team
               and item["slack"].get("channel_id") == channel]
@@ -53,12 +53,12 @@ def ingest_slack(store, payload: dict) -> dict:
     if not deleted and (not isinstance(text, str) or not text.strip()):
         return {"accepted": False, "reason": "no_text"}
     if len(text) > 40000:
-        raise ValueError("수신 가능한 메시지 길이를 초과했습니다.")
+        raise ValueError("The message exceeds the supported length.")
     actor = message.get("user") or message.get("bot_id") or "slack-unknown"
     if not isinstance(actor, str) or not re.fullmatch(r"[A-Za-z0-9_-]{1,100}", actor):
-        raise ValueError("발화자 식별자가 올바르지 않습니다.")
+        raise ValueError("Invalid speaker identifier.")
     if state is None:
-        state = create_import(f"{actor}: 수신 메시지", f"Slack · {channel} · {thread}", "slack")
+        state = create_import(f"{actor}: Received message", f"Slack · {channel} · {thread}", "slack")
         state.update(id=sid, created_at=now(), busy=False, stop_requested=False, last_error=None)
         state["messages"][0].update(content=text, slack_ts=ts, external_id=event_id,
                                     provenance="slack_event", participant_type="Agent" if message.get("bot_id") else "Unknown")
@@ -70,7 +70,7 @@ def ingest_slack(store, payload: dict) -> dict:
         if original:
             # A repeated ordinary delivery has no new semantic content.
             if changed or deleted:
-                original.update(content="[Slack에서 삭제된 메시지]" if deleted else text, deleted=deleted,
+                original.update(content="[Message deleted in Slack]" if deleted else text, deleted=deleted,
                                 edited=changed, last_slack_event_id=event_id)
                 evidence = next((item for item in state["evidence"] if item["id"] == original["id"]), None)
                 if evidence:

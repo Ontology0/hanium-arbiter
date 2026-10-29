@@ -71,8 +71,8 @@ SCENARIOS = {
             "people": [{"id": "person-a", "name": "Owner A"}, {"id": "person-b", "name": "Owner B"}],
             "agent_owners": {"pickle-a": "person-a", "pickle-b": "person-b"},
             "checklist": [
-                _check("time", "Proposed time", "proposed_time", expected="금요일 19:00"),
-                _check("place", "Proposed place", "proposed_place", expected="학교 앞 카페"),
+                _check("time", "Proposed time", "proposed_time", expected="Friday 19:00"),
+                _check("place", "Proposed place", "proposed_place", expected="Campus cafe"),
                 _check("attendance", "Owner's attendance response", "attendance", expected_from_decision="meeting.attendance"),
                 _check("followup", "Response delivery agent", "followup_agent", expected="pickle-a"),
             ],
@@ -231,12 +231,12 @@ def demo_event(state):
         if attendance is not None:
             return _event("pickle-a", "I recorded the owner's attendance response and will handle the follow-up. Actual external delivery is a separate task.",
                           claims=[_claim("meeting.attendance", attendance, "factual"), _claim("meeting.confirmation_owner", "pickle-a", "ownership")],
-                          artifact={"proposed_time": "금요일 19:00", "proposed_place": "학교 앞 카페", "attendance": attendance, "followup_agent": "pickle-a"})
+                          artifact={"proposed_time": "Friday 19:00", "proposed_place": "Campus cafe", "attendance": attendance, "followup_agent": "pickle-a"})
         agent = "pickle-a" if turn % 2 == 0 else "pickle-b"
         other = "pickle-b" if agent == "pickle-a" else "pickle-a"
         event = _event(agent, "I will ask my owner about meeting on Friday at 19:00 at the cafe near campus and let you know." if turn == 0 else "Yes, I will check with my owner and get back to you.",
                        claims=[_claim("meeting.confirmation_owner", other, "ownership")],
-                       artifact={"proposed_time": "금요일 19:00", "proposed_place": "학교 앞 카페"} if turn == 0 else None)
+                       artifact={"proposed_time": "Friday 19:00", "proposed_place": "Campus cafe"} if turn == 0 else None)
         event["coordination"] = {
             "commitments": [{"id": f"promise-{agent}", "to_person": state["task"]["agent_owners"][agent], "topic": "meeting.attendance", "summary": "A promise to ask the owner about attendance and reply"}],
             "human_input_requests": [{"id": f"attendance-{agent}", "recipient": state["task"]["agent_owners"][agent], "topic": "meeting.attendance", "delivery_status": "unknown"}],
