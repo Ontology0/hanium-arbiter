@@ -133,6 +133,7 @@
       <form id="intake-form">
         <div class="intake-dialog-heading"><h2 id="intake-heading">Import conversation</h2><button id="close-intake" type="button" class="icon-button" aria-label="Close conversation import">×</button></div>
         <p class="intake-description">Paste a conversation to distinguish commitments from requests and identify who is needed for the next decision.</p>
+        <p class="muted small language-support">Interface: English · Conversation analysis: English &amp; Korean</p>
         <div class="intake-fields"><div><label for="intake-source">Conversation source</label><select id="intake-source" name="source"><option value="slack">Slack</option><option value="pickle">Pickle</option><option value="manual">Manual input</option></select></div><div><label for="intake-title">Conversation title (optional)</label><input id="intake-title" name="title" type="text" maxlength="120" placeholder="e.g. Coordinating the next release review" /></div></div>
         <label for="intake-transcript">Conversation to analyze</label>
         <textarea id="intake-transcript" name="transcript" required rows="10" maxlength="40000" placeholder="Paste the conversation with speaker names.&#10;&#10;Alex’s agent: I’ll check with my owner and share a review time.&#10;Sam’s agent: I’ll also check with my owner and report back."></textarea>

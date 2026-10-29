@@ -43,7 +43,7 @@ class LocalOriginGuard:
             headers = Headers(scope=scope)
             origin = headers.get("origin")
             if (origin and urlsplit(origin).netloc != headers.get("host")) or headers.get("sec-fetch-site") == "cross-site":
-                response = JSONResponse({"detail": "다른 웹사이트에서 보낸 로컬 분석 요청은 허용하지 않습니다."}, status_code=403)
+                response = JSONResponse({"detail": "Local analysis requests from another website are not allowed."}, status_code=403)
                 await response(scope, receive, send)
                 return
         await self.app(scope, receive, send)
@@ -67,7 +67,7 @@ class SQLiteTaskStore(TaskStore):
                 task = types.Task.FromString(payload)
                 if task.status.state not in TERMINAL:
                     task.status.state = types.TaskState.TASK_STATE_FAILED
-                    task.status.message.CopyFrom(new_text_message("분석 서비스가 재시작되어 결과 전달이 중단되었습니다. 새 분석을 요청하세요."))
+                    task.status.message.CopyFrom(new_text_message("The analysis service restarted, interrupting result delivery. Request a new analysis."))
                     task.status.timestamp.GetCurrentTime()
                     self.connection.execute("UPDATE tasks SET payload=? WHERE owner=? AND id=?", (task.SerializeToString(), owner, task_id))
 
@@ -85,7 +85,7 @@ class SQLiteTaskStore(TaskStore):
         return types.Task.FromString(row[0]) if row else None
 
     async def list(self, params: types.ListTasksRequest, context: ServerCallContext) -> types.ListTasksResponse:
-        raise UnsupportedOperationError("이 로컬 어댑터는 SendMessage, GetTask, CancelTask만 지원합니다.")
+        raise UnsupportedOperationError("This local adapter supports only SendMessage, GetTask, and CancelTask.")
 
     async def delete(self, task_id: str, context: ServerCallContext) -> None:
         with self.lock, self.connection:
@@ -108,7 +108,7 @@ class SQLiteTaskStore(TaskStore):
 def _local_url(value: str) -> str:
     parsed = urlsplit(value)
     if parsed.scheme != "http" or parsed.hostname not in {"127.0.0.1", "localhost", "::1"} or parsed.username or parsed.password or parsed.query or parsed.fragment or parsed.path not in {"", "/"}:
-        raise ValueError("인증 없는 로컬 어댑터의 URL은 http://127.0.0.1:포트 형식이어야 합니다.")
+        raise ValueError("This unauthenticated local adapter requires an HTTP loopback URL, such as http://127.0.0.1:8787.")
     return value.rstrip("/")
 
 
@@ -122,9 +122,9 @@ class AnalysisExecutor(AgentExecutor):
         response = await self.client.request(method, self.api_url + path, **kwargs)
         if response.is_error:
             try:
-                detail = response.json().get("detail", "로컬 분석 API 오류")
+                detail = response.json().get("detail", "Local analysis API error")
             except (ValueError, AttributeError):
-                detail = "로컬 분석 API 오류"
+                detail = "Local analysis API error"
             raise RuntimeError(f"{response.status_code}: {str(detail)[:300]}")
         return response.json()
 
@@ -141,18 +141,18 @@ class AnalysisExecutor(AgentExecutor):
     async def execute(self, context: RequestContext, event_queue: EventQueue) -> None:
         text = context.get_user_input().strip()
         if not text or len(text) > 40000:
-            raise InvalidParamsError("분석할 대화 텍스트를 1~40,000자로 입력하세요.")
+            raise InvalidParamsError("Enter between 1 and 40,000 characters of conversation text to analyze.")
         if context.current_task is not None:
-            raise UnsupportedOperationError("기존 작업에 메시지를 추가하지 않습니다. 새 분석 작업을 요청하세요.")
+            raise UnsupportedOperationError("Messages cannot be added to an existing task. Request a new analysis task.")
         source = context.metadata.get("source", "manual")
-        title = context.metadata.get("title", "A2A로 요청한 협업 대화 분석")
+        title = context.metadata.get("title", "Collaboration analysis requested through A2A")
         if not isinstance(source, str) or source not in {"slack", "pickle", "manual"} or not isinstance(title, str) or not 1 <= len(title.strip()) <= 150:
-            raise InvalidParamsError("metadata.source는 slack/pickle/manual, title은 1~150자여야 합니다.")
+            raise InvalidParamsError("metadata.source must be slack, pickle, or manual; metadata.title must contain 1 to 150 characters.")
         title = title.strip()
         task = new_task_from_user_message(context.message)
         await event_queue.enqueue_event(task)
         updater = TaskUpdater(event_queue, task.id, task.context_id)
-        await updater.start_work(new_text_message("대화의 근거와 인간 개입 지점을 분석합니다."))
+        await updater.start_work(new_text_message("Analyzing conversation evidence and Human-in-the-Loop (HITL) intervention points."))
         try:
             state = await self._json("POST", "/api/intake", json={"transcript": text, "title": title, "source": source})
             session_id = state["id"]
@@ -162,32 +162,32 @@ class AnalysisExecutor(AgentExecutor):
             while time.monotonic() < deadline:
                 result = await self._json("GET", f"/api/sessions/{session_id}/brief")
                 if result.get("status") == "error":
-                    raise RuntimeError(result.get("error") or "브리핑 생성에 실패했습니다.")
+                    raise RuntimeError(result.get("error") or "Failed to generate the brief.")
                 if result.get("status") == "ready" and result.get("available") and result.get("brief"):
                     if result.get("stale"):
-                        raise RuntimeError("분석 중 원문이 변경되었습니다. 새 분석을 요청하세요.")
+                        raise RuntimeError("The source conversation changed during analysis. Request a new analysis.")
                     artifact = {"session_id": session_id, "dashboard_url": self.api_url + "/workspace",
                                 "analysis_status": "completed", "execution_status": "not_verified",
                                 "brief": result["brief"],
-                                "scope": "대화 분석 완료. 사람의 결정·Slack 전송·외부 업무 실행을 의미하지 않습니다."}
+                                "scope": "Conversation analysis is complete. This does not represent a human decision, Slack delivery, or external task execution."}
                     await updater.add_artifact([new_data_part(artifact, "application/json")], name="coordination-analysis", last_chunk=True)
-                    await updater.complete(new_text_message("대화 분석을 완료했습니다. 제안된 인간 개입은 대시보드에서 확인하세요."))
+                    await updater.complete(new_text_message("Conversation analysis is complete. Review the suggested human interventions in the dashboard."))
                     return
                 await asyncio.sleep(self.poll_interval)
             await self._cancel_brief(context)
-            raise RuntimeError("분석 제한 시간을 초과했습니다. 결과 전달을 중단했습니다.")
+            raise RuntimeError("Analysis timed out. Result delivery has been stopped.")
         except asyncio.CancelledError:
             # The SDK calls cancel() after stopping this coroutine. It performs the
             # backend invalidation and emits the terminal CANCELED event.
             raise
         except (httpx.HTTPError, RuntimeError, ValueError, KeyError) as error:
-            await updater.failed(new_text_message(f"분석 실패: {str(error)[:400]}"))
+            await updater.failed(new_text_message(f"Analysis failed: {str(error)[:400]}"))
 
     async def cancel(self, context: RequestContext, event_queue: EventQueue) -> None:
         invalidated = await self._cancel_brief(context)
-        message = "분석 결과 전달을 취소했습니다. 외부 에이전트와 Slack 작업은 중단하지 않습니다."
+        message = "Analysis result delivery was canceled. External agents and Slack operations were not stopped."
         if not invalidated:
-            message += " 로컬 브리핑 취소 API 응답은 확인하지 못했습니다."
+            message += " The local brief cancellation API response could not be confirmed."
         updater = TaskUpdater(event_queue, context.task_id, context.context_id)
         await updater.cancel(new_text_message(message))
 
@@ -195,14 +195,14 @@ class AnalysisExecutor(AgentExecutor):
 def agent_card(public_url: str) -> types.AgentCard:
     return types.AgentCard(
         name="Arbiter HITL Conversation Analyst",
-        description="에이전트 협업 대화에서 합의·쟁점·결정 책임과 인간 개입 지점을 근거와 함께 분석하는 로컬 서비스. 외부 업무를 실행하지 않습니다.",
+        description="A local Human-in-the-Loop (HITL) service that analyzes agreements, unresolved issues, decision ownership, and human intervention points in agent conversations with supporting evidence. It does not execute external tasks.",
         supported_interfaces=[types.AgentInterface(url=public_url + "/", protocol_binding="JSONRPC", protocol_version="1.0")],
         version="0.1.0", capabilities=types.AgentCapabilities(streaming=False, push_notifications=False),
         default_input_modes=["text/plain"], default_output_modes=["application/json", "text/plain"],
-        skills=[types.AgentSkill(id="hitl-conversation-analysis", name="협업 대화 및 HITL 분석",
-                                description="대화 입력 → 온톨로지 상태 추출과 인간 개입 후보 검출 → 인용 근거가 있는 브리핑.",
+        skills=[types.AgentSkill(id="hitl-conversation-analysis", name="Collaboration and HITL Analysis",
+                                description="Conversation input → ontology state extraction and candidate human intervention detection → an evidence-linked brief.",
                                 tags=["HITL", "ontology", "coordination", "Slack"],
-                                examples=["agent-a: B의 검토를 기다립니다.\nagent-b: A가 먼저 결정해 주세요."])],
+                                examples=["agent-a: Waiting for B's review.\nagent-b: A needs to decide first."])],
     )
 
 
@@ -211,7 +211,7 @@ def create_app(*, api_url: str = "http://127.0.0.1:8787", public_url: str = "htt
                analysis_timeout: float = 300) -> Starlette:
     api_url, public_url = _local_url(api_url), _local_url(public_url)
     if poll_interval <= 0 or analysis_timeout <= 0:
-        raise ValueError("poll_interval과 analysis_timeout은 양수여야 합니다.")
+        raise ValueError("poll_interval and analysis_timeout must be positive.")
     store = SQLiteTaskStore(db_path or ROOT / ".runtime" / "a2a.sqlite3")
     client = httpx.AsyncClient(timeout=15, trust_env=False, follow_redirects=False)
     card = agent_card(public_url)

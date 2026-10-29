@@ -240,7 +240,15 @@ def create_app(db_path: str | Path | None = None, *, demo_mode: bool = False) ->
     def get_authority():
         from .authority import registry_revision
         registry = store.get_authority()
+        display_aliases = {"agents": {}, "owners": {}}
+        if demo_mode:
+            for session in store.list():
+                demo = session.get("demo", {})
+                if demo.get("synthetic") and demo.get("legacy_translation_version") == 1:
+                    for kind in display_aliases:
+                        display_aliases[kind].update(demo.get("display_aliases", {}).get(kind, {}))
         return {**registry, "registry_revision": registry_revision(registry), "source": "local_operator_record",
+                "display_aliases": display_aliases,
                 "notice": "Delegations are local operator records. External owner identities and consent are not authenticated."}
 
     @app.post("/api/authority/evaluate")

@@ -7,7 +7,7 @@
   const policyNames = { adaptive: "Conflict / stall intervention", periodic: "Periodic intervention", capped: "Fixed turn limit" };
   const typeNames = { agent: "Agent", claim: "Claim", evidence: "Evidence", conflict: "Conflict", request: "Intervention request", humaninputrequest: "Intervention request", commitment: "Commitment", intervention: "Intervention request", decision: "Decision", artifact: "Output", task: "Task", concept: "Concept" };
   const state = { config: null, sessions: [], selected: null, graph: null, mutation: false, timer: null, selection: 0, requestId: null, messagesKey: null,
-    activeDecisionId: null, messageSeen: 0, briefState: null, briefTimer: null, briefPosting: false, briefFetching: false, briefVersion: 0,
+    activeDecisionId: null, messageSeen: 0, briefState: null, briefTimer: null, briefPosting: false, briefFetching: false, briefVersion: 0, authorityAliases: null,
     highlightedMessage: null, authority: null, authorityBusy: false, authorityLoading: false, authorityDrafts: new Map(), authorityEditing: new Set(), authorityChecksKey: null, briefFetchTask: null, resetting: false,
     pages: { sessions: 1, messages: 1, requests: 1, claims: 1, evidence: 1, nodes: 1, edges: 1, brief: 1, authority: 1, authorityChecks: 1 } };
 
@@ -21,6 +21,51 @@
   function text(value) {
     if (value === undefined || value === null) return "—";
     return typeof value === "object" ? JSON.stringify(value) : String(value);
+  }
+
+  // Legacy sample IDs remain unchanged in requests and saved authority records.
+  // Only identity labels use the explicit aliases supplied for this demo session.
+  function identityLabel(value, group) {
+    const aliases = state.selected?.demo?.synthetic ? state.selected.demo.display_aliases : null;
+    return aliasedIdentity(value, group, aliases);
+  }
+
+  function authorityLabel(value, group) {
+    return aliasedIdentity(value, group, state.authorityAliases);
+  }
+
+  function authorityInstruction(value) {
+    let result = text(value);
+    // Used only for rule-generated authority instructions, never source messages or quotes.
+    for (const map of [state.authorityAliases?.agents, state.authorityAliases?.owners]) {
+      for (const [id, label] of Object.entries(map || {})) {
+        if (id && typeof label === "string") result = result.split(id).join(label);
+      }
+    }
+    return result;
+  }
+
+  function aliasedIdentity(value, group, aliases) {
+    const maps = group ? [aliases?.[group]] : [aliases?.agents, aliases?.owners];
+    for (const map of maps) {
+      if (typeof value === "string" && map && Object.hasOwn(map, value) && typeof map[value] === "string") return map[value];
+    }
+    return text(value);
+  }
+
+  function graphIdentityLabel(node, fallback) {
+    if (!node) return text(fallback);
+    const type = String(node.type || node.kind || "").toLowerCase();
+    const value = node.label || node.id;
+    return type === "agent" ? identityLabel(value, "agents") : ["person", "decisionowner"].includes(type) ? identityLabel(value, "owners") : text(value);
+  }
+
+  function graphIdentityId(node) {
+    const id = String(node.id);
+    const type = String(node.type || node.kind).toLowerCase();
+    if (type === "agent" && id.startsWith("agent:")) return `agent:${identityLabel(id.slice(6), "agents")}`;
+    if (type === "person" && id.startsWith("person:")) return `person:${identityLabel(id.slice(7), "owners")}`;
+    return id;
   }
 
   function array(value) {
@@ -121,6 +166,7 @@
     $("reset-demo").textContent = "Resetting…";
     try {
       await api("/api/demo/reset", {});
+      state.authorityAliases = null;
       try { localStorage.removeItem("arbiter-session"); } catch { /* Storage is optional. */ }
       location.reload();
     } catch (error) {
@@ -301,18 +347,18 @@
     const order = element("ol", "precedence-order");
     draft.agents.forEach((agent, index) => {
       const row = element("li", "precedence-agent");
-      const identity = element("div", "precedence-agent-label"); identity.append(element("strong", "", `${index + 1}. ${agent}`), element("span", "", `Owner: ${check.owner_by_agent?.[agent] || "Unknown"}`));
+      const identity = element("div", "precedence-agent-label"); identity.append(element("strong", "", `${index + 1}. ${authorityLabel(agent, "agents")}`), element("span", "", `Owner: ${authorityLabel(check.owner_by_agent?.[agent] || "Unknown", "owners")}`));
       const actions = element("div", "precedence-moves");
       [[-1, "Up"], [1, "Down"]].forEach(([direction, label]) => {
         const button = element("button", "precedence-button", label); button.type = "button";
         const boundary = index + direction < 0 || index + direction >= draft.agents.length;
-        button.dataset.locked = String(boundary); button.disabled = boundary; button.setAttribute("aria-label", `${agent} Priority ${label}`);
+        button.dataset.locked = String(boundary); button.disabled = boundary; button.setAttribute("aria-label", `${authorityLabel(agent, "agents")} Priority ${label}`);
         button.addEventListener("click", () => {
           [draft.agents[index], draft.agents[index + direction]] = [draft.agents[index + direction], draft.agents[index]];
           draft.approved.clear(); draft.restored = false; draft.message = "Order changed. Confirm owner approval for the new order.";
           renderAuthorityChecks(true);
           const replaced = [...$("authority-checks").querySelectorAll(".precedence-form")].find((item) => item.dataset.scope === check.scope && item.dataset.action === check.action);
-          const moved = [...(replaced?.querySelectorAll(".precedence-moves button") || [])].find((item) => item.getAttribute("aria-label") === `${agent} Priority ${direction === -1 ? "Down" : "Up"}`);
+          const moved = [...(replaced?.querySelectorAll(".precedence-moves button") || [])].find((item) => item.getAttribute("aria-label") === `${authorityLabel(agent, "agents")} Priority ${direction === -1 ? "Down" : "Up"}`);
           moved?.focus({ preventScroll: true }); announce(draft.message);
         });
         actions.append(button);
@@ -326,7 +372,7 @@
       const label = element("label", "precedence-owner"); const input = document.createElement("input");
       input.type = "checkbox"; input.name = "approved_by"; input.value = owner; input.checked = draft.approved.has(owner);
       input.addEventListener("change", () => { if (input.checked) draft.approved.add(owner); else draft.approved.delete(owner); draft.restored = false; updateApprovalState(); });
-      label.append(input, element("span", "", `${owner} approved this order`)); approvals.append(label);
+      label.append(input, element("span", "", `${authorityLabel(owner, "owners")} approved this order`)); approvals.append(label);
     });
     form.append(approvals);
     const summary = element("p", "precedence-approval-summary"); summary.setAttribute("role", "status");
@@ -338,7 +384,7 @@
       const missing = owners.filter((owner) => !draft.approved.has(owner));
       const revisionMissing = typeof draft.revision !== "string" || !draft.revision;
       const changed = draft.stale || draft.revision !== check.registry_revision;
-      summary.textContent = missing.length ? `Missing approvals: ${missing.join(", ")} · This order is not confirmed yet. ${owners.length > 1 ? "Partial approval keeps the authority conflict unresolved." : "Confirm owner approval before saving."}` : "All required owners are selected. Save to evaluate the recorded approvals.";
+      summary.textContent = missing.length ? `Missing approvals: ${missing.map((owner) => authorityLabel(owner, "owners")).join(", ")} · This order is not confirmed yet. ${owners.length > 1 ? "Partial approval keeps the authority conflict unresolved." : "Confirm owner approval before saving."}` : "All required owners are selected. Save to evaluate the recorded approvals.";
       feedback.textContent = changed ? "Authority records changed. Reload them before entering the order and approvals." : revisionMissing ? "The authority revision is unavailable. Reload the current records." : draft.message || (draft.restored ? "Restored saved approvals for this exact order." : "Approval boxes are never selected automatically.");
       const blocked = revisionMissing || changed || draft.agents.length < 2 || !check.scope || !check.action || !owners.length || (owners.length <= 1 && missing.length > 0);
       submit.dataset.locked = String(blocked); submit.disabled = blocked || state.authorityBusy || state.authorityLoading;
@@ -374,7 +420,7 @@
       await refreshCoordinationSnapshot(selection);
       if (selection !== state.selection) return;
       const updated = authorityCheckRows().find((item) => authorityScopeKey(item) === key);
-      const detail = !result ? "Could not load the latest evaluation. Try again." : updated?.status === "authorized" ? `Decision owner: ${updated.decision_owner}. Briefing interventions: ${array(result.brief?.intervention_points).length}.` : "Authority is still unresolved. Review the missing approvals and evaluation reason.";
+      const detail = !result ? "Could not load the latest evaluation. Try again." : updated?.status === "authorized" ? `Decision owner: ${authorityLabel(updated.decision_owner, "agents")}. Briefing interventions: ${array(result.brief?.intervention_points).length}.` : "Authority is still unresolved. Review the missing approvals and evaluation reason.";
       $("precedence-feedback").textContent = `${check.scope} / ${check.action} record saved. ${detail}`;
       announce($("precedence-feedback").textContent); renderAuthorityChecks(true);
     } catch (error) {
@@ -392,12 +438,12 @@
     walkthrough.hidden = !visitorDemo() || !state.selected?.demo?.synthetic;
     if (!walkthrough.hidden) {
       const authorized = rows.find((check) => check.status === "authorized" && check.decision_owner);
-      $("demo-next-action").textContent = authorized ? `${authorized.decision_owner} can ${authorized.action} ${authorized.scope}. External execution is unverified.` : "The decision owner appears after the required approvals are recorded.";
+      $("demo-next-action").textContent = authorized ? `${authorityLabel(authorized.decision_owner, "agents")} can ${authorized.action} ${authorized.scope}. External execution is unverified.` : "The decision owner appears after the required approvals are recorded.";
     }
     const panel = $("authority-check-panel"); panel.hidden = !rows.length;
     $("authority-intervention-count").textContent = `Briefing interventions: ${array(state.briefState?.brief?.intervention_points).length} · Authority checks: ${rows.length}`;
     if (!rows.length) return;
-    const key = JSON.stringify([state.selected?.id, rows, state.pages.authorityChecks]);
+    const key = JSON.stringify([state.selected?.id, state.selected?.demo?.display_aliases, rows, state.pages.authorityChecks]);
     if (!force && key === state.authorityChecksKey) { authorityControls(); return; }
     state.authorityChecksKey = key;
     const statuses = { missing: "Delegation needed", authority_gap: "Delegation needed", conflict: "Authority conflict", authority_conflict: "Authority conflict", cross_owner_conflict: "Cross-owner authority conflict", conditional: "Conditions need review", unknown: "Authority needs review", authorized: "Delegation verified", allowed: "Delegation verified", ok: "Delegation verified", resolved: "Decision owner identified", owner_required: "Owner decision needed", missing_owner: "Owner needed", expired: "Expired", revoked: "Authority revoked" };
@@ -409,12 +455,12 @@
       article.append(element("span", "authority-check-status", statuses[check.status] || check.status || "Unknown"), element("h3", "", `${check.scope || "Scope unknown"} · ${check.action || "Action unknown"}`));
       const details = element("dl", "authority-check-details");
       const fields = [
-        ["Eligible agents", array(check.authorized_agents).length ? array(check.authorized_agents).map(text).join(", ") : "No verified delegation"],
-        ["Decision owner", check.decision_owner ? text(check.decision_owner) : "Unknown"],
+        ["Eligible agents", array(check.authorized_agents).length ? array(check.authorized_agents).map((agent) => authorityLabel(agent, "agents")).join(", ") : "No verified delegation"],
+        ["Decision owner", check.decision_owner ? authorityLabel(check.decision_owner, "agents") : "Unknown"],
       ];
-      if (array(check.required_owners).length) fields.push(["Required owners", array(check.required_owners).map(text).join(", ")]);
-      if (check.owner_by_agent && Object.keys(check.owner_by_agent).length) fields.push(["Agents by owner", Object.entries(check.owner_by_agent).map(([agent, owner]) => `${owner} → ${agent}`).join(", ")]);
-      if (array(check.priority_order).length) fields.push(["Applied priority", check.priority_order.join(" → ")]);
+      if (array(check.required_owners).length) fields.push(["Required owners", array(check.required_owners).map((owner) => authorityLabel(owner, "owners")).join(", ")]);
+      if (check.owner_by_agent && Object.keys(check.owner_by_agent).length) fields.push(["Agents by owner", Object.entries(check.owner_by_agent).map(([agent, owner]) => `${authorityLabel(owner, "owners")} → ${authorityLabel(agent, "agents")}`).join(", ")]);
+      if (array(check.priority_order).length) fields.push(["Applied priority", check.priority_order.map((agent) => authorityLabel(agent, "agents")).join(" → ")]);
       fields.forEach(([label, value]) => details.append(element("dt", "", label), element("dd", "", value)));
       article.append(details);
       if (check.reason) article.append(element("p", "authority-check-reason", check.reason));
@@ -453,10 +499,10 @@
     pageRows(grants, "authority", 8).forEach((grant) => {
       const expired = Boolean(grant.expires_at && Number.isFinite(Date.parse(grant.expires_at)) && Date.parse(grant.expires_at) <= Date.now());
       const row = element("tr");
-      [grant.agent, grant.owner, grant.scope, grant.action, grant.revoked ? "Revoked" : expired ? "Expired" : "Recorded"].forEach((value) => row.append(element("td", "", text(value))));
+      [authorityLabel(grant.agent, "agents"), authorityLabel(grant.owner, "owners"), grant.scope, grant.action, grant.revoked ? "Revoked" : expired ? "Expired" : "Recorded"].forEach((value) => row.append(element("td", "", text(value))));
       const action = element("td"); const button = element("button", "button secondary", grant.revoked ? "Revoked" : "Revoke"); button.type = "button"; button.dataset.revoked = String(Boolean(grant.revoked));
       button.disabled = Boolean(grant.revoked) || state.authorityBusy || state.authorityLoading;
-      button.setAttribute("aria-label", `Revoke ${grant.agent}: ${grant.scope} / ${grant.action}`);
+      button.setAttribute("aria-label", `Revoke ${authorityLabel(grant.agent, "agents")}: ${grant.scope} / ${grant.action}`);
       button.addEventListener("click", () => mutateAuthority(`/api/authority/grants/${encodeURIComponent(grant.id)}/revoke`, {}, "Authority revoked."));
       action.append(button); row.append(action); body.append(row);
     });
@@ -466,7 +512,11 @@
   async function loadAuthority() {
     if (!state.config || state.authorityLoading || state.resetting) return;
     state.authorityLoading = true; authorityControls();
-    try { state.authority = await api("/api/authority"); renderAuthority(); }
+    try {
+      state.authority = await api("/api/authority");
+      if (state.authority.display_aliases) state.authorityAliases = state.authority.display_aliases;
+      renderAuthority();
+    }
     catch (error) { $("authority-list").replaceChildren(element("p", "authority-empty", `Could not load authority records. ${error.message}`)); $("authority-pagination").replaceChildren(); }
     finally { state.authorityLoading = false; authorityControls(); }
   }
@@ -524,7 +574,7 @@
     const list = element("div", "brief-items");
     pageRows(rows, "brief", 6).forEach((item) => {
       const article = element("article", "brief-item");
-      article.append(element("span", "brief-category", item.label), element("p", "", item.text || "Unknown"));
+      article.append(element("span", "brief-category", item.label), element("p", "", item.basis === "authority_registry" ? authorityInstruction(item.text || "Unknown") : item.text || "Unknown"));
       const references = element("div", "brief-references");
       array(item.evidence_ids).forEach((id) => {
         const reference = String(id); const source = element("button", "source-reference", reference); source.type = "button";
@@ -600,7 +650,7 @@
     $("latest-messages").classList.toggle("has-new", newCount > 0);
     $("message-range").textContent = messages.length ? `${start + 1}–${Math.min(start + 10, messages.length)} of ${messages.length} messages · 10 per page` : "No messages yet";
     pagination("message-pagination", "messages", messages.length, 10, () => renderConversation(state.selected));
-    const key = `${session.id}:${state.pages.messages}:${state.highlightedMessage}:${JSON.stringify(rows)}`;
+    const key = `${session.id}:${state.pages.messages}:${state.highlightedMessage}:${JSON.stringify(session.demo?.display_aliases)}:${JSON.stringify(rows)}`;
     if (key === state.messagesKey) return;
     state.messagesKey = key;
     const target = $("conversation");
@@ -612,7 +662,7 @@
       return;
     }
     rows.forEach((message, index) => {
-      const agent = message.agent || message.role || "Agent";
+      const agent = identityLabel(message.agent || message.role || "Agent");
       const human = /human|user|\uC0AC\uB78C/i.test(agent);
       const article = element("article", `message${human ? " message-human" : ""}${state.highlightedMessage === start + index ? " source-highlight" : ""}`);
       article.dataset.messageIndex = String(start + index); article.tabIndex = -1;
@@ -654,7 +704,7 @@
       button.addEventListener("click", () => openDecision(request.id)); target.append(button);
     } else if (covered.length) {
       const authority = covered[0].covered_by_authority || {};
-      target.append(element("p", "overview-kicker", `Answered by authority: ${covered.length}`), element("h3", "", "No repeat approval needed"), element("p", "overview-summary", `${authority.scope || "This scope"} / ${authority.action || "This action"} · Decision owner: ${authority.decision_owner || "See authority check"}. Current authority answers this request. External delivery and execution still need verification.`));
+      target.append(element("p", "overview-kicker", `Answered by authority: ${covered.length}`), element("h3", "", "No repeat approval needed"), element("p", "overview-summary", `${authority.scope || "This scope"} / ${authority.action || "This action"} · Decision owner: ${authorityLabel(authority.decision_owner || "See authority check", "agents")}. Current authority answers this request. External delivery and execution still need verification.`));
       const button = element("button", "button secondary", "View authority-resolved request →"); button.type = "button"; button.addEventListener("click", () => openDecision(covered[0].id)); target.append(button);
     } else {
       const recorded = session.mode === "import" && array(session.decisions).length;
@@ -717,7 +767,7 @@
       const authority = covered.covered_by_authority || {};
       const record = element("article", "decision-active authority-covered-record");
       record.append(element("p", "decision-kind", "Resolved by current authority"), element("h3", "decision-title", request.title || "Authority review request"), element("p", "decision-summary", request.question || request.summary || ""));
-      record.append(element("h3", "", `${authority.scope || "Review scope"} / ${authority.action || "Review action"}`), element("p", "decision-record-note", `Decision owner: ${authority.decision_owner || "Unknown"}`), element("p", "decision-footnote", "Current delegations and priority answer this request, so approval is not requested again. The original request and human decision history are preserved. External delivery and execution are not verified."));
+      record.append(element("h3", "", `${authority.scope || "Review scope"} / ${authority.action || "Review action"}`), element("p", "decision-record-note", `Decision owner: ${authorityLabel(authority.decision_owner || "Unknown", "agents")}`), element("p", "decision-footnote", "Current delegations and priority answer this request, so approval is not requested again. The original request and human decision history are preserved. External delivery and execution are not verified."));
       const button = element("button", "precedence-button", "View authority check"); button.type = "button"; button.addEventListener("click", () => { switchTab($("overview-tab")); $("authority-check-panel").scrollIntoView({ block: "start" }); }); record.append(button); target.append(record); return;
     }
     if (request.status !== "pending") {
@@ -783,7 +833,7 @@
       const card = element("article", "record-card");
       card.append(element("p", "record-title", `${claim.key || claim.subject || claim.id || "Claim"} = ${text(claim.value ?? claim.object ?? claim.content)}`));
       card.append(element("p", "record-body", `Type: ${claim.kind || claim.type || "Unspecified"} · Scope: ${text(claim.scope || "Shared")}`));
-      card.append(element("p", "record-meta", [claim.id, claim.agent || claim.author, claim.turn != null ? `Turn ${claim.turn}` : null].filter(Boolean).join(" · ")));
+      card.append(element("p", "record-meta", [claim.id, claim.agent || claim.author ? identityLabel(claim.agent || claim.author) : null, claim.turn != null ? `Turn ${claim.turn}` : null].filter(Boolean).join(" · ")));
       claimTarget.append(card);
     });
     if (!claims.length) claimTarget.append(element("p", "muted small", "No claims recorded yet."));
@@ -792,7 +842,7 @@
       const card = element("article", "record-card");
       card.append(element("p", "record-title", item.summary || item.label || item.id || "Evidence"));
       card.append(element("p", "record-body", `Source: ${text(item.source)}`));
-      card.append(element("p", "record-meta", [item.id, item.agent || item.author].filter(Boolean).join(" · ")));
+      card.append(element("p", "record-meta", [item.id, item.agent || item.author ? identityLabel(item.agent || item.author) : null].filter(Boolean).join(" · ")));
       evidenceTarget.append(card);
     });
     if (!evidence.length) evidenceTarget.append(element("p", "muted small", "No evidence recorded yet."));
@@ -822,13 +872,13 @@
       const resolved = key === "issues" && array(session.requests).some((request) => request.id === `request-${item.id}` && request.status === "resolved");
       const status = resolved ? "resolved" : item.status || item.kind || item.type;
       card.append(element("span", "coordination-label", statusLabels[status] || fallback));
-      card.append(element("h3", "", item.title || item.summary || item.agent || item.owner || fallback));
+      card.append(element("h3", "", item.title || item.summary || (item.agent || item.owner ? identityLabel(item.agent || item.owner) : fallback)));
       const detail = item.description || item.detail || item.reason || item.content || item.text || item.action || (item.title ? item.summary : null);
       if (detail) card.append(element("p", "", text(detail)));
       const references = [];
-      if (item.from || item.actor) references.push(`Requested by: ${text(item.from || item.actor)}`);
-      if (item.to || item.waiting_for) references.push(`Waiting for: ${text(item.to || item.waiting_for)}`);
-      if (item.owner) references.push(`Assignee: ${text(item.owner)}`);
+      if (item.from || item.actor) references.push(`Requested by: ${identityLabel(item.from || item.actor)}`);
+      if (item.to || item.waiting_for) references.push(`Waiting for: ${identityLabel(item.to || item.waiting_for)}`);
+      if (item.owner) references.push(`Assignee: ${identityLabel(item.owner)}`);
       if (item.evidence_ids?.length) references.push(`Evidence: ${item.evidence_ids.join(", ")}`);
       else if (item.message_ids?.length) references.push(`Message evidence: ${item.message_ids.join(", ")}`);
       else if (item.message_id) references.push(`Message evidence: ${item.message_id}`);
@@ -858,8 +908,8 @@
     const allNodes = new Map(nodes.map((node) => [String(node.id), node]));
     pagination("node-pagination", "nodes", nodes.length, 8, () => renderGraph(state.graph));
     pagination("edge-pagination", "edges", edges.length, 8, () => renderGraph(state.graph));
-    pageRows(nodes, "nodes", 8).forEach((node) => nodeList.append(element("li", "", `${typeNames[String(node.type || node.kind).toLowerCase()] || node.type || "Concept"} · ${node.label || node.id} (${node.id})`)));
-    pageRows(edges, "edges", 8).forEach((edge) => edgeList.append(element("li", "", `${allNodes.get(String(edge.source))?.label || edge.source} → ${edge.label || edge.type || edge.relation || "Relation"} → ${allNodes.get(String(edge.target))?.label || edge.target}`)));
+    pageRows(nodes, "nodes", 8).forEach((node) => nodeList.append(element("li", "", `${typeNames[String(node.type || node.kind).toLowerCase()] || node.type || "Concept"} · ${graphIdentityLabel(node)} (${graphIdentityId(node)})`)));
+    pageRows(edges, "edges", 8).forEach((edge) => edgeList.append(element("li", "", `${graphIdentityLabel(allNodes.get(String(edge.source)), edge.source)} → ${edge.label || edge.type || edge.relation || "Relation"} → ${graphIdentityLabel(allNodes.get(String(edge.target)), edge.target)}`)));
     if (!nodes.length) { container.append(element("p", "graph-empty", "Relationships between claims and evidence appear as the conversation progresses.")); return; }
     const normalizedType = (node) => String(node.type || node.kind || "concept").toLowerCase();
     const typeLabel = (node) => typeNames[normalizedType(node)] || node.type || "Concept";
@@ -889,9 +939,9 @@
       const type = normalizedType(node);
       const emphasis = ["conflict", "decision", "request", "humaninputrequest", "intervention"].includes(type);
       const group = svgElement("g", { transform: `translate(${point.x}, ${point.y})` });
-      group.append(svgElement("title", {}, `${typeLabel(node)} · ${node.label || node.id}`));
+      group.append(svgElement("title", {}, `${typeLabel(node)} · ${graphIdentityLabel(node)}`));
       group.append(svgElement("rect", { x: -91, y: -23, width: 182, height: 46, rx: 12, fill: emphasis ? "#171717" : "#ffffff", stroke: emphasis ? "#171717" : "#d4d4d4" }));
-      const label = String(node.label || node.id);
+      const label = graphIdentityLabel(node);
       group.append(svgElement("text", { x: 0, y: -4, "text-anchor": "middle", class: `graph-node-label${emphasis ? " inverse" : ""}` }, label.length > 17 ? `${label.slice(0, 16)}…` : label));
       group.append(svgElement("text", { x: 0, y: 12, "text-anchor": "middle", class: `graph-node-type${emphasis ? " inverse" : ""}` }, typeLabel(node)));
       svg.append(group);
@@ -901,7 +951,10 @@
   }
 
   function render(session) {
+    const previousAliases = JSON.stringify(state.authorityAliases);
     state.selected = session;
+    if (session.demo?.synthetic && session.demo.display_aliases) state.authorityAliases = session.demo.display_aliases;
+    if (previousAliases !== JSON.stringify(state.authorityAliases) && state.authority) renderAuthority();
     $("active-session-title").textContent = session.title || session.scenario_id;
     $("session-status").textContent = sessionStatusLabel(session);
     $("session-status").className = `status-badge ${Object.hasOwn(labels, session.status) ? session.status : "neutral"}`;

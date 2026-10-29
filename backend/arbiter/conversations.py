@@ -14,11 +14,17 @@ import unicodedata
 from uuid import uuid4
 
 
-PROMISE = re.compile(r"확인.{0,18}(볼|보겠|할게|하겠|드릴|되시|받는|후|대로)|여쭤.{0,12}(볼|보겠)|물어.{0,12}(볼|보겠)|전달.{0,12}(할게|하겠|드릴)")
-WAIT = re.compile(r"기다|완료.{0,12}(후|되면)|검토.{0,12}(후|되면|끝나)|확인.{0,12}(대로|되면|되시는|받는)")
-REVIEW = re.compile(r"검토|리뷰|승인|결정권|결재")
+PROMISE = re.compile(
+    r"확인.{0,18}(볼|보겠|할게|하겠|드릴|되시|받는|후|대로)|여쭤.{0,12}(볼|보겠)|물어.{0,12}(볼|보겠)|전달.{0,12}(할게|하겠|드릴)"
+    r"|\b(?:I|we)(?:\s+will|['’]ll)\s+(?:ask|check|confirm|forward|relay)\b", re.IGNORECASE)
+WAIT = re.compile(
+    r"기다|완료.{0,12}(후|되면)|검토.{0,12}(후|되면|끝나)|확인.{0,12}(대로|되면|되시는|받는)"
+    r"|\bwait(?:ing)?\s+(?:for|until)\b|\bpending\s+(?:review|approval)\b", re.IGNORECASE)
+REVIEW = re.compile(r"검토|리뷰|승인|결정권|결재|\b(?:review|approve|approval|decision\s+(?:owner|maker)|sign[- ]off)\b", re.IGNORECASE)
 LABEL = re.compile(r"^\s*(?:\[[^\]]+\]\s*)?([^:\n：]{1,45})[:：]\s*(.*)$")
-EXPLICIT_OWNER = re.compile(r"(?:최종\s*)?(?:결정권자|승인자|책임자)\s*(?:는|:|：|=)\s*\S+")
+EXPLICIT_OWNER = re.compile(
+    r"(?:최종\s*)?(?:결정권자|승인자|책임자)\s*(?:는|:|：|=)\s*\S+"
+    r"|\b(?:final\s+)?(?:decision\s+(?:owner|maker)|approver|approval\s+owner)\s*(?::|=|\bis\b)\s*\S+", re.IGNORECASE)
 
 
 def _normalized(text: str) -> str:
@@ -140,7 +146,10 @@ def _analyze(state: dict) -> None:
             group = review_groups.setdefault(scope["id"], {"scope": scope, "message_ids": [], "scope_message_ids": [message["id"]]})
             group["message_ids"].append(message["id"])
         if WAIT.search(text):
-            targets = [candidate for candidate in actors if candidate != actor and candidate in text]
+            # A short identity such as A must not match Approval or Agent. Korean
+            # particles after an identity remain allowed, e.g. A의 검토.
+            targets = [candidate for candidate in actors if candidate != actor
+                       and re.search(r"(?<![A-Za-z0-9_])" + re.escape(candidate) + r"(?![A-Za-z0-9_])", text)]
             for target in targets:
                 scope_id = _fingerprint("wait", [_normalized(actor), _normalized(target), _normalized(text)])
                 existing = next((item for item in waits if item["scope_id"] == scope_id), None)
