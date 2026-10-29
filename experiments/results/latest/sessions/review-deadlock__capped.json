@@ -1,0 +1,1831 @@
+{
+  "study_type": "통제 시뮬레이션",
+  "scenario": {
+    "id": "review-deadlock",
+    "title": "서로 기다리는 슬랙 리뷰",
+    "description": "리뷰를 서로에게 넘기거나 최종 결정 담당자가 없어 검토 작업이 대기 상태에 빠집니다.",
+    "category": "ownership"
+  },
+  "policy": "capped",
+  "parameters": {
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3
+  },
+  "answer_policy": "fixture_oracle_if_offered_else_continue",
+  "result": {
+    "scenario_id": "review-deadlock",
+    "scenario_title": "서로 기다리는 슬랙 리뷰",
+    "category": "ownership",
+    "policy": "capped",
+    "status": "budget_exhausted",
+    "success": false,
+    "turns": 18,
+    "human_requests": 0,
+    "human_answers": 0,
+    "progress_events": 1,
+    "passed_checks": 1,
+    "total_checks": 3,
+    "input_tokens": null,
+    "output_tokens": null,
+    "measured_calls": 0,
+    "unmetered_calls": 18,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "error": null,
+    "session_file": "sessions/review-deadlock__capped.json"
+  },
+  "trace": [
+    {
+      "kind": "agent_event",
+      "turn_before": 0,
+      "event": {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "review_target": "proposal-v1"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 1,
+      "event": {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 2,
+      "event": {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 3,
+      "event": {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 4,
+      "event": {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 5,
+      "event": {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 6,
+      "event": {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 7,
+      "event": {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 8,
+      "event": {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 9,
+      "event": {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 10,
+      "event": {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 11,
+      "event": {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 12,
+      "event": {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 13,
+      "event": {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 14,
+      "event": {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 15,
+      "event": {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 16,
+      "event": {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 17,
+      "event": {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "evaluation": {
+    "success": false,
+    "passed": 1,
+    "total": 3,
+    "checks": [
+      {
+        "id": "review",
+        "label": "리뷰 대상",
+        "path": "review_target",
+        "rule": "expected",
+        "passed": true,
+        "actual": "proposal-v1",
+        "expected": "proposal-v1",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "owner",
+        "label": "최종 책임 리뷰어",
+        "path": "decision_owner",
+        "rule": "approved_decision",
+        "passed": false,
+        "actual": null,
+        "expected": null,
+        "missing": true,
+        "requires_decision": true
+      },
+      {
+        "id": "next",
+        "label": "구체적인 다음 행동",
+        "path": "next_action",
+        "rule": "expected",
+        "passed": false,
+        "actual": null,
+        "expected": "final_review",
+        "missing": true,
+        "requires_decision": false
+      }
+    ],
+    "turn": 18,
+    "status": "budget_exhausted",
+    "scope": "Local JSON contract/work-plan constraints only; no execution or general code correctness claim.",
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 18,
+      "human_requests": 0,
+      "progress_events": 1,
+      "success": false
+    }
+  },
+  "final_state": {
+    "id": "7ef58553-15b6-455e-81f2-a44c36139342",
+    "scenario_id": "review-deadlock",
+    "title": "서로 기다리는 슬랙 리뷰",
+    "description": "리뷰를 서로에게 넘기거나 최종 결정 담당자가 없어 검토 작업이 대기 상태에 빠집니다.",
+    "category": "ownership",
+    "policy": "capped",
+    "mode": "demo",
+    "status": "budget_exhausted",
+    "turn": 18,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "messages": [
+      {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "review_target": "proposal-v1"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-1",
+        "turn": 1,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-2",
+        "turn": 2,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-3",
+        "turn": 3,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-4",
+        "turn": 4,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-5",
+        "turn": 5,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-6",
+        "turn": 6,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-7",
+        "turn": 7,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-8",
+        "turn": 8,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-9",
+        "turn": 9,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-10",
+        "turn": 10,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-11",
+        "turn": 11,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-12",
+        "turn": 12,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-13",
+        "turn": 13,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-14",
+        "turn": 14,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-15",
+        "turn": 15,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-16",
+        "turn": 16,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "pickle-b가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-b",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-a",
+              "target": "pickle-b",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-17",
+        "turn": 17,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "pickle-a가 먼저 검토해 주시면 그 결과를 보고 진행하겠습니다.",
+        "claims": [
+          {
+            "key": "review.decision_owner",
+            "value": "person-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "waits_for": [
+            {
+              "target": "pickle-a",
+              "reason": "먼저 검토한 결과를 기다림"
+            }
+          ],
+          "review_requests": [
+            {
+              "id": "review-pickle-b",
+              "target": "pickle-a",
+              "artifact": "proposal-v1"
+            }
+          ]
+        },
+        "id": "message-18",
+        "turn": 18,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      }
+    ],
+    "requests": [],
+    "decisions": [],
+    "claims": [
+      {
+        "id": "claim-1",
+        "type": "Claim",
+        "agent": "pickle-a",
+        "key": "review.decision_owner",
+        "value": "person-b",
+        "kind": "ownership",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 1,
+        "last_seen_turn": 17,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-2",
+        "type": "Claim",
+        "agent": "pickle-b",
+        "key": "review.decision_owner",
+        "value": "person-a",
+        "kind": "ownership",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 2,
+        "last_seen_turn": 18,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      }
+    ],
+    "evidence": [
+      {
+        "id": "evidence-1",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 1/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 1,
+        "artifact_hash": "e26aaa9361513b585e7ca705b3952dd0b218c2ae7f3560d5e785a69e1fb049f1",
+        "artifact_revision": 1,
+        "checks": [
+          {
+            "id": "review",
+            "label": "리뷰 대상",
+            "path": "review_target",
+            "rule": "expected",
+            "passed": true,
+            "actual": "proposal-v1",
+            "expected": "proposal-v1",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "owner",
+            "label": "최종 책임 리뷰어",
+            "path": "decision_owner",
+            "rule": "approved_decision",
+            "passed": false,
+            "actual": null,
+            "expected": null,
+            "missing": true,
+            "requires_decision": true
+          },
+          {
+            "id": "next",
+            "label": "구체적인 다음 행동",
+            "path": "next_action",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "final_review",
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "review_target": "proposal-v1"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      }
+    ],
+    "artifact": {
+      "review_target": "proposal-v1"
+    },
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 18,
+      "human_requests": 0,
+      "progress_events": 1,
+      "success": false
+    },
+    "detector": {
+      "stalled_turns": 17,
+      "reason": "누적 대화 상한에 도달했습니다. 완료되지 않은 상태로 종료합니다.",
+      "conflicts": [
+        {
+          "id": "conflict-0e743d0eb432",
+          "key": "review.decision_owner",
+          "scope": "waiting-api",
+          "kind": "ownership",
+          "kinds": [
+            "ownership"
+          ],
+          "claim_ids": [
+            "claim-1",
+            "claim-2"
+          ],
+          "agents": [
+            "pickle-a",
+            "pickle-b"
+          ],
+          "values": [
+            "person-a",
+            "person-b"
+          ],
+          "status": "open",
+          "summary": "waiting-api의 review.decision_owner에 대해 2개 값이 충돌합니다.",
+          "relevant": true
+        }
+      ],
+      "intentional_human_wait": false,
+      "delivery_unknown": false,
+      "wait_cycles": [
+        [
+          "pickle-a",
+          "pickle-b",
+          "pickle-a"
+        ]
+      ],
+      "missing_decision_owner": true,
+      "last_progress": {
+        "check_ids": [],
+        "reference_ids": []
+      }
+    },
+    "task": {
+      "id": "task-review",
+      "description": "순환 리뷰 대기를 정리하고 최종 책임 리뷰어와 다음 행동을 지정한다.",
+      "goal": "최종 책임 리뷰어를 사람의 결정으로 확정하고 그 담당자의 최종 검토 행동을 기록한다.",
+      "artifact_description": "실제 슬랙 발송·리뷰 수행이 아닌 책임 배정 계획 JSON",
+      "people": [
+        {
+          "id": "person-a",
+          "name": "요청자 A"
+        },
+        {
+          "id": "person-b",
+          "name": "검토자 B"
+        }
+      ],
+      "agent_owners": {
+        "pickle-a": "person-a",
+        "pickle-b": "person-b"
+      },
+      "checklist": [
+        {
+          "id": "review",
+          "label": "리뷰 대상",
+          "path": "review_target",
+          "expected": "proposal-v1"
+        },
+        {
+          "id": "owner",
+          "label": "최종 책임 리뷰어",
+          "path": "decision_owner",
+          "expected_from_decision": "review.decision_owner"
+        },
+        {
+          "id": "next",
+          "label": "구체적인 다음 행동",
+          "path": "next_action",
+          "expected": "final_review"
+        }
+      ],
+      "relevant_claim_keys": [
+        "review.decision_owner"
+      ],
+      "evidence_catalog": [],
+      "oracle_choice": "owner_a",
+      "decision": {
+        "key": "review.decision_owner",
+        "kind": "ownership",
+        "always_available": true,
+        "title": "최종 책임 리뷰어 지정",
+        "question": "누가 제안서의 최종 검토와 결정을 책임질까요?",
+        "options": [
+          {
+            "id": "owner_a",
+            "label": "요청자 A가 결정",
+            "description": "피클 A가 최종 검토를 준비하고 요청자 A가 결정합니다.",
+            "value": "person-a"
+          },
+          {
+            "id": "owner_b",
+            "label": "검토자 B가 결정",
+            "description": "피클 B가 최종 검토를 준비하고 검토자 B가 결정합니다.",
+            "value": "person-b"
+          }
+        ]
+      },
+      "type": "Task",
+      "scope": "waiting-api"
+    },
+    "_decision_values": {},
+    "_progress": {
+      "seen_passed_checks": [
+        "review"
+      ],
+      "seen_references": [],
+      "epoch": 1
+    },
+    "_last_request": null,
+    "_artifact_revision": 1,
+    "coordination": {
+      "commitments": [],
+      "human_input_requests": [],
+      "review_requests": [
+        {
+          "id": "review-pickle-a",
+          "target": "pickle-b",
+          "artifact": "proposal-v1",
+          "type": "ReviewRequest",
+          "agent": "pickle-a",
+          "status": "pending",
+          "created_turn": 1
+        },
+        {
+          "id": "review-pickle-b",
+          "target": "pickle-a",
+          "artifact": "proposal-v1",
+          "type": "ReviewRequest",
+          "agent": "pickle-b",
+          "status": "pending",
+          "created_turn": 2
+        }
+      ],
+      "waits_for": [
+        {
+          "source": "pickle-a",
+          "target": "pickle-b",
+          "reason": "먼저 검토한 결과를 기다림"
+        },
+        {
+          "source": "pickle-b",
+          "target": "pickle-a",
+          "reason": "먼저 검토한 결과를 기다림"
+        }
+      ],
+      "decision_owner": null
+    }
+  },
+  "error_traceback": null
+}

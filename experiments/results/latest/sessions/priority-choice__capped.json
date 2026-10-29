@@ -1,0 +1,1254 @@
+{
+  "study_type": "통제 시뮬레이션",
+  "scenario": {
+    "id": "priority-choice",
+    "title": "속도와 전달 신뢰성",
+    "description": "알림 전달 속도와 재시도 신뢰성 사이의 우선순위를 사용자가 결정합니다.",
+    "category": "preference"
+  },
+  "policy": "capped",
+  "parameters": {
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3
+  },
+  "answer_policy": "fixture_oracle_if_offered_else_continue",
+  "result": {
+    "scenario_id": "priority-choice",
+    "scenario_title": "속도와 전달 신뢰성",
+    "category": "preference",
+    "policy": "capped",
+    "status": "budget_exhausted",
+    "success": false,
+    "turns": 18,
+    "human_requests": 0,
+    "human_answers": 0,
+    "progress_events": 1,
+    "passed_checks": 2,
+    "total_checks": 3,
+    "input_tokens": null,
+    "output_tokens": null,
+    "measured_calls": 0,
+    "unmetered_calls": 18,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "error": null,
+    "session_file": "sessions/priority-choice__capped.json"
+  },
+  "trace": [
+    {
+      "kind": "agent_event",
+      "turn_before": 0,
+      "event": {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "service": "notification",
+          "retry_limit": 3
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 1,
+      "event": {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 2,
+      "event": {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 3,
+      "event": {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 4,
+      "event": {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 5,
+      "event": {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 6,
+      "event": {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 7,
+      "event": {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 8,
+      "event": {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 9,
+      "event": {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 10,
+      "event": {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 11,
+      "event": {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 12,
+      "event": {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 13,
+      "event": {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 14,
+      "event": {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 15,
+      "event": {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 16,
+      "event": {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 17,
+      "event": {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    }
+  ],
+  "evaluation": {
+    "success": false,
+    "passed": 2,
+    "total": 3,
+    "checks": [
+      {
+        "id": "scope",
+        "label": "알림 서비스 범위",
+        "path": "service",
+        "rule": "expected",
+        "passed": true,
+        "actual": "notification",
+        "expected": "notification",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "strategy",
+        "label": "사용자가 승인한 전달 전략",
+        "path": "delivery_strategy",
+        "rule": "approved_decision",
+        "passed": false,
+        "actual": null,
+        "expected": null,
+        "missing": true,
+        "requires_decision": true
+      },
+      {
+        "id": "bounded",
+        "label": "재시도 상한",
+        "path": "retry_limit",
+        "rule": "allowed",
+        "passed": true,
+        "actual": 3,
+        "expected": [
+          0,
+          3
+        ],
+        "missing": false,
+        "requires_decision": false
+      }
+    ],
+    "turn": 18,
+    "status": "budget_exhausted",
+    "scope": "Local JSON contract/work-plan constraints only; no execution or general code correctness claim.",
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 18,
+      "human_requests": 0,
+      "progress_events": 1,
+      "success": false
+    }
+  },
+  "final_state": {
+    "id": "3ff277b2-add2-4bcc-a89c-b1c772896e92",
+    "scenario_id": "priority-choice",
+    "title": "속도와 전달 신뢰성",
+    "description": "알림 전달 속도와 재시도 신뢰성 사이의 우선순위를 사용자가 결정합니다.",
+    "category": "preference",
+    "policy": "capped",
+    "mode": "demo",
+    "status": "budget_exhausted",
+    "turn": 18,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "messages": [
+      {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "service": "notification",
+          "retry_limit": 3
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-1",
+        "turn": 1,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-2",
+        "turn": 2,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-3",
+        "turn": 3,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-4",
+        "turn": 4,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-5",
+        "turn": 5,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-6",
+        "turn": 6,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-7",
+        "turn": 7,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-8",
+        "turn": 8,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-9",
+        "turn": 9,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-10",
+        "turn": 10,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-11",
+        "turn": 11,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-12",
+        "turn": 12,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-13",
+        "turn": 13,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-14",
+        "turn": 14,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-15",
+        "turn": 15,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-16",
+        "turn": 16,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "product",
+        "content": "빠른 발송이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "fast",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-17",
+        "turn": 17,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "reliability",
+        "content": "전달 신뢰성이 우선입니다.",
+        "claims": [
+          {
+            "key": "delivery_priority",
+            "value": "reliable",
+            "kind": "preference",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-18",
+        "turn": 18,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      }
+    ],
+    "requests": [],
+    "decisions": [],
+    "claims": [
+      {
+        "id": "claim-1",
+        "type": "Claim",
+        "agent": "product",
+        "key": "delivery_priority",
+        "value": "fast",
+        "kind": "preference",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 1,
+        "last_seen_turn": 17,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-2",
+        "type": "Claim",
+        "agent": "reliability",
+        "key": "delivery_priority",
+        "value": "reliable",
+        "kind": "preference",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 2,
+        "last_seen_turn": 18,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      }
+    ],
+    "evidence": [
+      {
+        "id": "evidence-1",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 2/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 1,
+        "artifact_hash": "88a968c2f9d9c5218b4d20a768a218d61a5e07a1ea457d6c384073facca5d505",
+        "artifact_revision": 1,
+        "checks": [
+          {
+            "id": "scope",
+            "label": "알림 서비스 범위",
+            "path": "service",
+            "rule": "expected",
+            "passed": true,
+            "actual": "notification",
+            "expected": "notification",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "strategy",
+            "label": "사용자가 승인한 전달 전략",
+            "path": "delivery_strategy",
+            "rule": "approved_decision",
+            "passed": false,
+            "actual": null,
+            "expected": null,
+            "missing": true,
+            "requires_decision": true
+          },
+          {
+            "id": "bounded",
+            "label": "재시도 상한",
+            "path": "retry_limit",
+            "rule": "allowed",
+            "passed": true,
+            "actual": 3,
+            "expected": [
+              0,
+              3
+            ],
+            "missing": false,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "service": "notification",
+          "retry_limit": 3
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      }
+    ],
+    "artifact": {
+      "service": "notification",
+      "retry_limit": 3
+    },
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 18,
+      "human_requests": 0,
+      "progress_events": 1,
+      "success": false
+    },
+    "detector": {
+      "stalled_turns": 17,
+      "reason": "누적 대화 상한에 도달했습니다. 완료되지 않은 상태로 종료합니다.",
+      "conflicts": [
+        {
+          "id": "conflict-af43fe3f44ed",
+          "key": "delivery_priority",
+          "scope": "waiting-api",
+          "kind": "preference",
+          "kinds": [
+            "preference"
+          ],
+          "claim_ids": [
+            "claim-1",
+            "claim-2"
+          ],
+          "agents": [
+            "product",
+            "reliability"
+          ],
+          "values": [
+            "fast",
+            "reliable"
+          ],
+          "status": "open",
+          "summary": "waiting-api의 delivery_priority에 대해 2개 값이 충돌합니다.",
+          "relevant": true
+        }
+      ],
+      "intentional_human_wait": false,
+      "delivery_unknown": false,
+      "wait_cycles": [],
+      "missing_decision_owner": false,
+      "last_progress": {
+        "check_ids": [],
+        "reference_ids": []
+      }
+    },
+    "task": {
+      "id": "task-priority",
+      "description": "사용자가 승인한 우선순위를 알림 전달 계획에 반영한다.",
+      "goal": "서비스 범위와 전달 전략이 명시되고 전달 전략이 사용자 선택과 일치해야 한다.",
+      "artifact_description": "실행 코드가 아닌 알림 전달 계획 JSON",
+      "checklist": [
+        {
+          "id": "scope",
+          "label": "알림 서비스 범위",
+          "path": "service",
+          "expected": "notification"
+        },
+        {
+          "id": "strategy",
+          "label": "사용자가 승인한 전달 전략",
+          "path": "delivery_strategy",
+          "expected_from_decision": "delivery_priority"
+        },
+        {
+          "id": "bounded",
+          "label": "재시도 상한",
+          "path": "retry_limit",
+          "allowed": [
+            0,
+            3
+          ]
+        }
+      ],
+      "relevant_claim_keys": [
+        "delivery_priority"
+      ],
+      "evidence_catalog": [],
+      "oracle_choice": "reliable",
+      "decision": {
+        "key": "delivery_priority",
+        "kind": "preference",
+        "title": "알림 우선순위 결정",
+        "question": "이번 작업에서 어느 전달 전략을 우선할까요?",
+        "options": [
+          {
+            "id": "fast",
+            "label": "빠른 시도",
+            "description": "한 번 발송하고 재시도하지 않는 계획을 승인합니다.",
+            "value": "fast"
+          },
+          {
+            "id": "reliable",
+            "label": "재시도 신뢰성",
+            "description": "최대 3회 재시도하는 계획을 승인합니다.",
+            "value": "reliable"
+          }
+        ]
+      },
+      "type": "Task",
+      "scope": "waiting-api"
+    },
+    "_decision_values": {},
+    "_progress": {
+      "seen_passed_checks": [
+        "scope",
+        "bounded"
+      ],
+      "seen_references": [],
+      "epoch": 1
+    },
+    "_last_request": null,
+    "_artifact_revision": 1,
+    "coordination": {
+      "commitments": [],
+      "human_input_requests": [],
+      "review_requests": [],
+      "waits_for": [],
+      "decision_owner": null
+    }
+  },
+  "error_traceback": null
+}

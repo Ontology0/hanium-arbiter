@@ -1,0 +1,25 @@
+scenario_id,scenario_title,category,policy,status,success,turns,human_requests,human_answers,progress_events,passed_checks,total_checks,input_tokens,output_tokens,measured_calls,unmetered_calls,max_turns,periodic_every,stall_window,error,session_file
+social-handoff,피클의 주인 확인 약속,coordination,capped,budget_exhausted,False,18,0,0,1,2,4,,,0,18,18,4,3,,sessions/social-handoff__capped.json
+social-handoff,피클의 주인 확인 약속,coordination,periodic,completed,True,5,1,1,3,4,4,,,0,5,18,4,3,,sessions/social-handoff__periodic.json
+social-handoff,피클의 주인 확인 약속,coordination,adaptive,completed,True,5,1,1,3,4,4,,,0,5,18,4,3,,sessions/social-handoff__adaptive.json
+review-deadlock,서로 기다리는 슬랙 리뷰,ownership,capped,budget_exhausted,False,18,0,0,1,1,3,,,0,18,18,4,3,,sessions/review-deadlock__capped.json
+review-deadlock,서로 기다리는 슬랙 리뷰,ownership,periodic,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/review-deadlock__periodic.json
+review-deadlock,서로 기다리는 슬랙 리뷰,ownership,adaptive,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/review-deadlock__adaptive.json
+api-contract,API 요구사항 충돌,requirement,capped,budget_exhausted,False,18,0,0,1,2,3,,,0,18,18,4,3,,sessions/api-contract__capped.json
+api-contract,API 요구사항 충돌,requirement,periodic,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/api-contract__periodic.json
+api-contract,API 요구사항 충돌,requirement,adaptive,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/api-contract__adaptive.json
+priority-choice,속도와 전달 신뢰성,preference,capped,budget_exhausted,False,18,0,0,1,2,3,,,0,18,18,4,3,,sessions/priority-choice__capped.json
+priority-choice,속도와 전달 신뢰성,preference,periodic,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/priority-choice__periodic.json
+priority-choice,속도와 전달 신뢰성,preference,adaptive,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/priority-choice__adaptive.json
+ownership,책임 떠넘기기,ownership,capped,budget_exhausted,False,18,0,0,1,2,3,,,0,18,18,4,3,,sessions/ownership__capped.json
+ownership,책임 떠넘기기,ownership,periodic,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/ownership__periodic.json
+ownership,책임 떠넘기기,ownership,adaptive,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/ownership__adaptive.json
+healthy-progress,정상적인 긴 작업,healthy,capped,completed,True,6,0,0,6,6,6,,,0,6,18,4,3,,sessions/healthy-progress__capped.json
+healthy-progress,정상적인 긴 작업,healthy,periodic,completed,True,6,1,1,7,6,6,,,0,6,18,4,3,,sessions/healthy-progress__periodic.json
+healthy-progress,정상적인 긴 작업,healthy,adaptive,completed,True,6,0,0,6,6,6,,,0,6,18,4,3,,sessions/healthy-progress__adaptive.json
+paraphrased-loop,표현만 바뀌는 반복 논쟁,factual,capped,budget_exhausted,False,18,0,0,1,2,3,,,0,18,18,4,3,,sessions/paraphrased-loop__capped.json
+paraphrased-loop,표현만 바뀌는 반복 논쟁,factual,periodic,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/paraphrased-loop__periodic.json
+paraphrased-loop,표현만 바뀌는 반복 논쟁,factual,adaptive,completed,True,5,1,1,3,3,3,,,0,5,18,4,3,,sessions/paraphrased-loop__adaptive.json
+evidence-update,근거 확인 후 주장 철회,evidence,capped,completed,True,4,0,0,3,3,3,,,0,4,18,4,3,,sessions/evidence-update__capped.json
+evidence-update,근거 확인 후 주장 철회,evidence,periodic,completed,True,4,0,0,3,3,3,,,0,4,18,4,3,,sessions/evidence-update__periodic.json
+evidence-update,근거 확인 후 주장 철회,evidence,adaptive,completed,True,4,0,0,3,3,3,,,0,4,18,4,3,,sessions/evidence-update__adaptive.json

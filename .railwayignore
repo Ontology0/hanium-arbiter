@@ -1,0 +1,47 @@
+# Upload only this project's runtime files. Use an explicit project path with
+# railway up --path-as-root; this file cannot constrain a parent archive root.
+# Gitignore-style traversal requires reopening each allowed parent directory.
+**
+!Dockerfile
+!.dockerignore
+!.railwayignore
+!railway.json
+!pyproject.toml
+!uv.lock
+!slack-app-manifest.json
+
+!backend/
+backend/**
+!backend/arbiter/
+backend/arbiter/**
+!backend/arbiter/*.py
+!backend/arbiter/data/
+backend/arbiter/data/**
+!backend/arbiter/data/*.json
+
+!frontend/
+frontend/**
+!frontend/index.html
+!frontend/landing.html
+!frontend/app.js
+!frontend/styles.css
+!frontend/landing.css
+
+!experiments/
+experiments/**
+!experiments/results/
+experiments/results/**
+!experiments/results/latest/
+experiments/results/latest/**
+!experiments/results/latest/summary.json
+
+**/.env
+**/.env.*
+**/.runtime/**
+**/__pycache__/**
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+**/credentials.json
+**/*.pem
+**/*.key

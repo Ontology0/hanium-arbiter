@@ -1,0 +1,32 @@
+{
+  "display_information": {
+    "name": "Arbiter Observer",
+    "description": "Observe agent collaboration in selected channels for a human coordination dashboard.",
+    "background_color": "#16201d"
+  },
+  "features": {
+    "bot_user": {
+      "display_name": "Arbiter Observer",
+      "always_online": false
+    }
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": [
+        "channels:history",
+        "groups:history"
+      ]
+    }
+  },
+  "settings": {
+    "event_subscriptions": {
+      "bot_events": [
+        "message.channels",
+        "message.groups"
+      ]
+    },
+    "socket_mode_enabled": true,
+    "org_deploy_enabled": false,
+    "token_rotation_enabled": false
+  }
+}

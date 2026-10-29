@@ -1,0 +1,15 @@
+{
+  "skills": {
+    "load": {
+      "extraDirs": ["${ARBITER_ROOT}/skills"]
+    },
+    "entries": {
+      "arbiter-coordination": {
+        "enabled": true,
+        "env": {
+          "ARBITER_API_URL": "http://127.0.0.1:8787"
+        }
+      }
+    }
+  }
+}

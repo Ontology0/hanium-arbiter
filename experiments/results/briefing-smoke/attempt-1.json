@@ -1,0 +1,189 @@
+{
+  "input_kind": "synthetic_conversation",
+  "provider": "live_codex",
+  "expected_status": "cross_owner_conflict",
+  "attempt": 1,
+  "prompt_change": "최초: 업무행동 대신 권한선택 메타행동을 추출하여 기대 분기 불일치",
+  "observed_status": "authority_gap",
+  "messages": [
+    {
+      "id": "m1",
+      "agent": "배포봇A",
+      "content": "결제 서비스 1.2 배포 승인은 제가 결정해야 한다고 생각합니다.",
+      "turn": 1,
+      "claims": [],
+      "evidence": [],
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_source": "unavailable",
+      "provenance": "imported_transcript"
+    },
+    {
+      "id": "m2",
+      "agent": "검토봇B",
+      "content": "제 소유자의 승인 전에는 배포하면 안 됩니다.",
+      "turn": 2,
+      "claims": [],
+      "evidence": [],
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_source": "unavailable",
+      "provenance": "imported_transcript"
+    },
+    {
+      "id": "m3",
+      "agent": "배포봇A",
+      "content": "두 소유자의 의견이 다릅니다. 이번 배포의 최종 승인권을 누구에게 둘지 정해야 합니다.",
+      "turn": 3,
+      "claims": [],
+      "evidence": [],
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_source": "unavailable",
+      "provenance": "imported_transcript"
+    },
+    {
+      "id": "m4",
+      "agent": "검토봇B",
+      "content": "우선권이 정해질 때까지 실행하지 않겠습니다.",
+      "turn": 4,
+      "claims": [],
+      "evidence": [],
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_source": "unavailable",
+      "provenance": "imported_transcript"
+    }
+  ],
+  "brief": {
+    "overview": "결제 서비스 1.2 배포의 최종 승인권이 정해지지 않아 검토봇B가 실행을 보류한 상태입니다.",
+    "agreements": [],
+    "open_questions": [
+      {
+        "text": "이번 배포의 최종 승인권과 두 소유자 사이의 우선권은 누구에게 있는가?",
+        "evidence_ids": [
+          "m1",
+          "m2",
+          "m3"
+        ],
+        "evidence": [
+          {
+            "message_id": "m1",
+            "quote": "결제 서비스 1.2 배포 승인은 제가 결정해야 한다고 생각합니다."
+          },
+          {
+            "message_id": "m2",
+            "quote": "제 소유자의 승인 전에는 배포하면 안 됩니다."
+          },
+          {
+            "message_id": "m3",
+            "quote": "이번 배포의 최종 승인권을 누구에게 둘지 정해야 합니다."
+          }
+        ]
+      }
+    ],
+    "next_actions": [
+      {
+        "text": "검토봇B는 우선권이 정해질 때까지 실행하지 않겠다고 약속했습니다.",
+        "evidence_ids": [
+          "m4"
+        ],
+        "evidence": [
+          {
+            "message_id": "m4",
+            "quote": "우선권이 정해질 때까지 실행하지 않겠습니다."
+          }
+        ]
+      }
+    ],
+    "decision_points": [
+      {
+        "text": "결제 서비스 1.2 배포 승인권의 우선순위를 정해야 합니다. 배포 승인이 내려졌다는 기록은 없습니다.",
+        "evidence_ids": [
+          "m3",
+          "m4"
+        ],
+        "evidence": [
+          {
+            "message_id": "m3",
+            "quote": "두 소유자의 의견이 다릅니다. 이번 배포의 최종 승인권을 누구에게 둘지 정해야 합니다."
+          },
+          {
+            "message_id": "m4",
+            "quote": "우선권이 정해질 때까지 실행하지 않겠습니다."
+          }
+        ],
+        "scope": "payment-release-1.2",
+        "action": "choose-approval-precedence",
+        "agents": [
+          "배포봇A",
+          "검토봇B"
+        ],
+        "state": "unresolved"
+      }
+    ],
+    "source": "codex",
+    "generated_turn": 4,
+    "source_digest": "52e8ebcd37bc9a8f276e2bd454da97dfc6da52d058ab4bc67bbbf53bbafd3de3",
+    "input_tokens": 14969,
+    "output_tokens": 362,
+    "usage_source": "measured",
+    "duration_seconds": 12.95,
+    "coverage": {
+      "included_messages": 4,
+      "total_messages": 4,
+      "truncated_messages": 0
+    },
+    "authority_digest": "87fb57e59ab57cb856201f91b4634b8c647b0ee19f80843e9da3bbd8620f8322",
+    "detector": "evidence_extraction_then_scoped_authority_rules",
+    "interpretation_status": "model_interpretation",
+    "execution_status": "not_verified",
+    "intervention_points": [
+      {
+        "text": "payment-release-1.2의 choose-approval-precedence 권한을 누구에게 위임할까요?",
+        "evidence_ids": [
+          "m3",
+          "m4"
+        ],
+        "evidence": [
+          {
+            "message_id": "m3",
+            "quote": "두 소유자의 의견이 다릅니다. 이번 배포의 최종 승인권을 누구에게 둘지 정해야 합니다."
+          },
+          {
+            "message_id": "m4",
+            "quote": "우선권이 정해질 때까지 실행하지 않겠습니다."
+          }
+        ],
+        "basis": "authority_registry",
+        "reason": "이 scope/action에서 참여 에이전트에게 부여된 유효한 사람 권한이 없습니다.",
+        "required_owners": []
+      }
+    ],
+    "authority_checks": [
+      {
+        "status": "authority_gap",
+        "authorized_agents": [],
+        "decision_owner": null,
+        "required_owners": [],
+        "reason": "이 scope/action에서 참여 에이전트에게 부여된 유효한 사람 권한이 없습니다.",
+        "grant_ids": [],
+        "scope": "payment-release-1.2",
+        "action": "choose-approval-precedence",
+        "source": "local_operator_record",
+        "precedence_applied": false,
+        "priority_order": [],
+        "conditional_agents": [],
+        "owner_by_agent": {},
+        "authority_only": true,
+        "evidence_ids": [
+          "m3",
+          "m4"
+        ],
+        "decision_state": "unresolved"
+      }
+    ],
+    "authority_checked_digest": "87fb57e59ab57cb856201f91b4634b8c647b0ee19f80843e9da3bbd8620f8322"
+  },
+  "scope": "single_case_integration_smoke_not_accuracy_evaluation"
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="에이전트의 대기 관계, 엇갈린 주장과 필요한 사람의 결정을 한곳에서 관리합니다.">
+  <title>컬처핏(Culture-Fit) — 대화를 결정으로</title>
+  <link rel="stylesheet" href="/static/landing.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/" aria-label="컬처핏 홈"><span class="mark" aria-hidden="true">c.</span> Culture-Fit</a>
+    <nav aria-label="주 메뉴"><a href="/workspace#integration">MCP 연결</a><a href="/workspace#experiments">실험 결과</a></nav>
+    <a class="workspace" href="/workspace">관제 화면 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">HUMAN + AGENT COORDINATION</p>
+      <h1>에이전트의 대화를<br>다음 결정으로<br>이어줍니다.</h1>
+      <p class="description">서로를 기다리는 에이전트, 엇갈리는 주장, 비어 있는 결정권자.<br class="desktop"> 대화의 근거를 연결하고 사람이 결정할 순간을 찾습니다.</p>
+      <div class="actions"><a class="button primary" href="/workspace#integration">MCP 연결하기</a><a class="button secondary" href="/workspace">관제 화면 보기 <span aria-hidden="true">→</span></a></div>
+      <p class="caption">대화 기록 · 관계와 근거 · 사람의 결정</p>
+    </section>
+    <section class="flow" aria-label="협업을 다시 진행하는 세 단계">
+      <article><span>01 / OBSERVE</span><h2>무엇을 기다리는지</h2><p>대화에서 확인 약속과 대기 관계를 모으고, 근거가 있는 주장과 아직 확인되지 않은 내용을 구분합니다.</p></article>
+      <article><span>02 / DECIDE</span><h2>누가 결정해야 하는지</h2><p>서로 미루는 검토, 충돌하는 선택, 확인이 필요한 요청을 구체적인 질문으로 정리합니다.</p></article>
+      <article><span>03 / CONTINUE</span><h2>다음에 무엇을 할지</h2><p>사람의 선택과 담당자를 기록합니다. 연결된 에이전트는 결정을 조회하고 다음 행동을 이어갑니다.</p></article>
+    </section>
+  </main>
+  <footer><a href="/">컬처핏(Culture-Fit)</a><span>한이음 프로젝트 · 로컬 프로토타입</span></footer>
+  <script>
+    fetch("/api/config").then((response) => response.ok ? response.json() : null).then((config) => {
+      if (config?.deployment?.mode !== "visitor_demo") return;
+      document.querySelector(".nav nav a").textContent = "내 환경에 설치";
+      document.querySelector(".workspace").textContent = "체험 화면 ↗";
+      const primary = document.querySelector(".actions .primary");
+      primary.href = "/workspace"; primary.textContent = "방문자 체험 시작";
+      const secondary = document.querySelector(".actions .secondary");
+      secondary.href = "https://github.com/Ontology0/hanium-arbiter"; secondary.textContent = "GitHub에서 설치 →";
+      document.querySelector(".caption").textContent = config.deployment.notice || "방문자별로 분리된 예시 체험입니다. 실제 외부 에이전트·소유자와 연결되지 않습니다.";
+      document.querySelector("footer span").textContent = "한이음 프로젝트 · 방문자별 분리 체험";
+    }).catch(() => {});
+  </script>
+</body>
+</html>

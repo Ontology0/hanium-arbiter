@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="온톨로지와 지식 충돌을 바탕으로 멀티에이전트 협업의 사람 개입을 관리합니다." />
+    <title>컬처핏(Culture-Fit) · 협업 관제</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">본문으로 이동</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="세션 관리">
+        <a class="brand" href="/" aria-label="컬처핏 홈"><span class="brand-mark" aria-hidden="true">c<span>·</span></span><span>컬처핏<span class="brand-sub">CULTURE-FIT</span></span></a>
+        <div class="sidebar-heading"><span class="eyebrow">WORKSPACE</span><span class="workspace-dot" aria-hidden="true"></span></div>
+        <div class="workspace-name"><span aria-hidden="true">◈</span> 협업 관제 <span id="deployment-label" class="small-pill">LOCAL</span></div>
+
+        <button id="open-intake" class="button primary full-width intake-open" type="button">대화 가져오기 <span aria-hidden="true">↗</span></button>
+        <p class="intake-help">Slack · Pickle · 에이전트 대화</p>
+        <section class="new-session-section" aria-labelledby="new-session-heading">
+          <h2 id="new-session-heading">새 협업 시작</h2>
+          <form id="session-form">
+            <label for="scenario-select">협업 과제</label>
+            <select id="scenario-select" name="scenario_id" required disabled><option value="">불러오는 중…</option></select>
+            <p id="scenario-description" class="field-help"></p>
+            <label for="policy-select">개입 정책</label>
+            <select id="policy-select" name="policy" required disabled></select>
+            <label for="mode-select">실행 방식</label>
+            <select id="mode-select" name="mode" required disabled></select>
+            <p id="provider-description" class="field-help"></p>
+            <button id="create-session" class="button primary full-width" type="submit" disabled><span aria-hidden="true">＋</span> 세션 만들기</button>
+          </form>
+        </section>
+
+        <section class="sessions-section" aria-labelledby="sessions-heading">
+          <div class="section-heading"><h2 id="sessions-heading">최근 세션</h2><button id="refresh-sessions" class="icon-button" type="button" aria-label="세션 목록 새로고침" title="새로고침">↻</button></div>
+          <div id="session-list" class="session-list"><p class="sidebar-empty">세션을 불러오는 중입니다.</p></div>
+          <nav id="session-pagination" class="pagination compact-pagination" aria-label="세션 페이지"></nav>
+        </section>
+        <div class="sidebar-footer"><span class="footer-symbol" aria-hidden="true">◎</span><p>필요한 순간에, 필요한 판단만.<br><span>Ontology-aware human intervention</span></p></div>
+      </aside>
+
+      <main id="workspace" class="workspace" tabindex="-1">
+        <div class="topline"><span>WORKSPACE <span class="breadcrumb-slash">/</span> 협업 관제</span><span class="topline-right"><span class="status-dot" aria-hidden="true"></span> HAN IUM PROJECT</span></div>
+        <section id="deployment-notice" class="deployment-notice" aria-labelledby="deployment-heading" hidden><div><h2 id="deployment-heading">방문자별 체험</h2><p id="deployment-description"></p><p class="deployment-detail">예시의 모델 분석은 이전에 기록된 결과입니다. 실시간 모델 호출 없이 승인·권한 변경을 체험할 수 있습니다.</p></div><div class="deployment-actions"><button id="reset-demo" class="button secondary" type="button" disabled>내 체험 초기화</button><p>이 브라우저의 체험 기록을<br>처음의 예시 상태로 되돌립니다.</p></div></section>
+        <div id="error-banner" class="error-banner" role="alert" hidden><span id="error-text"></span><button id="dismiss-error" class="icon-button" type="button" aria-label="오류 알림 닫기">×</button></div>
+        <header class="workspace-header">
+          <div><h1>대화가 멈춘 이유를,<br>다음 결정으로.</h1><p class="header-description">누가 누구를 기다리는지, 어떤 결정이 필요한지 확인하세요.</p></div>
+        </header>
+
+        <section class="session-toolbar" aria-labelledby="active-session-title">
+          <div class="session-identity"><div class="section-heading compact"><span id="session-status" class="status-badge neutral">시작 전</span><span id="policy-label" class="muted small"></span></div><h2 id="active-session-title">첫 번째 협업을 시작해 보세요</h2></div>
+          <div class="session-actions"><button id="step-button" type="button" class="button secondary" disabled><span aria-hidden="true">▹</span> 한 턴 실행</button><button id="run-button" type="button" class="button primary" disabled><span aria-hidden="true">▶</span> 이어서 실행</button><button id="stop-button" type="button" class="button stop" disabled>중지</button></div>
+        </section>
+        <div id="mode-notice" class="mode-notice"><span class="notice-icon" aria-hidden="true">ⓘ</span><p>왼쪽에서 과제와 개입 정책을 선택하세요. 시연과 실제 에이전트 실행을 구분해 기록합니다.</p></div>
+
+        <div class="workspace-navigation">
+          <div id="workspace-tabs" class="workspace-tabs" role="tablist" aria-label="협업 관제 화면">
+            <button id="overview-tab" class="workspace-tab active" type="button" role="tab" aria-selected="true" aria-controls="overview-view">현황</button>
+            <button id="conversation-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="conversation-view" tabindex="-1">대화 <span id="conversation-tab-count" class="tab-count">0</span></button>
+            <button id="decisions-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="decisions-view" tabindex="-1">결정함 <span id="decision-tab-count" class="tab-count">0</span></button>
+            <button id="knowledge-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="knowledge-view" tabindex="-1">지식맵</button>
+            <button id="experiments-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="experiments-view" tabindex="-1">실험</button>
+            <button id="integration-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="integration-view" tabindex="-1">연결 설정</button>
+          </div>
+          <div class="export-links"><a id="export-json" href="#" aria-disabled="true" class="disabled-link" download>JSON ↓</a><a id="export-markdown" href="#" aria-disabled="true" class="disabled-link" download>보고서 ↓</a></div>
+        </div>
+
+        <section id="overview-view" class="workspace-view" role="tabpanel" aria-labelledby="overview-tab">
+        <section class="metrics" aria-label="협업 지표">
+          <article class="metric"><span class="metric-label">진행한 대화</span><div class="metric-value"><strong id="metric-turns">—</strong><span id="metric-turns-unit">턴</span></div><span id="metric-turns-note" class="metric-note">세션 생성 후 표시</span><span class="metric-glyph" aria-hidden="true">↗</span></article>
+          <article class="metric"><span class="metric-label">측정된 토큰</span><div class="metric-value"><strong id="metric-tokens">—</strong><span id="metric-tokens-unit"></span></div><span id="metric-tokens-note" class="metric-note">실제 사용량 기준</span><span class="metric-glyph" aria-hidden="true">◌</span></article>
+          <article class="metric"><span class="metric-label">사람에게 요청한 결정</span><div class="metric-value"><strong id="metric-requests">—</strong><span>회</span></div><span id="metric-requests-note" class="metric-note">판단이 필요한 순간</span><span class="metric-glyph" aria-hidden="true">⌁</span></article>
+          <article class="metric"><span class="metric-label">확인된 진행 변화</span><div class="metric-value"><strong id="metric-progress">—</strong><span>회</span></div><span id="metric-progress-note" class="metric-note">산출물·근거 변화</span><span class="metric-glyph" aria-hidden="true">◈</span></article>
+        </section>
+
+          <section id="authority-check-panel" class="panel authority-check-panel" aria-labelledby="authority-check-heading" hidden><div class="panel-heading"><div><p class="eyebrow">AUTHORITY CHECK</p><h2 id="authority-check-heading">지금 결정할 권한이 있나요?</h2></div><button id="open-authority" class="button secondary" type="button">위임 확인하기 →</button></div><div class="authority-check-body"><p id="authority-intervention-count" class="authority-summary"></p><p id="precedence-feedback" class="precedence-feedback" role="status"></p><div id="authority-checks" class="authority-checks"></div><nav id="authority-check-pagination" class="pagination" aria-label="권한 확인 결과 페이지"></nav></div></section>
+
+          <section id="brief-panel" class="panel brief-panel" aria-labelledby="brief-heading">
+            <div class="panel-heading"><div><p class="eyebrow">DECISION BRIEF</p><h2 id="brief-heading">결정 브리핑</h2></div><button id="generate-brief" class="button secondary" type="button" disabled>대화 브리핑 생성</button></div>
+            <div class="brief-body"><p class="brief-help">실제 모델을 호출해 합의·쟁점·개입 지점을 정리합니다. 생성 시 사용량이 발생합니다.</p><p id="brief-status" class="brief-status" role="status">대화를 선택하면 브리핑을 생성할 수 있습니다.</p><div id="brief-content"></div><nav id="brief-pagination" class="pagination" aria-label="브리핑 항목 페이지" hidden></nav></div>
+          </section>
+
+          <div class="overview-grid">
+            <section class="panel overview-decision-panel" aria-labelledby="overview-decision-heading"><div class="panel-heading"><div><p class="eyebrow">NEXT DECISION</p><h2 id="overview-decision-heading">다음 결정</h2></div><span id="overview-pending-count" class="count-badge">0</span></div><div id="overview-decision" class="overview-decision"><p class="muted">협업을 시작하거나 대화를 가져오면 필요한 결정을 확인할 수 있습니다.</p></div></section>
+            <section id="coordination-panel" class="panel coordination-panel" aria-labelledby="coordination-heading" hidden><div class="panel-heading"><div><h2 id="coordination-heading">누구를 기다리고 있나요?</h2><p id="coordination-summary" class="coordination-summary"></p></div></div><div id="coordination-content" class="coordination-content"></div></section>
+            <section id="overview-task-panel" class="panel" aria-labelledby="overview-task-heading"><div class="panel-heading"><h2 id="overview-task-heading">현재 협업</h2></div><div id="overview-task" class="overview-task"><p class="muted">과제와 실행 정책을 선택해 새 세션을 만드세요.</p></div></section>
+          </div>
+        </section>
+
+        <section id="conversation-view" class="workspace-view" role="tabpanel" aria-labelledby="conversation-tab" hidden>
+          <section class="panel conversation-panel" aria-labelledby="conversation-heading">
+            <div class="panel-heading"><div><p class="eyebrow">CONVERSATION</p><h2 id="conversation-heading">에이전트 대화</h2></div><span id="message-count" class="count-badge">0</span></div>
+            <div class="list-toolbar"><p id="message-range" class="muted small">대화 0개</p><button id="latest-messages" class="button secondary" type="button" disabled>최신 대화 보기</button></div>
+            <nav id="message-pagination" class="pagination" aria-label="대화 페이지"></nav>
+            <div id="conversation" class="conversation" aria-live="off"><div class="empty-state"><span class="empty-symbol" aria-hidden="true">↔</span><h3>협업의 흐름을 한눈에</h3><p>대화는 10개씩 페이지로 확인할 수 있습니다.</p></div></div>
+            <div class="conversation-footer"><span id="detector-label">협업 시작을 기다리고 있습니다</span><span id="stalled-label"></span></div>
+          </section>
+        </section>
+
+        <section id="decisions-view" class="workspace-view" role="tabpanel" aria-labelledby="decisions-tab" hidden>
+          <div class="decisions-layout">
+            <section class="panel decision-inbox" aria-labelledby="inbox-heading"><div class="panel-heading"><div><p class="eyebrow">INBOX & HISTORY</p><h2 id="inbox-heading">결정 요청과 기록</h2></div></div><div class="inbox-filter"><label for="request-filter">표시할 요청</label><select id="request-filter"><option value="all">전체 요청</option><option value="pending">결정 대기</option><option value="resolved">결정 기록 · 권한으로 확인</option></select></div><div id="request-list" class="request-list"><p class="muted">아직 결정 요청이 없습니다.</p></div><nav id="request-pagination" class="pagination compact-pagination" aria-label="결정 요청 페이지"></nav></section>
+            <aside class="panel decision-panel" aria-labelledby="decision-heading"><div class="panel-heading"><div><p class="eyebrow">HUMAN IN THE LOOP</p><h2 id="decision-heading">결정 상세</h2></div><span class="decision-icon" aria-hidden="true">✳</span></div><div id="decision-content"><div class="empty-state decision-empty"><span class="orbit-symbol" aria-hidden="true">◎</span><h3>확인할 요청을 선택하세요</h3><p>결정 대기와 지난 판단을 함께 확인할 수 있습니다.</p></div></div></aside>
+          </div>
+        </section>
+
+        <section id="knowledge-view" class="workspace-view" role="tabpanel" aria-labelledby="knowledge-tab" hidden>
+          <section class="panel authority-panel" aria-labelledby="authority-heading"><div class="panel-heading"><div><p class="eyebrow">SCOPED AUTHORITY</p><h2 id="authority-heading">에이전트 권한</h2></div><button id="refresh-authority" class="button secondary" type="button">권한 새로고침</button></div><div class="authority-body"><p class="authority-description">소유자가 에이전트에게 위임한 작업 범위와 행동을 기록합니다. 권한은 각 범위와 행동별로 확인합니다. 로컬 운영자의 기록이며 외부 소유자의 본인 인증을 뜻하지 않습니다.</p><form id="authority-form" class="authority-form"><div><label for="authority-agent">에이전트</label><input id="authority-agent" name="agent" required maxlength="200" placeholder="agent-a" /></div><div><label for="authority-owner">소유자 · 필수</label><input id="authority-owner" name="owner" required maxlength="200" placeholder="person-a" /></div><div><label for="authority-scope">작업 범위</label><input id="authority-scope" name="scope" required maxlength="200" placeholder="release" /></div><div><label for="authority-action">위임할 행동</label><input id="authority-action" name="action" required maxlength="200" placeholder="approve" /></div><button id="create-grant" class="button primary" type="submit">권한 등록</button></form><p id="authority-feedback" class="authority-feedback" role="status"></p><div id="authority-list"><p class="muted">권한 목록을 불러오고 있습니다.</p></div><nav id="authority-pagination" class="pagination" aria-label="등록된 권한 페이지"></nav></div></section>
+          <section class="panel knowledge-panel" aria-label="지식 탐색">
+            <div class="knowledge-heading"><div id="knowledge-tabs" class="tabs" role="tablist" aria-label="지식 탐색 방식"><button id="graph-tab" class="tab active" type="button" role="tab" aria-selected="true" aria-controls="graph-view">연결 지도</button><button id="claims-tab" class="tab" type="button" role="tab" aria-selected="false" aria-controls="claims-view" tabindex="-1">주장 <span id="claims-count" class="tab-count">0</span></button><button id="evidence-tab" class="tab" type="button" role="tab" aria-selected="false" aria-controls="evidence-view" tabindex="-1">근거 <span id="evidence-count" class="tab-count">0</span></button></div></div>
+            <div id="graph-view" class="tab-panel" role="tabpanel" aria-labelledby="graph-tab"><div class="graph-intro"><div><h3>흩어진 대화를, 판단 가능한 지식으로</h3><p>주장과 근거, 대기 관계와 사람의 결정을 연결합니다.</p></div><div class="graph-legend"><span><i class="legend-agent"></i> 에이전트</span><span><i class="legend-claim"></i> 주장</span><span><i class="legend-evidence"></i> 근거</span><span><i class="legend-conflict"></i> 충돌·결정</span></div></div><div id="graph-container" class="graph-container"><p class="graph-empty">세션에서 생성한 지식 관계가 이곳에 표시됩니다.</p></div><div class="graph-details"><h3 class="subsection-title">관계 목록 <span id="graph-count" class="muted"></span></h3><div id="graph-text" class="graph-text"><section><h4>노드</h4><ul id="graph-node-list"></ul><nav id="node-pagination" class="pagination compact-pagination" aria-label="지식 노드 페이지"></nav></section><section><h4>관계</h4><ul id="graph-edge-list"></ul><nav id="edge-pagination" class="pagination compact-pagination" aria-label="지식 관계 페이지"></nav></section></div></div></div>
+            <div id="claims-view" class="tab-panel" role="tabpanel" aria-labelledby="claims-tab" hidden><div class="section-heading"><h3 class="subsection-title">기록된 주장</h3><p class="muted small">페이지당 8개</p></div><nav id="claim-pagination" class="pagination" aria-label="주장 페이지"></nav><div id="claims-list" class="record-list"><p class="muted">아직 기록된 주장이 없습니다.</p></div><div id="artifact-container" class="artifact-container" hidden></div></div>
+            <div id="evidence-view" class="tab-panel" role="tabpanel" aria-labelledby="evidence-tab" hidden><div class="section-heading"><h3 class="subsection-title">연결된 근거</h3><p class="muted small">페이지당 8개</p></div><nav id="evidence-pagination" class="pagination" aria-label="근거 페이지"></nav><div id="evidence-list" class="record-list"><p class="muted">아직 기록된 근거가 없습니다.</p></div></div>
+          </section>
+        </section>
+
+        <section id="experiments-view" class="workspace-view" role="tabpanel" aria-labelledby="experiments-tab" hidden><section class="panel standalone-panel"><div class="graph-intro"><div><h2>개입 정책에 따른 협업 결과</h2><p>동일한 과제에서 고정 횟수 제한, 주기적 개입, 충돌·정체 기반 개입을 비교합니다.</p></div><button id="refresh-experiments" class="button secondary" type="button">결과 새로고침</button></div><div id="experiment-content"><p class="muted">실험 결과를 불러오고 있습니다.</p></div></section></section>
+
+        <section id="integration-view" class="workspace-view" role="tabpanel" aria-labelledby="integration-tab" hidden><section class="panel standalone-panel"><div class="graph-intro"><div><h2 id="integration-heading">기존 에이전트에 연결하기</h2><p id="integration-description">에이전트의 MCP 설정에 컬처핏 도구를 추가해 대화와 결정 상태를 공유합니다.</p></div><button id="refresh-integration" class="button secondary" type="button">설정 새로고침</button></div><div class="integration-notice"><strong>연결 설정 안내</strong><p>설정 정보가 표시되어도 에이전트가 연결된 상태를 뜻하지 않습니다. 외부 메시지는 자동 전송하지 않습니다.</p></div><div id="integration-content"><p class="muted">연결 설정을 불러오고 있습니다.</p></div></section></section>
+        <footer class="workspace-footer"><span>CULTURE-FIT <span class="footer-separator">/</span> 온톨로지 기반 적응형 HITL</span><span id="session-id-label">사람의 판단이 다음 진행을 만듭니다.</span></footer>
+        <div id="screen-reader-status" class="sr-only" role="status" aria-live="polite"></div>
+      </main>
+    </div>
+    <dialog id="intake-dialog" class="intake-dialog" aria-labelledby="intake-heading">
+      <form id="intake-form">
+        <div class="intake-dialog-heading"><h2 id="intake-heading">대화 가져오기</h2><button id="close-intake" type="button" class="icon-button" aria-label="대화 가져오기 닫기">×</button></div>
+        <p class="intake-description">대화를 붙여 넣으면 약속과 실제 요청을 구분하고, 다음 결정에 필요한 사람을 확인합니다.</p>
+        <div class="intake-fields"><div><label for="intake-source">대화 출처</label><select id="intake-source" name="source"><option value="slack">Slack</option><option value="pickle">Pickle</option><option value="manual">직접 입력</option></select></div><div><label for="intake-title">대화 제목 (선택)</label><input id="intake-title" name="title" type="text" maxlength="120" placeholder="예: 금요일 저녁 약속 조율" /></div></div>
+        <label for="intake-transcript">분석할 대화</label>
+        <textarea id="intake-transcript" name="transcript" required rows="10" maxlength="40000" placeholder="발화자와 대화 내용을 함께 붙여 넣어 주세요.&#10;&#10;민수의 Pickle: 주인에게 가능한 시간을 확인하고 전달할게요.&#10;지연의 Pickle: 저도 주인에게 확인한 뒤 알려드릴게요."></textarea>
+        <p class="intake-privacy">붙여 넣은 대화만 분석합니다. Pickle이나 Slack에 메시지를 전송하지 않습니다.</p>
+        <p id="intake-error" class="intake-error" role="alert" hidden></p>
+        <button id="intake-submit" class="button primary full-width" type="submit">대기와 결정 지점 분석하기 →</button>
+      </form>
+    </dialog>
+  </body>
+</html>
