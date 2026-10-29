@@ -26,6 +26,8 @@ build/
 *.db
 *.sqlite
 *.sqlite3
+.runtime/
+frontend/downloads/*.zip
 
 # 실험 산출물
 experiments/runs/

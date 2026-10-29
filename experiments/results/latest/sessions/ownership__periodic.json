@@ -1,0 +1,730 @@
+{
+  "study_type": "통제 시뮬레이션",
+  "scenario": {
+    "id": "ownership",
+    "title": "책임 떠넘기기",
+    "description": "순번 계산 담당이 정해지지 않아 에이전트들이 서로의 작업을 기다립니다.",
+    "category": "ownership"
+  },
+  "policy": "periodic",
+  "parameters": {
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3
+  },
+  "answer_policy": "fixture_oracle_if_offered_else_continue",
+  "result": {
+    "scenario_id": "ownership",
+    "scenario_title": "책임 떠넘기기",
+    "category": "ownership",
+    "policy": "periodic",
+    "status": "completed",
+    "success": true,
+    "turns": 5,
+    "human_requests": 1,
+    "human_answers": 1,
+    "progress_events": 3,
+    "passed_checks": 3,
+    "total_checks": 3,
+    "input_tokens": null,
+    "output_tokens": null,
+    "measured_calls": 0,
+    "unmetered_calls": 5,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "error": null,
+    "session_file": "sessions/ownership__periodic.json"
+  },
+  "trace": [
+    {
+      "kind": "agent_event",
+      "turn_before": 0,
+      "event": {
+        "agent": "backend",
+        "content": "순번 계산은 frontend의 작업입니다. 완료를 기다립니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "frontend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "service": "waiting",
+          "boundary": "single_owner"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 1,
+      "event": {
+        "agent": "frontend",
+        "content": "순번 계산은 backend의 작업입니다. 완료를 기다립니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "backend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 2,
+      "event": {
+        "agent": "backend",
+        "content": "순번 계산은 frontend의 작업입니다. 완료를 기다립니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "frontend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 3,
+      "event": {
+        "agent": "frontend",
+        "content": "순번 계산은 backend의 작업입니다. 완료를 기다립니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "backend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "scripted_human_answer",
+      "turn_before": 4,
+      "request_id": "request-1",
+      "choice": "backend",
+      "answer_policy": "fixture_oracle_if_offered_else_continue"
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 4,
+      "event": {
+        "agent": "planner",
+        "content": "backend를 단일 담당으로 배정했습니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "backend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "service": "waiting",
+          "queue_owner": "backend",
+          "boundary": "single_owner"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    }
+  ],
+  "evaluation": {
+    "success": true,
+    "passed": 3,
+    "total": 3,
+    "checks": [
+      {
+        "id": "service",
+        "label": "대기 서비스",
+        "path": "service",
+        "rule": "expected",
+        "passed": true,
+        "actual": "waiting",
+        "expected": "waiting",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "owner",
+        "label": "승인된 순번 계산 담당",
+        "path": "queue_owner",
+        "rule": "approved_decision",
+        "passed": true,
+        "actual": "backend",
+        "expected": "backend",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "boundary",
+        "label": "단일 책임 경계",
+        "path": "boundary",
+        "rule": "expected",
+        "passed": true,
+        "actual": "single_owner",
+        "expected": "single_owner",
+        "missing": false,
+        "requires_decision": false
+      }
+    ],
+    "turn": 5,
+    "status": "completed",
+    "scope": "Local JSON contract/work-plan constraints only; no execution or general code correctness claim.",
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 5,
+      "human_requests": 1,
+      "progress_events": 3,
+      "success": true
+    }
+  },
+  "final_state": {
+    "id": "cb645f6b-25d3-424d-ac34-689ae0eda12b",
+    "scenario_id": "ownership",
+    "title": "책임 떠넘기기",
+    "description": "순번 계산 담당이 정해지지 않아 에이전트들이 서로의 작업을 기다립니다.",
+    "category": "ownership",
+    "policy": "periodic",
+    "mode": "demo",
+    "status": "completed",
+    "turn": 5,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "messages": [
+      {
+        "agent": "backend",
+        "content": "순번 계산은 frontend의 작업입니다. 완료를 기다립니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "frontend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "service": "waiting",
+          "boundary": "single_owner"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-1",
+        "turn": 1,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "순번 계산은 backend의 작업입니다. 완료를 기다립니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "backend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-2",
+        "turn": 2,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "backend",
+        "content": "순번 계산은 frontend의 작업입니다. 완료를 기다립니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "frontend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-3",
+        "turn": 3,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "순번 계산은 backend의 작업입니다. 완료를 기다립니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "backend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-4",
+        "turn": 4,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "planner",
+        "content": "backend를 단일 담당으로 배정했습니다.",
+        "claims": [
+          {
+            "key": "queue_owner",
+            "value": "backend",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "service": "waiting",
+          "queue_owner": "backend",
+          "boundary": "single_owner"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-5",
+        "turn": 5,
+        "claim_ids": [
+          "claim-3"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 3,
+          "total": 3
+        }
+      }
+    ],
+    "requests": [
+      {
+        "id": "request-1",
+        "status": "resolved",
+        "kind": "ownership",
+        "title": "순번 계산 담당 배정",
+        "summary": "검증 가능한 새 진전 없이 3차례가 이어졌습니다.",
+        "question": "순번 계산의 단일 담당을 어디에 둘까요?",
+        "options": [
+          {
+            "id": "backend",
+            "label": "백엔드 담당",
+            "description": "백엔드가 순번을 계산하고 프론트는 결과를 표시합니다.",
+            "value": "backend"
+          },
+          {
+            "id": "frontend",
+            "label": "프론트 담당",
+            "description": "현재 시연 범위에서 프론트가 순번 계산을 담당합니다.",
+            "value": "frontend"
+          }
+        ],
+        "evidence_ids": [
+          "evidence-1"
+        ],
+        "created_turn": 4,
+        "trigger": "periodic",
+        "decision_key": "queue_owner",
+        "conflict_ids": [
+          "conflict-c4a31d4022f6"
+        ],
+        "claim_ids": [
+          "claim-1",
+          "claim-2"
+        ],
+        "resolved_turn": 4,
+        "choice": "backend"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "decision-1",
+        "type": "Decision",
+        "request_id": "request-1",
+        "choice": "backend",
+        "note": "통제 시뮬레이션의 자동 응답: 실제 사용자 참여 아님",
+        "turn": 4,
+        "decision_key": "queue_owner",
+        "claim_ids": [
+          "claim-1",
+          "claim-2"
+        ],
+        "value": "backend"
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-1",
+        "type": "Claim",
+        "agent": "backend",
+        "key": "queue_owner",
+        "value": "frontend",
+        "kind": "ownership",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 1,
+        "last_seen_turn": 3,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-2",
+        "type": "Claim",
+        "agent": "frontend",
+        "key": "queue_owner",
+        "value": "backend",
+        "kind": "ownership",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 2,
+        "last_seen_turn": 4,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-3",
+        "type": "Claim",
+        "agent": "planner",
+        "key": "queue_owner",
+        "value": "backend",
+        "kind": "ownership",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 5,
+        "last_seen_turn": 5,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      }
+    ],
+    "evidence": [
+      {
+        "id": "evidence-1",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 2/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 1,
+        "artifact_hash": "1d34f2cea40abe77bd25f4c2286d409af7ed905292f8fe6aeded6f5c25740a9d",
+        "artifact_revision": 1,
+        "checks": [
+          {
+            "id": "service",
+            "label": "대기 서비스",
+            "path": "service",
+            "rule": "expected",
+            "passed": true,
+            "actual": "waiting",
+            "expected": "waiting",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "owner",
+            "label": "승인된 순번 계산 담당",
+            "path": "queue_owner",
+            "rule": "approved_decision",
+            "passed": false,
+            "actual": null,
+            "expected": null,
+            "missing": true,
+            "requires_decision": true
+          },
+          {
+            "id": "boundary",
+            "label": "단일 책임 경계",
+            "path": "boundary",
+            "rule": "expected",
+            "passed": true,
+            "actual": "single_owner",
+            "expected": "single_owner",
+            "missing": false,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "service": "waiting",
+          "boundary": "single_owner"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-2",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 3/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 5,
+        "artifact_hash": "770f696f783ac59cd1e10522ed31ebdf9f994cea5214c989b9d19f060bf50626",
+        "artifact_revision": 2,
+        "checks": [
+          {
+            "id": "service",
+            "label": "대기 서비스",
+            "path": "service",
+            "rule": "expected",
+            "passed": true,
+            "actual": "waiting",
+            "expected": "waiting",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "owner",
+            "label": "승인된 순번 계산 담당",
+            "path": "queue_owner",
+            "rule": "approved_decision",
+            "passed": true,
+            "actual": "backend",
+            "expected": "backend",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "boundary",
+            "label": "단일 책임 경계",
+            "path": "boundary",
+            "rule": "expected",
+            "passed": true,
+            "actual": "single_owner",
+            "expected": "single_owner",
+            "missing": false,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "service": "waiting",
+          "boundary": "single_owner",
+          "queue_owner": "backend"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      }
+    ],
+    "artifact": {
+      "service": "waiting",
+      "boundary": "single_owner",
+      "queue_owner": "backend"
+    },
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 5,
+      "human_requests": 1,
+      "progress_events": 3,
+      "success": true
+    },
+    "detector": {
+      "stalled_turns": 0,
+      "reason": "모든 로컬 계약 검사가 통과했습니다.",
+      "conflicts": [
+        {
+          "id": "conflict-c4a31d4022f6",
+          "key": "queue_owner",
+          "scope": "waiting-api",
+          "kind": "ownership",
+          "kinds": [
+            "ownership"
+          ],
+          "claim_ids": [
+            "claim-1",
+            "claim-2",
+            "claim-3"
+          ],
+          "agents": [
+            "backend",
+            "frontend",
+            "planner"
+          ],
+          "values": [
+            "backend",
+            "frontend"
+          ],
+          "status": "decision_recorded",
+          "summary": "waiting-api의 queue_owner에 대해 2개 값이 충돌합니다.",
+          "relevant": true
+        }
+      ],
+      "intentional_human_wait": false,
+      "delivery_unknown": false,
+      "wait_cycles": [],
+      "missing_decision_owner": false,
+      "last_progress": {
+        "check_ids": [
+          "owner"
+        ],
+        "reference_ids": []
+      }
+    },
+    "task": {
+      "id": "task-ownership",
+      "description": "순번 계산의 단일 담당자를 확정한 업무 계획을 작성한다.",
+      "goal": "대기 서비스의 단일 책임 경계를 명시하고 승인된 담당자를 기록한다.",
+      "artifact_description": "실행 코드가 아닌 책임 배정 계획 JSON",
+      "checklist": [
+        {
+          "id": "service",
+          "label": "대기 서비스",
+          "path": "service",
+          "expected": "waiting"
+        },
+        {
+          "id": "owner",
+          "label": "승인된 순번 계산 담당",
+          "path": "queue_owner",
+          "expected_from_decision": "queue_owner"
+        },
+        {
+          "id": "boundary",
+          "label": "단일 책임 경계",
+          "path": "boundary",
+          "expected": "single_owner"
+        }
+      ],
+      "relevant_claim_keys": [
+        "queue_owner"
+      ],
+      "evidence_catalog": [],
+      "oracle_choice": "backend",
+      "decision": {
+        "key": "queue_owner",
+        "kind": "ownership",
+        "title": "순번 계산 담당 배정",
+        "question": "순번 계산의 단일 담당을 어디에 둘까요?",
+        "options": [
+          {
+            "id": "backend",
+            "label": "백엔드 담당",
+            "description": "백엔드가 순번을 계산하고 프론트는 결과를 표시합니다.",
+            "value": "backend"
+          },
+          {
+            "id": "frontend",
+            "label": "프론트 담당",
+            "description": "현재 시연 범위에서 프론트가 순번 계산을 담당합니다.",
+            "value": "frontend"
+          }
+        ]
+      },
+      "type": "Task",
+      "scope": "waiting-api"
+    },
+    "_decision_values": {
+      "queue_owner": "backend"
+    },
+    "_progress": {
+      "seen_passed_checks": [
+        "service",
+        "boundary",
+        "owner"
+      ],
+      "seen_references": [],
+      "epoch": 3
+    },
+    "_last_request": {
+      "signature": "[\"periodic\",[[\"waiting-api\",\"queue_owner\",[\"backend\",\"frontend\"]]]]",
+      "epoch": 1
+    },
+    "_artifact_revision": 2,
+    "coordination": {
+      "commitments": [],
+      "human_input_requests": [],
+      "review_requests": [],
+      "waits_for": [],
+      "decision_owner": null
+    }
+  },
+  "error_traceback": null
+}

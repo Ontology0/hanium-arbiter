@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Download Culture-Fit, an open-source, authority-aware Human-in-the-Loop (HITL) layer for AI agents. Set up the MCP server, dashboard source, and OpenClaw Skill on macOS or Windows.">
+  <title>Download Culture-Fit · Run locally</title>
+  <link rel="stylesheet" href="/static/landing.css">
+  <script src="/static/download.js" defer></script>
+</head>
+<body class="download-page">
+  <header class="nav">
+    <a class="brand" href="/" aria-label="Culture-Fit home"><span class="mark" aria-hidden="true">c.</span> Culture-Fit</a>
+    <nav aria-label="Main navigation"><a href="/download" aria-current="page">Download</a><a href="/workspace#integration">Connections</a></nav>
+    <a class="workspace" href="/workspace">Try the demo <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="download-main">
+    <header class="download-heading">
+      <p class="eyebrow">OPEN-SOURCE HUMAN-IN-THE-LOOP (HITL) FOR AI AGENTS</p>
+      <h1>Run Culture-Fit locally.</h1>
+      <p>An open-source, authority-aware Human-in-the-Loop (HITL) layer for AI agents. Bring your own agents, record scoped authority, and review decisions in your own workspace.</p>
+    </header>
+
+    <section class="download-packages" aria-label="Download packages">
+      <article>
+        <p class="download-kind">SOURCE ZIP</p>
+        <h2>MCP server + dashboard source</h2>
+        <p>Python application source, the browser dashboard, and local launch scripts. Requires <code>uv</code>; the local project uses Python 3.11 or later.</p>
+        <a id="source-download" class="download-action primary" href="/static/downloads/culture-fit-source.zip" download="culture-fit-source.zip">Download source ZIP ↓</a>
+        <p class="download-note">A source package to run in your terminal.</p>
+      </article>
+      <article>
+        <p class="download-kind">SKILL ZIP</p>
+        <h2>OpenClaw Skill</h2>
+        <p>Coordination instructions and a Python helper for an existing OpenClaw installation. Connect it to your local Culture-Fit server.</p>
+        <a id="skill-download" class="download-action" href="/static/downloads/culture-fit-skill.zip" download="culture-fit-skill.zip">Download Skill ZIP ↓</a>
+        <p class="download-note">Requires OpenClaw configuration. <a href="#skill-setup">View Skill setup.</a></p>
+      </article>
+    </section>
+
+    <section class="download-setup" aria-labelledby="setup-heading">
+      <div class="download-section-heading"><span class="download-number">01</span><div><h2 id="setup-heading">Start the local dashboard</h2><p>Install <a href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" rel="noopener noreferrer">uv using its official installation guide ↗</a>, then extract the source ZIP. Open a new terminal so <code>uv</code> is available.</p></div></div>
+      <div id="os-tabs" class="download-os-tabs" role="tablist" aria-label="Operating system">
+        <button id="macos-tab" type="button" role="tab" aria-selected="true" aria-controls="macos-panel">macOS</button>
+        <button id="windows-tab" type="button" role="tab" aria-selected="false" aria-controls="windows-panel" tabindex="-1">Windows</button>
+      </div>
+      <section id="macos-panel" role="tabpanel" aria-labelledby="macos-tab">
+        <p>In Terminal, change to the extracted project folder containing <code>pyproject.toml</code>. Replace the example path below with your folder.</p>
+        <div class="download-code-heading"><span>Terminal</span><button type="button" class="download-copy" data-copy="macos-command">Copy commands</button></div>
+        <pre class="download-code"><code id="macos-command">cd "/Users/you/Downloads/culture-fit"
+uv --version
+./start-macos.sh</code></pre>
+        <p class="download-note">Run the <code>start-macos.sh</code> file included in the extracted project. If your archive tool removes its executable permission, run <code>chmod +x start-macos.sh</code> in that folder first.</p>
+      </section>
+      <section id="windows-panel" role="tabpanel" aria-labelledby="windows-tab" hidden>
+        <p>Choose <strong>Extract All</strong> for the source ZIP, then open PowerShell in the extracted project folder containing <code>pyproject.toml</code>. Replace the example path below with your folder.</p>
+        <div class="download-code-heading"><span>PowerShell</span><button type="button" class="download-copy" data-copy="windows-command">Copy commands</button></div>
+        <pre class="download-code"><code id="windows-command">Set-Location 'C:\Users\you\Downloads\culture-fit'
+uv --version
+powershell -ExecutionPolicy Bypass -File .\start-windows.ps1</code></pre>
+        <p class="download-note">This command runs the local <code>start-windows.ps1</code> file from the extracted project. The Windows launch flow has not been verified on a physical Windows machine.</p>
+      </section>
+      <p>Keep the terminal running, then open <a class="download-text-link" href="http://127.0.0.1:8787/workspace" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8787/workspace ↗</a>. The launch script starts the local API and dashboard; it may download project dependencies.</p>
+      <p class="download-note">Live model briefings require a configured model provider. Downloading or starting the dashboard does not connect external agents or Slack automatically.</p>
+    </section>
+
+    <section class="download-setup" aria-labelledby="mcp-heading">
+      <div class="download-section-heading"><span class="download-number">02</span><div><h2 id="mcp-heading">Connect an MCP client</h2><p>Add this stdio configuration to a client that uses <code>mcpServers</code>. Keep the local API running and replace the example with the absolute path to your extracted project.</p></div></div>
+      <div class="download-code-heading"><span id="mcp-platform-label">macOS · example MCP configuration</span><button type="button" class="download-copy" data-copy="mcp-config">Copy JSON</button></div>
+      <pre class="download-code"><code id="mcp-config">Loading configuration…</code></pre>
+      <p class="download-note">If your client cannot find <code>uv</code>, use the absolute path to the uv executable as <code>command</code>. Client configuration formats vary. The API URL points to your local machine, not the public demo.</p>
+      <p>After restarting your client, ask it to report a conversation and check the next action. The agent must explicitly call the tools; existing conversations are not collected automatically.</p>
+    </section>
+
+    <section id="skill-setup" class="download-setup" aria-labelledby="skill-heading">
+      <div class="download-section-heading"><span class="download-number">03</span><div><h2 id="skill-heading">Using OpenClaw instead?</h2><p>Extract the Skill ZIP. Add the folder containing <code>arbiter-coordination</code> to OpenClaw's <code>skills.load.extraDirs</code>, following the included setup notes.</p></div></div>
+      <p>Start the Culture-Fit server first. Ensure OpenClaw can run <code>python3</code> (Python 3.10 or later); uv managing the server's Python does not guarantee this helper is on OpenClaw's path. The default API URL is <code>http://127.0.0.1:8787</code>.</p>
+      <p class="download-note">The Skill reports messages through explicit agent actions. It does not automatically collect conversations, authenticate owners, or connect to the public demo. Follow your installed OpenClaw version's configuration requirements.</p>
+      <a class="download-text-link" href="https://github.com/Ontology0/hanium-arbiter/tree/feat/ontology-hitl">Browse source and documentation on GitHub ↗</a>
+    </section>
+    <p id="download-status" class="download-status" role="status" aria-live="polite"></p>
+  </main>
+  <footer><a href="/">Culture-Fit</a><span>Source packages · Local configuration required</span></footer>
+</body>
+</html>

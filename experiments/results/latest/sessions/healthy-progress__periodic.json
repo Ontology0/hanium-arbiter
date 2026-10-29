@@ -1,0 +1,1260 @@
+{
+  "study_type": "통제 시뮬레이션",
+  "scenario": {
+    "id": "healthy-progress",
+    "title": "정상적인 긴 작업",
+    "description": "대화가 길어도 각 차례마다 검증 가능한 계약 항목을 하나씩 완성합니다.",
+    "category": "healthy"
+  },
+  "policy": "periodic",
+  "parameters": {
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3
+  },
+  "answer_policy": "fixture_oracle_if_offered_else_continue",
+  "result": {
+    "scenario_id": "healthy-progress",
+    "scenario_title": "정상적인 긴 작업",
+    "category": "healthy",
+    "policy": "periodic",
+    "status": "completed",
+    "success": true,
+    "turns": 6,
+    "human_requests": 1,
+    "human_answers": 1,
+    "progress_events": 7,
+    "passed_checks": 6,
+    "total_checks": 6,
+    "input_tokens": null,
+    "output_tokens": null,
+    "measured_calls": 0,
+    "unmetered_calls": 6,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "error": null,
+    "session_file": "sessions/healthy-progress__periodic.json"
+  },
+  "trace": [
+    {
+      "kind": "agent_event",
+      "turn_before": 0,
+      "event": {
+        "agent": "backend",
+        "content": "계약의 프로젝트 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "project",
+            "value": "waiting",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "project": "waiting"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 1,
+      "event": {
+        "agent": "frontend",
+        "content": "계약의 API 경로 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "endpoint",
+            "value": "/api/waitings",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "endpoint": "/api/waitings"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 2,
+      "event": {
+        "agent": "backend",
+        "content": "계약의 ID 필드 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "id_field",
+            "value": "id",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "id_field": "id"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 3,
+      "event": {
+        "agent": "frontend",
+        "content": "계약의 인원 필드 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "party_field",
+            "value": "team_size",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "party_field": "team_size"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "scripted_human_answer",
+      "turn_before": 4,
+      "request_id": "request-1",
+      "choice": "continue",
+      "answer_policy": "fixture_oracle_if_offered_else_continue"
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 4,
+      "event": {
+        "agent": "backend",
+        "content": "계약의 호출 시각 필드 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "nullable_field",
+            "value": "called_at",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "nullable_field": "called_at"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 5,
+      "event": {
+        "agent": "frontend",
+        "content": "계약의 응답 상태 코드 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "response_status",
+            "value": 200,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "response_status": 200
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    }
+  ],
+  "evaluation": {
+    "success": true,
+    "passed": 6,
+    "total": 6,
+    "checks": [
+      {
+        "id": "project",
+        "label": "프로젝트",
+        "path": "project",
+        "rule": "expected",
+        "passed": true,
+        "actual": "waiting",
+        "expected": "waiting",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "endpoint",
+        "label": "API 경로",
+        "path": "endpoint",
+        "rule": "expected",
+        "passed": true,
+        "actual": "/api/waitings",
+        "expected": "/api/waitings",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "id",
+        "label": "ID 필드",
+        "path": "id_field",
+        "rule": "expected",
+        "passed": true,
+        "actual": "id",
+        "expected": "id",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "party",
+        "label": "인원 필드",
+        "path": "party_field",
+        "rule": "expected",
+        "passed": true,
+        "actual": "team_size",
+        "expected": "team_size",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "nullable",
+        "label": "호출 시각 필드",
+        "path": "nullable_field",
+        "rule": "expected",
+        "passed": true,
+        "actual": "called_at",
+        "expected": "called_at",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "status",
+        "label": "응답 상태 코드",
+        "path": "response_status",
+        "rule": "expected",
+        "passed": true,
+        "actual": 200,
+        "expected": 200,
+        "missing": false,
+        "requires_decision": false
+      }
+    ],
+    "turn": 6,
+    "status": "completed",
+    "scope": "Local JSON contract/work-plan constraints only; no execution or general code correctness claim.",
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 6,
+      "human_requests": 1,
+      "progress_events": 7,
+      "success": true
+    }
+  },
+  "final_state": {
+    "id": "cfd5ba73-9047-4d04-86d3-57e616516b0e",
+    "scenario_id": "healthy-progress",
+    "title": "정상적인 긴 작업",
+    "description": "대화가 길어도 각 차례마다 검증 가능한 계약 항목을 하나씩 완성합니다.",
+    "category": "healthy",
+    "policy": "periodic",
+    "mode": "demo",
+    "status": "completed",
+    "turn": 6,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "messages": [
+      {
+        "agent": "backend",
+        "content": "계약의 프로젝트 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "project",
+            "value": "waiting",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "project": "waiting"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-1",
+        "turn": 1,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 1,
+          "total": 6
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "계약의 API 경로 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "endpoint",
+            "value": "/api/waitings",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "endpoint": "/api/waitings"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-2",
+        "turn": 2,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 2,
+          "total": 6
+        }
+      },
+      {
+        "agent": "backend",
+        "content": "계약의 ID 필드 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "id_field",
+            "value": "id",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "id_field": "id"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-3",
+        "turn": 3,
+        "claim_ids": [
+          "claim-3"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 3,
+          "total": 6
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "계약의 인원 필드 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "party_field",
+            "value": "team_size",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "party_field": "team_size"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-4",
+        "turn": 4,
+        "claim_ids": [
+          "claim-4"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 4,
+          "total": 6
+        }
+      },
+      {
+        "agent": "backend",
+        "content": "계약의 호출 시각 필드 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "nullable_field",
+            "value": "called_at",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "nullable_field": "called_at"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-5",
+        "turn": 5,
+        "claim_ids": [
+          "claim-5"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 5,
+          "total": 6
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "계약의 응답 상태 코드 항목을 작성했습니다.",
+        "claims": [
+          {
+            "key": "response_status",
+            "value": 200,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "response_status": 200
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-6",
+        "turn": 6,
+        "claim_ids": [
+          "claim-6"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 6,
+          "total": 6
+        }
+      }
+    ],
+    "requests": [
+      {
+        "id": "request-1",
+        "status": "resolved",
+        "kind": "checkpoint",
+        "title": "정기 진행 확인",
+        "summary": "새 검사항목 1개·관련 근거 0개로 진전했습니다.",
+        "question": "현재 작업을 계속할까요?",
+        "options": [
+          {
+            "id": "continue",
+            "label": "작업 계속",
+            "description": "현재 목표를 유지하고 다음 검증 가능한 산출물을 요청합니다."
+          },
+          {
+            "id": "stop",
+            "label": "작업 종료",
+            "description": "현재 실행을 종료합니다. 완료로 처리하지 않습니다."
+          }
+        ],
+        "evidence_ids": [
+          "evidence-1",
+          "evidence-2",
+          "evidence-3",
+          "evidence-4"
+        ],
+        "created_turn": 4,
+        "trigger": "periodic",
+        "decision_key": null,
+        "conflict_ids": [],
+        "claim_ids": [],
+        "resolved_turn": 4,
+        "choice": "continue"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "decision-1",
+        "type": "Decision",
+        "request_id": "request-1",
+        "choice": "continue",
+        "note": "통제 시뮬레이션의 자동 응답: 실제 사용자 참여 아님",
+        "turn": 4,
+        "decision_key": null,
+        "claim_ids": []
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-1",
+        "type": "Claim",
+        "agent": "backend",
+        "key": "project",
+        "value": "waiting",
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 1,
+        "last_seen_turn": 1,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-2",
+        "type": "Claim",
+        "agent": "frontend",
+        "key": "endpoint",
+        "value": "/api/waitings",
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 2,
+        "last_seen_turn": 2,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-3",
+        "type": "Claim",
+        "agent": "backend",
+        "key": "id_field",
+        "value": "id",
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 3,
+        "last_seen_turn": 3,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-4",
+        "type": "Claim",
+        "agent": "frontend",
+        "key": "party_field",
+        "value": "team_size",
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 4,
+        "last_seen_turn": 4,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-5",
+        "type": "Claim",
+        "agent": "backend",
+        "key": "nullable_field",
+        "value": "called_at",
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 5,
+        "last_seen_turn": 5,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-6",
+        "type": "Claim",
+        "agent": "frontend",
+        "key": "response_status",
+        "value": 200,
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 6,
+        "last_seen_turn": 6,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      }
+    ],
+    "evidence": [
+      {
+        "id": "evidence-1",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 1/6 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 1,
+        "artifact_hash": "ffb8bdc8ad033a630693a7ac9e993528d50841ee48c6ae090d8fb251345ff7f4",
+        "artifact_revision": 1,
+        "checks": [
+          {
+            "id": "project",
+            "label": "프로젝트",
+            "path": "project",
+            "rule": "expected",
+            "passed": true,
+            "actual": "waiting",
+            "expected": "waiting",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "endpoint",
+            "label": "API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "/api/waitings",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "id",
+            "label": "ID 필드",
+            "path": "id_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "id",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "party",
+            "label": "인원 필드",
+            "path": "party_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "team_size",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "nullable",
+            "label": "호출 시각 필드",
+            "path": "nullable_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "called_at",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "status",
+            "label": "응답 상태 코드",
+            "path": "response_status",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": 200,
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "project": "waiting"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-2",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 2/6 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 2,
+        "artifact_hash": "02ad147bc6d23d1d5c91265e8ef2237f165e976e43acd817fd6104284c91a7de",
+        "artifact_revision": 2,
+        "checks": [
+          {
+            "id": "project",
+            "label": "프로젝트",
+            "path": "project",
+            "rule": "expected",
+            "passed": true,
+            "actual": "waiting",
+            "expected": "waiting",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "endpoint",
+            "label": "API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "id",
+            "label": "ID 필드",
+            "path": "id_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "id",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "party",
+            "label": "인원 필드",
+            "path": "party_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "team_size",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "nullable",
+            "label": "호출 시각 필드",
+            "path": "nullable_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "called_at",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "status",
+            "label": "응답 상태 코드",
+            "path": "response_status",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": 200,
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "project": "waiting",
+          "endpoint": "/api/waitings"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-3",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 3/6 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 3,
+        "artifact_hash": "f3073a210e53ec49dafb7a3b3f53d494087f84766abc18c13006d35e03518481",
+        "artifact_revision": 3,
+        "checks": [
+          {
+            "id": "project",
+            "label": "프로젝트",
+            "path": "project",
+            "rule": "expected",
+            "passed": true,
+            "actual": "waiting",
+            "expected": "waiting",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "endpoint",
+            "label": "API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "id",
+            "label": "ID 필드",
+            "path": "id_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "id",
+            "expected": "id",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "party",
+            "label": "인원 필드",
+            "path": "party_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "team_size",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "nullable",
+            "label": "호출 시각 필드",
+            "path": "nullable_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "called_at",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "status",
+            "label": "응답 상태 코드",
+            "path": "response_status",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": 200,
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "project": "waiting",
+          "endpoint": "/api/waitings",
+          "id_field": "id"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-4",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 4/6 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 4,
+        "artifact_hash": "2f3764b79c748253d77b3f4f85e2e4392fde2f6a32a4eb6d0bb6ce1bf8808adb",
+        "artifact_revision": 4,
+        "checks": [
+          {
+            "id": "project",
+            "label": "프로젝트",
+            "path": "project",
+            "rule": "expected",
+            "passed": true,
+            "actual": "waiting",
+            "expected": "waiting",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "endpoint",
+            "label": "API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "id",
+            "label": "ID 필드",
+            "path": "id_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "id",
+            "expected": "id",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "party",
+            "label": "인원 필드",
+            "path": "party_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "team_size",
+            "expected": "team_size",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "nullable",
+            "label": "호출 시각 필드",
+            "path": "nullable_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "called_at",
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "status",
+            "label": "응답 상태 코드",
+            "path": "response_status",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": 200,
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "project": "waiting",
+          "endpoint": "/api/waitings",
+          "id_field": "id",
+          "party_field": "team_size"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-5",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 5/6 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 5,
+        "artifact_hash": "e78f70e671d7bd6c67de7856bacc5c221fa650347cb6d2fce65aecc81ec63c58",
+        "artifact_revision": 5,
+        "checks": [
+          {
+            "id": "project",
+            "label": "프로젝트",
+            "path": "project",
+            "rule": "expected",
+            "passed": true,
+            "actual": "waiting",
+            "expected": "waiting",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "endpoint",
+            "label": "API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "id",
+            "label": "ID 필드",
+            "path": "id_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "id",
+            "expected": "id",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "party",
+            "label": "인원 필드",
+            "path": "party_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "team_size",
+            "expected": "team_size",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "nullable",
+            "label": "호출 시각 필드",
+            "path": "nullable_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "called_at",
+            "expected": "called_at",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "status",
+            "label": "응답 상태 코드",
+            "path": "response_status",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": 200,
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "project": "waiting",
+          "endpoint": "/api/waitings",
+          "id_field": "id",
+          "party_field": "team_size",
+          "nullable_field": "called_at"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-6",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 6/6 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 6,
+        "artifact_hash": "dbafd1ad8a5e62e6f4e81f0445be6ae55d8110f5aacb37c09a377e413adcccd8",
+        "artifact_revision": 6,
+        "checks": [
+          {
+            "id": "project",
+            "label": "프로젝트",
+            "path": "project",
+            "rule": "expected",
+            "passed": true,
+            "actual": "waiting",
+            "expected": "waiting",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "endpoint",
+            "label": "API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "id",
+            "label": "ID 필드",
+            "path": "id_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "id",
+            "expected": "id",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "party",
+            "label": "인원 필드",
+            "path": "party_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "team_size",
+            "expected": "team_size",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "nullable",
+            "label": "호출 시각 필드",
+            "path": "nullable_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "called_at",
+            "expected": "called_at",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "status",
+            "label": "응답 상태 코드",
+            "path": "response_status",
+            "rule": "expected",
+            "passed": true,
+            "actual": 200,
+            "expected": 200,
+            "missing": false,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "project": "waiting",
+          "endpoint": "/api/waitings",
+          "id_field": "id",
+          "party_field": "team_size",
+          "nullable_field": "called_at",
+          "response_status": 200
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      }
+    ],
+    "artifact": {
+      "project": "waiting",
+      "endpoint": "/api/waitings",
+      "id_field": "id",
+      "party_field": "team_size",
+      "nullable_field": "called_at",
+      "response_status": 200
+    },
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 6,
+      "human_requests": 1,
+      "progress_events": 7,
+      "success": true
+    },
+    "detector": {
+      "stalled_turns": 0,
+      "reason": "모든 로컬 계약 검사가 통과했습니다.",
+      "conflicts": [],
+      "intentional_human_wait": false,
+      "delivery_unknown": false,
+      "wait_cycles": [],
+      "missing_decision_owner": false,
+      "last_progress": {
+        "check_ids": [
+          "status"
+        ],
+        "reference_ids": []
+      }
+    },
+    "task": {
+      "id": "task-healthy",
+      "description": "여섯 항목의 대기 API 계약을 단계적으로 완성한다.",
+      "goal": "프로젝트, 경로, ID 필드, 인원 필드, nullable 필드, 응답 상태를 모두 확정한다.",
+      "artifact_description": "실행 코드가 아닌 대기 API 계약 JSON",
+      "checklist": [
+        {
+          "id": "project",
+          "label": "프로젝트",
+          "path": "project",
+          "expected": "waiting"
+        },
+        {
+          "id": "endpoint",
+          "label": "API 경로",
+          "path": "endpoint",
+          "expected": "/api/waitings"
+        },
+        {
+          "id": "id",
+          "label": "ID 필드",
+          "path": "id_field",
+          "expected": "id"
+        },
+        {
+          "id": "party",
+          "label": "인원 필드",
+          "path": "party_field",
+          "expected": "team_size"
+        },
+        {
+          "id": "nullable",
+          "label": "호출 시각 필드",
+          "path": "nullable_field",
+          "expected": "called_at"
+        },
+        {
+          "id": "status",
+          "label": "응답 상태 코드",
+          "path": "response_status",
+          "expected": 200
+        }
+      ],
+      "relevant_claim_keys": [
+        "project",
+        "endpoint",
+        "id_field",
+        "party_field",
+        "nullable_field",
+        "response_status"
+      ],
+      "evidence_catalog": [],
+      "oracle_choice": "continue",
+      "decision": null,
+      "type": "Task",
+      "scope": "waiting-api"
+    },
+    "_decision_values": {},
+    "_progress": {
+      "seen_passed_checks": [
+        "project",
+        "endpoint",
+        "id",
+        "party",
+        "nullable",
+        "status"
+      ],
+      "seen_references": [],
+      "epoch": 7
+    },
+    "_last_request": {
+      "signature": "[\"periodic\",[]]",
+      "epoch": 4
+    },
+    "_artifact_revision": 6,
+    "coordination": {
+      "commitments": [],
+      "human_input_requests": [],
+      "review_requests": [],
+      "waits_for": [],
+      "decision_owner": null
+    }
+  },
+  "error_traceback": null
+}

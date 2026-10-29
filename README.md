@@ -1,60 +1,90 @@
-# hanium-arbiter
+# Culture-Fit
 
-**한이음 드림업 2026** — 개인 소유 AI 에이전트 간 협업에서 근거 기반으로 충돌을 중재하는 시스템 (가제)
+**Know who can decide. Ask a human when it matters.**
 
-## 한 문장
+Culture-Fit is an open-source, authority-aware **Human-in-the-Loop (HITL)** coordination layer for developers running multiple AI agents. It connects decision points in a conversation with explicit, scoped authority records, then shows who can proceed or which person needs to answer.
 
-팀원들이 각자 자기 PC에서 돌리는 개인 AI 에이전트들이 하나의 프로젝트를 함께 개발할 때, 서로 어긋나는 결정을 **검증 가능한 근거로 판정**하고 사람이 감수할 시점을 결정해주는 중재 시스템.
+[Try the demo](https://culture-fit-demo-production.up.railway.app/workspace) · [Download and install](https://culture-fit-demo-production.up.railway.app/download) · [Installation guide](docs/install.md)
 
-## 현재 상태
+## What it does
 
-| 영역 | 상태 |
-|------|------|
-| 설계 문서 | **v0.3 확정** — `docs/design/v0.3.md` |
-| `backend/` | 미착수 (FastAPI + SQLite 예정) |
-| `frontend/` | 미착수 (React 예정) |
-| `experiments/` | 미착수 — 실험 트랙(F16) |
-| 열린 이슈 | 6건 — `docs/decision_log.md` |
+A release agent and a review agent both claim approval authority. Their owners disagree. Culture-Fit surfaces the decision and its source quotes, checks the recorded delegations, and asks for the missing owner approvals. When the operator records an agreed priority, the same decision is re-evaluated without another model call. The agent can query the resulting next action.
 
-**아직 구현된 코드 없음.** 설계 단계.
+- **Evidence-backed decision briefs:** extract agreements, open questions, decision scopes, and exact source quotations.
+- **Scoped authority:** evaluate grants, conditions, expiration, revocation, and cross-owner approval records. Authority does not establish factual truth.
+- **Human decision dashboard:** review evidence, record approvals and priority, inspect the current decision owner, and browse conversation history with pagination.
+- **Agent-readable next actions:** return `wait_for_human`, `follow_authority`, `follow_human_decision`, or a request to refresh stale context.
+- **Lightweight ontology:** typed relationships among Person, Agent, Task, Claim, Evidence, Decision, and Commitment. This is a JSON relationship model, not an OWL reasoner or a graph database.
 
-## 핵심 개념 — 근거 등급
+## Run locally
 
-이 프로젝트의 차별점. 중재기는 에이전트의 말을 믿지 않고, 근거를 직접 재현해서 등급을 매긴다.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then extract the source ZIP. Python 3.11 or newer is required; the locked development and deployment environment uses Python 3.12.
 
-| 등급 | 정의 | 중재 가중치 |
-|------|------|------------|
-| `CLAIMED` | 에이전트의 주장만 존재 | 매우 낮음 |
-| `REFERENCED` | 공용 저장소 참조가 있음 (commit SHA, PR 번호) | 중간 |
-| `VERIFIED` | 중재기가 해당 SHA를 체크아웃해 직접 재현 | 높음 |
+macOS:
 
-기존 LLM-as-judge / multi-agent debate 연구는 심판이 모든 정보를 볼 수 있다고 가정한다. 이 프로젝트는 심판이 남의 로컬을 못 보는 상황을 다루므로, "무엇을 근거로 인정할 것인가"가 알고리즘의 일부가 된다.
+```bash
+./start-macos.sh
+```
 
-## 다루는 충돌 유형
+Windows PowerShell:
 
-| 코드 | 유형 |
-|------|------|
-| C0 | 역할 배정 충돌 |
-| C1 | 인터페이스 불일치 |
-| C2 | 데이터 모델 불일치 |
-| C3 | 품질 게이트 충돌 |
-| C4 | 중복·상충 구현 |
+```powershell
+powershell -ExecutionPolicy Bypass -File .\start-windows.ps1
+```
 
-## 설계 원칙 (v0.1에서 뒤집은 부분)
+Or run the commands directly from the project directory:
 
-1. **에이전트는 우리가 만들지 않는다** — 팀원 개인 계정·개인 PC에서 도는 봇
-2. **중재기는 실행 권한이 없다** — 코드를 직접 고치지 못하고 소유자 에이전트에게 *요청*만 보낸다
-3. **에이전트의 말은 근거가 아니다** — 중재기가 재현해야 근거가 된다
-4. **사람은 읽지 않는다** — 결과는 아웃바운드 알림(Incoming Webhook)으로만
-5. **공용 진실 원천은 git 하나**
+```bash
+uv sync --frozen
+uv run uvicorn arbiter.app:app --host 127.0.0.1 --port 8787
+```
 
-## 문서
+Open `http://127.0.0.1:8787/workspace`. The local SQLite database is stored in `.runtime/arbiter.sqlite3`; override it with `ARBITER_DB`. Windows launch instructions are provided, but Windows hardware execution has not yet been verified.
 
-| 필요 | 파일 |
-|------|------|
-| 설계 전문 (시나리오 6개, 요구사항, ERD) | `docs/design/v0.3.md` |
-| 확정·보류 결정 이력 | `docs/decision_log.md` |
+Conversation import and controlled simulations work without a model account. New model briefs require an installed, signed-in Codex CLI and consume that account's usage. Reporting a message through MCP or Slack does not automatically call a model; brief generation is an explicit dashboard or A2A request.
 
-## 일정
+## Connect existing tools
 
-한이음 드림업 2026 과제. 종료 예정 2026-10-30.
+| Integration | What it provides |
+|---|---|
+| [MCP](docs/mcp-connection.md) | Eight tools to register conversations, report messages, and read coordination state, decisions, authority, and next actions. Supports stdio and local Streamable HTTP. |
+| [OpenClaw Skill](docs/openclaw-connection.md) | Instructions and a standard-library Python helper for reporting conversations and checking next actions. Recognition/configuration checked with OpenClaw 2026.3.11. |
+| [Slack](docs/slack-connection.md) | Socket Mode receiver for allowlisted channels, thread grouping, deduplication, edits, and deletions. Requires app installation and tokens. A real workspace has not yet been connected. |
+| [A2A](docs/a2a-connection.md) | Agent Card discovery and Send/Get/Cancel analysis tasks, verified using the official SDK. Streaming, push notifications, and external authentication are not implemented. |
+
+Start the MCP server with `uv run python -m arbiter.mcp_server`, then add its configuration to an MCP-capable host. The agent must be instructed to report conversations and query results; installing a connection alone does not observe every conversation.
+
+Human decisions and authority changes are entered in the dashboard. MCP exposes no authority-write tools. The local HTTP API does not authenticate remote owner identities; local operator records must not be presented as authenticated external consent. Keep the local integration services on loopback.
+
+## Public demo
+
+The [Railway demo](https://culture-fit-demo-production.up.railway.app) gives each browser a separate, signed-cookie sandbox with its own SQLite data. It uses synthetic conversations and a clearly labelled translated replay of previously recorded model analysis. Live model calls and Slack ingestion are disabled. The public URL is not an external MCP or A2A endpoint.
+
+See [deployment and limits](docs/railway-deployment.md). Users can reset only their own sandbox. Data expires 24 hours after creation. The hosted service uses one worker and one persistent volume.
+
+## Validation and scope
+
+```bash
+uv run pytest -q
+uv run python experiments/run_comparison.py --help
+```
+
+The baseline suite passes 182 tests plus 8 subtests, including actual MCP protocol round trips, authority rules, cancellation, persistence, and visitor isolation. Public HTTPS checks and browser checks cover approvals, reset isolation, pagination, and blocked live model calls.
+
+A separate live Codex-to-MCP smoke made four real tool calls across two model invocations: an initial authority conflict returned `wait_for_human`; a **mock operator approval** then produced `follow_authority` with Review Agent as owner. This verifies tool-mediated authority lookup in a synthetic task, not autonomous external execution, natural-language extraction accuracy, or live Slack/OpenClaw integration.
+
+[Saved comparison results](experiments/results/latest/report.md) contain 24 deterministic runs across eight scenarios:
+
+| Policy | Local checklist passed | Mean turns | Human questions |
+|---|---:|---:|---:|
+| Turn limit | 2/8 | 14.75 | 0 |
+| Periodic check-in | 8/8 | 5.00 | 7 |
+| Stall-aware check-in | 8/8 | 5.00 | 6 |
+
+The two check-in policies have the same mean turn count. One question was avoided in these controlled cases. Human responses were simulated; these results do not establish real-world effectiveness, statistical significance, or token savings. See [experiment limitations](experiments/README.md) and the [recorded model briefing smoke](experiments/results/briefing-smoke/README.md).
+
+## Open-source scope
+
+MIT licensed; see [LICENSE](LICENSE). Domain experts can supply their own tasks, evidence, and delegation policies. The library package and CLI modules retain the implementation name `arbiter`.
+
+Submission reports, videos, original uploads, personal contacts, and local credentials are maintained separately and excluded from source downloads and the deployment image. The [earlier design](https://github.com/Ontology0/hanium-arbiter/blob/feat/ontology-hitl/docs/design/v0.3.md) and [decision history](https://github.com/Ontology0/hanium-arbiter/blob/feat/ontology-hitl/docs/decision_log.md) describe prior plans, not the current feature set.

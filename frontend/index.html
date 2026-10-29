@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="An open-source, authority-aware Human-in-the-Loop (HITL) layer for AI agents. Track claims, resolve authority conflicts, and ask a human when a decision needs one." />
+    <title>Culture-Fit · Coordination workspace</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to main content</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Session management">
+        <a class="brand" href="/" aria-label="Culture-Fit home"><span class="brand-mark" aria-hidden="true">c<span>·</span></span><span>Culture-Fit<span class="brand-sub">AGENT COORDINATION</span></span></a>
+        <div class="sidebar-heading"><span class="eyebrow">WORKSPACE</span><span class="workspace-dot" aria-hidden="true"></span></div>
+        <div class="workspace-name"><span aria-hidden="true">◈</span> Coordination workspace <span id="deployment-label" class="small-pill">LOCAL</span></div>
+
+        <button id="open-intake" class="button primary full-width intake-open" type="button">Import conversation <span aria-hidden="true">↗</span></button>
+        <p class="intake-help">Slack · Pickle · Agent conversations</p>
+        <section class="new-session-section" aria-labelledby="new-session-heading">
+          <h2 id="new-session-heading">Start a session</h2>
+          <form id="session-form">
+            <label for="scenario-select">Scenario</label>
+            <select id="scenario-select" name="scenario_id" required disabled><option value="">Loading…</option></select>
+            <p id="scenario-description" class="field-help"></p>
+            <label for="policy-select">Intervention policy</label>
+            <select id="policy-select" name="policy" required disabled></select>
+            <label for="mode-select">Run mode</label>
+            <select id="mode-select" name="mode" required disabled></select>
+            <p id="provider-description" class="field-help"></p>
+            <button id="create-session" class="button primary full-width" type="submit" disabled><span aria-hidden="true">＋</span> Create session</button>
+          </form>
+        </section>
+
+        <section class="sessions-section" aria-labelledby="sessions-heading">
+          <div class="section-heading"><h2 id="sessions-heading">Recent sessions</h2><button id="refresh-sessions" class="icon-button" type="button" aria-label="Refresh session list" title="Refresh">↻</button></div>
+          <div id="session-list" class="session-list"><p class="sidebar-empty">Loading sessions.</p></div>
+          <nav id="session-pagination" class="pagination compact-pagination" aria-label="Session pages"></nav>
+        </section>
+        <div class="sidebar-footer"><span class="footer-symbol" aria-hidden="true">◎</span><p>Ask a human when it matters.<br><span>Authority-aware agent coordination</span></p></div>
+      </aside>
+
+      <main id="workspace" class="workspace" tabindex="-1">
+        <div class="topline"><span>WORKSPACE <span class="breadcrumb-slash">/</span> Coordination workspace</span><span class="topline-right"><span class="status-dot" aria-hidden="true"></span> HANIUM PROJECT</span></div>
+        <section id="deployment-notice" class="deployment-notice" aria-labelledby="deployment-heading" hidden><div><h2 id="deployment-heading">Isolated visitor demo</h2><p id="deployment-description"></p><p class="deployment-detail">This example uses previously recorded model analysis. Try approvals and authority changes without live model calls.</p></div><div class="deployment-actions"><button id="reset-demo" class="button secondary" type="button" disabled>Reset my demo</button><p>Restore this browser’s demo<br>to the original example.</p></div></section>
+        <div id="error-banner" class="error-banner" role="alert" hidden><span id="error-text"></span><button id="dismiss-error" class="icon-button" type="button" aria-label="Dismiss error">×</button></div>
+        <header class="workspace-header">
+          <div><h1>Know who can decide.<br>Ask a human when it matters.</h1><p class="header-description">An open-source, authority-aware Human-in-the-Loop (HITL) layer for AI agents</p></div>
+        </header>
+        <section id="demo-walkthrough" class="demo-walkthrough" aria-label="Try the authority workflow" hidden>
+          <div><button id="demo-read-conflict" type="button">1. Read the conflict <span aria-hidden="true">↘</span></button><p>Two agents have approval rights from different owners. Read the issue and its source messages.</p></div>
+          <div><button id="demo-record-approvals" type="button">2. Record owner approvals <span aria-hidden="true">↘</span></button><p>Choose a priority order, then record the example owners' agreement. No boxes are checked for you.</p></div>
+          <div><button id="demo-check-owner" type="button">3. Check who can proceed <span aria-hidden="true">↘</span></button><p id="demo-next-action">The decision owner appears after the required approvals are recorded.</p></div>
+        </section>
+
+        <section class="session-toolbar" aria-labelledby="active-session-title">
+          <div class="session-identity"><div class="section-heading compact"><span id="session-status" class="status-badge neutral">Not started</span><span id="policy-label" class="muted small"></span></div><h2 id="active-session-title">Start your first session</h2></div>
+          <div class="session-actions"><button id="step-button" type="button" class="button secondary" disabled><span aria-hidden="true">▹</span> Run one turn</button><button id="run-button" type="button" class="button primary" disabled><span aria-hidden="true">▶</span> Continue</button><button id="stop-button" type="button" class="button stop" disabled>Stop</button></div>
+        </section>
+        <div id="mode-notice" class="mode-notice"><span class="notice-icon" aria-hidden="true">ⓘ</span><p>Choose a scenario and intervention policy in the sidebar. Scripted demos and live agent runs are recorded separately.</p></div>
+
+        <div class="workspace-navigation">
+          <div id="workspace-tabs" class="workspace-tabs" role="tablist" aria-label="Coordination workspace views">
+            <button id="overview-tab" class="workspace-tab active" type="button" role="tab" aria-selected="true" aria-controls="overview-view">Overview</button>
+            <button id="conversation-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="conversation-view" tabindex="-1">Conversation <span id="conversation-tab-count" class="tab-count">0</span></button>
+            <button id="decisions-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="decisions-view" tabindex="-1">Decisions <span id="decision-tab-count" class="tab-count">0</span></button>
+            <button id="knowledge-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="knowledge-view" tabindex="-1">Knowledge</button>
+            <button id="experiments-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="experiments-view" tabindex="-1">Experiments</button>
+            <button id="integration-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="integration-view" tabindex="-1">Connections</button>
+          </div>
+          <div class="export-links"><a id="export-json" href="#" aria-disabled="true" class="disabled-link" download>JSON ↓</a><a id="export-markdown" href="#" aria-disabled="true" class="disabled-link" download>Report ↓</a></div>
+        </div>
+
+        <section id="overview-view" class="workspace-view" role="tabpanel" aria-labelledby="overview-tab">
+        <section class="metrics" aria-label="Session metrics">
+          <article class="metric"><span class="metric-label">Conversation turns</span><div class="metric-value"><strong id="metric-turns">—</strong><span id="metric-turns-unit">turns</span></div><span id="metric-turns-note" class="metric-note">Available after session creation</span><span class="metric-glyph" aria-hidden="true">↗</span></article>
+          <article class="metric"><span class="metric-label">Measured tokens</span><div class="metric-value"><strong id="metric-tokens">—</strong><span id="metric-tokens-unit"></span></div><span id="metric-tokens-note" class="metric-note">Based on recorded usage</span><span class="metric-glyph" aria-hidden="true">◌</span></article>
+          <article class="metric"><span class="metric-label">Human decision requests</span><div class="metric-value"><strong id="metric-requests">—</strong><span>requests</span></div><span id="metric-requests-note" class="metric-note">Points requiring human input</span><span class="metric-glyph" aria-hidden="true">⌁</span></article>
+          <article class="metric"><span class="metric-label">Progress changes</span><div class="metric-value"><strong id="metric-progress">—</strong><span>events</span></div><span id="metric-progress-note" class="metric-note">Changes in artifacts or evidence</span><span class="metric-glyph" aria-hidden="true">◈</span></article>
+        </section>
+
+          <section id="authority-check-panel" class="panel authority-check-panel" aria-labelledby="authority-check-heading" hidden><div class="panel-heading"><div><p class="eyebrow">AUTHORITY CHECK</p><h2 id="authority-check-heading">Who has authority to decide?</h2></div><button id="open-authority" class="button secondary" type="button">Review grants →</button></div><div class="authority-check-body"><p id="authority-intervention-count" class="authority-summary"></p><p id="precedence-feedback" class="precedence-feedback" role="status"></p><div id="authority-checks" class="authority-checks"></div><nav id="authority-check-pagination" class="pagination" aria-label="Authority check pages"></nav></div></section>
+
+          <section id="brief-panel" class="panel brief-panel" aria-labelledby="brief-heading">
+            <div class="panel-heading"><div><p class="eyebrow">DECISION BRIEF</p><h2 id="brief-heading">Decision brief</h2></div><button id="generate-brief" class="button secondary" type="button" disabled>Generate brief</button></div>
+            <div class="brief-body"><p class="brief-help">Call a live model to summarize agreements, open questions, and points that need human input. Generation uses model tokens.</p><p id="brief-status" class="brief-status" role="status">Select a conversation to generate a brief.</p><div id="brief-content"></div><nav id="brief-pagination" class="pagination" aria-label="Brief item pages" hidden></nav></div>
+          </section>
+
+          <div class="overview-grid">
+            <section class="panel overview-decision-panel" aria-labelledby="overview-decision-heading"><div class="panel-heading"><div><p class="eyebrow">NEXT DECISION</p><h2 id="overview-decision-heading">Next decision</h2></div><span id="overview-pending-count" class="count-badge">0</span></div><div id="overview-decision" class="overview-decision"><p class="muted">Start a session or import a conversation to see which decisions need attention.</p></div></section>
+            <section id="coordination-panel" class="panel coordination-panel" aria-labelledby="coordination-heading" hidden><div class="panel-heading"><div><h2 id="coordination-heading">Who is waiting for whom?</h2><p id="coordination-summary" class="coordination-summary"></p></div></div><div id="coordination-content" class="coordination-content"></div></section>
+            <section id="overview-task-panel" class="panel" aria-labelledby="overview-task-heading"><div class="panel-heading"><h2 id="overview-task-heading">Current session</h2></div><div id="overview-task" class="overview-task"><p class="muted">Choose a scenario and policy to create a session.</p></div></section>
+          </div>
+        </section>
+
+        <section id="conversation-view" class="workspace-view" role="tabpanel" aria-labelledby="conversation-tab" hidden>
+          <section class="panel conversation-panel" aria-labelledby="conversation-heading">
+            <div class="panel-heading"><div><p class="eyebrow">CONVERSATION</p><h2 id="conversation-heading">Agent conversation</h2></div><span id="message-count" class="count-badge">0</span></div>
+            <div class="list-toolbar"><p id="message-range" class="muted small">0 messages</p><button id="latest-messages" class="button secondary" type="button" disabled>Latest messages</button></div>
+            <nav id="message-pagination" class="pagination" aria-label="Conversation pages"></nav>
+            <div id="conversation" class="conversation" aria-live="off"><div class="empty-state"><span class="empty-symbol" aria-hidden="true">↔</span><h3>Follow the conversation</h3><p>Browse conversations in pages of 10 messages.</p></div></div>
+            <div class="conversation-footer"><span id="detector-label">Waiting for a session to start</span><span id="stalled-label"></span></div>
+          </section>
+        </section>
+
+        <section id="decisions-view" class="workspace-view" role="tabpanel" aria-labelledby="decisions-tab" hidden>
+          <div class="decisions-layout">
+            <section class="panel decision-inbox" aria-labelledby="inbox-heading"><div class="panel-heading"><div><p class="eyebrow">INBOX & HISTORY</p><h2 id="inbox-heading">Decision requests and history</h2></div></div><div class="inbox-filter"><label for="request-filter">Show requests</label><select id="request-filter"><option value="all">All requests</option><option value="pending">Awaiting a decision</option><option value="resolved">Decision history · Authority resolved</option></select></div><div id="request-list" class="request-list"><p class="muted">No decision requests yet.</p></div><nav id="request-pagination" class="pagination compact-pagination" aria-label="Decision request pages"></nav></section>
+            <aside class="panel decision-panel" aria-labelledby="decision-heading"><div class="panel-heading"><div><p class="eyebrow">HUMAN IN THE LOOP</p><h2 id="decision-heading">Decision details</h2></div><span class="decision-icon" aria-hidden="true">✳</span></div><div id="decision-content"><div class="empty-state decision-empty"><span class="orbit-symbol" aria-hidden="true">◎</span><h3>Select a request</h3><p>Review pending requests and past decisions.</p></div></div></aside>
+          </div>
+        </section>
+
+        <section id="knowledge-view" class="workspace-view" role="tabpanel" aria-labelledby="knowledge-tab" hidden>
+          <section class="panel authority-panel" aria-labelledby="authority-heading"><div class="panel-heading"><div><p class="eyebrow">SCOPED AUTHORITY</p><h2 id="authority-heading">Agent authority</h2></div><button id="refresh-authority" class="button secondary" type="button">Refresh authority</button></div><div class="authority-body"><p class="authority-description">Record the scope and actions each owner delegates to an agent. Authority is checked for each scope and action. These records are entered by the local operator; they do not verify an external owner’s identity.</p><form id="authority-form" class="authority-form"><div><label for="authority-agent">Agent</label><input id="authority-agent" name="agent" required maxlength="200" placeholder="agent-a" /></div><div><label for="authority-owner">Owner · Required</label><input id="authority-owner" name="owner" required maxlength="200" placeholder="person-a" /></div><div><label for="authority-scope">Scope</label><input id="authority-scope" name="scope" required maxlength="200" placeholder="release" /></div><div><label for="authority-action">Action to delegate</label><input id="authority-action" name="action" required maxlength="200" placeholder="approve" /></div><button id="create-grant" class="button primary" type="submit">Add grant</button></form><p id="authority-feedback" class="authority-feedback" role="status"></p><div id="authority-list"><p class="muted">Loading authority grants.</p></div><nav id="authority-pagination" class="pagination" aria-label="Authority grant pages"></nav></div></section>
+          <section class="panel knowledge-panel" aria-label="Explore knowledge">
+            <div class="knowledge-heading"><div id="knowledge-tabs" class="tabs" role="tablist" aria-label="Knowledge views"><button id="graph-tab" class="tab active" type="button" role="tab" aria-selected="true" aria-controls="graph-view">Graph</button><button id="claims-tab" class="tab" type="button" role="tab" aria-selected="false" aria-controls="claims-view" tabindex="-1">Claims <span id="claims-count" class="tab-count">0</span></button><button id="evidence-tab" class="tab" type="button" role="tab" aria-selected="false" aria-controls="evidence-view" tabindex="-1">Evidence <span id="evidence-count" class="tab-count">0</span></button></div></div>
+            <div id="graph-view" class="tab-panel" role="tabpanel" aria-labelledby="graph-tab"><div class="graph-intro"><div><h3>Connect the facts behind each decision</h3><p>Connect claims, evidence, waiting relationships, and human decisions.</p></div><div class="graph-legend"><span><i class="legend-agent"></i> Agents</span><span><i class="legend-claim"></i> Claims</span><span><i class="legend-evidence"></i> Evidence</span><span><i class="legend-conflict"></i> Conflicts · Decisions</span></div></div><div id="graph-container" class="graph-container"><p class="graph-empty">Knowledge relationships from this session appear here.</p></div><div class="graph-details"><h3 class="subsection-title">Relationship list <span id="graph-count" class="muted"></span></h3><div id="graph-text" class="graph-text"><section><h4>Nodes</h4><ul id="graph-node-list"></ul><nav id="node-pagination" class="pagination compact-pagination" aria-label="Knowledge node pages"></nav></section><section><h4>Relationships</h4><ul id="graph-edge-list"></ul><nav id="edge-pagination" class="pagination compact-pagination" aria-label="Knowledge relationship pages"></nav></section></div></div></div>
+            <div id="claims-view" class="tab-panel" role="tabpanel" aria-labelledby="claims-tab" hidden><div class="section-heading"><h3 class="subsection-title">Recorded claims</h3><p class="muted small">8 per page</p></div><nav id="claim-pagination" class="pagination" aria-label="Claim pages"></nav><div id="claims-list" class="record-list"><p class="muted">No claims recorded yet.</p></div><div id="artifact-container" class="artifact-container" hidden></div></div>
+            <div id="evidence-view" class="tab-panel" role="tabpanel" aria-labelledby="evidence-tab" hidden><div class="section-heading"><h3 class="subsection-title">Linked evidence</h3><p class="muted small">8 per page</p></div><nav id="evidence-pagination" class="pagination" aria-label="Evidence pages"></nav><div id="evidence-list" class="record-list"><p class="muted">No evidence recorded yet.</p></div></div>
+          </section>
+        </section>
+
+        <section id="experiments-view" class="workspace-view" role="tabpanel" aria-labelledby="experiments-tab" hidden><section class="panel standalone-panel"><div class="graph-intro"><div><h2>Compare intervention policies</h2><p>Compare a fixed turn limit, periodic intervention, and intervention triggered by conflicts or stalled progress on the same scenarios.</p></div><button id="refresh-experiments" class="button secondary" type="button">Refresh results</button></div><div id="experiment-content"><p class="muted">Loading experiment results.</p></div></section></section>
+
+        <section id="integration-view" class="workspace-view" role="tabpanel" aria-labelledby="integration-tab" hidden><section class="panel standalone-panel"><div class="graph-intro"><div><h2 id="integration-heading">Connect your agents</h2><p id="integration-description">Add Culture-Fit tools to your agent’s MCP configuration to share conversations and decision status.</p></div><button id="refresh-integration" class="button secondary" type="button">Refresh settings</button></div><div class="integration-notice"><strong>About connection settings</strong><p>Displaying configuration does not mean an agent is connected. External messages are not sent automatically.</p></div><div id="integration-content"><p class="muted">Loading connection settings.</p></div></section></section>
+        <footer class="workspace-footer"><span>CULTURE-FIT <span class="footer-separator">/</span> Authority-aware coordination for AI agents</span><span id="session-id-label">Human decisions move work forward.</span></footer>
+        <div id="screen-reader-status" class="sr-only" role="status" aria-live="polite"></div>
+      </main>
+    </div>
+    <dialog id="intake-dialog" class="intake-dialog" aria-labelledby="intake-heading">
+      <form id="intake-form">
+        <div class="intake-dialog-heading"><h2 id="intake-heading">Import conversation</h2><button id="close-intake" type="button" class="icon-button" aria-label="Close conversation import">×</button></div>
+        <p class="intake-description">Paste a conversation to distinguish commitments from requests and identify who is needed for the next decision.</p>
+        <div class="intake-fields"><div><label for="intake-source">Conversation source</label><select id="intake-source" name="source"><option value="slack">Slack</option><option value="pickle">Pickle</option><option value="manual">Manual input</option></select></div><div><label for="intake-title">Conversation title (optional)</label><input id="intake-title" name="title" type="text" maxlength="120" placeholder="e.g. Coordinating the next release review" /></div></div>
+        <label for="intake-transcript">Conversation to analyze</label>
+        <textarea id="intake-transcript" name="transcript" required rows="10" maxlength="40000" placeholder="Paste the conversation with speaker names.&#10;&#10;Alex’s agent: I’ll check with my owner and share a review time.&#10;Sam’s agent: I’ll also check with my owner and report back."></textarea>
+        <p class="intake-privacy">Only the pasted conversation is analyzed. No messages are sent to Pickle or Slack.</p>
+        <p id="intake-error" class="intake-error" role="alert" hidden></p>
+        <button id="intake-submit" class="button primary full-width" type="submit">Analyze waits and decisions →</button>
+      </form>
+    </dialog>
+  </body>
+</html>

@@ -1,0 +1,771 @@
+{
+  "study_type": "통제 시뮬레이션",
+  "scenario": {
+    "id": "paraphrased-loop",
+    "title": "표현만 바뀌는 반복 논쟁",
+    "description": "문장을 계속 바꿔도 같은 API 필드에 대한 상반된 주장이 유지됩니다.",
+    "category": "factual"
+  },
+  "policy": "adaptive",
+  "parameters": {
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3
+  },
+  "answer_policy": "fixture_oracle_if_offered_else_continue",
+  "result": {
+    "scenario_id": "paraphrased-loop",
+    "scenario_title": "표현만 바뀌는 반복 논쟁",
+    "category": "factual",
+    "policy": "adaptive",
+    "status": "completed",
+    "success": true,
+    "turns": 5,
+    "human_requests": 1,
+    "human_answers": 1,
+    "progress_events": 3,
+    "passed_checks": 3,
+    "total_checks": 3,
+    "input_tokens": null,
+    "output_tokens": null,
+    "measured_calls": 0,
+    "unmetered_calls": 5,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "error": null,
+    "session_file": "sessions/paraphrased-loop__adaptive.json"
+  },
+  "trace": [
+    {
+      "kind": "agent_event",
+      "turn_before": 0,
+      "event": {
+        "agent": "backend",
+        "content": "서버 계약의 인원 필드는 team_size입니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "team_size",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "endpoint": "/api/waitings",
+          "response_field": "team_size"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 1,
+      "event": {
+        "agent": "frontend",
+        "content": "클라이언트에서는 partySize를 사용하겠습니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "partySize",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "client_field": "partySize"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 2,
+      "event": {
+        "agent": "backend",
+        "content": "이전 의견을 유지합니다. 제 필드명이 더 적절합니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "team_size",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 3,
+      "event": {
+        "agent": "frontend",
+        "content": "다른 표현으로 설명해도 같은 계약을 따르는 것이 맞습니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "partySize",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "scripted_human_answer",
+      "turn_before": 4,
+      "request_id": "request-1",
+      "choice": "inspect_contract",
+      "answer_policy": "fixture_oracle_if_offered_else_continue"
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 4,
+      "event": {
+        "agent": "frontend",
+        "content": "사람의 결정을 반영해 양쪽 계약 필드를 team_size로 정리했습니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "team_size",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "endpoint": "/api/waitings",
+          "response_field": "team_size",
+          "client_field": "team_size"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    }
+  ],
+  "evaluation": {
+    "success": true,
+    "passed": 3,
+    "total": 3,
+    "checks": [
+      {
+        "id": "endpoint",
+        "label": "대기 API 경로",
+        "path": "endpoint",
+        "rule": "expected",
+        "passed": true,
+        "actual": "/api/waitings",
+        "expected": "/api/waitings",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "server-field",
+        "label": "승인된 서버 응답 필드",
+        "path": "response_field",
+        "rule": "expected",
+        "passed": true,
+        "actual": "team_size",
+        "expected": "team_size",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "client-field",
+        "label": "클라이언트 기대 필드",
+        "path": "client_field",
+        "rule": "expected",
+        "passed": true,
+        "actual": "team_size",
+        "expected": "team_size",
+        "missing": false,
+        "requires_decision": false
+      }
+    ],
+    "turn": 5,
+    "status": "completed",
+    "scope": "Local JSON contract/work-plan constraints only; no execution or general code correctness claim.",
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 5,
+      "human_requests": 1,
+      "progress_events": 3,
+      "success": true
+    }
+  },
+  "final_state": {
+    "id": "22a9f741-3008-4d5a-be11-572197eece84",
+    "scenario_id": "paraphrased-loop",
+    "title": "표현만 바뀌는 반복 논쟁",
+    "description": "문장을 계속 바꿔도 같은 API 필드에 대한 상반된 주장이 유지됩니다.",
+    "category": "factual",
+    "policy": "adaptive",
+    "mode": "demo",
+    "status": "completed",
+    "turn": 5,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "messages": [
+      {
+        "agent": "backend",
+        "content": "서버 계약의 인원 필드는 team_size입니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "team_size",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "endpoint": "/api/waitings",
+          "response_field": "team_size"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-1",
+        "turn": 1,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "클라이언트에서는 partySize를 사용하겠습니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "partySize",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "client_field": "partySize"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-2",
+        "turn": 2,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "backend",
+        "content": "이전 의견을 유지합니다. 제 필드명이 더 적절합니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "team_size",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-3",
+        "turn": 3,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "다른 표현으로 설명해도 같은 계약을 따르는 것이 맞습니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "partySize",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-4",
+        "turn": 4,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "사람의 결정을 반영해 양쪽 계약 필드를 team_size로 정리했습니다.",
+        "claims": [
+          {
+            "key": "api.response_field",
+            "value": "team_size",
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "endpoint": "/api/waitings",
+          "response_field": "team_size",
+          "client_field": "team_size"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-5",
+        "turn": 5,
+        "claim_ids": [
+          "claim-3"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 3,
+          "total": 3
+        }
+      }
+    ],
+    "requests": [
+      {
+        "id": "request-1",
+        "status": "resolved",
+        "kind": "factual",
+        "title": "응답 필드 계약 충돌",
+        "summary": "검증 가능한 새 진전 없이 3차례가 이어졌습니다.",
+        "question": "어떤 근거를 기준으로 필드 계약을 정리할까요?",
+        "options": [
+          {
+            "id": "inspect_contract",
+            "label": "승인 계약 확인",
+            "description": "team_size 계약에 맞춰 서버와 클라이언트를 정렬합니다.",
+            "value": "team_size"
+          },
+          {
+            "id": "keep_client",
+            "label": "클라이언트 안 유지",
+            "description": "partySize를 유지합니다. 기존 승인 계약 검사는 실패할 수 있습니다.",
+            "value": "partySize"
+          }
+        ],
+        "evidence_ids": [
+          "evidence-1",
+          "evidence-2"
+        ],
+        "created_turn": 4,
+        "trigger": "adaptive",
+        "decision_key": "api.response_field",
+        "conflict_ids": [
+          "conflict-2ec45236870d"
+        ],
+        "claim_ids": [
+          "claim-1",
+          "claim-2"
+        ],
+        "resolved_turn": 4,
+        "choice": "inspect_contract"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "decision-1",
+        "type": "Decision",
+        "request_id": "request-1",
+        "choice": "inspect_contract",
+        "note": "통제 시뮬레이션의 자동 응답: 실제 사용자 참여 아님",
+        "turn": 4,
+        "decision_key": "api.response_field",
+        "claim_ids": [
+          "claim-1",
+          "claim-2"
+        ],
+        "value": "team_size"
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-1",
+        "type": "Claim",
+        "agent": "backend",
+        "key": "api.response_field",
+        "value": "team_size",
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 1,
+        "last_seen_turn": 3,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-2",
+        "type": "Claim",
+        "agent": "frontend",
+        "key": "api.response_field",
+        "value": "partySize",
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "superseded",
+        "turn": 2,
+        "last_seen_turn": 4,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true,
+        "superseded_turn": 5
+      },
+      {
+        "id": "claim-3",
+        "type": "Claim",
+        "agent": "frontend",
+        "key": "api.response_field",
+        "value": "team_size",
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 5,
+        "last_seen_turn": 5,
+        "evidence_ids": [],
+        "supersedes": [
+          "claim-2"
+        ],
+        "relevant": true
+      }
+    ],
+    "evidence": [
+      {
+        "id": "evidence-1",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 2/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 1,
+        "artifact_hash": "81bf29ede67a889f5ee0693f43f241347e58df459646f7ad48e79b7f06087bde",
+        "artifact_revision": 1,
+        "checks": [
+          {
+            "id": "endpoint",
+            "label": "대기 API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "server-field",
+            "label": "승인된 서버 응답 필드",
+            "path": "response_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "team_size",
+            "expected": "team_size",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "client-field",
+            "label": "클라이언트 기대 필드",
+            "path": "client_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "team_size",
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "endpoint": "/api/waitings",
+          "response_field": "team_size"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-2",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 2/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 2,
+        "artifact_hash": "f398a134a74ffa04b8e55118a6073f94955120e3e7f38f5b7bc4675fa36b9acf",
+        "artifact_revision": 2,
+        "checks": [
+          {
+            "id": "endpoint",
+            "label": "대기 API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "server-field",
+            "label": "승인된 서버 응답 필드",
+            "path": "response_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "team_size",
+            "expected": "team_size",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "client-field",
+            "label": "클라이언트 기대 필드",
+            "path": "client_field",
+            "rule": "expected",
+            "passed": false,
+            "actual": "partySize",
+            "expected": "team_size",
+            "missing": false,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "endpoint": "/api/waitings",
+          "response_field": "team_size",
+          "client_field": "partySize"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-3",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 3/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 5,
+        "artifact_hash": "c65cfc3fce6c385c9f7fdbb39c9b9dc459c659e3071caa48ff5c0d19a02c8cf6",
+        "artifact_revision": 3,
+        "checks": [
+          {
+            "id": "endpoint",
+            "label": "대기 API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "server-field",
+            "label": "승인된 서버 응답 필드",
+            "path": "response_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "team_size",
+            "expected": "team_size",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "client-field",
+            "label": "클라이언트 기대 필드",
+            "path": "client_field",
+            "rule": "expected",
+            "passed": true,
+            "actual": "team_size",
+            "expected": "team_size",
+            "missing": false,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "endpoint": "/api/waitings",
+          "response_field": "team_size",
+          "client_field": "team_size"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      }
+    ],
+    "artifact": {
+      "endpoint": "/api/waitings",
+      "response_field": "team_size",
+      "client_field": "team_size"
+    },
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 5,
+      "human_requests": 1,
+      "progress_events": 3,
+      "success": true
+    },
+    "detector": {
+      "stalled_turns": 0,
+      "reason": "모든 로컬 계약 검사가 통과했습니다.",
+      "conflicts": [],
+      "intentional_human_wait": false,
+      "delivery_unknown": false,
+      "wait_cycles": [],
+      "missing_decision_owner": false,
+      "last_progress": {
+        "check_ids": [
+          "client-field"
+        ],
+        "reference_ids": []
+      }
+    },
+    "task": {
+      "id": "task-paraphrased",
+      "description": "승인된 대기 API 계약에 맞게 서버·클라이언트의 응답 필드를 일치시킨다.",
+      "goal": "endpoint=/api/waitings, response_field=team_size, client_field=team_size",
+      "artifact_description": "실행 코드가 아닌 서버·클라이언트 API 계약 JSON",
+      "checklist": [
+        {
+          "id": "endpoint",
+          "label": "대기 API 경로",
+          "path": "endpoint",
+          "expected": "/api/waitings"
+        },
+        {
+          "id": "server-field",
+          "label": "승인된 서버 응답 필드",
+          "path": "response_field",
+          "expected": "team_size"
+        },
+        {
+          "id": "client-field",
+          "label": "클라이언트 기대 필드",
+          "path": "client_field",
+          "expected": "team_size"
+        }
+      ],
+      "relevant_claim_keys": [
+        "api.response_field"
+      ],
+      "evidence_catalog": [
+        {
+          "id": "approved-contract",
+          "summary": "승인된 응답 필드는 team_size다.",
+          "source": "fixture://approved-contract"
+        }
+      ],
+      "oracle_choice": "inspect_contract",
+      "decision": {
+        "key": "api.response_field",
+        "kind": "factual",
+        "title": "응답 필드 계약 충돌",
+        "question": "어떤 근거를 기준으로 필드 계약을 정리할까요?",
+        "options": [
+          {
+            "id": "inspect_contract",
+            "label": "승인 계약 확인",
+            "description": "team_size 계약에 맞춰 서버와 클라이언트를 정렬합니다.",
+            "value": "team_size"
+          },
+          {
+            "id": "keep_client",
+            "label": "클라이언트 안 유지",
+            "description": "partySize를 유지합니다. 기존 승인 계약 검사는 실패할 수 있습니다.",
+            "value": "partySize"
+          }
+        ]
+      },
+      "type": "Task",
+      "scope": "waiting-api"
+    },
+    "_decision_values": {
+      "api.response_field": "team_size"
+    },
+    "_progress": {
+      "seen_passed_checks": [
+        "endpoint",
+        "server-field",
+        "client-field"
+      ],
+      "seen_references": [],
+      "epoch": 3
+    },
+    "_last_request": {
+      "signature": "[\"adaptive\",[[\"waiting-api\",\"api.response_field\",[\"partySize\",\"team_size\"]]]]",
+      "epoch": 1
+    },
+    "_artifact_revision": 3,
+    "coordination": {
+      "commitments": [],
+      "human_input_requests": [],
+      "review_requests": [],
+      "waits_for": [],
+      "decision_owner": null
+    }
+  },
+  "error_traceback": null
+}

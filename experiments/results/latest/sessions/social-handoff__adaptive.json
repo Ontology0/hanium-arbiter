@@ -1,0 +1,990 @@
+{
+  "study_type": "통제 시뮬레이션",
+  "scenario": {
+    "id": "social-handoff",
+    "title": "피클의 주인 확인 약속",
+    "description": "개인 에이전트들이 주인에게 확인하겠다는 약속을 반복하지만 실제 전달 여부는 확인되지 않습니다.",
+    "category": "coordination"
+  },
+  "policy": "adaptive",
+  "parameters": {
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3
+  },
+  "answer_policy": "fixture_oracle_if_offered_else_continue",
+  "result": {
+    "scenario_id": "social-handoff",
+    "scenario_title": "피클의 주인 확인 약속",
+    "category": "coordination",
+    "policy": "adaptive",
+    "status": "completed",
+    "success": true,
+    "turns": 5,
+    "human_requests": 1,
+    "human_answers": 1,
+    "progress_events": 3,
+    "passed_checks": 4,
+    "total_checks": 4,
+    "input_tokens": null,
+    "output_tokens": null,
+    "measured_calls": 0,
+    "unmetered_calls": 5,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "error": null,
+    "session_file": "sessions/social-handoff__adaptive.json"
+  },
+  "trace": [
+    {
+      "kind": "agent_event",
+      "turn_before": 0,
+      "event": {
+        "agent": "pickle-a",
+        "content": "금요일 19시 학교 앞 카페 모임을 주인에게 확인하고 알려드릴게요.",
+        "claims": [
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "proposed_time": "금요일 19:00",
+          "proposed_place": "학교 앞 카페"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "commitments": [
+            {
+              "id": "promise-pickle-a",
+              "to_person": "person-a",
+              "topic": "meeting.attendance",
+              "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속"
+            }
+          ],
+          "human_input_requests": [
+            {
+              "id": "attendance-pickle-a",
+              "recipient": "person-a",
+              "topic": "meeting.attendance",
+              "delivery_status": "unknown"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 1,
+      "event": {
+        "agent": "pickle-b",
+        "content": "네, 주인에게 확인한 뒤 다시 알려드릴게요.",
+        "claims": [
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "commitments": [
+            {
+              "id": "promise-pickle-b",
+              "to_person": "person-b",
+              "topic": "meeting.attendance",
+              "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속"
+            }
+          ],
+          "human_input_requests": [
+            {
+              "id": "attendance-pickle-b",
+              "recipient": "person-b",
+              "topic": "meeting.attendance",
+              "delivery_status": "unknown"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 2,
+      "event": {
+        "agent": "pickle-a",
+        "content": "네, 주인에게 확인한 뒤 다시 알려드릴게요.",
+        "claims": [
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "commitments": [
+            {
+              "id": "promise-pickle-a",
+              "to_person": "person-a",
+              "topic": "meeting.attendance",
+              "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속"
+            }
+          ],
+          "human_input_requests": [
+            {
+              "id": "attendance-pickle-a",
+              "recipient": "person-a",
+              "topic": "meeting.attendance",
+              "delivery_status": "unknown"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 3,
+      "event": {
+        "agent": "pickle-b",
+        "content": "네, 주인에게 확인한 뒤 다시 알려드릴게요.",
+        "claims": [
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "commitments": [
+            {
+              "id": "promise-pickle-b",
+              "to_person": "person-b",
+              "topic": "meeting.attendance",
+              "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속"
+            }
+          ],
+          "human_input_requests": [
+            {
+              "id": "attendance-pickle-b",
+              "recipient": "person-b",
+              "topic": "meeting.attendance",
+              "delivery_status": "unknown"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "scripted_human_answer",
+      "turn_before": 4,
+      "request_id": "request-1",
+      "choice": "available",
+      "answer_policy": "fixture_oracle_if_offered_else_continue"
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 4,
+      "event": {
+        "agent": "pickle-a",
+        "content": "주인의 참석 응답을 기록했습니다. 다음 전달은 제가 담당합니다. 실제 외부 발송은 별도 작업입니다.",
+        "claims": [
+          {
+            "key": "meeting.attendance",
+            "value": "available",
+            "kind": "factual",
+            "scope": "waiting-api"
+          },
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "proposed_time": "금요일 19:00",
+          "proposed_place": "학교 앞 카페",
+          "attendance": "available",
+          "followup_agent": "pickle-a"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    }
+  ],
+  "evaluation": {
+    "success": true,
+    "passed": 4,
+    "total": 4,
+    "checks": [
+      {
+        "id": "time",
+        "label": "제안 시간",
+        "path": "proposed_time",
+        "rule": "expected",
+        "passed": true,
+        "actual": "금요일 19:00",
+        "expected": "금요일 19:00",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "place",
+        "label": "제안 장소",
+        "path": "proposed_place",
+        "rule": "expected",
+        "passed": true,
+        "actual": "학교 앞 카페",
+        "expected": "학교 앞 카페",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "attendance",
+        "label": "주인의 참석 응답",
+        "path": "attendance",
+        "rule": "approved_decision",
+        "passed": true,
+        "actual": "available",
+        "expected": "available",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "followup",
+        "label": "응답 전달 담당",
+        "path": "followup_agent",
+        "rule": "expected",
+        "passed": true,
+        "actual": "pickle-a",
+        "expected": "pickle-a",
+        "missing": false,
+        "requires_decision": false
+      }
+    ],
+    "turn": 5,
+    "status": "completed",
+    "scope": "Local JSON contract/work-plan constraints only; no execution or general code correctness claim.",
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 5,
+      "human_requests": 1,
+      "progress_events": 3,
+      "success": true
+    }
+  },
+  "final_state": {
+    "id": "87b6d59d-0841-4236-9a5d-b24906fe23fe",
+    "scenario_id": "social-handoff",
+    "title": "피클의 주인 확인 약속",
+    "description": "개인 에이전트들이 주인에게 확인하겠다는 약속을 반복하지만 실제 전달 여부는 확인되지 않습니다.",
+    "category": "coordination",
+    "policy": "adaptive",
+    "mode": "demo",
+    "status": "completed",
+    "turn": 5,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "messages": [
+      {
+        "agent": "pickle-a",
+        "content": "금요일 19시 학교 앞 카페 모임을 주인에게 확인하고 알려드릴게요.",
+        "claims": [
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "proposed_time": "금요일 19:00",
+          "proposed_place": "학교 앞 카페"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "commitments": [
+            {
+              "id": "promise-pickle-a",
+              "to_person": "person-a",
+              "topic": "meeting.attendance",
+              "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속"
+            }
+          ],
+          "human_input_requests": [
+            {
+              "id": "attendance-pickle-a",
+              "recipient": "person-a",
+              "topic": "meeting.attendance",
+              "delivery_status": "unknown"
+            }
+          ]
+        },
+        "id": "message-1",
+        "turn": 1,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 2,
+          "total": 4
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "네, 주인에게 확인한 뒤 다시 알려드릴게요.",
+        "claims": [
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "commitments": [
+            {
+              "id": "promise-pickle-b",
+              "to_person": "person-b",
+              "topic": "meeting.attendance",
+              "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속"
+            }
+          ],
+          "human_input_requests": [
+            {
+              "id": "attendance-pickle-b",
+              "recipient": "person-b",
+              "topic": "meeting.attendance",
+              "delivery_status": "unknown"
+            }
+          ]
+        },
+        "id": "message-2",
+        "turn": 2,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 4
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "네, 주인에게 확인한 뒤 다시 알려드릴게요.",
+        "claims": [
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-b",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "commitments": [
+            {
+              "id": "promise-pickle-a",
+              "to_person": "person-a",
+              "topic": "meeting.attendance",
+              "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속"
+            }
+          ],
+          "human_input_requests": [
+            {
+              "id": "attendance-pickle-a",
+              "recipient": "person-a",
+              "topic": "meeting.attendance",
+              "delivery_status": "unknown"
+            }
+          ]
+        },
+        "id": "message-3",
+        "turn": 3,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 4
+        }
+      },
+      {
+        "agent": "pickle-b",
+        "content": "네, 주인에게 확인한 뒤 다시 알려드릴게요.",
+        "claims": [
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "coordination": {
+          "commitments": [
+            {
+              "id": "promise-pickle-b",
+              "to_person": "person-b",
+              "topic": "meeting.attendance",
+              "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속"
+            }
+          ],
+          "human_input_requests": [
+            {
+              "id": "attendance-pickle-b",
+              "recipient": "person-b",
+              "topic": "meeting.attendance",
+              "delivery_status": "unknown"
+            }
+          ]
+        },
+        "id": "message-4",
+        "turn": 4,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [],
+        "progress": false,
+        "validation": {
+          "passed": 2,
+          "total": 4
+        }
+      },
+      {
+        "agent": "pickle-a",
+        "content": "주인의 참석 응답을 기록했습니다. 다음 전달은 제가 담당합니다. 실제 외부 발송은 별도 작업입니다.",
+        "claims": [
+          {
+            "key": "meeting.attendance",
+            "value": "available",
+            "kind": "factual",
+            "scope": "waiting-api"
+          },
+          {
+            "key": "meeting.confirmation_owner",
+            "value": "pickle-a",
+            "kind": "ownership",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "proposed_time": "금요일 19:00",
+          "proposed_place": "학교 앞 카페",
+          "attendance": "available",
+          "followup_agent": "pickle-a"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-5",
+        "turn": 5,
+        "claim_ids": [
+          "claim-3",
+          "claim-4"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 4,
+          "total": 4
+        }
+      }
+    ],
+    "requests": [
+      {
+        "id": "request-1",
+        "status": "resolved",
+        "kind": "coordination",
+        "title": "주인에게 참석 여부 한 번 확인",
+        "summary": "검증 가능한 새 진전 없이 3차례가 이어졌습니다. 주인에게 확인하겠다는 약속은 있으나 요청 전달 여부는 확인되지 않았습니다.",
+        "question": "금요일 19시에 학교 앞 카페에서 만나는 제안에 참석할 수 있나요?",
+        "options": [
+          {
+            "id": "available",
+            "label": "참석 가능",
+            "description": "이 응답을 기록하고 피클 A에게 결과 전달을 맡깁니다.",
+            "value": "available"
+          },
+          {
+            "id": "unavailable",
+            "label": "참석 어려움",
+            "description": "불참 응답을 기록하고 피클 A에게 일정 재조율을 맡깁니다.",
+            "value": "unavailable"
+          }
+        ],
+        "evidence_ids": [
+          "evidence-1"
+        ],
+        "created_turn": 4,
+        "trigger": "adaptive",
+        "decision_key": "meeting.attendance",
+        "conflict_ids": [
+          "conflict-9b1e7bbbdf8e"
+        ],
+        "claim_ids": [
+          "claim-1",
+          "claim-2"
+        ],
+        "resolved_turn": 4,
+        "choice": "available"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "decision-1",
+        "type": "Decision",
+        "request_id": "request-1",
+        "choice": "available",
+        "note": "통제 시뮬레이션의 자동 응답: 실제 사용자 참여 아님",
+        "turn": 4,
+        "decision_key": "meeting.attendance",
+        "claim_ids": [
+          "claim-1",
+          "claim-2"
+        ],
+        "value": "available"
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-1",
+        "type": "Claim",
+        "agent": "pickle-a",
+        "key": "meeting.confirmation_owner",
+        "value": "pickle-b",
+        "kind": "ownership",
+        "scope": "waiting-api",
+        "status": "superseded",
+        "turn": 1,
+        "last_seen_turn": 3,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true,
+        "superseded_turn": 5
+      },
+      {
+        "id": "claim-2",
+        "type": "Claim",
+        "agent": "pickle-b",
+        "key": "meeting.confirmation_owner",
+        "value": "pickle-a",
+        "kind": "ownership",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 2,
+        "last_seen_turn": 4,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-3",
+        "type": "Claim",
+        "agent": "pickle-a",
+        "key": "meeting.attendance",
+        "value": "available",
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 5,
+        "last_seen_turn": 5,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-4",
+        "type": "Claim",
+        "agent": "pickle-a",
+        "key": "meeting.confirmation_owner",
+        "value": "pickle-a",
+        "kind": "ownership",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 5,
+        "last_seen_turn": 5,
+        "evidence_ids": [],
+        "supersedes": [
+          "claim-1"
+        ],
+        "relevant": true
+      }
+    ],
+    "evidence": [
+      {
+        "id": "evidence-1",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 2/4 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 1,
+        "artifact_hash": "c0f9f51bde5b12fcd1d1579f9b41b68a8320f2d903c4e599930e45a588cccf4a",
+        "artifact_revision": 1,
+        "checks": [
+          {
+            "id": "time",
+            "label": "제안 시간",
+            "path": "proposed_time",
+            "rule": "expected",
+            "passed": true,
+            "actual": "금요일 19:00",
+            "expected": "금요일 19:00",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "place",
+            "label": "제안 장소",
+            "path": "proposed_place",
+            "rule": "expected",
+            "passed": true,
+            "actual": "학교 앞 카페",
+            "expected": "학교 앞 카페",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "attendance",
+            "label": "주인의 참석 응답",
+            "path": "attendance",
+            "rule": "approved_decision",
+            "passed": false,
+            "actual": null,
+            "expected": null,
+            "missing": true,
+            "requires_decision": true
+          },
+          {
+            "id": "followup",
+            "label": "응답 전달 담당",
+            "path": "followup_agent",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": "pickle-a",
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "proposed_time": "금요일 19:00",
+          "proposed_place": "학교 앞 카페"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-2",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 4/4 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 5,
+        "artifact_hash": "e900312501263c7a1da909ea8a5594289f6167ea72a2c99d558a8423ad623509",
+        "artifact_revision": 2,
+        "checks": [
+          {
+            "id": "time",
+            "label": "제안 시간",
+            "path": "proposed_time",
+            "rule": "expected",
+            "passed": true,
+            "actual": "금요일 19:00",
+            "expected": "금요일 19:00",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "place",
+            "label": "제안 장소",
+            "path": "proposed_place",
+            "rule": "expected",
+            "passed": true,
+            "actual": "학교 앞 카페",
+            "expected": "학교 앞 카페",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "attendance",
+            "label": "주인의 참석 응답",
+            "path": "attendance",
+            "rule": "approved_decision",
+            "passed": true,
+            "actual": "available",
+            "expected": "available",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "followup",
+            "label": "응답 전달 담당",
+            "path": "followup_agent",
+            "rule": "expected",
+            "passed": true,
+            "actual": "pickle-a",
+            "expected": "pickle-a",
+            "missing": false,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "proposed_time": "금요일 19:00",
+          "proposed_place": "학교 앞 카페",
+          "attendance": "available",
+          "followup_agent": "pickle-a"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      }
+    ],
+    "artifact": {
+      "proposed_time": "금요일 19:00",
+      "proposed_place": "학교 앞 카페",
+      "attendance": "available",
+      "followup_agent": "pickle-a"
+    },
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 5,
+      "human_requests": 1,
+      "progress_events": 3,
+      "success": true
+    },
+    "detector": {
+      "stalled_turns": 0,
+      "reason": "모든 로컬 계약 검사가 통과했습니다.",
+      "conflicts": [],
+      "intentional_human_wait": false,
+      "delivery_unknown": false,
+      "wait_cycles": [],
+      "missing_decision_owner": false,
+      "last_progress": {
+        "check_ids": [
+          "attendance",
+          "followup"
+        ],
+        "reference_ids": []
+      }
+    },
+    "task": {
+      "id": "task-social",
+      "description": "모임 제안의 시간·장소를 정리하고 참석 여부에 대한 주인의 응답을 확보한다.",
+      "goal": "금요일 19:00, 학교 앞 카페라는 제안에 대한 주인의 참석 응답과 후속 담당을 기록한다.",
+      "artifact_description": "실제 메시지 발송이 아닌 모임 조율 계획 JSON",
+      "people": [
+        {
+          "id": "person-a",
+          "name": "주인 A"
+        },
+        {
+          "id": "person-b",
+          "name": "주인 B"
+        }
+      ],
+      "agent_owners": {
+        "pickle-a": "person-a",
+        "pickle-b": "person-b"
+      },
+      "checklist": [
+        {
+          "id": "time",
+          "label": "제안 시간",
+          "path": "proposed_time",
+          "expected": "금요일 19:00"
+        },
+        {
+          "id": "place",
+          "label": "제안 장소",
+          "path": "proposed_place",
+          "expected": "학교 앞 카페"
+        },
+        {
+          "id": "attendance",
+          "label": "주인의 참석 응답",
+          "path": "attendance",
+          "expected_from_decision": "meeting.attendance"
+        },
+        {
+          "id": "followup",
+          "label": "응답 전달 담당",
+          "path": "followup_agent",
+          "expected": "pickle-a"
+        }
+      ],
+      "relevant_claim_keys": [
+        "meeting.attendance",
+        "meeting.confirmation_owner"
+      ],
+      "evidence_catalog": [],
+      "delivery_receipts": [],
+      "oracle_choice": "available",
+      "decision": {
+        "key": "meeting.attendance",
+        "kind": "coordination",
+        "always_available": true,
+        "title": "주인에게 참석 여부 한 번 확인",
+        "question": "금요일 19시에 학교 앞 카페에서 만나는 제안에 참석할 수 있나요?",
+        "options": [
+          {
+            "id": "available",
+            "label": "참석 가능",
+            "description": "이 응답을 기록하고 피클 A에게 결과 전달을 맡깁니다.",
+            "value": "available"
+          },
+          {
+            "id": "unavailable",
+            "label": "참석 어려움",
+            "description": "불참 응답을 기록하고 피클 A에게 일정 재조율을 맡깁니다.",
+            "value": "unavailable"
+          }
+        ]
+      },
+      "type": "Task",
+      "scope": "waiting-api"
+    },
+    "_decision_values": {
+      "meeting.attendance": "available"
+    },
+    "_progress": {
+      "seen_passed_checks": [
+        "time",
+        "place",
+        "attendance",
+        "followup"
+      ],
+      "seen_references": [],
+      "epoch": 3
+    },
+    "_last_request": {
+      "signature": "[\"adaptive\",[[\"waiting-api\",\"meeting.confirmation_owner\",[\"pickle-a\",\"pickle-b\"]]]]",
+      "epoch": 1
+    },
+    "_artifact_revision": 2,
+    "coordination": {
+      "commitments": [
+        {
+          "id": "promise-pickle-a",
+          "type": "Commitment",
+          "agent": "pickle-a",
+          "to_person": "person-a",
+          "topic": "meeting.attendance",
+          "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속",
+          "status": "promised",
+          "created_turn": 1,
+          "last_seen_turn": 3
+        },
+        {
+          "id": "promise-pickle-b",
+          "type": "Commitment",
+          "agent": "pickle-b",
+          "to_person": "person-b",
+          "topic": "meeting.attendance",
+          "summary": "주인에게 참석 여부 확인 후 회신하겠다는 약속",
+          "status": "promised",
+          "created_turn": 2,
+          "last_seen_turn": 4
+        }
+      ],
+      "human_input_requests": [
+        {
+          "id": "attendance-pickle-a",
+          "type": "HumanInputRequest",
+          "agent": "pickle-a",
+          "recipient": "person-a",
+          "topic": "meeting.attendance",
+          "delivery_status": "unknown",
+          "reported_delivery_status": "unknown",
+          "delivery_receipt_id": null,
+          "status": "answered",
+          "created_turn": 1,
+          "answered_via": "human_decision"
+        },
+        {
+          "id": "attendance-pickle-b",
+          "type": "HumanInputRequest",
+          "agent": "pickle-b",
+          "recipient": "person-b",
+          "topic": "meeting.attendance",
+          "delivery_status": "unknown",
+          "reported_delivery_status": "unknown",
+          "delivery_receipt_id": null,
+          "status": "answered",
+          "created_turn": 2,
+          "answered_via": "human_decision"
+        }
+      ],
+      "review_requests": [],
+      "waits_for": [],
+      "decision_owner": null
+    }
+  },
+  "error_traceback": null
+}

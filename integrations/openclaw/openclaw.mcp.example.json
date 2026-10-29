@@ -1,0 +1,19 @@
+{
+  "skills": {
+    "load": {
+      "extraDirs": ["${ARBITER_ROOT}/skills"]
+    }
+  },
+  "mcp": {
+    "servers": {
+      "arbiter": {
+        "command": "uv",
+        "args": [
+          "--directory", "${ARBITER_ROOT}",
+          "run", "python", "-m", "arbiter.mcp_server",
+          "--api-url", "http://127.0.0.1:8787"
+        ]
+      }
+    }
+  }
+}

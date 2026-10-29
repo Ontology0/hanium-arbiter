@@ -1,0 +1,714 @@
+{
+  "study_type": "통제 시뮬레이션",
+  "scenario": {
+    "id": "evidence-update",
+    "title": "근거 확인 후 주장 철회",
+    "description": "문서 근거가 확인되면 잘못된 주장을 철회하고 추가 개입 없이 계약을 완성합니다.",
+    "category": "evidence"
+  },
+  "policy": "capped",
+  "parameters": {
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3
+  },
+  "answer_policy": "fixture_oracle_if_offered_else_continue",
+  "result": {
+    "scenario_id": "evidence-update",
+    "scenario_title": "근거 확인 후 주장 철회",
+    "category": "evidence",
+    "policy": "capped",
+    "status": "completed",
+    "success": true,
+    "turns": 4,
+    "human_requests": 0,
+    "human_answers": 0,
+    "progress_events": 3,
+    "passed_checks": 3,
+    "total_checks": 3,
+    "input_tokens": null,
+    "output_tokens": null,
+    "measured_calls": 0,
+    "unmetered_calls": 4,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "error": null,
+    "session_file": "sessions/evidence-update__capped.json"
+  },
+  "trace": [
+    {
+      "kind": "agent_event",
+      "turn_before": 0,
+      "event": {
+        "agent": "backend",
+        "content": "요청당 최대 개수는 20개로 알고 있습니다.",
+        "claims": [
+          {
+            "key": "api.request_limit",
+            "value": 20,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "endpoint": "/api/waitings"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 1,
+      "event": {
+        "agent": "frontend",
+        "content": "이전 기억에 따르면 50개였습니다.",
+        "claims": [
+          {
+            "key": "api.request_limit",
+            "value": 50,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "old-memory",
+            "summary": "이전 기억: 최대 50개",
+            "source": ""
+          }
+        ],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 2,
+      "event": {
+        "agent": "backend",
+        "content": "승인 문서의 20개 제한을 확인했습니다.",
+        "claims": [
+          {
+            "key": "api.request_limit",
+            "value": 20,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "approved-limit",
+            "summary": "승인된 요청당 최대 개수는 20개다.",
+            "source": "fixture://approved-limit"
+          }
+        ],
+        "artifact": {
+          "limit": 20
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    },
+    {
+      "kind": "agent_event",
+      "turn_before": 3,
+      "event": {
+        "agent": "frontend",
+        "content": "50개라는 주장을 철회하고 20개로 수정했습니다.",
+        "claims": [
+          {
+            "key": "api.request_limit",
+            "value": null,
+            "kind": "factual",
+            "scope": "waiting-api",
+            "action": "retract"
+          },
+          {
+            "key": "api.request_limit",
+            "value": 20,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "old-memory",
+            "action": "retract",
+            "summary": "기억에 의존한 근거 철회",
+            "source": ""
+          }
+        ],
+        "artifact": {
+          "client_limit": 20
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true
+      }
+    }
+  ],
+  "evaluation": {
+    "success": true,
+    "passed": 3,
+    "total": 3,
+    "checks": [
+      {
+        "id": "endpoint",
+        "label": "API 경로",
+        "path": "endpoint",
+        "rule": "expected",
+        "passed": true,
+        "actual": "/api/waitings",
+        "expected": "/api/waitings",
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "limit",
+        "label": "서버 요청 한도",
+        "path": "limit",
+        "rule": "expected",
+        "passed": true,
+        "actual": 20,
+        "expected": 20,
+        "missing": false,
+        "requires_decision": false
+      },
+      {
+        "id": "client-limit",
+        "label": "클라이언트 요청 한도",
+        "path": "client_limit",
+        "rule": "expected",
+        "passed": true,
+        "actual": 20,
+        "expected": 20,
+        "missing": false,
+        "requires_decision": false
+      }
+    ],
+    "turn": 4,
+    "status": "completed",
+    "scope": "Local JSON contract/work-plan constraints only; no execution or general code correctness claim.",
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 4,
+      "human_requests": 0,
+      "progress_events": 3,
+      "success": true
+    }
+  },
+  "final_state": {
+    "id": "075f8be9-e118-41dd-bd7b-0f272ce21468",
+    "scenario_id": "evidence-update",
+    "title": "근거 확인 후 주장 철회",
+    "description": "문서 근거가 확인되면 잘못된 주장을 철회하고 추가 개입 없이 계약을 완성합니다.",
+    "category": "evidence",
+    "policy": "capped",
+    "mode": "demo",
+    "status": "completed",
+    "turn": 4,
+    "max_turns": 18,
+    "periodic_every": 4,
+    "stall_window": 3,
+    "messages": [
+      {
+        "agent": "backend",
+        "content": "요청당 최대 개수는 20개로 알고 있습니다.",
+        "claims": [
+          {
+            "key": "api.request_limit",
+            "value": 20,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [],
+        "artifact": {
+          "endpoint": "/api/waitings"
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-1",
+        "turn": 1,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "이전 기억에 따르면 50개였습니다.",
+        "claims": [
+          {
+            "key": "api.request_limit",
+            "value": 50,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "old-memory",
+            "summary": "이전 기억: 최대 50개",
+            "source": ""
+          }
+        ],
+        "artifact": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-2",
+        "turn": 2,
+        "claim_ids": [
+          "claim-2"
+        ],
+        "evidence_ids": [
+          "evidence-2"
+        ],
+        "progress": false,
+        "validation": {
+          "passed": 1,
+          "total": 3
+        }
+      },
+      {
+        "agent": "backend",
+        "content": "승인 문서의 20개 제한을 확인했습니다.",
+        "claims": [
+          {
+            "key": "api.request_limit",
+            "value": 20,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "approved-limit",
+            "summary": "승인된 요청당 최대 개수는 20개다.",
+            "source": "fixture://approved-limit"
+          }
+        ],
+        "artifact": {
+          "limit": 20
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-3",
+        "turn": 3,
+        "claim_ids": [
+          "claim-1"
+        ],
+        "evidence_ids": [
+          "evidence-3"
+        ],
+        "progress": true,
+        "validation": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      {
+        "agent": "frontend",
+        "content": "50개라는 주장을 철회하고 20개로 수정했습니다.",
+        "claims": [
+          {
+            "key": "api.request_limit",
+            "value": null,
+            "kind": "factual",
+            "scope": "waiting-api",
+            "action": "retract"
+          },
+          {
+            "key": "api.request_limit",
+            "value": 20,
+            "kind": "factual",
+            "scope": "waiting-api"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "old-memory",
+            "action": "retract",
+            "summary": "기억에 의존한 근거 철회",
+            "source": ""
+          }
+        ],
+        "artifact": {
+          "client_limit": 20
+        },
+        "input_tokens": null,
+        "output_tokens": null,
+        "usage_source": "unavailable",
+        "synthetic": true,
+        "id": "message-4",
+        "turn": 4,
+        "claim_ids": [
+          "claim-3"
+        ],
+        "evidence_ids": [],
+        "progress": true,
+        "validation": {
+          "passed": 3,
+          "total": 3
+        }
+      }
+    ],
+    "requests": [],
+    "decisions": [],
+    "claims": [
+      {
+        "id": "claim-1",
+        "type": "Claim",
+        "agent": "backend",
+        "key": "api.request_limit",
+        "value": 20,
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 1,
+        "last_seen_turn": 3,
+        "evidence_ids": [
+          "evidence-3"
+        ],
+        "supersedes": [],
+        "relevant": true
+      },
+      {
+        "id": "claim-2",
+        "type": "Claim",
+        "agent": "frontend",
+        "key": "api.request_limit",
+        "value": 50,
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "retracted",
+        "turn": 2,
+        "last_seen_turn": 2,
+        "evidence_ids": [
+          "evidence-2"
+        ],
+        "supersedes": [],
+        "relevant": true,
+        "retracted_turn": 4
+      },
+      {
+        "id": "claim-3",
+        "type": "Claim",
+        "agent": "frontend",
+        "key": "api.request_limit",
+        "value": 20,
+        "kind": "factual",
+        "scope": "waiting-api",
+        "status": "active",
+        "turn": 4,
+        "last_seen_turn": 4,
+        "evidence_ids": [],
+        "supersedes": [],
+        "relevant": true
+      }
+    ],
+    "evidence": [
+      {
+        "id": "evidence-1",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 1/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 1,
+        "artifact_hash": "6487385362516cee2e8e1ea47c5aa13ce397eb8bedab47983857a3bce0c09790",
+        "artifact_revision": 1,
+        "checks": [
+          {
+            "id": "endpoint",
+            "label": "API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "limit",
+            "label": "서버 요청 한도",
+            "path": "limit",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": 20,
+            "missing": true,
+            "requires_decision": false
+          },
+          {
+            "id": "client-limit",
+            "label": "클라이언트 요청 한도",
+            "path": "client_limit",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": 20,
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "endpoint": "/api/waitings"
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-2",
+        "type": "Evidence",
+        "external_id": "old-memory",
+        "agent": "frontend",
+        "summary": "이전 기억: 최대 50개",
+        "source": "",
+        "grade": "CLAIMED",
+        "status": "retracted",
+        "origin": "agent",
+        "turn": 2,
+        "relevant": false,
+        "retracted_turn": 4
+      },
+      {
+        "id": "evidence-3",
+        "type": "Evidence",
+        "external_id": "approved-limit",
+        "agent": "backend",
+        "summary": "승인된 요청당 최대 개수는 20개다.",
+        "source": "fixture://approved-limit",
+        "grade": "REFERENCED",
+        "status": "active",
+        "origin": "agent",
+        "turn": 3,
+        "relevant": true
+      },
+      {
+        "id": "evidence-4",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 2/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 3,
+        "artifact_hash": "fec7464d331aaec8433accfa46711905128853b2bdeaec7fa82b6d4b708157b7",
+        "artifact_revision": 2,
+        "checks": [
+          {
+            "id": "endpoint",
+            "label": "API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "limit",
+            "label": "서버 요청 한도",
+            "path": "limit",
+            "rule": "expected",
+            "passed": true,
+            "actual": 20,
+            "expected": 20,
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "client-limit",
+            "label": "클라이언트 요청 한도",
+            "path": "client_limit",
+            "rule": "expected",
+            "passed": false,
+            "actual": null,
+            "expected": 20,
+            "missing": true,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "endpoint": "/api/waitings",
+          "limit": 20
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      },
+      {
+        "id": "evidence-5",
+        "type": "Evidence",
+        "origin": "local_validator",
+        "summary": "로컬 계약 검사 3/3 통과",
+        "source": "local://artifact-validator",
+        "grade": "VERIFIED",
+        "status": "active",
+        "relevant": true,
+        "turn": 4,
+        "artifact_hash": "1d90212cefc028afad9e121557d968787a05a722c40cc5b85ba27b289edaa07b",
+        "artifact_revision": 3,
+        "checks": [
+          {
+            "id": "endpoint",
+            "label": "API 경로",
+            "path": "endpoint",
+            "rule": "expected",
+            "passed": true,
+            "actual": "/api/waitings",
+            "expected": "/api/waitings",
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "limit",
+            "label": "서버 요청 한도",
+            "path": "limit",
+            "rule": "expected",
+            "passed": true,
+            "actual": 20,
+            "expected": 20,
+            "missing": false,
+            "requires_decision": false
+          },
+          {
+            "id": "client-limit",
+            "label": "클라이언트 요청 한도",
+            "path": "client_limit",
+            "rule": "expected",
+            "passed": true,
+            "actual": 20,
+            "expected": 20,
+            "missing": false,
+            "requires_decision": false
+          }
+        ],
+        "artifact_snapshot": {
+          "endpoint": "/api/waitings",
+          "limit": 20,
+          "client_limit": 20
+        },
+        "scope": "JSON artifact constraints; not application execution"
+      }
+    ],
+    "artifact": {
+      "endpoint": "/api/waitings",
+      "limit": 20,
+      "client_limit": 20
+    },
+    "metrics": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "measured_calls": 0,
+      "unmetered_calls": 4,
+      "human_requests": 0,
+      "progress_events": 3,
+      "success": true
+    },
+    "detector": {
+      "stalled_turns": 0,
+      "reason": "모든 로컬 계약 검사가 통과했습니다.",
+      "conflicts": [],
+      "intentional_human_wait": false,
+      "delivery_unknown": false,
+      "wait_cycles": [],
+      "missing_decision_owner": false,
+      "last_progress": {
+        "check_ids": [
+          "client-limit"
+        ],
+        "reference_ids": []
+      }
+    },
+    "task": {
+      "id": "task-evidence",
+      "description": "승인된 요청당 최대 개수를 서버와 클라이언트 계약에 반영한다.",
+      "goal": "endpoint=/api/waitings, limit=20, client_limit=20",
+      "artifact_description": "실행 코드가 아닌 요청 한도 계약 JSON",
+      "checklist": [
+        {
+          "id": "endpoint",
+          "label": "API 경로",
+          "path": "endpoint",
+          "expected": "/api/waitings"
+        },
+        {
+          "id": "limit",
+          "label": "서버 요청 한도",
+          "path": "limit",
+          "expected": 20
+        },
+        {
+          "id": "client-limit",
+          "label": "클라이언트 요청 한도",
+          "path": "client_limit",
+          "expected": 20
+        }
+      ],
+      "relevant_claim_keys": [
+        "api.request_limit"
+      ],
+      "evidence_catalog": [
+        {
+          "id": "approved-limit",
+          "summary": "승인된 요청당 최대 개수는 20개다.",
+          "source": "fixture://approved-limit"
+        }
+      ],
+      "oracle_choice": "continue",
+      "decision": null,
+      "type": "Task",
+      "scope": "waiting-api"
+    },
+    "_decision_values": {},
+    "_progress": {
+      "seen_passed_checks": [
+        "endpoint",
+        "limit",
+        "client-limit"
+      ],
+      "seen_references": [
+        "approved-limit"
+      ],
+      "epoch": 3
+    },
+    "_last_request": null,
+    "_artifact_revision": 3,
+    "coordination": {
+      "commitments": [],
+      "human_input_requests": [],
+      "review_requests": [],
+      "waits_for": [],
+      "decision_owner": null
+    }
+  },
+  "error_traceback": null
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Culture-Fit is an open-source, authority-aware Human-in-the-Loop (HITL) layer for AI agents. Know who can decide. Ask a human when it matters.">
+  <title>Culture-Fit — Human-in-the-Loop coordination for AI agents</title>
+  <link rel="stylesheet" href="/static/landing.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/" aria-label="Culture-Fit home"><span class="mark" aria-hidden="true">c.</span> Culture-Fit</a>
+    <nav aria-label="Main navigation"><a href="/download">Download</a><a href="/workspace#experiments">Experiments</a></nav>
+    <a class="workspace" href="/workspace">Workspace <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">OPEN-SOURCE HUMAN-IN-THE-LOOP (HITL) FOR AI AGENTS</p>
+      <h1>Know who can decide.<br>Ask a human<br>when it matters.</h1>
+      <p class="description">An open-source, authority-aware Human-in-the-Loop (HITL) layer for AI agents.<br class="desktop"> Connect claims to evidence, check authority, and bring in the right person.</p>
+      <div class="actions"><a class="button primary" href="/workspace">Try the demo</a><a class="button secondary" href="/download">Install locally <span aria-hidden="true">→</span></a></div>
+      <p class="caption">Conversation history · Relationships and evidence · Human decisions</p>
+    </section>
+    <section class="flow" aria-label="Three steps to move collaboration forward">
+      <article><span>01 / OBSERVE</span><h2>See what is blocked</h2><p>Track commitments and waiting relationships in the conversation. Distinguish supported claims from information that still needs checking.</p></article>
+      <article><span>02 / DECIDE</span><h2>Know who can decide</h2><p>Turn deferred reviews, conflicting choices, and unresolved requests into clear questions for the people who can decide.</p></article>
+      <article><span>03 / CONTINUE</span><h2>Move to the next step</h2><p>Record the human decision and the responsible agent. Connected agents can retrieve that decision and continue their work.</p></article>
+    </section>
+  </main>
+  <footer><a href="/">Culture-Fit</a><span>Hanium project · Local prototype</span></footer>
+  <script>
+    fetch("/api/config").then((response) => response.ok ? response.json() : null).then((config) => {
+      if (config?.deployment?.mode !== "visitor_demo") return;
+      document.querySelector(".workspace").textContent = "Demo workspace ↗";
+      const primary = document.querySelector(".actions .primary");
+      primary.href = "/workspace"; primary.textContent = "Try the demo";
+      const secondary = document.querySelector(".actions .secondary");
+      secondary.href = "/download"; secondary.textContent = "Install locally →";
+      document.querySelector(".caption").textContent = config.deployment.notice || "Your demo data is isolated from other visitors. This example is not connected to external agents or owners.";
+      document.querySelector("footer span").textContent = "Hanium project · Isolated visitor demo";
+    }).catch(() => {});
+  </script>
+</body>
+</html>
