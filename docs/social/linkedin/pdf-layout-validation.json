@@ -1,0 +1,59 @@
+{
+  "revision": 2,
+  "spacing": [
+    {
+      "slide": "slide-1",
+      "gap_css_px": 40,
+      "shadow": "none"
+    },
+    {
+      "slide": "slide-2",
+      "gap_css_px": 48,
+      "shadow": "none"
+    },
+    {
+      "slide": "slide-3",
+      "gap_css_px": 48,
+      "shadow": "none"
+    },
+    {
+      "slide": "slide-4",
+      "gap_css_px": 48,
+      "shadow": "none"
+    },
+    {
+      "slide": "slide-5",
+      "gap_css_px": 48,
+      "shadow": "none"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "image_count": 1,
+      "inline_shadow_images": 0
+    },
+    {
+      "page": 2,
+      "image_count": 1,
+      "inline_shadow_images": 0
+    },
+    {
+      "page": 3,
+      "image_count": 1,
+      "inline_shadow_images": 0
+    },
+    {
+      "page": 4,
+      "image_count": 1,
+      "inline_shadow_images": 0
+    },
+    {
+      "page": 5,
+      "image_count": 1,
+      "inline_shadow_images": 0
+    }
+  ],
+  "image_text_intersections": [],
+  "pdf_pages_rendered_for_review": 5
+}

@@ -1,0 +1,131 @@
+{
+  "method": "Measured Pretendard glyph bounds; text neon padding 14px; ring glow 10px; line glow full width; 0.1-second phase sampling above 15% opacity",
+  "scenes": {
+    "intro": {
+      "textOverlapCount": 0,
+      "minimumTextToTextGapPx": 21.59,
+      "minimumTextToTextLocation": {
+        "time": 12.9,
+        "a": "수용 · 거부 · 유보",
+        "b": "재사용 가능한 연결 계층"
+      },
+      "minimumRingToTextGapPx": 26.36,
+      "minimumRingToTextLocation": {
+        "time": 3.2,
+        "text": "초기 기획",
+        "ring": [
+          365,
+          548
+        ]
+      },
+      "minimumLineToTextGapPx": 28.47,
+      "minimumLineToTextLocation": {
+        "time": 0.2,
+        "text": "기획에서 현재 구현까지"
+      },
+      "maximumTextBottomPx": 881.83,
+      "subtitleSafeAreaTopPx": 900
+    },
+    "why-now": {
+      "textOverlapCount": 0,
+      "minimumTextToTextGapPx": 32.72,
+      "minimumTextToTextLocation": {
+        "time": 6.5,
+        "a": "누가 결정할 수 있죠?",
+        "b": "Anthropic 2024 · Google 2025 · Li & Xie 2025"
+      },
+      "minimumRingToTextGapPx": 42.5,
+      "minimumRingToTextLocation": {
+        "time": 0.8,
+        "text": "도구·데이터",
+        "ring": [
+          340,
+          475
+        ]
+      },
+      "minimumLineToTextGapPx": 26.0,
+      "minimumLineToTextLocation": {
+        "time": 0.2,
+        "text": "왜 지금, 결정권인가"
+      },
+      "maximumTextBottomPx": 875.77,
+      "subtitleSafeAreaTopPx": 900
+    },
+    "overview": {
+      "textOverlapCount": 0,
+      "minimumTextToTextGapPx": 47.95,
+      "minimumTextToTextLocation": {
+        "time": 3.3,
+        "a": "사람의 결정",
+        "b": "판단과 승인 기록"
+      },
+      "minimumRingToTextGapPx": 31.61,
+      "minimumRingToTextLocation": {
+        "time": 0.8,
+        "text": "01",
+        "ring": [
+          330,
+          490
+        ]
+      },
+      "minimumLineToTextGapPx": 28.47,
+      "minimumLineToTextLocation": {
+        "time": 0.2,
+        "text": "대화와 결정의 상태"
+      },
+      "maximumTextBottomPx": 740.96,
+      "subtitleSafeAreaTopPx": 900
+    },
+    "authority": {
+      "textOverlapCount": 0,
+      "minimumTextToTextGapPx": 30.6,
+      "minimumTextToTextLocation": {
+        "time": 8.2,
+        "a": "공동 승인 기록",
+        "b": "검토봇 B 담당"
+      },
+      "minimumRingToTextGapPx": 26.93,
+      "minimumRingToTextLocation": {
+        "time": 6.7,
+        "text": "검토봇 B",
+        "ring": [
+          840,
+          660
+        ]
+      },
+      "minimumLineToTextGapPx": 28.5,
+      "minimumLineToTextLocation": {
+        "time": 0.2,
+        "text": "권한과 공동 승인"
+      },
+      "maximumTextBottomPx": 869.23,
+      "subtitleSafeAreaTopPx": 900
+    },
+    "outro": {
+      "textOverlapCount": 0,
+      "minimumTextToTextGapPx": 22.48,
+      "minimumTextToTextLocation": {
+        "time": 7.3,
+        "a": "필요한 순간,",
+        "b": "필요한 사람에게"
+      },
+      "minimumRingToTextGapPx": 42.11,
+      "minimumRingToTextLocation": {
+        "time": 2.6,
+        "text": "Human-in-the-Loop (HITL)",
+        "ring": [
+          750,
+          420
+        ]
+      },
+      "minimumLineToTextGapPx": 28.5,
+      "minimumLineToTextLocation": {
+        "time": 0.2,
+        "text": "전 세계 개발자를 위한 오픈소스 연결 계층"
+      },
+      "maximumTextBottomPx": 832.43,
+      "subtitleSafeAreaTopPx": 900
+    }
+  },
+  "failures": []
+}

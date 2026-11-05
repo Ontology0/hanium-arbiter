@@ -1,0 +1,28 @@
+{
+  "grants": [
+    {
+      "id": "demo-grant-a",
+      "agent": "배포봇A",
+      "owner": "시연 소유자A",
+      "scope": "payment-release-1.2",
+      "action": "approve",
+      "issuer": "local-human",
+      "conditions": [],
+      "revoked": false
+    },
+    {
+      "id": "demo-grant-b",
+      "agent": "검토봇B",
+      "owner": "시연 소유자B",
+      "scope": "payment-release-1.2",
+      "action": "approve",
+      "issuer": "local-human",
+      "conditions": [],
+      "revoked": false
+    }
+  ],
+  "precedence": [],
+  "registry_revision": "87fb57e59ab57cb856201f91b4634b8c647b0ee19f80843e9da3bbd8620f8322",
+  "source": "local_operator_record",
+  "notice": "로컬 운영자가 기록한 위임 정보입니다. 외부 소유자의 신원·동의를 인증한 결과는 아닙니다."
+}

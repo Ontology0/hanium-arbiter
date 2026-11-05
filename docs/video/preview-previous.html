@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>컬처핏 작동 시연 · elevenlabs.io</title>
+<style>
+@font-face{font-family:Pretendard;src:url('/font.otf')}*{box-sizing:border-box}body{margin:0;background:#080a0c;color:#f5f7fa;font-family:Pretendard,system-ui,sans-serif}main{max-width:1200px;margin:5vh auto;padding:28px}small{color:#58ffda;letter-spacing:.08em}h1{font-size:40px;line-height:1.25;margin:20px 0 12px}p{color:#bac1cb;font-size:18px;line-height:1.7}section{border-top:1px solid #343a41;margin-top:38px;padding-top:24px}h2{font-size:23px;margin:0 0 18px}audio{width:100%;margin:8px 0}video{display:block;width:100%;aspect-ratio:16/9;background:#000}a{color:#58ffda}footer{margin-top:44px;font-size:15px;color:#8e98a6}details{margin-top:36px;border-top:1px solid #343a41;padding-top:24px}summary{cursor:pointer;font-size:20px}details section{max-width:800px}nav{display:flex;gap:24px;flex-wrap:wrap;font-size:17px;margin-top:22px}@media(max-width:600px){main{margin:0 auto;padding:20px}h1{font-size:32px}p{font-size:16px}}
+</style>
+<main>
+<small>CULTURE-FIT · OPEN SOURCE</small>
+<h1>컬처핏 작동 시연 · 이전 편집본</h1>
+<p>설치와 첫 실행을 담은 새 제품 소개 영상을 제작 중입니다. 아래는 이전 검토용 영상입니다.</p>
+<p>전 세계 개발자를 위한 오픈소스 Human-in-the-Loop (HITL)<br>Evidence, delegated authority, and human decisions.</p>
+<p>3분 6초 · 1080p · 한국어 자막<br>목소리: Harry Kim — Conversational · ElevenLabs Eleven v4</p>
+<nav><a href="/">한국어 자막판</a><a href="/?lang=en">English-captioned video</a></nav>
+<video controls playsinline preload="metadata" poster="/poster.png" src="/culture-fit-demo.mp4?v=a6dd44eacd45"></video>
+<nav><a href="/culture-fit-demo.mp4" download="culture-fit-demo-1080p.mp4">영상 다운로드</a><a href="/culture-fit-demo.ko.srt" download>한국어 자막</a><a href="/culture-fit-demo.en.srt" download>English subtitles</a><a href="/upload-description.txt" target="_blank">소개 · Description · Sources</a></nav>
+<nav><a href="https://github.com/Ontology0/hanium-arbiter" target="_blank" rel="noopener">Open-source repository</a><a href="https://culture-fit-demo-production.up.railway.app/" target="_blank" rel="noopener">Try the demo</a></nav>
+<nav><a href="/system-architecture.pdf" target="_blank">System architecture</a><a href="/user-flow.pdf" target="_blank">User journey</a></nav>
+<section><h2>보고서</h2><nav><a href="/result-report.pdf" target="_blank">결과보고서 PDF</a><a href="/result-report.docx" download="TEAM_NUMBER_PENDING.docx">결과보고서 Word</a><a href="/development-report.pdf" target="_blank">개발보고서 PDF</a></nav></section>
+<details><summary>목소리만 듣기</summary>
+<section><h2>25초 미리듣기</h2><audio controls preload="metadata" src="/voice-preview.mp3"></audio></section>
+<section><h2>전체 내레이션 · 약 2분 25초</h2><audio controls preload="metadata" src="/narration.mp3"></audio><p>영상에 맞춰 쉼을 넣기 전의 원본 음성이에요.</p></section>
+</details>
+<footer>음성 출처 · <a href="https://elevenlabs.io/ko/voice-library/natural" target="_blank" rel="noopener">elevenlabs.io</a></footer>
+</main>
+<script>
+if(new URLSearchParams(location.search).get('lang')==='en'){
+ document.querySelector('video').src='/culture-fit-demo-en.mp4?v=de5b774076e8';
+ document.querySelector('h1').textContent='Culture-Fit · Previous review version';
+ const download=document.querySelector('a[download="culture-fit-demo-1080p.mp4"]');
+ download.href='/culture-fit-demo-en.mp4';
+ download.download='culture-fit-demo-en-1080p.mp4';
+}
+</script>
+</html>

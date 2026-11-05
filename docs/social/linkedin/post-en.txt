@@ -1,0 +1,18 @@
+When AI agents keep asking each other to review or approve something, a person still has to work out where to step in.
+
+We’re building Culture-Fit, an open-source Human-in-the-Loop (HITL) prototype that makes decision authority visible in agent collaboration.
+
+The project began with an ontology for checking cultural and historical accuracy in AI-generated content. Exploring knowledge conflicts between agents brought us to another question: who is actually authorized to decide?
+
+Culture-Fit connects decision points and source quotations with authority recorded for a specific scope and action. If a release agent and a review agent both claim approval rights, it surfaces the relevant owners and the decision that needs clarification. After an operator records an agreed priority, the system re-evaluates authority and agents can query the next action.
+
+Our focus is scoped delegation and decisions involving different owners. Approval records are local operator inputs; they do not authenticate external owners or their consent.
+
+We’re developing this as a reusable MIT-licensed coordination layer, with MCP, A2A, and Skill interfaces for developers to configure in their own environments. Domain experts can bring their own tasks and policies. The public demo uses synthetic conversations and recorded analysis in separate visitor sandboxes.
+
+There is more to learn from real workflows. Where does your agent system struggle to make decision ownership clear?
+
+Source: https://github.com/Ontology0/hanium-arbiter
+Install: https://culture-fit-demo-production.up.railway.app/download
+
+#HumanInTheLoop #AIAgents #OpenSource #MCP

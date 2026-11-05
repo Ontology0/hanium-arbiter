@@ -1,0 +1,14 @@
+{
+  "ko": {
+    "ready": true,
+    "duration": 180,
+    "bytes": 9758959,
+    "sha256": "fed0bbe45aa32a13b5c491653000ba6f641eef0ccb6be77823f24923061151a5"
+  },
+  "en": {
+    "ready": true,
+    "duration": 180,
+    "bytes": 10176755,
+    "sha256": "a71b233351b46055cefabfe13aa7d75ed0f56897e20e60659227f2412368bf14"
+  }
+}

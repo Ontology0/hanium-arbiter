@@ -1,0 +1,48 @@
+{
+  "account": "alltology.3@gmail.com",
+  "account_verification": "browser account label and Drive owner 표시 나",
+  "document_id": "1_ZS9XW4LOwUXlz6xYaryen771q55fyv5nwrDWt4zWs4",
+  "url": "https://docs.google.com/document/d/1_ZS9XW4LOwUXlz6xYaryen771q55fyv5nwrDWt4zWs4",
+  "title": "컬처핏_2026_한이음_결과보고서",
+  "mime_type": "application/vnd.google-apps.document",
+  "revision": "AHj4eMRlsEA9vFv41GPdrfy8WJO75YyZZxFvUjQVAJCJCBaTyBKhoeXKEpkNjY8tYoIkJPsa3dk-d-DMv9gh3AH05OWJ7Lpakk5kB1HNFf8",
+  "images": 18,
+  "capture_pages": [
+    "서비스 화면 1. 첫 화면과 설치 안내",
+    "서비스 화면 2. 권한 충돌과 승인 입력",
+    "서비스 화면 3. 저장 후 담당자 확정"
+  ],
+  "links": [
+    "https://culture-fit-demo-production.up.railway.app/download",
+    "https://culture-fit-demo-production.up.railway.app/workspace",
+    "https://youtu.be/NO08LQL7ekU",
+    "https://youtu.be/oP9F6zEm9RM"
+  ],
+  "native_export_pdf_pages": 28,
+  "pdf_text_overflow": 0,
+  "visual_review_pages": [
+    26,
+    27,
+    28
+  ],
+  "source_uploaded_file_id": "19X259b9W1OCAI_EKwXYEruEpHouvAKOl",
+  "source_word_preserved": true,
+  "korean_pending_phrase_present": false,
+  "updated_at": "2026-10-29",
+  "capture_page_numbers": [
+    26,
+    27,
+    28
+  ],
+  "latest_export_note": "Includes concurrent edits already present at export; only target captures and video links were changed in this task.",
+  "updated_word": {
+    "path": "docs/submission/TEAM_NUMBER_PENDING.docx",
+    "sha256": "fc4f8ad58d0945c6757926abc658b2fdc63af85d71b68ea81f34d47022267555",
+    "tables": 34,
+    "image_placements": 14,
+    "both_youtube_urls": true
+  },
+  "word_app_stopped": true,
+  "temporary_word_windows_closed": true,
+  "original_template_sha256": "0014618607f318c0b0ed6b45cbaf7f8438b69eb6bb6da0a6e37f4d04d72c90bf"
+}

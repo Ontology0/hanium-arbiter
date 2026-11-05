@@ -1,0 +1,84 @@
+{
+  "captured_at_utc": "2026-10-31T12:46:08.034596+00:00",
+  "source": "https://culture-fit-demo-production.up.railway.app",
+  "browser": "Headless Chrome / fresh isolated visitor context",
+  "data": "Public synthetic example and previously recorded model analysis",
+  "interaction": "Record synthetic owners' agreement with Review Agent first for payment-release-1.2 / approve",
+  "before": {
+    "authority_status": "cross_owner_conflict",
+    "decision_owner": null
+  },
+  "after": {
+    "action": "follow_authority",
+    "decision_owner": "Review Agent",
+    "execution_status": "not_verified"
+  },
+  "model_calls": 0,
+  "external_work_executed": false,
+  "remote_owner_identity_verified": false,
+  "production_ui_modified": false,
+  "page_errors": [],
+  "screenshots": [
+    {
+      "path": "screenshots/01-landing.png",
+      "url": "https://culture-fit-demo-production.up.railway.app/",
+      "selector": null,
+      "clip_css_pixels": null,
+      "sha256": "74678b4db524d7650ee2a73c3a74a368551d1251d114f1c73d2167ec92fa2426"
+    },
+    {
+      "path": "screenshots/02-workspace.png",
+      "url": "https://culture-fit-demo-production.up.railway.app/workspace",
+      "selector": null,
+      "clip_css_pixels": null,
+      "sha256": "6aec813a10e5addd7841bc104d429543035c60d2f10620bcbe1a75ab4bc07732"
+    },
+    {
+      "path": "screenshots/03-authority-conflict.png",
+      "url": "https://culture-fit-demo-production.up.railway.app/workspace",
+      "selector": null,
+      "clip_css_pixels": {
+        "x": 327,
+        "y": 0.359375,
+        "width": 948,
+        "height": 241.15625
+      },
+      "sha256": "a3964501c93d4c2469ea00044387a5e0039d72338e2c62f33d619d540aa748ec"
+    },
+    {
+      "path": "screenshots/04-decision-brief.png",
+      "url": "https://culture-fit-demo-production.up.railway.app/workspace",
+      "selector": "#brief-panel",
+      "clip_css_pixels": null,
+      "sha256": "8d98830301962c44b7ef641a237cf4f36b23adc9e4a097777f9ad523fbff7e72"
+    },
+    {
+      "path": "screenshots/05-owner-approvals.png",
+      "url": "https://culture-fit-demo-production.up.railway.app/workspace",
+      "selector": ".precedence-form",
+      "clip_css_pixels": null,
+      "sha256": "f48fceca29ef23918aa8c0a9472522a2f30504bc545a945ae84674c39847d1b4"
+    },
+    {
+      "path": "screenshots/06-authority-resolved.png",
+      "url": "https://culture-fit-demo-production.up.railway.app/workspace",
+      "selector": ".authority-check",
+      "clip_css_pixels": null,
+      "sha256": "d0a1fff63f8e7c4416bc87403d6e7822dbaf40b145294cf8c81f8c267c02c6f5"
+    },
+    {
+      "path": "screenshots/07-how-to-use.png",
+      "url": "https://culture-fit-demo-production.up.railway.app/download",
+      "selector": null,
+      "clip_css_pixels": null,
+      "sha256": "01818ef7bdc644ab249ee3c23b64c4a452952b0d7528e77aa1f56067d6f88c68"
+    },
+    {
+      "path": "screenshots/08-source-and-skill.png",
+      "url": "https://culture-fit-demo-production.up.railway.app/download",
+      "selector": ".download-packages",
+      "clip_css_pixels": null,
+      "sha256": "546374c2a3b393e2005f77312df11757faba2c2bdd26b21290de3e1e4daa146b"
+    }
+  ]
+}

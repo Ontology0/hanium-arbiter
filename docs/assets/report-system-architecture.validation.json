@@ -1,0 +1,574 @@
+{
+  "overflow": [],
+  "overlap": [],
+  "minimumLabelPx": 24,
+  "texts": [
+    {
+      "text": "Culture-Fit  |  내부 처리 구조",
+      "owner": null,
+      "role": "label",
+      "font": 40,
+      "x": 44,
+      "y": 21,
+      "width": 465.9375,
+      "height": 48
+    },
+    {
+      "text": "대화 수집 → 근거 추출 → 위임권한 판정 → 사람 개입 → 최신 상태 조회",
+      "owner": null,
+      "role": "label",
+      "font": 25,
+      "x": 44,
+      "y": 80,
+      "width": 695.609375,
+      "height": 30
+    },
+    {
+      "text": "Web 가져오기",
+      "owner": "web",
+      "role": "label",
+      "font": 27,
+      "x": 61,
+      "y": 158,
+      "width": 157.03125,
+      "height": 33
+    },
+    {
+      "text": "대화 붙여넣기",
+      "owner": "web",
+      "role": "label",
+      "font": 24,
+      "x": 61,
+      "y": 206,
+      "width": 130.40625,
+      "height": 29
+    },
+    {
+      "text": "세션·이벤트 API",
+      "owner": "web",
+      "role": "label",
+      "font": 24,
+      "x": 61,
+      "y": 242,
+      "width": 152.1875,
+      "height": 29
+    },
+    {
+      "text": "app.py",
+      "owner": "web",
+      "role": "code",
+      "font": 18,
+      "x": 61,
+      "y": 286,
+      "width": 55.1875,
+      "height": 21
+    },
+    {
+      "text": "Slack 수신기",
+      "owner": "slack",
+      "role": "label",
+      "font": 27,
+      "x": 343,
+      "y": 158,
+      "width": 145.515625,
+      "height": 33
+    },
+    {
+      "text": "Socket Mode 이벤트",
+      "owner": "slack",
+      "role": "label",
+      "font": 24,
+      "x": 343,
+      "y": 206,
+      "width": 210.890625,
+      "height": 29
+    },
+    {
+      "text": "채널·중복 필터",
+      "owner": "slack",
+      "role": "label",
+      "font": 24,
+      "x": 343,
+      "y": 242,
+      "width": 136.609375,
+      "height": 29
+    },
+    {
+      "text": "slack_bridge / slack_ingest",
+      "owner": "slack",
+      "role": "code",
+      "font": 18,
+      "x": 343,
+      "y": 286,
+      "width": 217.171875,
+      "height": 21
+    },
+    {
+      "text": "MCP · Skill",
+      "owner": "mcp",
+      "role": "label",
+      "font": 27,
+      "x": 625,
+      "y": 158,
+      "width": 133.171875,
+      "height": 33
+    },
+    {
+      "text": "8 도구 · stdio/HTTP",
+      "owner": "mcp",
+      "role": "label",
+      "font": 24,
+      "x": 625,
+      "y": 206,
+      "width": 203.15625,
+      "height": 29
+    },
+    {
+      "text": "Skill → HTTP API",
+      "owner": "mcp",
+      "role": "label",
+      "font": 24,
+      "x": 625,
+      "y": 242,
+      "width": 180.65625,
+      "height": 29
+    },
+    {
+      "text": "mcp_server · arbiter_client",
+      "owner": "mcp",
+      "role": "code",
+      "font": 18,
+      "x": 625,
+      "y": 286,
+      "width": 213.296875,
+      "height": 21
+    },
+    {
+      "text": "A2A 어댑터",
+      "owner": "a2a",
+      "role": "label",
+      "font": 27,
+      "x": 907,
+      "y": 158,
+      "width": 131.5,
+      "height": 33
+    },
+    {
+      "text": "AgentCard · Send",
+      "owner": "a2a",
+      "role": "label",
+      "font": 24,
+      "x": 907,
+      "y": 206,
+      "width": 190.84375,
+      "height": 29
+    },
+    {
+      "text": "Get · Cancel · Task",
+      "owner": "a2a",
+      "role": "label",
+      "font": 24,
+      "x": 907,
+      "y": 242,
+      "width": 200.375,
+      "height": 29
+    },
+    {
+      "text": "a2a_server.py · SQLite",
+      "owner": "a2a",
+      "role": "code",
+      "font": 18,
+      "x": 907,
+      "y": 286,
+      "width": 180.171875,
+      "height": 21
+    },
+    {
+      "text": "공통 API · 대화 상태 정규화",
+      "owner": "api",
+      "role": "label",
+      "font": 30,
+      "x": 66,
+      "y": 403,
+      "width": 324.671875,
+      "height": 36
+    },
+    {
+      "text": "FastAPI(app.py) → conversations.py",
+      "owner": "api",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 446,
+      "width": 415.984375,
+      "height": 30
+    },
+    {
+      "text": "세션·발언 ID·출처·결정 요청 상태 유지",
+      "owner": "api",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 483,
+      "width": 370.0625,
+      "height": 30
+    },
+    {
+      "text": "이벤트 추가 → 규칙 재분석",
+      "owner": "api",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 516,
+      "width": 263.6875,
+      "height": 30
+    },
+    {
+      "text": "SQLite · SessionStore",
+      "owner": "sqlite",
+      "role": "label",
+      "font": 27,
+      "x": 821,
+      "y": 406,
+      "width": 273.453125,
+      "height": 33
+    },
+    {
+      "text": "세션·메시지·브리핑",
+      "owner": "sqlite",
+      "role": "label",
+      "font": 25,
+      "x": 821,
+      "y": 447,
+      "width": 185.796875,
+      "height": 30
+    },
+    {
+      "text": "위임·우선권·사람 결정",
+      "owner": "sqlite",
+      "role": "label",
+      "font": 25,
+      "x": 821,
+      "y": 484,
+      "width": 213.59375,
+      "height": 30
+    },
+    {
+      "text": "storage.py · WAL",
+      "owner": "sqlite",
+      "role": "code",
+      "font": 20,
+      "x": 821,
+      "y": 520,
+      "width": 152.46875,
+      "height": 24
+    },
+    {
+      "text": "규칙 기반 후보 탐지",
+      "owner": "rules",
+      "role": "label",
+      "font": 29,
+      "x": 66,
+      "y": 619,
+      "width": 220.609375,
+      "height": 35
+    },
+    {
+      "text": "conversations.py · domain.py",
+      "owner": "rules",
+      "role": "code",
+      "font": 22,
+      "x": 66,
+      "y": 661,
+      "width": 291.8125,
+      "height": 26
+    },
+    {
+      "text": "확인 약속·책임 미정·대기 후보",
+      "owner": "rules",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 699,
+      "width": 290.796875,
+      "height": 30
+    },
+    {
+      "text": "입력 이벤트와 사람의 답으로 상태 갱신",
+      "owner": "rules",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 737,
+      "width": 376.65625,
+      "height": 30
+    },
+    {
+      "text": "요청 기반 LLM 브리핑",
+      "owner": "brief",
+      "role": "label",
+      "font": 29,
+      "x": 648,
+      "y": 619,
+      "width": 252.8125,
+      "height": 35
+    },
+    {
+      "text": "briefing.py · providers.py",
+      "owner": "brief",
+      "role": "code",
+      "font": 22,
+      "x": 648,
+      "y": 661,
+      "width": 248.1875,
+      "height": 26
+    },
+    {
+      "text": "웹 / A2A 요청 → Codex CLI",
+      "owner": "brief",
+      "role": "label",
+      "font": 25,
+      "x": 648,
+      "y": 699,
+      "width": 291.171875,
+      "height": 30
+    },
+    {
+      "text": "결정 scope/action · 원문 인용 검증",
+      "owner": "brief",
+      "role": "label",
+      "font": 25,
+      "x": 648,
+      "y": 737,
+      "width": 356.984375,
+      "height": 30
+    },
+    {
+      "text": "Slack·MCP 수신은 모델을 자동 호출하지 않음",
+      "owner": "brief",
+      "role": "label",
+      "font": 24,
+      "x": 648,
+      "y": 769,
+      "width": 435.6875,
+      "height": 29
+    },
+    {
+      "text": "규칙 기반 위임권한 판정",
+      "owner": "authority",
+      "role": "label",
+      "font": 31,
+      "x": 66,
+      "y": 883,
+      "width": 289.09375,
+      "height": 37
+    },
+    {
+      "text": "authority.py · evaluate_authority",
+      "owner": "authority",
+      "role": "code",
+      "font": 22,
+      "x": 811.90625,
+      "y": 890,
+      "width": 321.09375,
+      "height": 26
+    },
+    {
+      "text": "위임: 소유자·에이전트·대상·행동",
+      "owner": "authority",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 936,
+      "width": 313.734375,
+      "height": 30
+    },
+    {
+      "text": "모든 소유자의 유효 위임을 함께 판정",
+      "owner": "authority",
+      "role": "label",
+      "font": 25,
+      "x": 643,
+      "y": 936,
+      "width": 354.25,
+      "height": 30
+    },
+    {
+      "text": "조건 · 만료 · 철회 상태 검증",
+      "owner": "authority",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 978,
+      "width": 266.140625,
+      "height": 30
+    },
+    {
+      "text": "공동 우선권 + 정확한 위임 스냅샷 결속",
+      "owner": "authority",
+      "role": "label",
+      "font": 25,
+      "x": 643,
+      "y": 978,
+      "width": 377.015625,
+      "height": 30
+    },
+    {
+      "text": "범위별 승인을 재사용하고, 새 판단이 필요한 결정에만 사람 개입을 제시",
+      "owner": "authority",
+      "role": "label",
+      "font": 24,
+      "x": 66,
+      "y": 1017,
+      "width": 661.15625,
+      "height": 29
+    },
+    {
+      "text": "유효한 권한 · 담당자 확인",
+      "owner": "follow",
+      "role": "label",
+      "font": 27,
+      "x": 66,
+      "y": 1126,
+      "width": 265.921875,
+      "height": 33
+    },
+    {
+      "text": "남은 질문이 없으면 follow_authority",
+      "owner": "follow",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 1169,
+      "width": 370.53125,
+      "height": 30
+    },
+    {
+      "text": "외부 업무 실행은 연결 에이전트의 역할",
+      "owner": "follow",
+      "role": "label",
+      "font": 24,
+      "x": 66,
+      "y": 1209,
+      "width": 361.59375,
+      "height": 29
+    },
+    {
+      "text": "미해결 · wait_for_human",
+      "owner": "human",
+      "role": "label",
+      "font": 27,
+      "x": 648,
+      "y": 1126,
+      "width": 291.890625,
+      "height": 33
+    },
+    {
+      "text": "원문 근거·관련 소유자·구체적 질문",
+      "owner": "human",
+      "role": "label",
+      "font": 25,
+      "x": 648,
+      "y": 1169,
+      "width": 334,
+      "height": 30
+    },
+    {
+      "text": "UI에 승인 기록 · 오래된 화면은 409",
+      "owner": "human",
+      "role": "label",
+      "font": 24,
+      "x": 648,
+      "y": 1209,
+      "width": 337.4375,
+      "height": 29
+    },
+    {
+      "text": "권한 기록 후 재평가 · UI / MCP / Skill에 같은 최신 상태 제공",
+      "owner": "projection",
+      "role": "label",
+      "font": 28,
+      "x": 66,
+      "y": 1314,
+      "width": 668.59375,
+      "height": 34
+    },
+    {
+      "text": "GET session / brief / next-action  ·  모델 재호출 없이 위임권한 갱신",
+      "owner": "projection",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 1352,
+      "width": 686.53125,
+      "height": 30
+    },
+    {
+      "text": "app.py: coordination_snapshot  ·  briefing.py: brief_view  ·  coordination_advice.py",
+      "owner": "projection",
+      "role": "code",
+      "font": 20,
+      "x": 66,
+      "y": 1385,
+      "width": 711.296875,
+      "height": 24
+    },
+    {
+      "text": "별도 공개 체험 영역 · Railway",
+      "owner": "public",
+      "role": "label",
+      "font": 29,
+      "x": 66,
+      "y": 1470,
+      "width": 347.234375,
+      "height": 35
+    },
+    {
+      "text": "서명 쿠키별 SQLite 분리 · 합성 대화 + 기록된 분석 재생",
+      "owner": "public",
+      "role": "label",
+      "font": 25,
+      "x": 66,
+      "y": 1512,
+      "width": 548,
+      "height": 30
+    },
+    {
+      "text": "외부 모델·Slack 차단 · 공개 주소는 MCP/A2A 엔드포인트 아님",
+      "owner": "public",
+      "role": "label",
+      "font": 24,
+      "x": 66,
+      "y": 1546,
+      "width": 597.546875,
+      "height": 29
+    },
+    {
+      "text": "검증 경계: 실 Slack 계정·원격 소유자 신원 인증·외부 업무 실행은 미검증",
+      "owner": null,
+      "role": "label",
+      "font": 24,
+      "x": 44,
+      "y": 1601,
+      "width": 675.859375,
+      "height": 29
+    },
+    {
+      "text": "근거: backend/arbiter/ 위 모듈, deployment.py · skills/arbiter-coordination/scripts/arbiter_client.py",
+      "owner": null,
+      "role": "code",
+      "font": 19,
+      "x": 44,
+      "y": 1641,
+      "width": 822.03125,
+      "height": 23
+    }
+  ],
+  "width": 1200,
+  "height": 1680,
+  "pngScale": 2,
+  "intendedWidthCm": 16.2,
+  "minimumLabelPtAtIntendedWidth": 9.184251968503936,
+  "pageErrors": [],
+  "codeFootersMayBeSmaller": true
+}

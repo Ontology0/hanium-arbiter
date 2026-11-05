@@ -1,0 +1,7 @@
+{
+  "frontend/index.html": "f0be842d7d44461abea1530fccdb668237d189d9fd358eb72f4a495d5c54d895",
+  "frontend/app.js": "186f25f42d0487901975b4c509e75ae932c079db18e3e402235f5e0fcde80739",
+  "frontend/styles.css": "6f7bfd1ec7d105f856c92bfae399e5c700881c21b86d0c38c996c0a8ed6a8179",
+  "backend/arbiter/app.py": "31b699e5f1416e8e82a1ca905f21a3068034ea11a6eac7e0daae3a0312102588",
+  "backend/arbiter/authority.py": "ebf99e32b5d81de95e98a8092fe56580a881f0b12f30bc422f47564470ce7eda"
+}

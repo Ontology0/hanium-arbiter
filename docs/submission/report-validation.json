@@ -1,0 +1,538 @@
+{
+  "verified_at": "2026-10-29T22:18:23.667596+09:00",
+  "template": {
+    "path": "docs/templates/2026-result-report.docx",
+    "sha256": "0014618607f318c0b0ed6b45cbaf7f8438b69eb6bb6da0a6e37f4d04d72c90bf",
+    "original_upload_sha256": "0014618607f318c0b0ed6b45cbaf7f8438b69eb6bb6da0a6e37f4d04d72c90bf",
+    "original_unchanged": true,
+    "tables": 34
+  },
+  "artifacts": {
+    "docs/submission/TEAM_NUMBER_PENDING.docx": {
+      "sha256": "fc4f8ad58d0945c6757926abc658b2fdc63af85d71b68ea81f34d47022267555",
+      "bytes": 2714266,
+      "tables": 34,
+      "inline_images": 14,
+      "appendix_new_portrait_sections": 3,
+      "appendix_image_width_cm": 16.2,
+      "appendix_image_height_cm": 8.1,
+      "layout_status": "OOXML structural validation only; current revision not rendered in Word or PDF."
+    },
+    "docs/submission/TEAM_NUMBER_PENDING.pdf": {
+      "sha256": "bdf7a3a3a7e663e07168fb1f02759098bce16dc346e4db0d113d059702b35f2f",
+      "bytes": 1675715,
+      "pages": 22,
+      "page_sizes_points": [
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          842.0,
+          595.25
+        ],
+        [
+          842.0,
+          595.25
+        ]
+      ],
+      "characters_per_page": [
+        198,
+        795,
+        1624,
+        982,
+        697,
+        687,
+        1195,
+        1278,
+        485,
+        1780,
+        1865,
+        1984,
+        1905,
+        1718,
+        1849,
+        748,
+        1723,
+        866,
+        1725,
+        121,
+        137,
+        151
+      ],
+      "blank_pages": [],
+      "text_bounds_outside_page": [],
+      "image_bounds_outside_page": [],
+      "sparse_noncover_pages_under_150_characters": [],
+      "intentional_figure_pages": [
+        20,
+        21,
+        22
+      ],
+      "edition_status": "Previous 22-page edition; does not include the latest service-capture appendix or Korean YouTube URL."
+    },
+    "docs/development-report.docx": {
+      "sha256": "6040fdd079c63675683a92e1c13a7aa8456cca1ee54be7fc7840734b41f02e5e",
+      "bytes": 2536369,
+      "tables": 9,
+      "inline_images": 6
+    },
+    "docs/development-report.pdf": {
+      "sha256": "3b95b4768a2aa7d253a4df1b2455718725db08d6b1f2ac19ae3fa439e0afc24e",
+      "bytes": 1563964,
+      "pages": 17,
+      "page_sizes_points": [
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          595.25,
+          842.0
+        ],
+        [
+          842.0,
+          595.25
+        ],
+        [
+          842.0,
+          595.25
+        ]
+      ],
+      "characters_per_page": [
+        1714,
+        2249,
+        1277,
+        1792,
+        1676,
+        1892,
+        1839,
+        1925,
+        2047,
+        1967,
+        1787,
+        1900,
+        1777,
+        938,
+        136,
+        151,
+        181
+      ],
+      "blank_pages": [],
+      "text_bounds_outside_page": [],
+      "image_bounds_outside_page": [],
+      "sparse_noncover_pages_under_150_characters": [],
+      "intentional_figure_pages": [
+        15,
+        16,
+        17
+      ]
+    }
+  },
+  "official_summary": [
+    {
+      "field": "프로젝트 소개",
+      "paragraphs": 2,
+      "rendered_lines": 2,
+      "matched_pdf_lines": [
+        "에이전트 협업 대화에서 결정 대상과 사람의 위임권한을 연결하는 관제 시스템이다. ",
+        "HITL 탐지·A2A 분석 서비스·MCP 도구를 제공한다. "
+      ]
+    },
+    {
+      "field": "개발 배경 및 필요성",
+      "paragraphs": 2,
+      "rendered_lines": 2,
+      "matched_pdf_lines": [
+        "생성형 AI의 근거·판단을 검증하고 관리한다는 목표를 이어 왔다. ",
+        "콘텐츠 고증·지식 충돌 해결에서 협업의 결정·위임 관제로 범위를 발전시켰다. "
+      ]
+    },
+    {
+      "field": "프로젝트 특·장점",
+      "paragraphs": 2,
+      "rendered_lines": 2,
+      "matched_pdf_lines": [
+        "모델은 원문 근거와 결정 대상을 추출하고 별도 규칙이 위임 범위를 판정한다. ",
+        "권한 공백·소유자 간 충돌이면 반복 대기를 기다리지 않고 사람 질문을 제시한다. "
+      ]
+    },
+    {
+      "field": "주요기능",
+      "paragraphs": 2,
+      "rendered_lines": 2,
+      "matched_pdf_lines": [
+        "대화 수집, 근거 인용 브리핑, 범위별 권한·우선권 판정과 결정 기록을 구현하였다. ",
+        "AgentCard 분석 요청, MCP 조회, 읽기 전용 Slack 수신 구성을 제공한다. "
+      ]
+    },
+    {
+      "field": "기대효과 및 활용 분야",
+      "paragraphs": 2,
+      "rendered_lines": 2,
+      "matched_pdf_lines": [
+        "협업 상태·권한 근거를 함께 보여 사람의 확인과 책임 판단을 지원하는 것이 목표다. ",
+        "전 세계 개발자·운영팀·전문가가 기존 환경에 연결해 쓰는 오픈소스 활용을 지향한다. "
+      ]
+    }
+  ],
+  "visual_review": {
+    "current_official_docx_rendered": false,
+    "current_official_docx_pages_reviewed": [],
+    "prior_official_visual_review_retained_in": "artifact_revision_history",
+    "development_pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "note": "Current official revision validated from OOXML and original images only. Word app and PDF conversion not executed. No claim of current rendered pagination or page-boundary QA."
+  },
+  "content_checks": {
+    "official_required_sections_and_tables_retained": true,
+    "implementation_verification": "199 tests + 8 subtests, 10.32 seconds; completed development-run summary, not raw pytest stdout or a new execution.",
+    "local_video_reference": "Current KO/EN product videos: each 180 seconds, 1920x1080; earlier 186-second demo videos preserved.",
+    "registered_project_period": "2026.04.01–2026.10.30, July 12 development report p13",
+    "current_code_publication_claimed": true,
+    "external_achievements_invented": false,
+    "timeliness_sources": "Anthropic MCP 2024-11-25; Google A2A 2025-04-09; Li and Xie 2025, sections 3.1 and 6",
+    "shared_knowledge_vs_delegated_authority": "Same information and repository access do not imply the same business approval authority; storage and validity evaluation are distinct.",
+    "required_section_headings": [
+      "I. 프로젝트 개요",
+      "II. 프로젝트 내용",
+      "III. 프로젝트 수행 내용",
+      "Ⅳ. 기대효과 및 활용분야",
+      "Ⅴ. 참고자료"
+    ],
+    "all_template_table_columns_and_minimum_rows_retained": true,
+    "public_verification": "29 deployed HTTPS API checks; 27 public Chrome checks; 13 explicit English mutual-wait rule checks; 33 isolated legacy-alias Chrome checks. Distinct scopes, not an accuracy aggregate.",
+    "code_publication": {
+      "repository_url": "https://github.com/Ontology0/hanium-arbiter",
+      "branch": "main",
+      "branch_url": "https://github.com/Ontology0/hanium-arbiter/tree/main",
+      "commit": "11802bd031bf95606522089792735f6e85bcb724",
+      "main_status": "PR #2 merged; confirmed by remote main lookup and fetched commit log",
+      "pull_request_url": "https://github.com/Ontology0/hanium-arbiter/pull/2",
+      "license": "MIT"
+    },
+    "public_demo": {
+      "url": "https://culture-fit-demo-production.up.railway.app/workspace",
+      "status": "deployed",
+      "scope": "Synthetic conversation and stored model analysis; per-visitor cookie/SQLite isolation and self reset; fresh model calls and Slack receipt blocked. Visitor isolation is not external-owner identity authentication."
+    },
+    "existing_hitl_sources": "Microsoft Agent Framework request/response handling; Palantir Platform overview/Actions and Autopilot human-in-the-loop visualization; project criteria for appropriate intervention are separately identified.",
+    "video_capture_scope": "Current product videos combine actual macOS ZIP first launch, empty local workspace and fresh-visitor public demo capture; synthetic conversation, recorded analysis and local operator approval records. Older Korean UI screenshots are retained as historical evidence.",
+    "rendered_pdf_content_presence": {
+      "docs/submission/TEAM_NUMBER_PENDING.pdf": {
+        "latest_199_tests": true,
+        "eight_subtests": true,
+        "latest_duration": true,
+        "human_in_the_loop_expanded": true,
+        "global_target": true,
+        "mit_license": true,
+        "actual_codex_mcp": true,
+        "latest_main_commit": true,
+        "snapshot_conflict": true,
+        "partial_case_still_waiting": true,
+        "detailed_section_six": true,
+        "new_product_video_duration": true
+      },
+      "docs/development-report.pdf": {
+        "latest_199_tests": true,
+        "eight_subtests": true,
+        "latest_duration": true,
+        "human_in_the_loop_expanded": true,
+        "global_target": true,
+        "mit_license": true,
+        "actual_codex_mcp": true,
+        "latest_main_commit": true,
+        "snapshot_conflict": true,
+        "partial_case_still_waiting": true,
+        "detailed_section_six": true,
+        "new_product_video_duration": true
+      }
+    },
+    "human_in_the_loop_expanded": "Human-in-the-Loop(HITL) explicitly appears in the first project introduction of both reports.",
+    "global_open_source_goal": "Worldwide developers, operations teams and domain experts; English interface and KO/EN conversation inputs implemented, original language preserved. No overseas-user or general multilingual-accuracy claim.",
+    "actual_codex_mcp_smoke": {
+      "source": ".runtime/live-agent-smoke/20261029T054147Z/summary.json",
+      "source_sha256": "ace769bad7dc5a671c36dcaa96021bbf6b45c6fe3c1489465e6fd4171b858667",
+      "model_invocations": 2,
+      "completed_mcp_tool_calls": 4,
+      "result": "cross_owner_conflict -> wait_for_human; after mock approval, authorized -> follow_authority -> Review Agent",
+      "scope": "Manual synthetic scope/action fixture; separate from the 182-test suite and two earlier briefing calls. Does not verify extraction accuracy, real owner approval, live Slack/OpenClaw or external action completion."
+    },
+    "word_pdf_relationship": "Official DOCX is newer than the retained official PDF. Development DOCX/PDF remain unchanged. A separate Google Docs edition is managed by the parent agent.",
+    "detailed_body_expansion": "Six detailed design sections in main body; three large diagrams added, two on A4 landscape pages. Existing template sections and 34 tables retained.",
+    "portal_registered_team": {
+      "mentor": "박정두 / 네이버(주) / Creator Hub / 리더",
+      "registered_assignments": {
+        "이다영": "컬처 핏 개발 파트 담당",
+        "박세령": "LLM 오케스트레이션 담당",
+        "손현경": "온톨로지 설계 및 LLM 지식 주입 담당"
+      },
+      "source": "User-supplied portal screenshot directly inspected; hash retained in implementation-verification.json",
+      "boundary": "Registered roles only; monthly work and individual contribution not inferred."
+    },
+    "public_video": {
+      "ko": "https://youtu.be/NO08LQL7ekU",
+      "en": "https://youtu.be/oP9F6zEm9RM",
+      "source": "Confirmed links supplied by parent agent in this session; both written in current official DOCX."
+    },
+    "current_service_screenshots": {
+      "main_inline_screenshot_replacements": 5,
+      "appendix_screenshots": 5,
+      "appendix_sections": 3,
+      "layout": "2 + 2 + 1, A4 portrait, each image 16.2 x 8.1 cm at its original aspect ratio",
+      "before_after_boundary": "16-both-owner-approvals is before save; 17-review-agent-authorized is after save. Synthetic public example, recorded analysis, operator approval records; not owner authentication or external execution."
+    }
+  },
+  "pending_submission_inputs": [
+    "팀번호",
+    "지도교수 참여 여부",
+    "월별 실제 수행내역·미팅 기록",
+    "개인별 실제 기여 실적(등록 담당업무는 확인됨)",
+    "외부 달성 성과·증빙 유무"
+  ],
+  "source_files": {
+    "docs/build_submission.py": {
+      "sha256": "fabaaa508c8531a2b914a147a797d4a8ffe4f168097231a668964292713a0c94",
+      "bytes": 47777
+    },
+    "docs/build_report.py": {
+      "sha256": "5b54c7b9a94225711e85963384a1b57dc5f2e30b7c77c462ab95a6d83f3dfe2f",
+      "bytes": 17380
+    },
+    "docs/development-report.md": {
+      "sha256": "20a52ce4b52f1a6ef29fd140f1f35e6bbe508c0e90423e8d9e01941ee850d6d5",
+      "bytes": 51910
+    },
+    "docs/submission/report-technical-sections.json": {
+      "sha256": "e51cbcfe0f4d26db4fecae48ec075c7bb38640a9be2bb55f12e7097ba6d12906",
+      "bytes": 22534
+    },
+    "docs/assets/report-system-architecture.png": {
+      "sha256": "8400b9cc69a7b0647425e74b6ec7494ff56afe4f5f73d66ad751d1a15374075b",
+      "bytes": 619933
+    },
+    "docs/assets/diagrams/system-architecture.png": {
+      "sha256": "4f9ee7cbe214998d2a45d4e4fc635a7d1f600ab6e128f747858918e6253d3010",
+      "bytes": 838202
+    },
+    "docs/assets/diagrams/user-flow.png": {
+      "sha256": "3a77666a0586a41dcde47cb186e62ad02c7b57e24ddc02a663a4d9b11049b260",
+      "bytes": 895885
+    },
+    "docs/submission/implementation-verification.json": {
+      "sha256": "b004bad388c2d74df61d1887fb12db7d8134c383845c4905486cf98a9b05447f",
+      "bytes": 33928
+    },
+    "docs/submission/requirements.md": {
+      "sha256": "d28908f5d8df9bc495521f7d7b632189f07eb1bb2e385cb9e8abe567e86f2e9f",
+      "bytes": 13984
+    }
+  },
+  "artifact_revision_history": [
+    {
+      "artifact": "docs/submission/TEAM_NUMBER_PENDING.docx",
+      "revision": {
+        "sha256": "246009a6b6aed91fb2001defea153158efcd7e5b66bd48c789b65164eaaa28ba",
+        "bytes": 2593545,
+        "tables": 34,
+        "inline_images": 9
+      },
+      "visual_review": {
+        "pages_reviewed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "development_pages_reviewed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "clipping_or_overlap_found": false,
+        "summary_rendered_lines_checked": true,
+        "preview_directory": ".runtime/report-review",
+        "review_note": "Every final page raster was directly inspected in contact sheets after expanded body, three large diagrams, portal-confirmed team data and English public video URL. No clipped or overlapping text, detached caption, blank page or source-only tail page found. Automatic checks independently cover text/image page bounds; they do not prove semantic correctness or arbitrary subpixel vector alignment.",
+        "source_edits_needed": false
+      },
+      "scope": "Prior 22-page official edition before current English service captures and KO URL."
+    }
+  ]
+}

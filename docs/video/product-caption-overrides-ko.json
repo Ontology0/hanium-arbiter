@@ -1,0 +1,30 @@
+{
+  "purpose": "Display standard written technical names; pronunciation-only speech scripts and narration timing remain unchanged.",
+  "replacements": {
+    "휴먼 인 더 루프": "Human-in-the-Loop (HITL)",
+    "유브이": "uv",
+    "오픈클로": "OpenClaw",
+    "릴리스 에이전트": "Release Agent",
+    "리뷰 에이전트": "Review Agent",
+    "엠씨피": "MCP",
+    "에이투에이": "A2A",
+    "엠아이티": "MIT"
+  },
+  "cues": {
+    "product-03": "컬처핏은 근거와 권한을 살피고, 필요한 순간에 사람의 판단을 연결하는 오픈소스 Human-in-the-Loop (HITL) 계층이에요.",
+    "product-05": "소스 ZIP을 받고 압축을 풀어 주세요. 파이썬 실행 환경은 uv로 준비해요.",
+    "product-07": "OpenClaw를 쓴다면 스킬 ZIP을 받아, 실행 중인 컬처핏 서버에 연결할 수도 있어요.",
+    "product-10": "이 예제에선 Release Agent와 Review Agent가 같은 배포의 승인 권한을 가지고 있어요.",
+    "product-14": "이제 Review Agent를 우선으로 두는 순서를 정해볼게요.",
+    "product-17": "권한을 다시 확인하면 Review Agent가 담당자로 나타나요. 누가 진행할 수 있는지 분명해졌죠.",
+    "product-19": "자신의 환경에서는 MCP로 에이전트가 대화를 보고하고, 다음 행동과 권한 상태를 조회할 수 있어요.",
+    "product-20": "A2A와 스킬 연결도 제공해서, 쓰는 에이전트 환경에 맞게 붙일 수 있어요.",
+    "product-21": "컬처핏은 전 세계 개발자가 수정하고 연결할 수 있는 MIT 오픈소스예요."
+  },
+  "line_overrides": {
+    "product-10": [
+      "이 예제에선 Release Agent와 Review Agent가",
+      "같은 배포의 승인 권한을 가지고 있어요."
+    ]
+  }
+}

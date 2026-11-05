@@ -1,0 +1,41 @@
+Culture-Fit 컬처핏 | Human-in-the-Loop 설치·사용 안내 | elevenlabs.io
+
+여러 AI 에이전트가 함께 일할 때, 누가 결정하고 언제 사람에게 물어야 할까요?
+컬처핏은 대화의 근거, 업무별 위임 권한, 사람의 판단을 연결하는 오픈소스 Human-in-the-Loop(HITL) 연결 계층입니다. MCP 도구·A2A 분석 서비스·Skill로 기존 환경에 연결해 사용할 수 있습니다. 이 영상에서 설치와 첫 실행, 근거 확인, 권한 충돌과 사람 입력의 흐름을 살펴보세요.
+
+다운로드·설치
+https://culture-fit-demo-production.up.railway.app/download
+공개 체험
+https://culture-fit-demo-production.up.railway.app/workspace
+소스 코드·설치 안내
+https://github.com/Ontology0/hanium-arbiter/tree/main
+https://github.com/Ontology0/hanium-arbiter/blob/main/docs/install.md
+MIT 라이선스
+https://github.com/Ontology0/hanium-arbiter/blob/main/LICENSE
+
+화면은 영어 고정이며 UI 언어 선택은 없습니다. 대화 분석은 한국어·영어 입력을 지원하고 입력 원문과 인용은 원어를 보존합니다. 언어 지원이 모든 분야의 탐지 정확도 검증을 뜻하지는 않습니다. 공개 체험은 웹용이며 MCP·A2A 연결은 자신의 설치 환경에서 설정합니다.
+
+시연에는 합성 예제와 저장된 모델 분석을 사용합니다. 승인 화면은 운영자가 남긴 기록이며 외부 소유자 인증이나 실제 업무 실행을 뜻하지 않습니다.
+
+참고자료 — 연결 표준과 기존 HITL의 배경이며 컬처핏의 성능 평가 자료는 아닙니다.
+Anthropic, Introducing the Model Context Protocol (2024)
+https://www.anthropic.com/news/model-context-protocol
+Google, Announcing the Agent2Agent Protocol (A2A) (2025)
+https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/
+Li & Xie, From Glue-Code to Protocols (2025), arXiv:2505.03864v1, §3.1·6
+https://arxiv.org/abs/2505.03864v1
+Microsoft Agent Framework, Human-in-the-loop
+https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop?pivots=programming-language-csharp
+Palantir, Platform overview / Autopilot integrations
+https://www.palantir.com/docs/foundry/platform-overview/overview
+https://www.palantir.com/docs/foundry/autopilot/integrations
+
+제작 출처·라이선스
+한국어 음성: ElevenLabs · Harry Kim - Conversational · Eleven v4로 생성
+https://elevenlabs.io/ko/voice-library/natural
+코드의 MIT 라이선스와 음성 이용 조건은 별개입니다. 음성은 ElevenLabs 무료 플랜의 비상업 이용 조건을 따르며 제목에 elevenlabs.io를 표기했습니다.
+https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform
+Three.js r180: MIT, 직접 제작한 설명 도식
+https://github.com/mrdoob/three.js/blob/r180/LICENSE
+Pretendard v1.3.9: SIL Open Font License 1.1
+https://github.com/orioncactus/pretendard/releases/tag/v1.3.9

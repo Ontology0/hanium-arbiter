@@ -1,0 +1,116 @@
+Skip to main content
+c
+·
+Culture-Fit
+AGENT COORDINATION
+WORKSPACE
+◈
+Coordination workspace
+LOCAL
+Import conversation
+↗
+
+Slack · Pickle · Agent conversations
+
+Start a session
+Scenario
+Promises to check with an owner
+Mutual review waits in Slack
+Conflicting API requirements
+Speed versus delivery reliability
+Passing responsibility around
+Healthy progress over many turns
+The same disagreement in new words
+Retracting a claim after checking evidence
+
+Personal agents repeat promises to ask their owners, but actual delivery remains unknown.
+
+Intervention policy
+Turn limit
+Periodic check-in
+Stall-aware check-in
+Run mode
+Controlled simulation
+Live agent · Codex
+
+Replays scripted conversations. This is a controlled simulation, not a live-model experiment.
+
+＋
+Create session
+Recent sessions
+↻
+
+No sessions yet. Create a session or import a conversation.
+
+Page 1 of 1 · 0 of 0
+Previous
+1
+Next
+◎
+
+Ask a human when it matters.
+Authority-aware agent coordination
+
+WORKSPACE / Coordination workspace
+HANIUM PROJECT
+Know who can decide.Ask a human when it matters.
+
+An open-source, authority-aware Human-in-the-Loop (HITL) layer for AI agents
+
+Not started
+Start your first session
+▹
+Run one turn
+▶
+Continue
+Stop
+ⓘ
+
+Choose a scenario and intervention policy in the sidebar. Scripted demos and live agent runs are recorded separately.
+
+Overview
+Conversation 0
+Decisions 0
+Knowledge
+Experiments
+Connections
+JSON ↓
+Report ↓
+Conversation turns
+—
+turns
+Available after session creation
+Measured tokens
+—
+Based on recorded usage
+Human decision requests
+—
+requests
+Points requiring human input
+Progress changes
+—
+events
+Changes in artifacts or evidence
+
+DECISION BRIEF
+
+Decision brief
+Generate briefing
+
+Call a live model to summarize agreements, open questions, and points that need human input. Generation uses model tokens.
+
+Select a conversation to generate a briefing.
+
+NEXT DECISION
+
+Next decision
+0
+
+Start a session or import a conversation to see which decisions need attention.
+
+Current session
+
+Choose a scenario and policy to create a session.
+
+CULTURE-FIT / Authority-aware coordination for AI agents
+Human decisions move work forward.

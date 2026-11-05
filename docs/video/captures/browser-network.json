@@ -1,0 +1,1568 @@
+[
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/workspace",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/styles.css",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/app.js",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/config",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/experiments",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/authority",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "POST",
+    "url": "http://127.0.0.1:8798/api/intake",
+    "body": "{\"transcript\":\"개발 A: 배포 전 최종 승인 여부는 담당자에게 확인해볼게요.\\n검토 B: 검토 항목을 정리했습니다. 승인 답변을 받으면 다음 단계를 진행하겠습니다.\",\"title\":\"합성 예제 · 배포 승인 확인\",\"source\":\"manual\"}"
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "intake",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/workspace",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/styles.css",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/app.js",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/config",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/experiments",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/authority",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "overview",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/workspace",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/styles.css",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/app.js",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/config",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/experiments",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/authority",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "POST",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/decisions",
+    "body": "{\"request_id\":\"request-handoff-status-0dc04d22b3c47dfdbc57\",\"choice\":\"assign_sender\",\"note\":\"개발 A가 배포 책임자에게 승인 여부를 확인하고 이 세션에 응답을 기록한다.\"}"
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "decision",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/workspace",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/styles.css",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/app.js",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/config",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/experiments",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/authority",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/authority",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "knowledge",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/workspace",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/styles.css",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/app.js",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/config",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/experiments",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/authority",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "POST",
+    "url": "http://127.0.0.1:8798/api/authority/precedence",
+    "body": "{\"scope\":\"payment-release-1.2\",\"action\":\"approve\",\"agents\":[\"검토봇B\",\"배포봇A\"],\"approved_by\":[\"시연 소유자A\",\"시연 소유자B\"],\"expected_revision\":\"87fb57e59ab57cb856201f91b4634b8c647b0ee19f80843e9da3bbd8620f8322\"}"
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/authority",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/graph",
+    "body": null
+  },
+  {
+    "scene": "authority",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/workspace",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/styles.css",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/static/app.js",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/config",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/experiments",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/authority",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/graph",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "POST",
+    "url": "http://127.0.0.1:8798/api/sessions",
+    "body": "{\"scenario_id\":\"social-handoff\",\"policy\":\"adaptive\",\"mode\":\"demo\",\"max_turns\":18}"
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/91b81eb4cec2407e9ff85e3bff027322/brief",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/graph",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/brief",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "POST",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/run",
+    "body": "{}"
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/graph",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/brief",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/graph",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/brief",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "POST",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/decisions",
+    "body": "{\"request_id\":\"request-1\",\"choice\":\"available\",\"note\":\"합성 시연 응답: 금요일 19시 참석 가능. 결과 전달 담당은 피클 A.\"}"
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/graph",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/brief",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "POST",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/run",
+    "body": "{}"
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/graph",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/brief",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/graph",
+    "body": null
+  },
+  {
+    "scene": "simulation",
+    "method": "GET",
+    "url": "http://127.0.0.1:8798/api/sessions/a3fbbef346fa4fc2865c5e988fdb1ac8/brief",
+    "body": null
+  }
+]

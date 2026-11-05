@@ -1,0 +1,53 @@
+Culture-Fit — LinkedIn 게시 세트
+
+추천 게시 방식
+영어 게시글(post-en.txt)과 PDF(culture-fit-linkedin-carousel.pdf)를 함께 사용하면 글로벌 개발자에게 프로젝트를 소개할 수 있습니다. 한국어 네트워크에는 post-ko.txt를 사용하세요. PDF 대신 images 폴더의 PNG 5장을 번호순으로 첨부할 수도 있습니다. 두 방식을 동시에 첨부할 필요는 없습니다.
+
+문서 제목
+Culture-Fit — Human-in-the-Loop for AI Agents
+
+짧은 소개 문구
+KO: 에이전트가 함께 일할 때, 누가 결정할 수 있는지 명확하게. Culture-Fit은 대화의 쟁점과 업무별 권한을 연결하는 오픈소스 Human-in-the-Loop(HITL) 프로토타입입니다.
+EN: Know who can decide. Culture-Fit is an open-source Human-in-the-Loop (HITL) prototype connecting agent conversations with scoped authority and human decisions.
+
+이미지 순서와 캡션
+
+01 / Introducing Culture-Fit
+헤드라인: AI agents can talk. Who gets to decide?
+한국어 설명: 여러 에이전트가 협업할 때 결정권자와 인간 개입 지점을 확인하는 Culture-Fit을 소개합니다.
+영문 대체 텍스트: Culture-Fit, an open-source Human-in-the-Loop prototype. The headline asks who gets to decide when AI agents collaborate. Below is a real screenshot of its English workspace with an isolated synthetic demo.
+
+02 / Authority conflict
+헤드라인: One approval. Two owners.
+한국어 설명: 같은 작업의 승인권을 서로 다른 소유자가 가진 에이전트에 위임한 경우, 업무 범위와 필요한 소유자를 함께 보여줍니다.
+영문 대체 텍스트: A real authority-check panel shows a cross-owner conflict for payment-release-1.2, action approve. Release Agent and Review Agent are eligible, the decision owner is unknown, and Owner A and Owner B are listed as required owners.
+
+03 / Human decision
+헤드라인: Let the right people decide.
+한국어 설명: 해당 작업에서 합의한 우선순위와 소유자의 승인을 운영자가 기록합니다. 외부 소유자의 신원을 인증한 결과는 아닙니다.
+영문 대체 텍스트: The actual priority-and-approvals form places Review Agent first. Both synthetic owners' checkboxes are selected before saving. A caption explains that these are operator-entered records, not authenticated external consent.
+
+04 / Agent-readable decision
+헤드라인: Make the decision agent-readable.
+한국어 설명: 승인 기록 이후 Review Agent가 결정권자로 표시됩니다. 실제 다음 행동 조회 응답은 follow_authority이며, 외부 작업 실행은 검증되지 않았다고 명시합니다.
+영문 대체 텍스트: The resolved authority panel identifies Review Agent as decision owner. An excerpt of the real API response reads action follow_authority, decision_owner Review Agent, and execution_status not_verified. No additional model call occurs for this authority update.
+
+05 / Install and connect
+헤드라인: Bring it into your agent stack.
+한국어 설명: 소스와 Skill을 내려받아 자신의 환경에 설치하고, MCP 또는 A2A 인터페이스를 통해 연결할 수 있습니다.
+영문 대체 텍스트: The actual download page offers an MCP-server-and-dashboard source ZIP and an OpenClaw Skill ZIP. Text lists MCP tools, A2A interface and reusable Skill, with the GitHub repository and installation URL. The hosted demo is described as a separate synthetic sandbox.
+
+링크
+GitHub: https://github.com/Ontology0/hanium-arbiter
+데모: https://culture-fit-demo-production.up.railway.app
+설치: https://culture-fit-demo-production.up.railway.app/download
+영어 시연: https://youtu.be/oP9F6zEm9RM
+한국어 시연: https://youtu.be/NO08LQL7ekU
+
+영상 링크는 사용자가 제공한 주소를 반영했습니다. 이번 제작 시점에는 YouTube의 비로그인 재생 가능 여부를 다시 확인하지 못했습니다.
+
+제작 범위
+images/의 5장은 1200 × 1500 PNG입니다. screenshots/에는 원본 서비스 캡처 8장이 있습니다. 제품 화면을 임의로 수정하지 않고 실제 공개 데모를 새로운 방문자 세션에서 촬영했습니다. 예시 대화·소유자는 합성 데이터이고 모델 분석은 기존 기록의 재생입니다. 신규 모델 호출 및 외부 업무 실행은 없었습니다. 전체 검증 범위는 capture-receipt.json과 validation.json에 기록했습니다. 실제 LinkedIn 게시 작업은 하지 않았습니다.
+
+편집·재생성
+carousel.html은 편집 가능한 레이아웃입니다. build_assets.py는 스크린샷 및 PDF 생성 코드입니다. 로컬 저장소에서 재생성: uv run --with playwright --with pymupdf python docs/social/linkedin/build_assets.py

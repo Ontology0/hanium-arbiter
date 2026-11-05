@@ -1,0 +1,674 @@
+{
+  "file": "culture-fit-product-ko-1080p.mp4",
+  "sha256": "fed0bbe45aa32a13b5c491653000ba6f641eef0ccb6be77823f24923061151a5",
+  "bytes": 9758959,
+  "language": "ko",
+  "interface": "English",
+  "narration_language": "ko",
+  "duration_seconds": 180,
+  "video_frames": 5400,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "full_decode": "passed",
+  "streams_all_cover_180_seconds": true,
+  "subtitle_default": 0,
+  "subtitle_patch": {
+    "optional_subtitle_tracks": [
+      {
+        "track_id": 3,
+        "old_flags": 3,
+        "new_flags": 2
+      }
+    ],
+    "changed_byte_count": 1,
+    "media_samples_unchanged": true
+  },
+  "caption_layout": {
+    "font": "Pretendard ExtraBold",
+    "size": 52,
+    "max_lines": 2,
+    "minimum_bottom_margin": 47,
+    "cues": [
+      {
+        "id": "product-01",
+        "start": 0,
+        "end": 8,
+        "lines": [
+          "같은 정보를 아는 두 에이전트. 그렇다고 승인 권한까지 같을까요?"
+        ],
+        "glyph_bounds": [
+          [
+            305.0,
+            974,
+            1615.0,
+            1021
+          ]
+        ],
+        "bottom_margin": 59
+      },
+      {
+        "id": "product-02",
+        "start": 8,
+        "end": 16,
+        "lines": [
+          "서로 다른 사람에게 위임받았다면, 중요한 결정",
+          "앞에서 누구의 뜻을 따라야 할지 정해야 해요."
+        ],
+        "glyph_bounds": [
+          [
+            495.0,
+            922,
+            1425.0,
+            975
+          ],
+          [
+            511.5,
+            980,
+            1408.5,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-03",
+        "start": 16,
+        "end": 25,
+        "lines": [
+          "컬처핏은 근거와 권한을 살피고, 필요한 순간에 사람의 판단을",
+          "연결하는 오픈소스 Human-in-the-Loop (HITL) 계층이에요."
+        ],
+        "glyph_bounds": [
+          [
+            348.0,
+            922,
+            1572.0,
+            975
+          ],
+          [
+            307.0,
+            980,
+            1613.0,
+            1033
+          ]
+        ],
+        "bottom_margin": 47
+      },
+      {
+        "id": "product-04",
+        "start": 25,
+        "end": 33,
+        "lines": [
+          "웹에서 바로 체험하거나, 소스를 내려받아 자신의 환경에서 시작할 수 있어요."
+        ],
+        "glyph_bounds": [
+          [
+            193.5,
+            973,
+            1726.5,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-05",
+        "start": 33,
+        "end": 42,
+        "lines": [
+          "소스 ZIP을 받고 압축을 풀어 주세요. 파이썬 실행 환경은 uv로 준비해요."
+        ],
+        "glyph_bounds": [
+          [
+            228.5,
+            974,
+            1691.5,
+            1021
+          ]
+        ],
+        "bottom_margin": 59
+      },
+      {
+        "id": "product-06",
+        "start": 42,
+        "end": 51,
+        "lines": [
+          "설치 안내에서 운영체제를 고르고, 맥은 셸",
+          "스크립트, 윈도우는 파워셸 명령을 실행하면 돼요."
+        ],
+        "glyph_bounds": [
+          [
+            540.0,
+            922,
+            1380.0,
+            975
+          ],
+          [
+            465.0,
+            980,
+            1455.0,
+            1033
+          ]
+        ],
+        "bottom_margin": 47
+      },
+      {
+        "id": "product-07",
+        "start": 51,
+        "end": 59,
+        "lines": [
+          "OpenClaw를 쓴다면 스킬 ZIP을 받아, 실행 중인 컬처핏 서버에 연결할 수도 있어요."
+        ],
+        "glyph_bounds": [
+          [
+            102.0,
+            974,
+            1818.0,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-08",
+        "start": 59,
+        "end": 67,
+        "lines": [
+          "화면은 영어로 제공하고, 대화 분석은 한국어와 영어를 지원해요."
+        ],
+        "glyph_bounds": [
+          [
+            318.0,
+            974,
+            1602.0,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-09",
+        "start": 67,
+        "end": 75,
+        "lines": [
+          "첫 화면에서 대화를 가져오거나, 준비된 예제로 결정이 필요한 상황을 살펴볼 수 있어요."
+        ],
+        "glyph_bounds": [
+          [
+            91.5,
+            973,
+            1828.5,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-10",
+        "start": 75,
+        "end": 84,
+        "lines": [
+          "이 예제에선 Release Agent와 Review Agent가",
+          "같은 배포의 승인 권한을 가지고 있어요."
+        ],
+        "glyph_bounds": [
+          [
+            432.0,
+            922,
+            1488.0,
+            975
+          ],
+          [
+            562.5,
+            980,
+            1357.5,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-11",
+        "start": 84,
+        "end": 92,
+        "lines": [
+          "하지만 위임한 소유자는 서로 달라요. 아직 누가 결정할지는 정해지지 않았죠."
+        ],
+        "glyph_bounds": [
+          [
+            193.5,
+            974,
+            1726.5,
+            1021
+          ]
+        ],
+        "bottom_margin": 59
+      },
+      {
+        "id": "product-12",
+        "start": 92,
+        "end": 101,
+        "lines": [
+          "브리핑은 합의된 내용과 남은 질문, 사람의 판단이 필요한 지점을 모아 보여줘요."
+        ],
+        "glyph_bounds": [
+          [
+            165.0,
+            974,
+            1755.0,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-13",
+        "start": 101,
+        "end": 109,
+        "lines": [
+          "근거를 누르면 원문으로 이어져요. 요약만 보고 결정하지 않도록 발언을 함께 확인하죠."
+        ],
+        "glyph_bounds": [
+          [
+            97.5,
+            973,
+            1822.5,
+            1021
+          ]
+        ],
+        "bottom_margin": 59
+      },
+      {
+        "id": "product-14",
+        "start": 109,
+        "end": 117,
+        "lines": [
+          "이제 Review Agent를 우선으로 두는 순서를 정해볼게요."
+        ],
+        "glyph_bounds": [
+          [
+            367.5,
+            974,
+            1552.5,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-15",
+        "start": 117,
+        "end": 125,
+        "lines": [
+          "한 사람의 동의만 기록하면, 다른 소유자의 승인이 남아 있어요."
+        ],
+        "glyph_bounds": [
+          [
+            334.5,
+            974,
+            1585.5,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-16",
+        "start": 125,
+        "end": 133,
+        "lines": [
+          "두 소유자의 동의를 모두 기록하고, 이 결정에 적용할 우선순위를 저장해요."
+        ],
+        "glyph_bounds": [
+          [
+            216.0,
+            974,
+            1704.0,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-17",
+        "start": 133,
+        "end": 142,
+        "lines": [
+          "권한을 다시 확인하면 Review Agent가 담당자로 나타나요.",
+          "누가 진행할 수 있는지 분명해졌죠."
+        ],
+        "glyph_bounds": [
+          [
+            345.0,
+            921,
+            1575.0,
+            975
+          ],
+          [
+            613.5,
+            980,
+            1306.5,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-18",
+        "start": 142,
+        "end": 151,
+        "lines": [
+          "이 판단은 해당 배포의 승인에 적용돼요.",
+          "다른 업무의 권한은 그 범위와 행동에 맞춰 따로 확인해요."
+        ],
+        "glyph_bounds": [
+          [
+            562.5,
+            922,
+            1357.5,
+            969
+          ],
+          [
+            387.0,
+            979,
+            1533.0,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-19",
+        "start": 151,
+        "end": 159,
+        "lines": [
+          "자신의 환경에서는 MCP로 에이전트가 대화를",
+          "보고하고, 다음 행동과 권한 상태를 조회할 수 있어요."
+        ],
+        "glyph_bounds": [
+          [
+            495.0,
+            922,
+            1425.0,
+            969
+          ],
+          [
+            430.5,
+            980,
+            1489.5,
+            1033
+          ]
+        ],
+        "bottom_margin": 47
+      },
+      {
+        "id": "product-20",
+        "start": 159,
+        "end": 167,
+        "lines": [
+          "A2A와 스킬 연결도 제공해서, 쓰는 에이전트 환경에 맞게 붙일 수 있어요."
+        ],
+        "glyph_bounds": [
+          [
+            222.5,
+            974,
+            1697.5,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      },
+      {
+        "id": "product-21",
+        "start": 167,
+        "end": 174,
+        "lines": [
+          "컬처핏은 전 세계 개발자가 수정하고 연결할 수 있는 MIT 오픈소스예요."
+        ],
+        "glyph_bounds": [
+          [
+            244.0,
+            974,
+            1676.0,
+            1021
+          ]
+        ],
+        "bottom_margin": 59
+      },
+      {
+        "id": "product-22",
+        "start": 174,
+        "end": 180,
+        "lines": [
+          "필요한 순간, 필요한 사람에게. 컬처핏에서 직접 확인해 보세요."
+        ],
+        "glyph_bounds": [
+          [
+            333.0,
+            973,
+            1587.0,
+            1027
+          ]
+        ],
+        "bottom_margin": 53
+      }
+    ]
+  },
+  "narration_source": "product-narration-source-ko.json",
+  "capture_receipt": "work/product/capture-receipt.json",
+  "source_first_run": "work/product/first-run-receipt.json",
+  "motion_seconds": 37,
+  "actual_ui_seconds": 143,
+  "motion_hashes": {
+    "problem.mp4": "ffaad18dbb2157c3151d8a14c6eb553ecd8ba206011936be08d0aeaae5018e90",
+    "connections.mp4": "de7e2ad2426b3c88329c86dac9e8b170e380a63507ce7ea7b8f77ae5610082b4",
+    "cta.mp4": "3ba11bbeae7a41df346618ac0578d96ada3711511ecb35d16b64597606849fa5"
+  },
+  "style": "Black canvas; Pretendard; white captions and cyan/yellow emphasis; actual Three.js motion",
+  "limitations": [
+    "Synthetic prepared example with recorded analysis",
+    "Operator-entered approval records, not remote identity authentication",
+    "No new model call or external action in this capture",
+    "Windows setup instructions shown; Windows hardware execution not performed"
+  ],
+  "ffprobe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.640028",
+        "width": 1920,
+        "height": 1080,
+        "coded_width": 1920,
+        "coded_height": 1080,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "pix_fmt": "yuvj420p",
+        "level": 40,
+        "color_range": "pc",
+        "color_space": "bt470bg",
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 2764800,
+        "duration": "180.000000",
+        "bit_rate": "304402",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "5400",
+        "extradata_size": 50,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "encoder": "Lavc62.28.100 libx264"
+        },
+        "side_data_list": [
+          {
+            "side_data_type": "ICC Profile"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 1,
+        "channel_layout": "mono",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 8640000,
+        "duration": "180.000000",
+        "bit_rate": "120283",
+        "nb_frames": "8439",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "kor",
+          "handler_name": "SoundHandler"
+        }
+      },
+      {
+        "index": 2,
+        "codec_name": "mov_text",
+        "codec_long_name": "MOV text",
+        "codec_type": "subtitle",
+        "codec_tag_string": "tx3g",
+        "codec_tag": "0x67337874",
+        "id": "0x3",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/1000000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 180000000,
+        "duration": "180.000000",
+        "bit_rate": "106",
+        "nb_frames": "23",
+        "extradata_size": 68,
+        "disposition": {
+          "default": 0,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "kor",
+          "handler_name": "SubtitleHandler"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/Users/ryeong/alltology/hanium-arbiter/docs/video/work/product/final-ko.mp4",
+      "nb_streams": 3,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "180.000000",
+      "size": "9758959",
+      "bit_rate": "433731",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "title": "Culture-Fit | Open-source Human-in-the-Loop (HITL) | Korean | elevenlabs.io",
+        "encoder": "Lavf62.12.100",
+        "comment": "Actual English interface; source installation and isolated visitor demo. New product narration. Synthetic example, operator-recorded approvals."
+      }
+    }
+  },
+  "caption_revision": {
+    "override_file": "product-caption-overrides-ko.json",
+    "audio_packet_hash": "SHA256=e7b85944148088e8b151e6d0571703fd915b9efb5ad13f6195b0474456712f1b",
+    "encoded_audio_identical_to_previous": true,
+    "narration_wav_identical_to_previous": true,
+    "english_edition_unchanged": true,
+    "timing_unchanged": true
+  }
+}

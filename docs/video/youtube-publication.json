@@ -1,0 +1,75 @@
+{
+  "status": "both_public",
+  "channel_id": "UC4TxL8NAf2hwtpvQWxw7A6w",
+  "channel_name": "올톨로지",
+  "authorization": {
+    "upload": "User explicitly instructed uploading completed videos to the supplied YouTube Studio channel.",
+    "visibility": "public",
+    "visibility_instruction": "전체 공개 — 검색과 채널에 노출",
+    "date": "2026-10-29"
+  },
+  "variants": {
+    "ko": {
+      "intended_file": "docs/video/culture-fit-product-ko-1080p.mp4",
+      "description_file": "docs/video/product-upload-ko.txt",
+      "video_id": "NO08LQL7ekU",
+      "url": "https://youtu.be/NO08LQL7ekU",
+      "publication_status": "public",
+      "sha256": "fed0bbe45aa32a13b5c491653000ba6f641eef0ccb6be77823f24923061151a5",
+      "requested_delivery": "private_draft; user will publish",
+      "studio_url": "https://studio.youtube.com/video/NO08LQL7ekU/edit",
+      "metadata_saved": true,
+      "made_for_kids": false,
+      "verification": {
+        "file_uploaded": "culture-fit-product-ko-1080p.mp4",
+        "metadata_persisted_after_reload": true,
+        "draft_banner": true,
+        "not_made_for_kids": true,
+        "saved_title": "Culture-Fit 컬처핏 | Human-in-the-Loop 설치·사용 안내 | elevenlabs.io",
+        "checked_date": "2026-10-29",
+        "final_publication_by_user": true,
+        "playability": "OK",
+        "isPrivate": false,
+        "isUnlisted": false,
+        "checked_at": "2026-10-29T07:15:16.187555+00:00"
+      },
+      "published_by": "user"
+    },
+    "en": {
+      "intended_file": "docs/video/culture-fit-product-en-1080p.mp4",
+      "description_file": "docs/video/product-upload-en.txt",
+      "video_id": "oP9F6zEm9RM",
+      "url": "https://youtu.be/oP9F6zEm9RM",
+      "publication_status": "public",
+      "sha256": "a71b233351b46055cefabfe13aa7d75ed0f56897e20e60659227f2412368bf14",
+      "metadata_saved": true,
+      "published_by": "user",
+      "verification": {
+        "checked_at": "2026-10-29T06:58:18.377537+00:00",
+        "playability": "OK",
+        "isPrivate": false,
+        "isUnlisted": false,
+        "title": "Culture-Fit | Open-source Human-in-the-Loop: Install & Get Started | elevenlabs.io",
+        "lengthSeconds": "180",
+        "author": "올톨로지",
+        "verification": "Unauthenticated public watch page player metadata and oEmbed HTTP 200"
+      }
+    }
+  },
+  "language_scope": {
+    "interface": "English",
+    "conversation_analysis": [
+      "English",
+      "Korean"
+    ],
+    "narration_variants": [
+      "Korean",
+      "English"
+    ]
+  },
+  "made_for_kids": false,
+  "ai_narration_provider": "ElevenLabs",
+  "third_party_music": false,
+  "last_checked": "2026-10-29",
+  "pending_reason": null
+}

@@ -1,0 +1,938 @@
+{
+  "description": "Preserved completed-run summaries and scoped deployment/install checks. Latest full local suite: 199 passed plus 8 subtests in 10.32 seconds. Deployed API 29, public Chrome UI 27, explicit English mutual-wait rule case 13, isolated legacy-example Chrome UI 33. macOS ZIP launch verified; Windows runtime unverified. Earlier records remain historical. These are not raw pytest stdout, independent user counts, or detection-accuracy benchmarks.",
+  "source_files": {
+    "completed_pytest_summary": {
+      "path": ".runtime/verification-20261029.json",
+      "sha256": "aea11181d32dcb10c18598523ff60b14cb1a66383285a8096a0707e6ded56e7d"
+    },
+    "browser_behavior_checks": {
+      "path": ".runtime/precedence-ui-validation.json",
+      "sha256": "0b04b75c5dda24b0d3e34ec800bc678b9b41ff1aa2efbe4fbdfec02b309d5565"
+    },
+    "final_browser_check": {
+      "path": ".runtime/final-browser-validation.json",
+      "sha256": "428d390fd09066c9b08a360c2c789e14b5cc67844eba2bc4709c2d77425466ba"
+    },
+    "latest_completed_pytest_summary": {
+      "path": ".runtime/verification-legacy-bilingual.json",
+      "sha256": "6302b74aebdc39118ee18fc03bca787d1b42c8ff33159c2ed1ca9d924dafe3fb"
+    },
+    "public_https_api_checks": {
+      "path": ".runtime/english-public-api-validation.json",
+      "sha256": "d41447501997fb4d9d9ab494db9548f70611c7f615f6f08e0bf7816a8b62cc4d"
+    },
+    "public_browser_checks": {
+      "path": ".runtime/english-public-release-ui-validation.json",
+      "sha256": "f7ad16aa9cd9c714ff975e37dcc08a79d29c96f8483a2281c8c5513dc2bf8dec"
+    },
+    "local_visitor_browser_checks": {
+      "path": ".runtime/visitor-live-ui-validation.json",
+      "sha256": "1ab5ac6040a532bb79f9d1b2f39ff26ecf0fa6ea5739ce70ddb8b87a8c143b01"
+    },
+    "actual_codex_mcp_smoke": {
+      "path": ".runtime/live-agent-smoke/20261029T054147Z/summary.json",
+      "sha256": "ace769bad7dc5a671c36dcaa96021bbf6b45c6fe3c1489465e6fd4171b858667",
+      "preservation_scope": "Restricted result summary only; original prompts and raw tool-response bodies are not copied."
+    },
+    "download_install_checks": {
+      "path": ".runtime/download-install-validation.json",
+      "sha256": "91105318d2ef1577d780d5b69ad10fdd760aed4c4d2bea6813f2598de1b3f507"
+    },
+    "legacy_alias_browser_checks": {
+      "path": ".runtime/legacy-alias-ui-validation.json",
+      "sha256": "6e530913f46ddcdc1371dcd72b16a13bc13875f6fbcf34646052cb0fdcbe7aa9"
+    },
+    "public_rule_wait_checks": {
+      "path": ".runtime/english-public-wait-validation.json",
+      "sha256": "d2891278a5755e2bb9bf2feb6ec301ede1764eda01537ebd2bf42d343391a36e"
+    },
+    "actual_collaboration_priority_case": {
+      "path": ".runtime/live-agent-demo/20261029T060738Z/phase-3-human-priority.json",
+      "sha256": "68e91f0554c6bd3e274d79579ac3d9e2815b22acb8e7601e79892029a2284b1d",
+      "preservation_scope": "Result counts and authority state only; no prompt or full conversation copied."
+    }
+  },
+  "completed_pytest_summary": {
+    "recorded_at": "2026-10-29T05:05:22.051856+00:00",
+    "command": "uv run pytest -q",
+    "working_directory": "hanium-arbiter project root",
+    "exit_code": 0,
+    "passed": 151,
+    "subtests_passed": 8,
+    "duration_seconds": 8.93,
+    "warnings": [
+      "StarletteDeprecationWarning: Using httpx with starlette.testclient is deprecated; install httpx2 instead."
+    ],
+    "source": "Summary of the completed local pytest process; not a general detection-accuracy benchmark.",
+    "scope": "Backend, authority API, MCP stdio/HTTP, A2A, Slack ingestion, Skill client, briefing, domain and controlled evaluation tests.",
+    "ui_validation": {
+      "behavior_checks_passed": 18,
+      "model_posts": 0,
+      "javascript_errors": 0,
+      "source": ".runtime/precedence-ui-validation.json",
+      "final_read_only_check": ".runtime/final-browser-validation.json",
+      "verified_widths": [
+        1440,
+        390
+      ]
+    },
+    "skill_validation": "quick_validate.py with pyyaml: Skill is valid!"
+  },
+  "browser_behavior_checks": {
+    "checks": [
+      "unchecked approvals",
+      "poll preserves form and focus",
+      "reorder clears approvals",
+      "partial approval stays conflict",
+      "exact saved approvals restored",
+      "all-owner approval resolves",
+      "no additional model call",
+      "authorized order re-edit",
+      "revocation reevaluates",
+      "409 blocks stale save",
+      "explicit rereview resets",
+      "changed grants do not restore approvals",
+      "mobile no overflow",
+      "conditional rights guidance",
+      "covered question has no repeat form",
+      "covered remains raw pending with no fabricated human decision",
+      "unrelated wait question preserved",
+      "revoked coverage restores question"
+    ],
+    "page_errors": [],
+    "post_count": 7,
+    "model_posts": 0
+  },
+  "final_browser_check": {
+    "page_errors": [],
+    "viewports": [
+      {
+        "width": 1440,
+        "documentWidth": 1440,
+        "formCount": 1,
+        "unchecked": true,
+        "conflict": true
+      },
+      {
+        "width": 390,
+        "documentWidth": 390,
+        "formCount": 1,
+        "unchecked": true,
+        "conflict": true
+      }
+    ],
+    "data": "existing isolated demo; no mutations and no model calls"
+  },
+  "latest_completed_pytest_summary": {
+    "verified_at": "2026-10-29T06:09:52.898379+00:00",
+    "command": "uv run pytest -q",
+    "passed": 199,
+    "subtests_passed": 8,
+    "legacy_browser_checks": 33,
+    "scope": "Legacy display preservation + English and Korean conservative triage",
+    "duration_seconds": 10.32,
+    "source_type": "Completed local pytest process summary; not raw stdout."
+  },
+  "public_https_api_checks": {
+    "url": "https://culture-fit-demo-production.up.railway.app",
+    "completed_at_utc": "2026-10-29T06:11:25.793241+00:00",
+    "duration_seconds": 5.666,
+    "passed": true,
+    "check_count": 29,
+    "checks": [
+      {
+        "name": "Health requires no visitor cookie",
+        "passed": true
+      },
+      {
+        "name": "Public mode isolates visitors and disables models",
+        "passed": true
+      },
+      {
+        "name": "Visitor cookie is Secure/HttpOnly/SameSite=Lax",
+        "passed": true
+      },
+      {
+        "name": "Visitor response forbids shared caching",
+        "passed": true
+      },
+      {
+        "name": "Scenario catalog uses English labels",
+        "passed": true
+      },
+      {
+        "name": "Each fresh visitor receives one separate sample",
+        "passed": true
+      },
+      {
+        "name": "Seed dialogue is the expected English translation",
+        "passed": true
+      },
+      {
+        "name": "Seed agents and owners are synthetic English labels",
+        "passed": true
+      },
+      {
+        "name": "Translated replay retains original-language provenance",
+        "passed": true
+      },
+      {
+        "name": "Historical model usage remains historical",
+        "passed": true
+      },
+      {
+        "name": "Every translated source quotation matches a real seed message",
+        "passed": true,
+        "citation_count": 9
+      },
+      {
+        "name": "Fresh briefing context is current",
+        "passed": true
+      },
+      {
+        "name": "Sample starts with an unresolved owner conflict",
+        "passed": true
+      },
+      {
+        "name": "Initial next action waits for a person",
+        "passed": true
+      },
+      {
+        "name": "Visitors cannot read each other's session or export",
+        "passed": true
+      },
+      {
+        "name": "Owner records are local records, not authenticated consent",
+        "passed": true
+      },
+      {
+        "name": "Seed grants belong to both expected owners",
+        "passed": true
+      },
+      {
+        "name": "Recorded joint approval assigns Review Agent and removes interventions",
+        "passed": true
+      },
+      {
+        "name": "Next-action follows current authority without claiming external execution",
+        "passed": true
+      },
+      {
+        "name": "Current authority re-evaluates unchanged conversation evidence",
+        "passed": true
+      },
+      {
+        "name": "Stale revision cannot overwrite newer priority",
+        "passed": true
+      },
+      {
+        "name": "Visitor B remains in the initial conflict after A's approval",
+        "passed": true
+      },
+      {
+        "name": "Public brief and live-agent routes reject fresh model calls",
+        "passed": true
+      },
+      {
+        "name": "Reset rotates only A's anonymous sandbox",
+        "passed": true
+      },
+      {
+        "name": "Reset A preserves B's conversation and conflict",
+        "passed": true
+      },
+      {
+        "name": "A receives a new seeded conversation after reset",
+        "passed": true
+      },
+      {
+        "name": "Download page is English and explicitly identifies Human-in-the-Loop",
+        "passed": true
+      },
+      {
+        "name": "culture-fit-source.zip matches reviewed package and opens",
+        "passed": true,
+        "sha256": "58b0bf0c92cfe22870143898d5782f5940f36f5558a7d96e7b2b07723a0a181a",
+        "bytes": 390899,
+        "files": 95
+      },
+      {
+        "name": "culture-fit-skill.zip matches reviewed package and opens",
+        "passed": true,
+        "sha256": "169c6c067a36f130a7573fd8d52c1a7f4dfef2e6f3fad24f561a06a35b2a7acd",
+        "bytes": 6300,
+        "files": 3
+      }
+    ],
+    "snapshots": {
+      "before_action": "wait_for_human",
+      "after_action": "follow_authority",
+      "decision_owner": "Review Agent",
+      "after_interventions": 0,
+      "other_visitor_status": "cross_owner_conflict",
+      "package_manifest_generated_at": "2026-10-29T06:09:52.797939+00:00"
+    },
+    "scope": "Two fresh synthetic visitor sandboxes; mock owner approvals; no model, Slack or external agent calls.",
+    "error": null,
+    "preservation_scope": "Check results and download hashes retained; temporary session request paths omitted."
+  },
+  "public_browser_checks": {
+    "deployment_id": "acdc3d30-f7e6-4a93-855b-512279cc6177",
+    "checked_url": "https://culture-fit-demo-production.up.railway.app",
+    "checks": [
+      "landing bilingual analysis label visible",
+      "How to use English heading",
+      "download bilingual analysis label visible",
+      "download HITL and English-only copy",
+      "source and Skill download links",
+      "Windows MCP JSON path and verification limit",
+      "download mobile no overflow",
+      "intake bilingual analysis label visible",
+      "English document language",
+      "exact product tagline",
+      "English landing CTA",
+      "three-step guide scroll/focus only",
+      "unchecked owner approvals",
+      "priority order changes without auto approval",
+      "all-owner approval selects Review Agent",
+      "zero interventions",
+      "guide reports actual decision owner and execution limit",
+      "six tabs accessible",
+      "mobile no page overflow",
+      "unmeasured label not clipped",
+      "imported messages have correct units",
+      "user Korean original preserved verbatim",
+      "10-message pagination",
+      "new events preserve selected page",
+      "jump to latest page",
+      "no JavaScript errors",
+      "no model calls"
+    ],
+    "page_errors": [],
+    "remaining_server_owned_korean": {
+      "overview": [],
+      "conversation": [],
+      "decisions": [],
+      "knowledge": [],
+      "experiments": [],
+      "integration": []
+    },
+    "model_posts": 0,
+    "screenshots": [
+      ".runtime/english-public-release-screens/01-conflict-brief.png",
+      ".runtime/english-public-release-screens/02-owner-approval-form.png",
+      ".runtime/english-public-release-screens/03-resolved-authority.png"
+    ],
+    "check_count": 27,
+    "scope": "Fresh synthetic visitor in the English public UI; operator approval records and user-source language preservation. No fresh model calls."
+  },
+  "local_visitor_browser_checks": {
+    "server": "http://127.0.0.1:8799",
+    "duration_seconds": 75.1,
+    "checks": [
+      "distinct signed HttpOnly visitor cookies",
+      "different seeded session IDs",
+      "cross-visitor session inaccessible",
+      "recorded briefing and disabled live model",
+      "all-owner approval selects reviewer B",
+      "zero intervention points after approval",
+      "approval isolated from other browser",
+      "other visitor partial approval preserved",
+      "revocation reevaluates only own visitor",
+      "reset replaces own cookie/session",
+      "reset restores seed grants and conflict",
+      "reset leaves other browser cookie/records unchanged",
+      "mobile no overflow",
+      "75 seconds polling including same-visitor two tabs without 429",
+      "zero model POST"
+    ],
+    "requests_per_browser": [
+      83,
+      111
+    ],
+    "peak_observed_requests_in_calendar_minute": [
+      47,
+      69
+    ],
+    "page_errors": [],
+    "rate_limit_responses": [],
+    "model_posts": 0
+  },
+  "report_author_read_only_deployment_check": {
+    "url": "https://culture-fit-demo-production.up.railway.app",
+    "landing_http_status": 200,
+    "health_http_status": 200,
+    "health": {
+      "status": "ok",
+      "mode": "visitor_demo"
+    },
+    "mutating_calls": 0
+  },
+  "actual_codex_mcp_smoke": {
+    "provider": "actual_codex_cli",
+    "codex_version": "0.153.4",
+    "transport": "stdio MCP -> isolated local HTTP -> SQLite",
+    "fixture_kind": "synthetic_manual_decision_fixture",
+    "actual_model_invocations": 2,
+    "completed_mcp_tool_calls": 4,
+    "phase_results": [
+      {
+        "phase": "before_mock_human_record",
+        "exit_code": 0,
+        "timed_out": false,
+        "completed_tools": [
+          "evaluate_authority",
+          "get_next_action"
+        ],
+        "authority_status": "cross_owner_conflict",
+        "next_action": "wait_for_human",
+        "decision_owner": null,
+        "wait_for_human": true
+      },
+      {
+        "phase": "after_mock_human_record",
+        "exit_code": 0,
+        "timed_out": false,
+        "completed_tools": [
+          "evaluate_authority",
+          "get_next_action"
+        ],
+        "authority_status": "authorized",
+        "next_action": "follow_authority",
+        "decision_owner": "Review Agent",
+        "wait_for_human": false
+      }
+    ],
+    "expected_status_transitions_verified": true,
+    "command_execution_events": 0,
+    "real_owner_approval": false,
+    "external_actions_executed": false,
+    "scope_note": "Separate earlier live-model integration smoke, outside the automated suite (now 199 tests) and separate from the earlier two briefing-model calls. The driver manually supplied scope/action and a synthetic approval record.",
+    "not_verified": [
+      "natural-language decision extraction accuracy",
+      "real human identity or approval",
+      "live Slack or OpenClaw integration",
+      "external deployment, delivery or business completion",
+      "large-scale or multilingual accuracy"
+    ],
+    "private_content_copied": false
+  },
+  "historical_deployment_verifications": {
+    "railway_initial_latest_completed_pytest_summary": {
+      "source": {
+        "path": ".runtime/verification-railway.json",
+        "sha256": "cecfef1039d655d15767274a447b5a4f5c5d2a61a8240f903f2b97c53bf910c7"
+      },
+      "summary": {
+        "command": "uv run pytest -q",
+        "passed": 182,
+        "subtests_passed": 8,
+        "duration_seconds": 10.5,
+        "warnings": [
+          "Starlette httpx TestClient deprecation"
+        ],
+        "external_model_calls": 0,
+        "scope": "full local suite including visitor isolation and demo mode guards; public deployment verification pending"
+      }
+    },
+    "railway_initial_public_https_api_checks": {
+      "source": {
+        "path": ".runtime/railway-public-validation.json",
+        "sha256": "fb6d0cc706ba14471db04bc28d114bb28e04316bd65b9fb33dfca82ce0cb5e23"
+      },
+      "summary": {
+        "url": "https://culture-fit-demo-production.up.railway.app",
+        "checks": [
+          {
+            "name": "health200_no_visitor_cookie",
+            "passed": true
+          },
+          {
+            "name": "public_mode_live_model_off",
+            "passed": true
+          },
+          {
+            "name": "secure_httponly_samesite_cookie",
+            "passed": true
+          },
+          {
+            "name": "independent_cookies",
+            "passed": true
+          },
+          {
+            "name": "independent_sessions",
+            "passed": true
+          },
+          {
+            "name": "cross_visitor_session_404",
+            "passed": true
+          },
+          {
+            "name": "recorded_model_with_one_conflict",
+            "passed": true
+          },
+          {
+            "name": "approval201",
+            "passed": true
+          },
+          {
+            "name": "approved_B_no_human_intervention",
+            "passed": true
+          },
+          {
+            "name": "other_visitor_remains_conflict",
+            "passed": true
+          },
+          {
+            "name": "new_model_blocked",
+            "passed": true
+          },
+          {
+            "name": "slack_blocked",
+            "passed": true
+          },
+          {
+            "name": "cross_origin_reset_blocked",
+            "passed": true
+          },
+          {
+            "name": "self_reset",
+            "passed": true
+          },
+          {
+            "name": "reset_removes_only_self",
+            "passed": true
+          },
+          {
+            "name": "private_no_cache",
+            "passed": true
+          },
+          {
+            "name": "public_html_and_assets",
+            "passed": true
+          }
+        ],
+        "count": 17,
+        "all_passed": true,
+        "timestamp": 1793251793.531134,
+        "live_model_calls": 0
+      }
+    },
+    "railway_initial_public_browser_checks": {
+      "source": {
+        "path": ".runtime/visitor-public-ui-validation.json",
+        "sha256": "3c0aef6d8fa6855b37216192b4ca1ab84705773aaf3b67c1c8a44a78e3abc7d6"
+      },
+      "summary": {
+        "url": "https://culture-fit-demo-production.up.railway.app",
+        "scope": "fresh visitor; read-only public browser smoke; parent separately verifies approval/reset isolation",
+        "checks": [
+          "HTTPS landing loads",
+          "landing CTA becomes visitor demo",
+          "landing isolation notice and source link",
+          "workspace loads actual seeded conflict",
+          "recorded model briefing labelled",
+          "live model action and provider disabled",
+          "synthetic dedicated seed limitations visible",
+          "historic token usage labelled",
+          "approval checkboxes start unchecked",
+          "Secure HttpOnly visitor cookie",
+          "connection tab is source-install guidance",
+          "mobile no horizontal overflow",
+          "approval touch control at least 44px",
+          "no JS errors",
+          "no HTTP failures",
+          "no mutation or model POST"
+        ],
+        "page_errors": [],
+        "http_errors": [],
+        "post_requests": [],
+        "screenshots": [
+          ".runtime/visitor-public-landing.png",
+          ".runtime/visitor-public-authority.png",
+          ".runtime/visitor-public-mobile.png",
+          ".runtime/visitor-public-authority-mobile.png"
+        ]
+      }
+    },
+    "english_initial_latest_completed_pytest_summary": {
+      "source": {
+        "path": ".runtime/verification-english-download.json",
+        "sha256": "8ef9d00206e77dc9eecb9fc839d99be363fa04f3c4820e460ea61da90f390329"
+      },
+      "summary": {
+        "verified_at": "2026-10-29T05:52:23.346488+00:00",
+        "command": "uv run pytest -q",
+        "passed": 182,
+        "subtests_passed": 8,
+        "warnings": [
+          "Starlette httpx integration deprecation"
+        ],
+        "scope": "All backend tests after English copy, translated replay seed and download route changes",
+        "duration_seconds": 10.43,
+        "source_type": "Completed local pytest process summary; not raw stdout."
+      }
+    },
+    "english_initial_public_https_api_checks": {
+      "source": {
+        "path": ".runtime/english-public-api-validation.json",
+        "sha256": "5b62bb5f727d55e3a155ab048f52f60129a01867fef01a126602d59c3a12a3e8"
+      },
+      "summary": {
+        "url": "https://culture-fit-demo-production.up.railway.app",
+        "completed_at_utc": "2026-10-29T05:56:03.343730+00:00",
+        "duration_seconds": 5.77,
+        "passed": true,
+        "check_count": 29,
+        "checks": [
+          {
+            "name": "Health requires no visitor cookie",
+            "passed": true
+          },
+          {
+            "name": "Public mode isolates visitors and disables models",
+            "passed": true
+          },
+          {
+            "name": "Visitor cookie is Secure/HttpOnly/SameSite=Lax",
+            "passed": true
+          },
+          {
+            "name": "Visitor response forbids shared caching",
+            "passed": true
+          },
+          {
+            "name": "Scenario catalog uses English labels",
+            "passed": true
+          },
+          {
+            "name": "Each fresh visitor receives one separate sample",
+            "passed": true
+          },
+          {
+            "name": "Seed dialogue is the expected English translation",
+            "passed": true
+          },
+          {
+            "name": "Seed agents and owners are synthetic English labels",
+            "passed": true
+          },
+          {
+            "name": "Translated replay retains original-language provenance",
+            "passed": true
+          },
+          {
+            "name": "Historical model usage remains historical",
+            "passed": true
+          },
+          {
+            "name": "Every translated source quotation matches a real seed message",
+            "passed": true,
+            "citation_count": 9
+          },
+          {
+            "name": "Fresh briefing context is current",
+            "passed": true
+          },
+          {
+            "name": "Sample starts with an unresolved owner conflict",
+            "passed": true
+          },
+          {
+            "name": "Initial next action waits for a person",
+            "passed": true
+          },
+          {
+            "name": "Visitors cannot read each other's session or export",
+            "passed": true
+          },
+          {
+            "name": "Owner records are local records, not authenticated consent",
+            "passed": true
+          },
+          {
+            "name": "Seed grants belong to both expected owners",
+            "passed": true
+          },
+          {
+            "name": "Recorded joint approval assigns Review Agent and removes interventions",
+            "passed": true
+          },
+          {
+            "name": "Next-action follows current authority without claiming external execution",
+            "passed": true
+          },
+          {
+            "name": "Current authority re-evaluates unchanged conversation evidence",
+            "passed": true
+          },
+          {
+            "name": "Stale revision cannot overwrite newer priority",
+            "passed": true
+          },
+          {
+            "name": "Visitor B remains in the initial conflict after A's approval",
+            "passed": true
+          },
+          {
+            "name": "Public brief and live-agent routes reject fresh model calls",
+            "passed": true
+          },
+          {
+            "name": "Reset rotates only A's anonymous sandbox",
+            "passed": true
+          },
+          {
+            "name": "Reset A preserves B's conversation and conflict",
+            "passed": true
+          },
+          {
+            "name": "A receives a new seeded conversation after reset",
+            "passed": true
+          },
+          {
+            "name": "Download page is English and explicitly identifies Human-in-the-Loop",
+            "passed": true
+          },
+          {
+            "name": "culture-fit-source.zip matches reviewed package and opens",
+            "passed": true,
+            "sha256": "b8d957369f67dcbb2d3b07ed3b9c8d7a5a4345219e52bdd9ba6094c18b447646",
+            "bytes": 382131,
+            "files": 93
+          },
+          {
+            "name": "culture-fit-skill.zip matches reviewed package and opens",
+            "passed": true,
+            "sha256": "169c6c067a36f130a7573fd8d52c1a7f4dfef2e6f3fad24f561a06a35b2a7acd",
+            "bytes": 6300,
+            "files": 3
+          }
+        ],
+        "snapshots": {
+          "before_action": "wait_for_human",
+          "after_action": "follow_authority",
+          "decision_owner": "Review Agent",
+          "after_interventions": 0,
+          "other_visitor_status": "cross_owner_conflict",
+          "package_manifest_generated_at": "2026-10-29T05:54:45.017338+00:00"
+        },
+        "scope": "Two fresh synthetic visitor sandboxes; mock owner approvals; no model, Slack or external agent calls.",
+        "error": null,
+        "preservation_scope": "Synthetic check names/results and package hashes only; request paths containing temporary session identifiers omitted."
+      }
+    },
+    "english_initial_public_browser_checks": {
+      "source": {
+        "path": ".runtime/english-public-ui-validation.json",
+        "sha256": "0a4b6f8771255ec9f8186c1f823958692c1c12e27e289bb4edd5ded19f5c1957"
+      },
+      "summary": {
+        "checks": [
+          "English document language",
+          "exact product tagline",
+          "English landing CTA",
+          "three-step guide scroll/focus only",
+          "unchecked owner approvals",
+          "priority order changes without auto approval",
+          "all-owner approval selects Review Agent",
+          "zero interventions",
+          "guide reports actual decision owner and execution limit",
+          "six tabs accessible",
+          "mobile no page overflow",
+          "unmeasured label not clipped",
+          "imported messages have correct units",
+          "user Korean original preserved verbatim",
+          "10-message pagination",
+          "new events preserve selected page",
+          "jump to latest page",
+          "no JavaScript errors",
+          "no model calls"
+        ],
+        "page_errors": [],
+        "remaining_server_owned_korean": {
+          "overview": [],
+          "conversation": [],
+          "decisions": [],
+          "knowledge": [],
+          "experiments": [],
+          "integration": []
+        },
+        "model_posts": 0,
+        "screenshots": [
+          ".runtime/english-public-screens/01-conflict-brief.png",
+          ".runtime/english-public-screens/02-owner-approval-form.png",
+          ".runtime/english-public-screens/03-resolved-authority.png"
+        ],
+        "check_count": 19,
+        "scope": "Fresh visitor in the English public UI; synthetic examples and local operator approvals. User-submitted Korean source remains unchanged. Does not verify migration of previously persisted Korean examples."
+      }
+    }
+  },
+  "download_install_checks": {
+    "zip_hashes_verified": true,
+    "exclusions_verified": true,
+    "windows_runtime_verified": false,
+    "missing_uv_exit": 127,
+    "invalid_port_exit": 2,
+    "sync_failure_exit": 23,
+    "launcher_generated_downloads_and_http_verified": true,
+    "macos_actual_zip_extract_launch": true,
+    "path_with_spaces": true,
+    "foreign_working_directory": true,
+    "health_status": 200,
+    "workspace_status": 200,
+    "mode": "local",
+    "server_exit_after_sigint": 0
+  },
+  "current_known_limitations": {
+    "windows_runtime": "Launcher included; actual Windows runtime unverified.",
+    "authority_identity": "Visitor cookie isolation and operator approval records do not authenticate external owners or their consent."
+  },
+  "code_publication": {
+    "checked_at": "2026-10-29T15:02:35.997176+09:00",
+    "repository_url": "https://github.com/Ontology0/hanium-arbiter",
+    "main_commit": "11802bd031bf95606522089792735f6e85bcb724",
+    "feature_commit": "86d64140128ca49bc64c9d811c4e5b8484592861",
+    "pull_request": "https://github.com/Ontology0/hanium-arbiter/pull/2",
+    "pull_request_status": "merged",
+    "license": "MIT",
+    "evidence": "Read-only git ls-remote origin refs/heads/main refs/heads/feat/ontology-hitl; local merge-commit log and LICENSE directly inspected."
+  },
+  "legacy_alias_browser_checks": {
+    "checks": [
+      "known legacy stock migrates once",
+      "migration leaves authority registry unchanged",
+      "stored legacy identities preserved",
+      "legacy conflict shows English labels",
+      "owner checkbox labels English with original hidden IDs",
+      "legacy reorder aria English",
+      "conversation legacy stock screen contains no Korean",
+      "knowledge legacy stock screen contains no Korean",
+      "decisions legacy stock screen contains no Korean",
+      "experiments legacy stock screen contains no Korean",
+      "integration legacy stock screen contains no Korean",
+      "conversation author labels use aliases",
+      "authority table and revoke labels English",
+      "reorder clears legacy approvals",
+      "partial approval preserved and missing owner alias displayed",
+      "partial POST uses original IDs",
+      "approved state displays English decision owner",
+      "full POST preserves original owner IDs",
+      "approved result has zero interventions",
+      "approved legacy registry persists after reload",
+      "approved overview contains no Korean",
+      "approved legacy owners restored by original IDs",
+      "mobile has no horizontal overflow",
+      "mobile labels English",
+      "unrelated user actor is not renamed",
+      "unrelated user source remains verbatim",
+      "global authority aliases persist across session changes",
+      "authority alias metadata supports reloading another session",
+      "intake language support remains visible in demo",
+      "/ shows persistent language support",
+      "/download shows persistent language support",
+      "no model call made",
+      "no browser errors"
+    ],
+    "count": 33,
+    "page_errors": [],
+    "model_calls": 0,
+    "scope": "temporary legacy sample from commit 2cd2bea; existing DBs untouched",
+    "post_ids_preserved": true
+  },
+  "public_rule_wait_checks": {
+    "url": "https://culture-fit-demo-production.up.railway.app",
+    "deployment_id_supplied_by_coordinator": "acdc3d30-f7e6-4a93-855b-512279cc6177",
+    "completed_at_utc": "2026-10-29T06:11:42.396561+00:00",
+    "duration_seconds": 0.964,
+    "passed": true,
+    "check_count": 13,
+    "checks": [
+      {
+        "name": "HTTP GET /api/config",
+        "passed": true
+      },
+      {
+        "name": "Fresh visitor sandbox has live models disabled",
+        "passed": true
+      },
+      {
+        "name": "HTTP POST /api/intake",
+        "passed": true
+      },
+      {
+        "name": "HTTP GET /api/sessions/{synthetic_session_id}",
+        "passed": true
+      },
+      {
+        "name": "English sources are preserved",
+        "passed": true
+      },
+      {
+        "name": "Two explicit wait relationships detected",
+        "passed": true
+      },
+      {
+        "name": "Mutual wait and missing-authority candidates detected",
+        "passed": true
+      },
+      {
+        "name": "Wait-cycle request cites both source messages",
+        "passed": true
+      },
+      {
+        "name": "Wait relationships remain unconfirmed",
+        "passed": true
+      },
+      {
+        "name": "No fabricated model briefing or human decision",
+        "passed": true
+      },
+      {
+        "name": "HTTP GET /api/sessions/{synthetic_session_id}/next-action",
+        "passed": true
+      },
+      {
+        "name": "Actual next action asks a human to resolve the wait",
+        "passed": true
+      },
+      {
+        "name": "Advice makes no external completion claim",
+        "passed": true
+      }
+    ],
+    "scope": "One fresh synthetic visitor only; rule triage of an explicit English mutual wait. No model/Slack/external-agent calls or approvals. Does not measure general-language detection accuracy.",
+    "error": null
+  },
+  "resolved_legacy_display": {
+    "status": "implemented and checked in an isolated legacy-sample reproduction",
+    "scope": "temporary legacy sample from commit 2cd2bea; existing DBs untouched",
+    "checks": 33,
+    "approval_identity_preserved": true,
+    "authority_registry_changed_by_display_migration": false,
+    "unrelated_user_source_preserved_verbatim": true,
+    "not_claimed": "This reproduction does not assert that every historical real visitor database was manually inspected."
+  },
+  "deployment_cutoff": {
+    "railway_deployment_id": "acdc3d30-f7e6-4a93-855b-512279cc6177",
+    "source": "english-public-release-ui-validation.json and coordinator-supplied ID in english-public-wait-validation.json",
+    "checked_at": "2026-10-29T15:17:07.714065+09:00"
+  },
+  "actual_collaboration_priority_case": {
+    "authority_status": "authorized",
+    "decision_owner": "Authority Reviewer",
+    "next_action": "wait_for_human",
+    "covered_pending_count": 3,
+    "remaining_pending_count": 4,
+    "additional_model_calls": 0,
+    "external_actions_executed": 0,
+    "scope": "User-selected priority among synthetic demonstration owners, recorded locally; no authenticated remote-owner consent. Authority resolution did not resolve four unrelated candidates."
+  },
+  "portal_registered_team_evidence": {
+    "source": "user-supplied portal screenshot, 2026-10-29",
+    "sha256": "862bdac0b1f419483f1a8a44abea78c89916db8ed4e01bcd105150ee1a0e2c78",
+    "confirmed": "Mentor affiliation and position; student departments, fourth year, roles and registered assignments",
+    "boundary": "Registered assignments do not establish individual implementation contribution or monthly activity. No contact information or survey status copied."
+  }
+}

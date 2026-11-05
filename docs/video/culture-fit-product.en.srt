@@ -1,0 +1,103 @@
+1
+00:00:00,000 --> 00:00:08,000
+Two agents can share the same information.
+But does that mean they have the same authority?
+
+2
+00:00:08,000 --> 00:00:16,000
+When different people delegate authority, the agents
+need to know whose approval a decision requires.
+
+3
+00:00:16,000 --> 00:00:25,750
+Culture-Fit is an open-source Human-in-the-Loop layer. It connects
+evidence, delegated authority, and human judgment when a decision needs it.
+
+4
+00:00:25,750 --> 00:00:33,000
+Try it in your browser, or download the source and run it in your own environment.
+
+5
+00:00:33,000 --> 00:00:42,000
+Download and extract the source ZIP. Use uv to prepare the Python environment.
+
+6
+00:00:42,000 --> 00:00:51,000
+Choose your operating system in the setup guide. On Mac, use
+the shell script. On Windows, use the PowerShell command.
+
+7
+00:00:51,000 --> 00:00:59,000
+If you use OpenClaw, download the Skill ZIP and
+configure it to connect to your running Culture-Fit server.
+
+8
+00:00:59,000 --> 00:01:07,000
+The interface is in English.
+Conversation analysis supports both English and Korean.
+
+9
+00:01:07,000 --> 00:01:15,000
+From the workspace, import a conversation or
+explore a prepared example that needs a decision.
+
+10
+00:01:15,000 --> 00:01:24,000
+Here, Release Agent and Review Agent both
+have approval grants for the same release.
+
+11
+00:01:24,000 --> 00:01:32,000
+Their grants come from different owners. The decision owner is still unknown.
+
+12
+00:01:32,000 --> 00:01:41,000
+The decision brief brings together agreements, open
+questions, and points that need human judgment.
+
+13
+00:01:41,000 --> 00:01:49,000
+Select a source reference to read the original
+message, and check what was actually said.
+
+14
+00:01:49,000 --> 00:01:57,000
+Now, put Review Agent first in the proposed priority order.
+
+15
+00:01:57,000 --> 00:02:05,000
+With only one owner’s approval recorded,
+the other owner’s approval is still required.
+
+16
+00:02:05,000 --> 00:02:13,000
+Record both owners’ agreement, then save the priority order for this decision.
+
+17
+00:02:13,000 --> 00:02:22,000
+After the authority check updates, Review Agent appears as the decision owner.
+It is clear who can proceed.
+
+18
+00:02:22,000 --> 00:02:31,000
+This decision applies to approval of this release.
+Other actions are checked against their own scope and authority.
+
+19
+00:02:31,000 --> 00:02:39,400
+In your own installation, agents can use MCP to report
+conversations and query next actions and authority.
+
+20
+00:02:39,400 --> 00:02:47,000
+A2A and Skill interfaces offer additional ways
+to connect the agent environments you use.
+
+21
+00:02:47,000 --> 00:02:54,350
+Culture-Fit is MIT-licensed open source, built for
+developers everywhere to adapt and connect.
+
+22
+00:02:54,350 --> 00:03:00,000
+The right person, at the right moment. Try Culture-Fit for yourself.

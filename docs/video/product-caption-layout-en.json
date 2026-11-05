@@ -1,0 +1,494 @@
+{
+  "font": "Pretendard ExtraBold",
+  "size": 44,
+  "max_lines": 2,
+  "minimum_bottom_margin": 58,
+  "cues": [
+    {
+      "id": "product-01",
+      "start": 0,
+      "end": 8,
+      "lines": [
+        "Two agents can share the same information.",
+        "But does that mean they have the same authority?"
+      ],
+      "glyph_bounds": [
+        [
+          491.0,
+          922,
+          1429.0,
+          966
+        ],
+        [
+          430.5,
+          978,
+          1489.5,
+          1021
+        ]
+      ],
+      "bottom_margin": 59
+    },
+    {
+      "id": "product-02",
+      "start": 8,
+      "end": 16,
+      "lines": [
+        "When different people delegate authority, the agents",
+        "need to know whose approval a decision requires."
+      ],
+      "glyph_bounds": [
+        [
+          397.5,
+          922,
+          1522.5,
+          966
+        ],
+        [
+          433.0,
+          978,
+          1487.0,
+          1021
+        ]
+      ],
+      "bottom_margin": 59
+    },
+    {
+      "id": "product-03",
+      "start": 16,
+      "end": 25.75,
+      "lines": [
+        "Culture-Fit is an open-source Human-in-the-Loop layer. It connects",
+        "evidence, delegated authority, and human judgment when a decision needs it."
+      ],
+      "glyph_bounds": [
+        [
+          245.0,
+          922,
+          1675.0,
+          965
+        ],
+        [
+          137.0,
+          978,
+          1783.0,
+          1022
+        ]
+      ],
+      "bottom_margin": 58
+    },
+    {
+      "id": "product-04",
+      "start": 25.75,
+      "end": 33,
+      "lines": [
+        "Try it in your browser, or download the source and run it in your own environment."
+      ],
+      "glyph_bounds": [
+        [
+          95.0,
+          974,
+          1825.0,
+          1018
+        ]
+      ],
+      "bottom_margin": 62
+    },
+    {
+      "id": "product-05",
+      "start": 33,
+      "end": 42,
+      "lines": [
+        "Download and extract the source ZIP. Use uv to prepare the Python environment."
+      ],
+      "glyph_bounds": [
+        [
+          106.5,
+          974,
+          1813.5,
+          1017
+        ]
+      ],
+      "bottom_margin": 63
+    },
+    {
+      "id": "product-06",
+      "start": 42,
+      "end": 51,
+      "lines": [
+        "Choose your operating system in the setup guide. On Mac, use",
+        "the shell script. On Windows, use the PowerShell command."
+      ],
+      "glyph_bounds": [
+        [
+          300.5,
+          922,
+          1619.5,
+          966
+        ],
+        [
+          326.5,
+          978,
+          1593.5,
+          1022
+        ]
+      ],
+      "bottom_margin": 58
+    },
+    {
+      "id": "product-07",
+      "start": 51,
+      "end": 59,
+      "lines": [
+        "If you use OpenClaw, download the Skill ZIP and",
+        "configure it to connect to your running Culture-Fit server."
+      ],
+      "glyph_bounds": [
+        [
+          454.5,
+          922,
+          1465.5,
+          966
+        ],
+        [
+          351.5,
+          978,
+          1568.5,
+          1022
+        ]
+      ],
+      "bottom_margin": 58
+    },
+    {
+      "id": "product-08",
+      "start": 59,
+      "end": 67,
+      "lines": [
+        "The interface is in English.",
+        "Conversation analysis supports both English and Korean."
+      ],
+      "glyph_bounds": [
+        [
+          681.0,
+          922,
+          1239.0,
+          966
+        ],
+        [
+          357.5,
+          978,
+          1562.5,
+          1022
+        ]
+      ],
+      "bottom_margin": 58
+    },
+    {
+      "id": "product-09",
+      "start": 67,
+      "end": 75,
+      "lines": [
+        "From the workspace, import a conversation or",
+        "explore a prepared example that needs a decision."
+      ],
+      "glyph_bounds": [
+        [
+          475.0,
+          922,
+          1445.0,
+          966
+        ],
+        [
+          429.0,
+          978,
+          1491.0,
+          1021
+        ]
+      ],
+      "bottom_margin": 59
+    },
+    {
+      "id": "product-10",
+      "start": 75,
+      "end": 84,
+      "lines": [
+        "Here, Release Agent and Review Agent both",
+        "have approval grants for the same release."
+      ],
+      "glyph_bounds": [
+        [
+          494.0,
+          922,
+          1426.0,
+          966
+        ],
+        [
+          509.5,
+          979,
+          1410.5,
+          1022
+        ]
+      ],
+      "bottom_margin": 58
+    },
+    {
+      "id": "product-11",
+      "start": 84,
+      "end": 92,
+      "lines": [
+        "Their grants come from different owners. The decision owner is still unknown."
+      ],
+      "glyph_bounds": [
+        [
+          134.5,
+          974,
+          1785.5,
+          1018
+        ]
+      ],
+      "bottom_margin": 62
+    },
+    {
+      "id": "product-12",
+      "start": 92,
+      "end": 101,
+      "lines": [
+        "The decision brief brings together agreements, open",
+        "questions, and points that need human judgment."
+      ],
+      "glyph_bounds": [
+        [
+          403.0,
+          922,
+          1517.0,
+          966
+        ],
+        [
+          436.5,
+          978,
+          1483.5,
+          1022
+        ]
+      ],
+      "bottom_margin": 58
+    },
+    {
+      "id": "product-13",
+      "start": 101,
+      "end": 109,
+      "lines": [
+        "Select a source reference to read the original",
+        "message, and check what was actually said."
+      ],
+      "glyph_bounds": [
+        [
+          484.0,
+          922,
+          1436.0,
+          966
+        ],
+        [
+          494.0,
+          978,
+          1426.0,
+          1022
+        ]
+      ],
+      "bottom_margin": 58
+    },
+    {
+      "id": "product-14",
+      "start": 109,
+      "end": 117,
+      "lines": [
+        "Now, put Review Agent first in the proposed priority order."
+      ],
+      "glyph_bounds": [
+        [
+          343.5,
+          974,
+          1576.5,
+          1018
+        ]
+      ],
+      "bottom_margin": 62
+    },
+    {
+      "id": "product-15",
+      "start": 117,
+      "end": 125,
+      "lines": [
+        "With only one owner’s approval recorded,",
+        "the other owner’s approval is still required."
+      ],
+      "glyph_bounds": [
+        [
+          519.5,
+          922,
+          1400.5,
+          966
+        ],
+        [
+          507.0,
+          978,
+          1413.0,
+          1021
+        ]
+      ],
+      "bottom_margin": 59
+    },
+    {
+      "id": "product-16",
+      "start": 125,
+      "end": 133,
+      "lines": [
+        "Record both owners’ agreement, then save the priority order for this decision."
+      ],
+      "glyph_bounds": [
+        [
+          139.5,
+          974,
+          1780.5,
+          1018
+        ]
+      ],
+      "bottom_margin": 62
+    },
+    {
+      "id": "product-17",
+      "start": 133,
+      "end": 142,
+      "lines": [
+        "After the authority check updates, Review Agent appears as the decision owner.",
+        "It is clear who can proceed."
+      ],
+      "glyph_bounds": [
+        [
+          110.0,
+          922,
+          1810.0,
+          966
+        ],
+        [
+          672.0,
+          978,
+          1248.0,
+          1021
+        ]
+      ],
+      "bottom_margin": 59
+    },
+    {
+      "id": "product-18",
+      "start": 142,
+      "end": 151,
+      "lines": [
+        "This decision applies to approval of this release.",
+        "Other actions are checked against their own scope and authority."
+      ],
+      "glyph_bounds": [
+        [
+          452.5,
+          922,
+          1467.5,
+          965
+        ],
+        [
+          270.5,
+          978,
+          1649.5,
+          1022
+        ]
+      ],
+      "bottom_margin": 58
+    },
+    {
+      "id": "product-19",
+      "start": 151,
+      "end": 159.4,
+      "lines": [
+        "In your own installation, agents can use MCP to report",
+        "conversations and query next actions and authority."
+      ],
+      "glyph_bounds": [
+        [
+          391.0,
+          922,
+          1529.0,
+          966
+        ],
+        [
+          409.5,
+          978,
+          1510.5,
+          1021
+        ]
+      ],
+      "bottom_margin": 59
+    },
+    {
+      "id": "product-20",
+      "start": 159.4,
+      "end": 167,
+      "lines": [
+        "A2A and Skill interfaces offer additional ways",
+        "to connect the agent environments you use."
+      ],
+      "glyph_bounds": [
+        [
+          478.5,
+          922,
+          1441.5,
+          965
+        ],
+        [
+          495.0,
+          978,
+          1425.0,
+          1022
+        ]
+      ],
+      "bottom_margin": 58
+    },
+    {
+      "id": "product-21",
+      "start": 167,
+      "end": 174.35,
+      "lines": [
+        "Culture-Fit is MIT-licensed open source, built for",
+        "developers everywhere to adapt and connect."
+      ],
+      "glyph_bounds": [
+        [
+          445.5,
+          922,
+          1474.5,
+          966
+        ],
+        [
+          475.0,
+          980,
+          1445.0,
+          1021
+        ]
+      ],
+      "bottom_margin": 59
+    },
+    {
+      "id": "product-22",
+      "start": 174.35,
+      "end": 180,
+      "lines": [
+        "The right person, at the right moment. Try Culture-Fit for yourself."
+      ],
+      "glyph_bounds": [
+        [
+          261.0,
+          974,
+          1659.0,
+          1018
+        ]
+      ],
+      "bottom_margin": 62
+    }
+  ]
+}

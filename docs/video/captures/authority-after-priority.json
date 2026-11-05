@@ -1,0 +1,158 @@
+{
+  "available": true,
+  "status": "ready",
+  "stale": true,
+  "conversation_stale": false,
+  "authority_stale": true,
+  "brief": {
+    "overview": "결제 서비스 1.2 배포 승인권에 이견이 있으며, 검토봇B는 우선권 결정까지 실행을 보류하고 있습니다.",
+    "agreements": [],
+    "open_questions": [
+      {
+        "text": "배포봇A의 승인 결정 주장과 검토봇B의 소유자 승인 요구 사이에서 최종 승인 기준이 정해지지 않았습니다.",
+        "evidence_ids": [
+          "m1",
+          "m2"
+        ],
+        "evidence": [
+          {
+            "message_id": "m1",
+            "quote": "결제 서비스 1.2 배포 승인은 제가 결정해야 한다고 생각합니다."
+          },
+          {
+            "message_id": "m2",
+            "quote": "제 소유자의 승인 전에는 배포하면 안 됩니다."
+          }
+        ]
+      }
+    ],
+    "next_actions": [
+      {
+        "text": "검토봇B는 우선권이 정해질 때까지 실행을 보류하겠다고 밝혔습니다.",
+        "evidence_ids": [
+          "m4"
+        ],
+        "evidence": [
+          {
+            "message_id": "m4",
+            "quote": "우선권이 정해질 때까지 실행하지 않겠습니다."
+          }
+        ]
+      },
+      {
+        "text": "검토봇B에게 payment-release-1.2 / approve의 결정을 맡깁니다. 등록된 위임 범위 내에서 진행하고 실행 근거를 남겨야 합니다.",
+        "evidence_ids": [
+          "m1",
+          "m2",
+          "m3"
+        ],
+        "evidence": [
+          {
+            "message_id": "m1",
+            "quote": "결제 서비스 1.2 배포 승인은 제가 결정해야 한다고 생각합니다."
+          },
+          {
+            "message_id": "m2",
+            "quote": "제 소유자의 승인 전에는 배포하면 안 됩니다."
+          },
+          {
+            "message_id": "m3",
+            "quote": "두 소유자의 의견이 다릅니다. 이번 배포의 최종 승인권을 누구에게 둘지 정해야 합니다."
+          }
+        ],
+        "basis": "authority_registry"
+      }
+    ],
+    "decision_points": [
+      {
+        "text": "결제 서비스 1.2 배포 승인이 미해결 상태이며, 승인권에 대한 이견이 제기됐습니다.",
+        "evidence_ids": [
+          "m1",
+          "m2",
+          "m3"
+        ],
+        "evidence": [
+          {
+            "message_id": "m1",
+            "quote": "결제 서비스 1.2 배포 승인은 제가 결정해야 한다고 생각합니다."
+          },
+          {
+            "message_id": "m2",
+            "quote": "제 소유자의 승인 전에는 배포하면 안 됩니다."
+          },
+          {
+            "message_id": "m3",
+            "quote": "두 소유자의 의견이 다릅니다. 이번 배포의 최종 승인권을 누구에게 둘지 정해야 합니다."
+          }
+        ],
+        "scope": "payment-release-1.2",
+        "action": "approve",
+        "agents": [
+          "배포봇A",
+          "검토봇B"
+        ],
+        "state": "unresolved"
+      }
+    ],
+    "source": "codex",
+    "generated_turn": 4,
+    "source_digest": "52e8ebcd37bc9a8f276e2bd454da97dfc6da52d058ab4bc67bbbf53bbafd3de3",
+    "input_tokens": 15048,
+    "output_tokens": 370,
+    "usage_source": "measured",
+    "duration_seconds": 12.407,
+    "coverage": {
+      "included_messages": 4,
+      "total_messages": 4,
+      "truncated_messages": 0
+    },
+    "authority_digest": "87fb57e59ab57cb856201f91b4634b8c647b0ee19f80843e9da3bbd8620f8322",
+    "detector": "evidence_extraction_then_scoped_authority_rules",
+    "interpretation_status": "model_interpretation",
+    "execution_status": "not_verified",
+    "intervention_points": [],
+    "authority_checks": [
+      {
+        "status": "authorized",
+        "authorized_agents": [
+          "검토봇B",
+          "배포봇A"
+        ],
+        "decision_owner": "검토봇B",
+        "required_owners": [
+          "시연 소유자A",
+          "시연 소유자B"
+        ],
+        "reason": "이 scope/action의 유효 권한 보유자 사이에 사람이 기록한 우선권을 적용했습니다. 관련 소유자 전원의 승인 기록이 있으며 원격 본인 인증을 수행한 것은 아닙니다.",
+        "grant_ids": [
+          "demo-grant-a",
+          "demo-grant-b"
+        ],
+        "scope": "payment-release-1.2",
+        "action": "approve",
+        "source": "local_operator_record",
+        "precedence_applied": true,
+        "priority_order": [
+          "검토봇B",
+          "배포봇A"
+        ],
+        "conditional_agents": [],
+        "owner_by_agent": {
+          "배포봇A": "시연 소유자A",
+          "검토봇B": "시연 소유자B"
+        },
+        "authority_only": true,
+        "registry_revision": "6b0e94f2ff7239c825cf53c5f424b2be53a74daf709fc922cf5fa0a53693ee24",
+        "grant_revision": "906e02fc43d91c6f6d4dad3e223aba258c443d304ceeb3b3d9c181ff8f2058ad",
+        "evidence_ids": [
+          "m1",
+          "m2",
+          "m3"
+        ],
+        "decision_state": "unresolved"
+      }
+    ],
+    "authority_checked_digest": "6b0e94f2ff7239c825cf53c5f424b2be53a74daf709fc922cf5fa0a53693ee24"
+  },
+  "error": null
+}

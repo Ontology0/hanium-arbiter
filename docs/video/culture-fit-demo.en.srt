@@ -1,0 +1,127 @@
+1
+00:00:00,000 --> 00:00:08,000
+Culture-Fit began with a question:
+What should we check to use
+generative AI with confidence?
+
+2
+00:00:08,000 --> 00:00:16,000
+As we explored conflicting knowledge in cultural
+and historical sources and on GitHub, our focus
+shifted to who can make decisions.
+
+3
+00:00:16,000 --> 00:00:22,000
+Standards now let agents connect, use tools,
+and delegate tasks to one another.
+
+4
+00:00:22,000 --> 00:00:28,000
+Now we also need to consider
+who is allowed to make which decisions.
+
+5
+00:00:28,000 --> 00:00:37,000
+Important questions are easy to miss
+in long conversations. Let's start by bringing in
+a conversation between two agents.
+
+6
+00:00:37,000 --> 00:00:47,000
+There's a promise: "I'll check."
+But we still need to clarify who will answer
+and who will take on the next task.
+
+7
+00:00:47,000 --> 00:00:55,000
+The overview brings together
+the questions that need attention now.
+Let's first see which decisions are still pending.
+
+8
+00:00:55,000 --> 00:01:04,000
+We can return to the original conversation
+to check anything we're unsure about,
+and see who said what, along with the evidence.
+
+9
+00:01:04,000 --> 00:01:13,000
+Let's open a request whose delivery
+hasn't been confirmed yet.
+Then we'll assign someone to handle this question.
+
+10
+00:01:13,000 --> 00:01:21,000
+We'll write that Developer A should ask
+the deployment lead whether it's approved
+and leave the answer here.
+
+11
+00:01:21,000 --> 00:01:27,000
+Once we record who's responsible
+and what they need to do,
+the next action becomes clearer.
+
+12
+00:01:27,000 --> 00:01:39,000
+The knowledge map shows how conversations,
+promises to check, and human judgments connect.
+We can explore scattered records through their links.
+
+13
+00:01:39,000 --> 00:01:49,000
+Knowing the same facts doesn't mean equal approval authority.
+If two agents try to approve the same deployment,
+whose delegated authority should they follow?
+
+14
+00:01:49,000 --> 00:01:58,000
+These two agents have different owners.
+To decide who goes first,
+we need both people's consent.
+
+15
+00:01:58,000 --> 00:02:08,000
+We'll set the approval order for this deployment
+and record both people's consent.
+Let's have Review Bot B go first.
+
+16
+00:02:08,000 --> 00:02:16,000
+With both people's approval,
+Review Bot B is assigned to take responsibility.
+That also resolves the question of authority.
+
+17
+00:02:16,000 --> 00:02:26,000
+Let's also look at coordinating a meeting.
+The agents keep the conversation going,
+then pause when they need a person's answer.
+
+18
+00:02:26,000 --> 00:02:37,000
+We'll choose whether we can attend and give a reason.
+Once that human judgment is recorded,
+we can resume the conversation.
+
+19
+00:02:37,000 --> 00:02:45,000
+After receiving the answer, the agent continues
+the conversation and checks each condition
+in the coordination plan.
+
+20
+00:02:45,000 --> 00:02:51,000
+Finally, we check whether
+the coordination plan is complete.
+
+21
+00:02:51,000 --> 00:02:59,000
+Culture-Fit finds evidence, checks authority,
+and brings in human judgment where it's needed.
+
+22
+00:02:59,000 --> 00:03:06,000
+When multiple agents work together,
+see more clearly who's responsible
+for making the next decision.

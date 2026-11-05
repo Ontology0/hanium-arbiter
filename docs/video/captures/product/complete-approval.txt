@@ -1,0 +1,16 @@
+Delegation verified
+payment-release-1.2 · approve
+Eligible agents
+Release Agent, Review Agent
+Decision owner
+Review Agent
+Required owners
+Owner A, Owner B
+Agents by owner
+Owner A → Release Agent, Owner B → Review Agent
+Applied priority
+Review Agent → Release Agent
+
+Human-recorded priority was applied among the valid grant holders for this scope/action. Approval from every relevant owner is recorded; remote identity verification has not been performed.
+
+Edit recorded priority

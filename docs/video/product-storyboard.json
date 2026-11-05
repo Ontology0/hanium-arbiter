@@ -1,0 +1,457 @@
+{
+  "version": "product-1",
+  "status": "Captured and rendered; both product editions passed full decoding and frame/stream/caption checks.",
+  "duration_seconds": 180,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "languages": {
+    "interface": "English",
+    "conversation_analysis": [
+      "English",
+      "Korean"
+    ],
+    "variants": {
+      "ko": {
+        "narration": "New Korean script; Harry Kim — Conversational, ElevenLabs Eleven v4, Generation 1",
+        "captions": "Korean"
+      },
+      "en": {
+        "narration": "New English script; Daniel — Radio news host, ElevenLabs Eleven v4, Generation 1",
+        "captions": "English"
+      }
+    }
+  },
+  "shared_capture": true,
+  "public_url": "https://culture-fit-demo-production.up.railway.app",
+  "visitor_scope": "new independent Playwright context; own visitor only; no existing user cookies or records",
+  "styles": {
+    "font": "Pretendard v1.3.9",
+    "canvas": "black",
+    "text": "white",
+    "emphasis": [
+      "#FFE16A",
+      "#53FFD8"
+    ],
+    "motion": "actual Three.js, English labels shared by both versions",
+    "captions": "maximum two lines, measured glyph bounds and at least 44px bottom margin"
+  },
+  "archive_policy": "Preserve existing culture-fit-demo-1080p.mp4, culture-fit-demo-en-1080p.mp4 and their source/verification artifacts. New deliverables use culture-fit-product-* names.",
+  "capture_rules": [
+    "Use actual deployed English UI without text substitution or a fabricated language selector.",
+    "Obtain final deploy-ready signal before recording.",
+    "Only mutate the fresh recording visitor. Do not call new model analysis, live mode or external integrations.",
+    "Use prepared synthetic example and saved model analysis.",
+    "Approvals are operator-entered records, not independent remote-owner authentication.",
+    "Actual Windows guide/PowerShell commands may be shown; do not claim Windows hardware execution.",
+    "If terminal startup is included, use the downloaded source in a video-owned isolated directory and separate port, with a separate DB. Never start the shared working tree on 8787.",
+    "UI state changes must match the narration; never substitute an illustrative animation for proof of a performed app action.",
+    "First-run empty local workspace must be visibly distinguished from the public seeded demo; use separate labels and actual URL navigation."
+  ],
+  "installation_evidence": {
+    "downloads": [
+      "source ZIP",
+      "OpenClaw Skill ZIP"
+    ],
+    "os_support": "OS-specific launch scripts in a common source archive; not native app binaries",
+    "macos": "existing ZIP-extraction/real-startup validation: .runtime/download-install-validation.json",
+    "windows": "script and instructions supplied; no physical Windows run verified",
+    "openclaw": "Skill discovery/configuration verified in existing project evidence; no claim of a live model using it",
+    "live_preflight_files": [
+      "work/english-public/landing.txt",
+      "work/english-public/download-inspection.json",
+      "work/english-public/workspace-inspection.json"
+    ]
+  },
+  "sources": {
+    "code": "https://github.com/Ontology0/hanium-arbiter",
+    "download": "https://culture-fit-demo-production.up.railway.app/download",
+    "uv": "https://docs.astral.sh/uv/getting-started/installation/"
+  },
+  "chapters": [
+    {
+      "id": "problem",
+      "start_seconds": 0,
+      "end_seconds": 16,
+      "cue_ids": [
+        "product-01",
+        "product-02"
+      ]
+    },
+    {
+      "id": "value",
+      "start_seconds": 16,
+      "end_seconds": 25,
+      "cue_ids": [
+        "product-03"
+      ]
+    },
+    {
+      "id": "start",
+      "start_seconds": 25,
+      "end_seconds": 33,
+      "cue_ids": [
+        "product-04"
+      ]
+    },
+    {
+      "id": "install",
+      "start_seconds": 33,
+      "end_seconds": 59,
+      "cue_ids": [
+        "product-05",
+        "product-06",
+        "product-07"
+      ]
+    },
+    {
+      "id": "first-screen",
+      "start_seconds": 59,
+      "end_seconds": 75,
+      "cue_ids": [
+        "product-08",
+        "product-09"
+      ]
+    },
+    {
+      "id": "conflict",
+      "start_seconds": 75,
+      "end_seconds": 92,
+      "cue_ids": [
+        "product-10",
+        "product-11"
+      ]
+    },
+    {
+      "id": "evidence",
+      "start_seconds": 92,
+      "end_seconds": 109,
+      "cue_ids": [
+        "product-12",
+        "product-13"
+      ]
+    },
+    {
+      "id": "approval",
+      "start_seconds": 109,
+      "end_seconds": 133,
+      "cue_ids": [
+        "product-14",
+        "product-15",
+        "product-16"
+      ]
+    },
+    {
+      "id": "next-owner",
+      "start_seconds": 133,
+      "end_seconds": 151,
+      "cue_ids": [
+        "product-17",
+        "product-18"
+      ]
+    },
+    {
+      "id": "connections",
+      "start_seconds": 151,
+      "end_seconds": 167,
+      "cue_ids": [
+        "product-19",
+        "product-20"
+      ]
+    },
+    {
+      "id": "cta",
+      "start_seconds": 167,
+      "end_seconds": 180,
+      "cue_ids": [
+        "product-21",
+        "product-22"
+      ]
+    }
+  ],
+  "cues": [
+    {
+      "id": "product-01",
+      "scene": "problem",
+      "start_seconds": 0,
+      "end_seconds": 8,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "같은 정보를 아는 두 에이전트. 그렇다고 승인 권한까지 같을까요?",
+        "en": "Two agents can share the same information. But does that mean they have the same authority?"
+      },
+      "required_screen": "Three.js: two agents share an information node; separate owner-to-agent authority links. No project history."
+    },
+    {
+      "id": "product-02",
+      "scene": "problem",
+      "start_seconds": 8,
+      "end_seconds": 16,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "서로 다른 사람에게 위임받았다면, 중요한 결정 앞에서 누구의 뜻을 따라야 할지 정해야 해요.",
+        "en": "When different people delegate authority, the agents need to know whose approval a decision requires."
+      },
+      "required_screen": "Three.js: overlapping approve scope, unresolved decision; show question Who can decide?"
+    },
+    {
+      "id": "product-03",
+      "scene": "value",
+      "start_seconds": 16,
+      "end_seconds": 25,
+      "duration_seconds": 9,
+      "speech": {
+        "ko": "컬처핏은 근거와 권한을 살피고, 필요한 순간에 사람의 판단을 연결하는 오픈소스 휴먼 인 더 루프 계층이에요.",
+        "en": "Culture-Fit is an open-source Human-in-the-Loop layer. It connects evidence, delegated authority, and human judgment when a decision needs it."
+      },
+      "required_screen": "Actual English landing hero, then product name and Human-in-the-Loop (HITL)."
+    },
+    {
+      "id": "product-04",
+      "scene": "start",
+      "start_seconds": 25,
+      "end_seconds": 33,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "웹에서 바로 체험하거나, 소스를 내려받아 자신의 환경에서 시작할 수 있어요.",
+        "en": "Try it in your browser, or download the source and run it in your own environment."
+      },
+      "required_screen": "Landing page: Try the demo and Install locally. Follow Install locally to /download."
+    },
+    {
+      "id": "product-05",
+      "scene": "install",
+      "start_seconds": 33,
+      "end_seconds": 42,
+      "duration_seconds": 9,
+      "speech": {
+        "ko": "소스 ZIP을 받고 압축을 풀어 주세요. 파이썬 실행 환경은 유브이로 준비해요.",
+        "en": "Download and extract the source ZIP. Use uv to prepare the Python environment."
+      },
+      "required_screen": "Actual source ZIP download to video-owned folder; show Python 3.11+ and official uv guide link. No fabricated terminal execution."
+    },
+    {
+      "id": "product-06",
+      "scene": "install",
+      "start_seconds": 42,
+      "end_seconds": 51,
+      "duration_seconds": 9,
+      "speech": {
+        "ko": "설치 안내에서 운영체제를 고르고, 맥은 셸 스크립트, 윈도우는 파워셸 명령을 실행하면 돼요.",
+        "en": "Choose your operating system in the setup guide. On Mac, use the shell script. On Windows, use the PowerShell command."
+      },
+      "required_screen": "Actual macOS and Windows tabs and visible commands; retain Windows hardware-validation note. These are source launch scripts, not native installers."
+    },
+    {
+      "id": "product-07",
+      "scene": "install",
+      "start_seconds": 51,
+      "end_seconds": 59,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "오픈클로를 쓴다면 스킬 ZIP을 받아, 실행 중인 컬처핏 서버에 연결할 수도 있어요.",
+        "en": "If you use OpenClaw, download the Skill ZIP and configure it to connect to your running Culture-Fit server."
+      },
+      "required_screen": "Actual Skill ZIP card, then Skill setup section showing extraDirs and local API. Do not show automatic connection or model execution."
+    },
+    {
+      "id": "product-08",
+      "scene": "first-screen",
+      "start_seconds": 59,
+      "end_seconds": 67,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "화면은 영어로 제공하고, 대화 분석은 한국어와 영어를 지원해요.",
+        "en": "The interface is in English. Conversation analysis supports both English and Korean."
+      },
+      "required_screen": "Actual first-run empty workspace from downloaded source ZIP, isolated video-owned folder/DB and separate port. Show English interface; use truthful editorial label English interface · English & Korean conversation analysis. No language toggle."
+    },
+    {
+      "id": "product-09",
+      "scene": "first-screen",
+      "start_seconds": 67,
+      "end_seconds": 75,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "첫 화면에서 대화를 가져오거나, 준비된 예제로 결정이 필요한 상황을 살펴볼 수 있어요.",
+        "en": "From the workspace, import a conversation or explore a prepared example that needs a decision."
+      },
+      "required_screen": "Visibly switch from Local installation to Public demo using actual public site navigation. Show English workspace Import conversation control/dialog, close and show prepared visitor-specific sample. Label Synthetic example / Recorded analysis."
+    },
+    {
+      "id": "product-10",
+      "scene": "conflict",
+      "start_seconds": 75,
+      "end_seconds": 84,
+      "duration_seconds": 9,
+      "speech": {
+        "ko": "이 예제에선 릴리스 에이전트와 리뷰 에이전트가 같은 배포의 승인 권한을 가지고 있어요.",
+        "en": "Here, Release Agent and Review Agent both have approval grants for the same release."
+      },
+      "required_screen": "Overview authority card shows payment-release-1.2 / approve and both eligible agents."
+    },
+    {
+      "id": "product-11",
+      "scene": "conflict",
+      "start_seconds": 84,
+      "end_seconds": 92,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "하지만 위임한 소유자는 서로 달라요. 아직 누가 결정할지는 정해지지 않았죠.",
+        "en": "Their grants come from different owners. The decision owner is still unknown."
+      },
+      "required_screen": "Knowledge scoped-authority table then Overview conflict card: Owner A/B, Decision owner Unknown."
+    },
+    {
+      "id": "product-12",
+      "scene": "evidence",
+      "start_seconds": 92,
+      "end_seconds": 101,
+      "duration_seconds": 9,
+      "speech": {
+        "ko": "브리핑은 합의된 내용과 남은 질문, 사람의 판단이 필요한 지점을 모아 보여줘요.",
+        "en": "The decision brief brings together agreements, open questions, and points that need human judgment."
+      },
+      "required_screen": "Actual saved Decision brief sections. Small label Recorded model analysis; no live model request."
+    },
+    {
+      "id": "product-13",
+      "scene": "evidence",
+      "start_seconds": 101,
+      "end_seconds": 109,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "근거를 누르면 원문으로 이어져요. 요약만 보고 결정하지 않도록 발언을 함께 확인하죠.",
+        "en": "Select a source reference to read the original message, and check what was actually said."
+      },
+      "required_screen": "Click actual m1/m2 source chip to Conversation and show English transcript. This is a translated replay already present in the public fixture."
+    },
+    {
+      "id": "product-14",
+      "scene": "approval",
+      "start_seconds": 109,
+      "end_seconds": 117,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "이제 리뷰 에이전트를 우선으로 두는 순서를 정해볼게요.",
+        "en": "Now, put Review Agent first in the proposed priority order."
+      },
+      "required_screen": "Actual Review Agent Priority Up click; show reordered list before any approval. Small label Operator-entered approvals."
+    },
+    {
+      "id": "product-15",
+      "scene": "approval",
+      "start_seconds": 117,
+      "end_seconds": 125,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "한 사람의 동의만 기록하면, 다른 소유자의 승인이 남아 있어요.",
+        "en": "With only one owner’s approval recorded, the other owner’s approval is still required."
+      },
+      "required_screen": "Select Owner A only, submit partial order, verify conflict persists and Owner B remains missing. Only our fresh visitor is changed."
+    },
+    {
+      "id": "product-16",
+      "scene": "approval",
+      "start_seconds": 125,
+      "end_seconds": 133,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "두 소유자의 동의를 모두 기록하고, 이 결정에 적용할 우선순위를 저장해요.",
+        "en": "Record both owners’ agreement, then save the priority order for this decision."
+      },
+      "required_screen": "Select missing Owner B, save priority and approvals; retain exact scope/action. Do not imply two independently authenticated people."
+    },
+    {
+      "id": "product-17",
+      "scene": "next-owner",
+      "start_seconds": 133,
+      "end_seconds": 142,
+      "duration_seconds": 9,
+      "speech": {
+        "ko": "권한을 다시 확인하면 리뷰 에이전트가 담당자로 나타나요. 누가 진행할 수 있는지 분명해졌죠.",
+        "en": "After the authority check updates, Review Agent appears as the decision owner. It is clear who can proceed."
+      },
+      "required_screen": "Actual authorized result, Review Agent decision owner, briefing intervention count updates. No external execution."
+    },
+    {
+      "id": "product-18",
+      "scene": "next-owner",
+      "start_seconds": 142,
+      "end_seconds": 151,
+      "duration_seconds": 9,
+      "speech": {
+        "ko": "이 판단은 해당 배포의 승인에 적용돼요. 다른 업무의 권한은 그 범위와 행동에 맞춰 따로 확인해요.",
+        "en": "This decision applies to approval of this release. Other actions are checked against their own scope and authority."
+      },
+      "required_screen": "Actual payment-release-1.2 / approve scope beside current grants. Do not invent a second successful authority check."
+    },
+    {
+      "id": "product-19",
+      "scene": "connections",
+      "start_seconds": 151,
+      "end_seconds": 159,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "자신의 환경에서는 엠씨피로 에이전트가 대화를 보고하고, 다음 행동과 권한 상태를 조회할 수 있어요.",
+        "en": "In your own installation, agents can use MCP to report conversations and query next actions and authority."
+      },
+      "required_screen": "Public Connections tab → download page actual MCP JSON configuration. Small label Local installation configuration; not a live public MCP connection."
+    },
+    {
+      "id": "product-20",
+      "scene": "connections",
+      "start_seconds": 159,
+      "end_seconds": 167,
+      "duration_seconds": 8,
+      "speech": {
+        "ko": "에이투에이와 스킬 연결도 제공해서, 쓰는 에이전트 환경에 맞게 붙일 수 있어요.",
+        "en": "A2A and Skill interfaces offer additional ways to connect the agent environments you use."
+      },
+      "required_screen": "English Three.js product architecture: agent clients → MCP / A2A / Skill → Culture-Fit. Clearly explanatory diagram, not a recorded live agent session."
+    },
+    {
+      "id": "product-21",
+      "scene": "cta",
+      "start_seconds": 167,
+      "end_seconds": 174,
+      "duration_seconds": 7,
+      "speech": {
+        "ko": "컬처핏은 전 세계 개발자가 수정하고 연결할 수 있는 엠아이티 오픈소스예요.",
+        "en": "Culture-Fit is MIT-licensed open source, built for developers everywhere to adapt and connect."
+      },
+      "required_screen": "Actual public repository/LICENSE or English Three.js end card with MIT, GitHub, global developer target. No adoption metrics."
+    },
+    {
+      "id": "product-22",
+      "scene": "cta",
+      "start_seconds": 174,
+      "end_seconds": 180,
+      "duration_seconds": 6,
+      "speech": {
+        "ko": "필요한 순간, 필요한 사람에게. 컬처핏에서 직접 확인해 보세요.",
+        "en": "The right person, at the right moment. Try Culture-Fit for yourself."
+      },
+      "required_screen": "English Three.js end card: Human-in-the-Loop (HITL), public demo URL and source URL; quiet source and ElevenLabs credit."
+    }
+  ],
+  "delivery": {
+    "ko": {
+      "video": "culture-fit-product-ko-1080p.mp4",
+      "validation": "product-validation-ko.json",
+      "narration_source": "product-narration-source-ko.json"
+    },
+    "en": {
+      "video": "culture-fit-product-en-1080p.mp4",
+      "validation": "product-validation-en.json",
+      "narration_source": "product-narration-source-en.json"
+    }
+  },
+  "final_timing_note": "Base scene times remain 180 seconds. English audio/caption boundaries after cues 3/19/21 move by +0.75/+0.40/+0.35 seconds to preserve natural 1.0x playback. Final exact times are in culture-fit-product.en.srt and product-narration-source-en.json.",
+  "caption_override_files": {
+    "ko": "product-caption-overrides-ko.json"
+  },
+  "caption_policy": "Speech fields preserve TTS pronunciation spellings. Display captions use standard written technology names through a separate override map; audio and timing remain unchanged."
+}

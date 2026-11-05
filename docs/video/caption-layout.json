@@ -1,0 +1,16 @@
+{
+  "end_credit_line": {
+    "font": "Pretendard Regular",
+    "size_px": 24,
+    "top_px": 863,
+    "bottom_px": 889,
+    "caption_region_starts_px": 912
+  },
+  "font": "Pretendard ExtraBold",
+  "size_px": 52,
+  "max_lines": 2,
+  "minimum_text_bottom_margin_px": 44,
+  "width_px": 1920,
+  "height_px": 1080,
+  "note": "Measured glyph bounds; soft glow may extend beyond the glyph box."
+}

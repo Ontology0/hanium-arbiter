@@ -1,0 +1,483 @@
+{
+  "artifact": "culture-fit-demo-en-1080p.mp4",
+  "sha256": "de5b774076e8cc12917eea0acb89131de6d1436e7e8da573532296908e6faf5c",
+  "bytes": 8881400,
+  "duration_seconds": 186.0,
+  "video_stream_duration_seconds": 186.0,
+  "audio_stream_duration_seconds": 186.0,
+  "width": 1920,
+  "height": 1080,
+  "frame_rate": "30/1",
+  "video_frame_count": 5580,
+  "english_cue_count": 22,
+  "scope": "English narration captions only. Original Korean UI, Korean editorial labels, Korean Three.js diagrams, and the approved Korean Harry Kim narration are retained.",
+  "audio": "Copied AAC packets from the Korean final; no new TTS or audio re-encoding.",
+  "audio_packet_hash": "SHA256=207101f3c0076bf19cf532addcafa41c401fd2f4ec491fefcfb21b92ce518911",
+  "caption_layout": {
+    "font": "Pretendard ExtraBold",
+    "size_px": 44,
+    "max_lines": 2,
+    "minimum_text_bottom_margin_px": 48,
+    "glyph_bounds": [
+      {
+        "cue_start_seconds": 0,
+        "text": "Culture-Fit began with a question: What should",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 0,
+        "text": "we check to use generative AI with confidence?",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 8,
+        "text": "As we explored conflicting knowledge in cultural and historical",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 8,
+        "text": "sources and on GitHub, our focus shifted to who can make decisions.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 16,
+        "text": "Standards now let agents connect, use tools, and delegate tasks to one another.",
+        "bottom_px": 1022
+      },
+      {
+        "cue_start_seconds": 22,
+        "text": "Now we also need to consider who is allowed to make which decisions.",
+        "bottom_px": 1013
+      },
+      {
+        "cue_start_seconds": 28,
+        "text": "Important questions are easy to miss in long conversations.",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 28,
+        "text": "Let's start by bringing in a conversation between two agents.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 37,
+        "text": "There's a promise: \"I'll check.\" But we still need to clarify",
+        "bottom_px": 976
+      },
+      {
+        "cue_start_seconds": 37,
+        "text": "who will answer and who will take on the next task.",
+        "bottom_px": 1023
+      },
+      {
+        "cue_start_seconds": 47,
+        "text": "The overview brings together the questions that need attention now.",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 47,
+        "text": "Let's first see which decisions are still pending.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 55,
+        "text": "We can return to the original conversation to check anything we're",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 55,
+        "text": "unsure about, and see who said what, along with the evidence.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 64,
+        "text": "Let's open a request whose delivery hasn't been confirmed yet.",
+        "bottom_px": 976
+      },
+      {
+        "cue_start_seconds": 64,
+        "text": "Then we'll assign someone to handle this question.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 73,
+        "text": "We'll write that Developer A should ask the deployment",
+        "bottom_px": 976
+      },
+      {
+        "cue_start_seconds": 73,
+        "text": "lead whether it's approved and leave the answer here.",
+        "bottom_px": 1031
+      },
+      {
+        "cue_start_seconds": 81,
+        "text": "Once we record who's responsible and what they",
+        "bottom_px": 976
+      },
+      {
+        "cue_start_seconds": 81,
+        "text": "need to do, the next action becomes clearer.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 87,
+        "text": "The knowledge map shows how conversations, promises to check, and human",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 87,
+        "text": "judgments connect. We can explore scattered records through their links.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 99,
+        "text": "Knowing the same facts doesn't mean equal approval authority. If two agents try",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 99,
+        "text": "to approve the same deployment, whose delegated authority should they follow?",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 109,
+        "text": "These two agents have different owners.",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 109,
+        "text": "To decide who goes first, we need both people's consent.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 118,
+        "text": "We'll set the approval order for this deployment and record both people's consent.",
+        "bottom_px": 976
+      },
+      {
+        "cue_start_seconds": 118,
+        "text": "Let's have Review Bot B go first.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 128,
+        "text": "With both people's approval, Review Bot B is assigned to take responsibility.",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 128,
+        "text": "That also resolves the question of authority.",
+        "bottom_px": 1031
+      },
+      {
+        "cue_start_seconds": 136,
+        "text": "Let's also look at coordinating a meeting. The agents keep the",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 136,
+        "text": "conversation going, then pause when they need a person's answer.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 146,
+        "text": "We'll choose whether we can attend and give a reason.",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 146,
+        "text": "Once that human judgment is recorded, we can resume the conversation.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 157,
+        "text": "After receiving the answer, the agent continues the",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 157,
+        "text": "conversation and checks each condition in the coordination plan.",
+        "bottom_px": 1031
+      },
+      {
+        "cue_start_seconds": 165,
+        "text": "Finally, we check whether the coordination plan is complete.",
+        "bottom_px": 1022
+      },
+      {
+        "cue_start_seconds": 171,
+        "text": "Culture-Fit finds evidence, checks authority, and",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 171,
+        "text": "brings in human judgment where it's needed.",
+        "bottom_px": 1032
+      },
+      {
+        "cue_start_seconds": 179,
+        "text": "When multiple agents work together, see more clearly",
+        "bottom_px": 977
+      },
+      {
+        "cue_start_seconds": 179,
+        "text": "who's responsible for making the next decision.",
+        "bottom_px": 1032
+      }
+    ]
+  },
+  "optional_subtitle_patch": {
+    "optional_subtitle_tracks": [
+      {
+        "track_id": 3,
+        "old_flags": 3,
+        "new_flags": 2
+      }
+    ],
+    "changed_byte_count": 1,
+    "media_samples_unchanged": true
+  },
+  "korean_artifact_sha256": "a6dd44eacd45757ceaf296db1640ba5207839e4e282d3cf2bf418ce84d9b4626",
+  "base_video_sha256": "603e10d483959078c3d981f456eebcf45db44d7dbf26a3979d3c5227a7bf9321",
+  "validation": [
+    "Full FFmpeg decode passed",
+    "186 seconds for video/audio/container;5580 frames",
+    "Last frame185.95s extracted",
+    "English mov_text default0",
+    "AAC packet hash matches approved Korean version",
+    "English captions fit two lines with44px or more bottom margin"
+  ],
+  "ffprobe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.640028",
+        "width": 1920,
+        "height": 1080,
+        "coded_width": 1920,
+        "coded_height": 1080,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "pix_fmt": "yuvj420p",
+        "level": 40,
+        "color_range": "pc",
+        "color_space": "bt470bg",
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 2856960,
+        "duration": "186.000000",
+        "bit_rate": "242894",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "5580",
+        "extradata_size": 50,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "encoder": "Lavc62.28.100 libx264"
+        },
+        "side_data_list": [
+          {
+            "side_data_type": "ICC Profile"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 1,
+        "channel_layout": "mono",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 8928000,
+        "duration": "186.000000",
+        "bit_rate": "129981",
+        "nb_frames": "8720",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "kor",
+          "handler_name": "SoundHandler"
+        }
+      },
+      {
+        "index": 2,
+        "codec_name": "mov_text",
+        "codec_long_name": "MOV text",
+        "codec_type": "subtitle",
+        "codec_tag_string": "tx3g",
+        "codec_tag": "0x67337874",
+        "id": "0x3",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/1000000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 186000000,
+        "duration": "186.000000",
+        "bit_rate": "105",
+        "nb_frames": "23",
+        "extradata_size": 68,
+        "disposition": {
+          "default": 0,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "eng",
+          "handler_name": "SubtitleHandler"
+        }
+      },
+      {
+        "index": 3,
+        "codec_name": "bin_data",
+        "codec_long_name": "binary data",
+        "codec_type": "data",
+        "codec_tag_string": "text",
+        "codec_tag": "0x74786574",
+        "id": "0x4",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/1000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 186000,
+        "duration": "186.000000",
+        "bit_rate": "22",
+        "nb_frames": "9",
+        "extradata_size": 63,
+        "disposition": {
+          "default": 0,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "eng",
+          "handler_name": "SubtitleHandler"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/Users/ryeong/alltology/hanium-arbiter/docs/video/culture-fit-demo-en-1080p.mp4",
+      "nb_streams": 4,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "186.000000",
+      "size": "8881400",
+      "bit_rate": "381995",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "title": "Culture-Fit | Human-in-the-Loop (HITL), English captions | elevenlabs.io",
+        "encoder": "Lavf62.12.100",
+        "comment": "English captions over Korean UI and original Three.js diagrams; original Korean Harry Kim narration."
+      }
+    }
+  }
+}

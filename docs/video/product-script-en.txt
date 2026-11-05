@@ -1,0 +1,43 @@
+Two agents can share the same information. But does that mean they have the same authority?
+
+When different people delegate authority, the agents need to know whose approval a decision requires.
+
+Culture-Fit is an open-source Human-in-the-Loop layer. It connects evidence, delegated authority, and human judgment when a decision needs it.
+
+Try it in your browser, or download the source and run it in your own environment.
+
+Download and extract the source ZIP. Use uv to prepare the Python environment.
+
+Choose your operating system in the setup guide. On Mac, use the shell script. On Windows, use the PowerShell command.
+
+If you use OpenClaw, download the Skill ZIP and configure it to connect to your running Culture-Fit server.
+
+The interface is in English. Conversation analysis supports both English and Korean.
+
+From the workspace, import a conversation or explore a prepared example that needs a decision.
+
+Here, Release Agent and Review Agent both have approval grants for the same release.
+
+Their grants come from different owners. The decision owner is still unknown.
+
+The decision brief brings together agreements, open questions, and points that need human judgment.
+
+Select a source reference to read the original message, and check what was actually said.
+
+Now, put Review Agent first in the proposed priority order.
+
+With only one owner’s approval recorded, the other owner’s approval is still required.
+
+Record both owners’ agreement, then save the priority order for this decision.
+
+After the authority check updates, Review Agent appears as the decision owner. It is clear who can proceed.
+
+This decision applies to approval of this release. Other actions are checked against their own scope and authority.
+
+In your own installation, agents can use MCP to report conversations and query next actions and authority.
+
+A2A and Skill interfaces offer additional ways to connect the agent environments you use.
+
+Culture-Fit is MIT-licensed open source, built for developers everywhere to adapt and connect.
+
+The right person, at the right moment. Try Culture-Fit for yourself.

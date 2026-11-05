@@ -1,0 +1,71 @@
+Title / 제목
+Culture-Fit 컬처핏 | Open-source Human-in-the-Loop (HITL) | elevenlabs.io
+
+English
+Culture-Fit is an MIT-licensed, open-source Human-in-the-Loop (HITL) coordination layer for developers worldwide building multi-agent workflows. It connects conversational evidence, delegated decision authority, and human input to help agents identify who should decide and when a person is needed.
+
+Reuse it through MCP tools, an A2A analysis service, or a Skill package with instructions and a Python helper. Run these integrations in your own environment; the public demo is a web experience, not an MCP/A2A endpoint. The source is public on the development branch; a versioned package release is still ahead.
+
+한국어
+컬처핏은 전 세계 개발자가 기존 에이전트 협업에 연결해 쓸 수 있도록 만든 MIT 라이선스 오픈소스 휴먼 인 더 루프(Human-in-the-Loop, HITL) 연결 계층이에요. 대화의 근거, 위임 권한, 사람의 판단을 연결해 누가 다음 결정을 맡고 언제 사람에게 물어야 하는지 살펴봐요. MCP 도구·A2A 분석 서비스·사용 지침과 Python 도우미를 담은 Skill로 재사용할 수 있어요.
+
+Demo / 공개 체험
+https://culture-fit-demo-production.up.railway.app/
+Source / 공개 개발 소스
+https://github.com/Ontology0/hanium-arbiter/tree/feat/ontology-hitl
+MIT license / 코드 라이선스
+https://github.com/Ontology0/hanium-arbiter/blob/feat/ontology-hitl/LICENSE
+
+Chapters / 챕터
+00:00 From verification to decision authority / 검증에서 결정 권한으로
+00:16 Why now: MCP and A2A / 왜 지금인가
+00:28 Import a conversation / 대화 가져오기
+00:47 Overview and original evidence / 현황과 원문
+01:04 Record a human decision / 사람의 판단 기록
+01:27 Knowledge map / 지식맵
+01:39 Authority conflict and joint approval / 권한 충돌과 공동 승인
+02:16 Pause, get human input, resume / 사람 입력과 재개
+02:51 The right person at the right moment / 필요한 순간, 필요한 사람에게
+
+Viewing notes / 시연 정보
+English-caption edition: culture-fit-demo-en-1080p.mp4; separate subtitles: culture-fit-demo.en.srt. Only the narration captions change to English. The UI, diagrams, editorial labels, and Harry Kim narration remain Korean. This recording combines 125 seconds of real local UI with 61 seconds of original Three.js diagrams. It uses synthetic examples, a saved model analysis, local operator approval records, and a scripted coordination scenario. It does not show a live Slack connection or external work execution. The public demo may differ from this recorded snapshot.
+한국어 화면·도식·음성을 유지하고 하단 설명 자막만 영어로 바꾼 별도 영상과 영문 SRT를 제공해요. 합성 예제로 촬영한 로컬 앱이며, 저장된 모델 분석과 운영자 승인 기록을 사용해요. 공개 체험은 촬영 이후 버전이에요.
+
+Primary sources / 배경 참고자료
+Introducing the Model Context Protocol
+https://www.anthropic.com/news/model-context-protocol
+
+Announcing the Agent2Agent Protocol (A2A)
+https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/
+
+From Glue-Code to Protocols: A Critical Analysis of A2A and MCP Integration for Scalable Agent Systems
+https://arxiv.org/abs/2505.03864v1
+
+Microsoft Agent Framework Workflows - Human-in-the-loop (HITL)
+https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop?pivots=programming-language-csharp
+
+Platform overview
+https://www.palantir.com/docs/foundry/platform-overview/overview
+
+Autopilot — Integrations
+https://www.palantir.com/docs/foundry/autopilot/integrations
+
+These sources explain protocols and existing HITL patterns; they are not evaluations of Culture-Fit.
+위 자료는 연결 표준과 기존 HITL의 배경을 설명해요.
+
+Production credits / 제작 출처
+Visual reference / 시각 참고
+https://www.youtube.com/watch?v=g3aQJvZddS4
+Three.js r180 (original WebGL diagrams / 직접 제작한 도식)
+https://github.com/mrdoob/three.js/tree/r180
+Pretendard v1.3.9
+https://github.com/orioncactus/pretendard/releases/tag/v1.3.9
+Korean voice / 한국어 음성: ElevenLabs, Harry Kim - Conversational, Eleven v4
+https://elevenlabs.io/ko/voice-library/natural
+
+The MIT license applies to the project code. Narration was generated on the ElevenLabs free plan for noncommercial sharing, with elevenlabs.io in the title. No reference footage, music, or narrator recording was reused. No background music.
+MIT는 프로젝트 코드의 라이선스예요. 음성은 ElevenLabs 무료 플랜의 비상업 공유 조건을 따르며 제목에 출처를 표시했어요.
+https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform
+
+Detailed references / 상세 출처: 결과보고서 V. 참고자료; docs/video/references.json
+Local publishing draft only; this video has not been uploaded. / 게시용 초안이며 외부에 업로드하지 않았어요.

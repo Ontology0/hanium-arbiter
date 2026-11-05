@@ -1,0 +1,206 @@
+{
+  "language": "en",
+  "total_duration_seconds": 180,
+  "voice_request": "Natural clear English male narration; parent selects voice",
+  "instructions": "Read only speech text. Keep natural phrasing. Final slot alignment follows actual audio duration; do not force an unnatural pace. New TTS required, no reuse of the old project-history narration.",
+  "cues": [
+    {
+      "id": "product-01",
+      "filename": "product-01-en.mp3",
+      "start_seconds": 0,
+      "end_seconds": 8,
+      "max_duration_seconds": 7.85,
+      "speech": "Two agents can share the same information. But does that mean they have the same authority?",
+      "subtitle": "Two agents can share the same information. But does that mean they have the same authority?"
+    },
+    {
+      "id": "product-02",
+      "filename": "product-02-en.mp3",
+      "start_seconds": 8,
+      "end_seconds": 16,
+      "max_duration_seconds": 7.85,
+      "speech": "When different people delegate authority, the agents need to know whose approval a decision requires.",
+      "subtitle": "When different people delegate authority, the agents need to know whose approval a decision requires."
+    },
+    {
+      "id": "product-03",
+      "filename": "product-03-en.mp3",
+      "start_seconds": 16,
+      "end_seconds": 25,
+      "max_duration_seconds": 8.85,
+      "speech": "Culture-Fit is an open-source Human-in-the-Loop layer. It connects evidence, delegated authority, and human judgment when a decision needs it.",
+      "subtitle": "Culture-Fit is an open-source Human-in-the-Loop layer. It connects evidence, delegated authority, and human judgment when a decision needs it."
+    },
+    {
+      "id": "product-04",
+      "filename": "product-04-en.mp3",
+      "start_seconds": 25,
+      "end_seconds": 33,
+      "max_duration_seconds": 7.85,
+      "speech": "Try it in your browser, or download the source and run it in your own environment.",
+      "subtitle": "Try it in your browser, or download the source and run it in your own environment."
+    },
+    {
+      "id": "product-05",
+      "filename": "product-05-en.mp3",
+      "start_seconds": 33,
+      "end_seconds": 42,
+      "max_duration_seconds": 8.85,
+      "speech": "Download and extract the source ZIP. Use uv to prepare the Python environment.",
+      "subtitle": "Download and extract the source ZIP. Use uv to prepare the Python environment."
+    },
+    {
+      "id": "product-06",
+      "filename": "product-06-en.mp3",
+      "start_seconds": 42,
+      "end_seconds": 51,
+      "max_duration_seconds": 8.85,
+      "speech": "Choose your operating system in the setup guide. On Mac, use the shell script. On Windows, use the PowerShell command.",
+      "subtitle": "Choose your operating system in the setup guide. On Mac, use the shell script. On Windows, use the PowerShell command."
+    },
+    {
+      "id": "product-07",
+      "filename": "product-07-en.mp3",
+      "start_seconds": 51,
+      "end_seconds": 59,
+      "max_duration_seconds": 7.85,
+      "speech": "If you use OpenClaw, download the Skill ZIP and configure it to connect to your running Culture-Fit server.",
+      "subtitle": "If you use OpenClaw, download the Skill ZIP and configure it to connect to your running Culture-Fit server."
+    },
+    {
+      "id": "product-08",
+      "filename": "product-08-en.mp3",
+      "start_seconds": 59,
+      "end_seconds": 67,
+      "max_duration_seconds": 7.85,
+      "speech": "The interface is in English. Conversation analysis supports both English and Korean.",
+      "subtitle": "The interface is in English. Conversation analysis supports both English and Korean."
+    },
+    {
+      "id": "product-09",
+      "filename": "product-09-en.mp3",
+      "start_seconds": 67,
+      "end_seconds": 75,
+      "max_duration_seconds": 7.85,
+      "speech": "From the workspace, import a conversation or explore a prepared example that needs a decision.",
+      "subtitle": "From the workspace, import a conversation or explore a prepared example that needs a decision."
+    },
+    {
+      "id": "product-10",
+      "filename": "product-10-en.mp3",
+      "start_seconds": 75,
+      "end_seconds": 84,
+      "max_duration_seconds": 8.85,
+      "speech": "Here, Release Agent and Review Agent both have approval grants for the same release.",
+      "subtitle": "Here, Release Agent and Review Agent both have approval grants for the same release."
+    },
+    {
+      "id": "product-11",
+      "filename": "product-11-en.mp3",
+      "start_seconds": 84,
+      "end_seconds": 92,
+      "max_duration_seconds": 7.85,
+      "speech": "Their grants come from different owners. The decision owner is still unknown.",
+      "subtitle": "Their grants come from different owners. The decision owner is still unknown."
+    },
+    {
+      "id": "product-12",
+      "filename": "product-12-en.mp3",
+      "start_seconds": 92,
+      "end_seconds": 101,
+      "max_duration_seconds": 8.85,
+      "speech": "The decision brief brings together agreements, open questions, and points that need human judgment.",
+      "subtitle": "The decision brief brings together agreements, open questions, and points that need human judgment."
+    },
+    {
+      "id": "product-13",
+      "filename": "product-13-en.mp3",
+      "start_seconds": 101,
+      "end_seconds": 109,
+      "max_duration_seconds": 7.85,
+      "speech": "Select a source reference to read the original message, and check what was actually said.",
+      "subtitle": "Select a source reference to read the original message, and check what was actually said."
+    },
+    {
+      "id": "product-14",
+      "filename": "product-14-en.mp3",
+      "start_seconds": 109,
+      "end_seconds": 117,
+      "max_duration_seconds": 7.85,
+      "speech": "Now, put Review Agent first in the proposed priority order.",
+      "subtitle": "Now, put Review Agent first in the proposed priority order."
+    },
+    {
+      "id": "product-15",
+      "filename": "product-15-en.mp3",
+      "start_seconds": 117,
+      "end_seconds": 125,
+      "max_duration_seconds": 7.85,
+      "speech": "With only one owner’s approval recorded, the other owner’s approval is still required.",
+      "subtitle": "With only one owner’s approval recorded, the other owner’s approval is still required."
+    },
+    {
+      "id": "product-16",
+      "filename": "product-16-en.mp3",
+      "start_seconds": 125,
+      "end_seconds": 133,
+      "max_duration_seconds": 7.85,
+      "speech": "Record both owners’ agreement, then save the priority order for this decision.",
+      "subtitle": "Record both owners’ agreement, then save the priority order for this decision."
+    },
+    {
+      "id": "product-17",
+      "filename": "product-17-en.mp3",
+      "start_seconds": 133,
+      "end_seconds": 142,
+      "max_duration_seconds": 8.85,
+      "speech": "After the authority check updates, Review Agent appears as the decision owner. It is clear who can proceed.",
+      "subtitle": "After the authority check updates, Review Agent appears as the decision owner. It is clear who can proceed."
+    },
+    {
+      "id": "product-18",
+      "filename": "product-18-en.mp3",
+      "start_seconds": 142,
+      "end_seconds": 151,
+      "max_duration_seconds": 8.85,
+      "speech": "This decision applies to approval of this release. Other actions are checked against their own scope and authority.",
+      "subtitle": "This decision applies to approval of this release. Other actions are checked against their own scope and authority."
+    },
+    {
+      "id": "product-19",
+      "filename": "product-19-en.mp3",
+      "start_seconds": 151,
+      "end_seconds": 159,
+      "max_duration_seconds": 7.85,
+      "speech": "In your own installation, agents can use MCP to report conversations and query next actions and authority.",
+      "subtitle": "In your own installation, agents can use MCP to report conversations and query next actions and authority."
+    },
+    {
+      "id": "product-20",
+      "filename": "product-20-en.mp3",
+      "start_seconds": 159,
+      "end_seconds": 167,
+      "max_duration_seconds": 7.85,
+      "speech": "A2A and Skill interfaces offer additional ways to connect the agent environments you use.",
+      "subtitle": "A2A and Skill interfaces offer additional ways to connect the agent environments you use."
+    },
+    {
+      "id": "product-21",
+      "filename": "product-21-en.mp3",
+      "start_seconds": 167,
+      "end_seconds": 174,
+      "max_duration_seconds": 6.85,
+      "speech": "Culture-Fit is MIT-licensed open source, built for developers everywhere to adapt and connect.",
+      "subtitle": "Culture-Fit is MIT-licensed open source, built for developers everywhere to adapt and connect."
+    },
+    {
+      "id": "product-22",
+      "filename": "product-22-en.mp3",
+      "start_seconds": 174,
+      "end_seconds": 180,
+      "max_duration_seconds": 5.85,
+      "speech": "The right person, at the right moment. Try Culture-Fit for yourself.",
+      "subtitle": "The right person, at the right moment. Try Culture-Fit for yourself."
+    }
+  ]
+}

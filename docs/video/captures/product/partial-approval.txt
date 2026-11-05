@@ -1,0 +1,38 @@
+Cross-owner authority conflict
+payment-release-1.2 · approve
+Eligible agents
+Release Agent, Review Agent
+Decision owner
+Unknown
+Required owners
+Owner A, Owner B
+Agents by owner
+Owner A → Release Agent, Owner B → Review Agent
+
+Grants from different owners overlap. A consistent priority order with recorded approval from every relevant owner is required.
+
+Priority and approvals for this decision
+
+Applies to: payment-release-1.2 / approve
+
+Order all eligible agents and select only the owners who agreed to this order. This operator record applies to this scope and action only; it does not authenticate remote owners.
+
+Proposed priority · first agent decides
+1. Review Agent
+Owner: Owner B
+Up
+Down
+2. Release Agent
+Owner: Owner A
+Up
+Down
+Owners who approved this order
+Owner A approved this order
+Owner B approved this order
+
+Missing approvals: Owner B · This order is not confirmed yet. Partial approval keeps the authority conflict unresolved.
+
+Restored saved approvals for this exact order.
+
+Save priority and approvals
+Reload current authority

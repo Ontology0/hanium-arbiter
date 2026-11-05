@@ -1,0 +1,230 @@
+{
+  "retrieved_at_utc": "2026-10-29T05:36:39.389642+00:00",
+  "purpose": "컬처핏(Culture-Fit) 시스템 구조도에서 실제 사용 기술과 별도 연결 모듈을 식별하기 위한 공식 로고 자산",
+  "preservation": "공식 SVG 원본 바이트를 수정하지 않고 저장했습니다. 파일명만 정리했으며 Docker는 공식 ZIP에서 지정 SVG 한 개만 추출했습니다.",
+  "trademark_notice": "각 로고와 상표는 해당 권리자의 자산입니다. 기술 식별용 표시는 제휴·인증·보증을 뜻하지 않습니다.",
+  "assets": [
+    {
+      "id": "slack",
+      "name": "Slack",
+      "file": "slack.svg",
+      "official_source_page": "https://slack.com/media-kit",
+      "download_url": "https://a.slack-edge.com/1f40066/marketing/img/nav/logo.svg",
+      "resolved_download_url": "https://a.slack-edge.com/1f40066/marketing/img/nav/logo.svg",
+      "archive_member": null,
+      "guidance_or_repository_license_url": "https://slack.com/terms-of-service/slack-brand",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "1f40066b694020057218c46eb2a11982b278d89b2dc8f96a21e4ea04e2b9db3b",
+      "bytes": 2101,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "width": "54",
+        "height": "54",
+        "viewBox": "0 0 54 54"
+      },
+      "note": "Slack 공식 미디어 키트 페이지 하단에서 제공하는 공식 컬러 심볼 원본입니다.",
+      "guidance_url_checked_http_status": 200
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "file": "openclaw.svg",
+      "official_source_page": "https://github.com/openclaw/openclaw/blob/main/ui/public/favicon.svg",
+      "download_url": "https://raw.githubusercontent.com/openclaw/openclaw/main/ui/public/favicon.svg",
+      "resolved_download_url": "https://raw.githubusercontent.com/openclaw/openclaw/main/ui/public/favicon.svg",
+      "archive_member": null,
+      "guidance_or_repository_license_url": "https://github.com/openclaw/openclaw/blob/main/LICENSE",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "74e1fb7542675f68aafe502576f7c857c3f3620d07095e910515e3c05d62ab2e",
+      "bytes": 3271,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "viewBox": "0 0 120 120"
+      },
+      "note": "공식 제품 UI의 SVG 아이콘 원본입니다.",
+      "guidance_url_checked_http_status": 200
+    },
+    {
+      "id": "mcp",
+      "name": "Model Context Protocol",
+      "file": "mcp.svg",
+      "official_source_page": "https://github.com/modelcontextprotocol/modelcontextprotocol/tree/main/docs/logo",
+      "download_url": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/logo/light.svg",
+      "resolved_download_url": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/logo/light.svg",
+      "archive_member": null,
+      "guidance_or_repository_license_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/LICENSE",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "3163a85f9db4b98c3b5af846ea284b3296295dbd51a138b2e77ebd438342e902",
+      "bytes": 16772,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "width": "1338",
+        "height": "195",
+        "viewBox": "0 0 1338 195"
+      },
+      "guidance_url_checked_http_status": 200
+    },
+    {
+      "id": "a2a",
+      "name": "A2A Protocol",
+      "file": "a2a.svg",
+      "official_source_page": "https://a2a-protocol.org/latest/",
+      "download_url": "https://a2a-protocol.org/latest/assets/a2a_logo/icon/color/SVG/a2a_icon_color.svg",
+      "resolved_download_url": "https://a2a-protocol.org/latest/assets/a2a_logo/icon/color/SVG/a2a_icon_color.svg",
+      "archive_member": null,
+      "guidance_or_repository_license_url": "https://github.com/a2aproject/A2A/blob/main/LICENSE",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "ee46ec740f2180ddd5cc4376c55c5a7cf7bc1756aee72676f2f1b38ee7e07942",
+      "bytes": 44472,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "viewBox": "0 0 199.067 198.437"
+      },
+      "guidance_url_checked_http_status": 200
+    },
+    {
+      "id": "fastapi",
+      "name": "FastAPI",
+      "file": "fastapi.svg",
+      "official_source_page": "https://github.com/fastapi/fastapi/tree/master/docs/en/docs/img",
+      "download_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/img/logo-teal.svg",
+      "resolved_download_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/img/logo-teal.svg",
+      "archive_member": null,
+      "guidance_or_repository_license_url": "https://github.com/fastapi/fastapi/blob/master/LICENSE",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "98cacbb6a2589f9930d8bf00001b28d927d53dac0c53076857d16f5570cc808a",
+      "bytes": 2075,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "viewBox": "0 0 346.52395 63.977134",
+        "height": "63.977139mm",
+        "width": "346.52396mm"
+      },
+      "guidance_url_checked_http_status": 200
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "file": "python.svg",
+      "official_source_page": "https://www.python.org/community/logos/",
+      "download_url": "https://www.python.org/static/community_logos/python-logo-generic.svg",
+      "resolved_download_url": "https://www.python.org/static/community_logos/python-logo-generic.svg",
+      "archive_member": null,
+      "guidance_or_repository_license_url": "https://www.python.org/psf/trademarks/",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "0305d6b2bb2e2761502d072e8e2db1248dbd1a99f51fb4b4bcb9e43c486ef6b2",
+      "bytes": 15301,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "width": "388.84pt",
+        "height": "115.02pt"
+      },
+      "guidance_url_checked_http_status": 200
+    },
+    {
+      "id": "sqlite",
+      "name": "SQLite",
+      "file": "sqlite.svg",
+      "official_source_page": "https://sqlite.org/",
+      "download_url": "https://sqlite.org/images/sqlite370_banner.svg",
+      "resolved_download_url": "https://sqlite.org/images/sqlite370_banner.svg",
+      "archive_member": null,
+      "guidance_or_repository_license_url": "https://sqlite.org/copyright.html",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "462c4ce8229b585dd6880cd308b121d9de63eb619db05e469598594e80d7b151",
+      "bytes": 12707,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "width": "103.73447mm",
+        "height": "46.723713mm",
+        "viewBox": "0 0 103.73447 46.723713"
+      },
+      "note": "공식 홈페이지의 배너 로고 원본입니다. 코드의 public-domain 안내와 로고 권리를 구분합니다.",
+      "guidance_url_checked_http_status": 200
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "file": "docker.svg",
+      "official_source_page": "https://www.docker.com/company/newsroom/media-resources/",
+      "download_url": "https://www.docker.com/static/Docker-Logos-1.zip",
+      "resolved_download_url": "https://www.docker.com/static/Docker-Logos-1.zip",
+      "archive_member": "docker-logos/SVG/docker-mark-ocean-blue.svg",
+      "guidance_or_repository_license_url": "https://www.docker.com/company/newsroom/media-resources/",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "0fd7f9164de13672bb1708ac7cc401ed439eb938ffa7358d5cb278e107904687",
+      "bytes": 1225,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "viewBox": "0 0 340 268"
+      },
+      "guidance_url_checked_http_status": 200
+    },
+    {
+      "id": "railway-light",
+      "name": "Railway",
+      "file": "railway-light.svg",
+      "official_source_page": "https://railway.com/design",
+      "download_url": "https://railway.com/brand/logo-light.svg",
+      "resolved_download_url": "https://railway.com/brand/logo-light.svg",
+      "archive_member": null,
+      "guidance_or_repository_license_url": "https://railway.com/design",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "a86197e5d189b7d60cbc48cac505d9eb8bb37e5cd81da96036bd1a51d38932b0",
+      "bytes": 1047,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "width": "1024",
+        "height": "1024",
+        "viewBox": "0 0 1024 1024"
+      },
+      "guidance_url_checked_http_status": 200,
+      "note": "공식 밝은 로고: 어두운 배경에 배치합니다."
+    },
+    {
+      "id": "railway",
+      "name": "Railway",
+      "file": "railway.svg",
+      "official_source_page": "https://railway.com/design",
+      "download_url": "https://railway.com/brand/logo-dark.svg",
+      "resolved_download_url": "https://railway.com/brand/logo-dark.svg",
+      "archive_member": null,
+      "guidance_or_repository_license_url": "https://railway.com/design",
+      "license_note": "브랜드/저작권 안내 또는 저장소 라이선스 참고 링크입니다. 코드 라이선스가 상표 사용 허가를 대신한다고 해석하지 않았습니다.",
+      "modified": false,
+      "sha256": "a09b7759ca3e50156117f9eb3843a4a5dd8eb727d379fa60dd20315797b390a9",
+      "bytes": 1053,
+      "content_type": "image/svg+xml",
+      "svg_attributes": {
+        "width": "1024",
+        "height": "1024",
+        "viewBox": "0 0 1024 1024"
+      },
+      "guidance_url_checked_http_status": 200,
+      "note": "공식 어두운 로고: 밝은 배경에 배치합니다."
+    },
+    {
+      "id": "mcp-icon",
+      "name": "Model Context Protocol icon",
+      "file": "mcp-icon.png",
+      "official_source_page": "https://a2a-protocol.org/latest/",
+      "download_url": "https://modelcontextprotocol.io/mcp.png",
+      "resolved_download_url": "https://modelcontextprotocol.io/mcp.png",
+      "guidance_or_repository_license_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/LICENSE",
+      "license_note": "공식 A2A 문서가 MCP를 식별할 때 사용하는 MCP 공식 사이트 아이콘입니다. 저장소 코드 라이선스를 별도 상표 허가로 해석하지 않습니다.",
+      "modified": false,
+      "sha256": "fe1130918238f77d7933138d7b3889f12043d827c22bae7022e73b2bf2fc308b",
+      "bytes": 41007,
+      "content_type": "image/png"
+    }
+  ]
+}

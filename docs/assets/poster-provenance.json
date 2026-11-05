@@ -1,0 +1,40 @@
+{
+  "captured_on": "2026-10-29",
+  "application": "Arbiter local development UI",
+  "capture_origin": "http://127.0.0.1:8797/workspace",
+  "database_scope": "isolated demonstration database; not the primary user registry",
+  "input_type": "anonymous synthetic transcript and scripted demonstration scenario",
+  "external_execution_verified": false,
+  "screenshots": {
+    "poster-authority.png": {
+      "source": "actual authority form and two locally recorded demo grants",
+      "scope": "payment-release-1.2",
+      "action": "approve",
+      "note": "Local operator records do not authenticate external human identity or consent."
+    },
+    "poster-brief.png": {
+      "source": "actual rendered brief items from GET /api/sessions/177cddcae14345fba16b42eb6772121e/brief",
+      "model_source": "codex",
+      "model_call": "real; successful second attempt after a contract correction",
+      "input_tokens": 15048,
+      "output_tokens": 370,
+      "included_messages": 4,
+      "total_messages": 4,
+      "authority_status": "cross_owner_conflict",
+      "citation_check": "server exact-quote checks passed; UI m3 reference opened and highlighted the corresponding original message",
+      "accuracy_evaluation": false
+    },
+    "poster-decisions.png": {
+      "source": "actual question and choice UI from scripted api-contract/adaptive/demo session 4f84fea92dc54a79908e9fd065ad082d",
+      "real_model_call": false
+    },
+    "poster-knowledge.png": {
+      "source": "actual graph UI from the same scripted api-contract session",
+      "note": "Typed relationship graph; not a standards-compliant RDF/OWL reasoner or factual verification result."
+    }
+  },
+  "image_handling": "Playwright element and rectangular screenshots from the real UI; cropped to relevant sections without replacing displayed data. Device scale factor 2.",
+  "private_reference_images_included": false,
+  "ui_checks": ["no JavaScript page errors", "actual model source and usage labels", "cross-owner conflict label", "source citation to original message"],
+  "model_analysis_limitations": "Synthetic case functionality demonstration only. Not a measured detection-accuracy, usability, latency or cost comparison."
+}

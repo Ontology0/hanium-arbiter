@@ -1,0 +1,205 @@
+{
+  "language": "ko",
+  "style": "자연스러운 설명형 한국어, 따뜻하고 또렷하게, 과장 없이",
+  "total_duration_seconds": 186,
+  "cues": [
+    {
+      "id": "voice-intro-0",
+      "filename": "voice-intro-0.mp3",
+      "start_seconds": 0,
+      "end_seconds": 8,
+      "max_duration_seconds": 7.75,
+      "subtitle": "컬처핏은 생성형 AI를 믿고 쓰려면 무엇을 확인해야 할까, 라는 질문에서 출발했어요.",
+      "speech": "컬처핏은 생성형 AI를 믿고 쓰려면 무엇을 확인해야 할까, 라는 질문에서 출발했어요."
+    },
+    {
+      "id": "voice-intro-1",
+      "filename": "voice-intro-1.mp3",
+      "start_seconds": 8,
+      "end_seconds": 16,
+      "max_duration_seconds": 7.75,
+      "subtitle": "문화와 역사 자료, 깃허브의 지식 충돌을 살피다 보니, 이제는 누가 결정할 수 있는지에 주목하게 됐죠.",
+      "speech": "문화와 역사 자료, 깃허브의 지식 충돌을 살피다 보니, 이제는 누가 결정할 수 있는지에 주목하게 됐죠."
+    },
+    {
+      "id": "voice-timeliness-0",
+      "filename": "voice-timeliness-0.mp3",
+      "start_seconds": 16,
+      "end_seconds": 22,
+      "max_duration_seconds": 5.75,
+      "subtitle": "에이전트가 도구를 쓰고, 서로 일을 맡기는 연결 표준이 생겼어요.",
+      "speech": "에이전트가 도구를 쓰고, 서로 일을 맡기는 연결 표준이 생겼어요."
+    },
+    {
+      "id": "voice-timeliness-1",
+      "filename": "voice-timeliness-1.mp3",
+      "start_seconds": 22,
+      "end_seconds": 28,
+      "max_duration_seconds": 5.75,
+      "subtitle": "이제는 누가 어떤 결정을 내려도 되는지까지 살펴봐야 하죠.",
+      "speech": "이제는 누가 어떤 결정을 내려도 되는지까지 살펴봐야 하죠."
+    },
+    {
+      "id": "voice-intake-0",
+      "filename": "voice-intake-0.mp3",
+      "start_seconds": 28,
+      "end_seconds": 37,
+      "max_duration_seconds": 8.75,
+      "subtitle": "대화가 길어지면, 중요한 질문도 놓치기 쉬워요. 먼저 두 에이전트의 대화를 가져와 볼까요?",
+      "speech": "대화가 길어지면, 중요한 질문도 놓치기 쉬워요. 먼저 두 에이전트의 대화를 가져와 볼까요?"
+    },
+    {
+      "id": "voice-intake-1",
+      "filename": "voice-intake-1.mp3",
+      "start_seconds": 37,
+      "end_seconds": 47,
+      "max_duration_seconds": 9.75,
+      "subtitle": "확인해 볼게요, 라는 약속은 있어요. 그런데 누가 답하고, 누가 다음 일을 맡을지는 더 확인해야 해요.",
+      "speech": "확인해 볼게요, 라는 약속은 있어요. 그런데 누가 답하고, 누가 다음 일을 맡을지는 더 확인해야 해요."
+    },
+    {
+      "id": "voice-overview-0",
+      "filename": "voice-overview-0.mp3",
+      "start_seconds": 47,
+      "end_seconds": 55,
+      "max_duration_seconds": 7.75,
+      "subtitle": "현황에서는 지금 필요한 질문을 한눈에 모아 봐요. 어떤 결정이 남아 있는지부터 살펴보죠.",
+      "speech": "현황에서는 지금 필요한 질문을 한눈에 모아 봐요. 어떤 결정이 남아 있는지부터 살펴보죠."
+    },
+    {
+      "id": "voice-overview-1",
+      "filename": "voice-overview-1.mp3",
+      "start_seconds": 55,
+      "end_seconds": 64,
+      "max_duration_seconds": 8.75,
+      "subtitle": "궁금한 내용은 원문으로 돌아가 확인해요. 누가 어떤 말을 했는지, 근거를 함께 볼 수 있어요.",
+      "speech": "궁금한 내용은 원문으로 돌아가 확인해요. 누가 어떤 말을 했는지, 근거를 함께 볼 수 있어요."
+    },
+    {
+      "id": "voice-decision-0",
+      "filename": "voice-decision-0.mp3",
+      "start_seconds": 64,
+      "end_seconds": 73,
+      "max_duration_seconds": 8.75,
+      "subtitle": "아직 전달 여부가 확인되지 않은 요청을 열어 볼게요. 이 질문을 맡을 담당자를 정해 줘요.",
+      "speech": "아직 전달 여부가 확인되지 않은 요청을 열어 볼게요. 이 질문을 맡을 담당자를 정해 줘요."
+    },
+    {
+      "id": "voice-decision-1",
+      "filename": "voice-decision-1.mp3",
+      "start_seconds": 73,
+      "end_seconds": 81,
+      "max_duration_seconds": 7.75,
+      "subtitle": "개발 에이가 배포 책임자에게 승인 여부를 확인하고, 이곳에 답변을 남기도록 적어요.",
+      "speech": "개발 에이가 배포 책임자에게 승인 여부를 확인하고, 이곳에 답변을 남기도록 적어요."
+    },
+    {
+      "id": "voice-decision-2",
+      "filename": "voice-decision-2.mp3",
+      "start_seconds": 81,
+      "end_seconds": 87,
+      "max_duration_seconds": 5.75,
+      "subtitle": "담당자와 할 일을 남기니, 다음 행동이 선명해졌어요.",
+      "speech": "담당자와 할 일을 남기니, 다음 행동이 선명해졌어요."
+    },
+    {
+      "id": "voice-knowledge-0",
+      "filename": "voice-knowledge-0.mp3",
+      "start_seconds": 87,
+      "end_seconds": 99,
+      "max_duration_seconds": 11.75,
+      "subtitle": "지식맵에서는 대화와 확인 약속, 사람의 판단이 어떻게 이어지는지 볼 수 있어요. 흩어진 기록을 관계로 살펴보는 거죠.",
+      "speech": "지식맵에서는 대화와 확인 약속, 사람의 판단이 어떻게 이어지는지 볼 수 있어요. 흩어진 기록을 관계로 살펴보는 거죠."
+    },
+    {
+      "id": "voice-authority-0",
+      "filename": "voice-authority-0.mp3",
+      "start_seconds": 99,
+      "end_seconds": 109,
+      "max_duration_seconds": 9.75,
+      "subtitle": "같은 정보를 안다고, 승인 권한까지 같아지는 건 아니에요. 두 에이전트가 같은 배포를 승인하려 하면, 누구의 위임을 따라야 할까요?",
+      "speech": "같은 정보를 안다고, 승인 권한까지 같아지는 건 아니에요. 두 에이전트가 같은 배포를 승인하려 하면, 누구의 위임을 따라야 할까요?"
+    },
+    {
+      "id": "voice-authority-1",
+      "filename": "voice-authority-1.mp3",
+      "start_seconds": 109,
+      "end_seconds": 118,
+      "max_duration_seconds": 8.75,
+      "subtitle": "두 에이전트의 소유자가 달라요. 누가 먼저 결정할지, 관련된 두 사람의 동의를 모아야 하죠.",
+      "speech": "두 에이전트의 소유자가 달라요. 누가 먼저 결정할지, 관련된 두 사람의 동의를 모아야 하죠."
+    },
+    {
+      "id": "voice-authority-2",
+      "filename": "voice-authority-2.mp3",
+      "start_seconds": 118,
+      "end_seconds": 128,
+      "max_duration_seconds": 9.75,
+      "subtitle": "이번 배포의 승인 순서를 정하고 두 사람의 동의를 기록해요. 검토봇 B가 먼저 맡도록 해 볼게요.",
+      "speech": "이번 배포의 승인 순서를 정하고 두 사람의 동의를 기록해요. 검토봇 비가 먼저 맡도록 해 볼게요."
+    },
+    {
+      "id": "voice-authority-3",
+      "filename": "voice-authority-3.mp3",
+      "start_seconds": 128,
+      "end_seconds": 136,
+      "max_duration_seconds": 7.75,
+      "subtitle": "두 사람의 승인이 모이자 검토봇 B가 담당자로 정해졌어요. 권한을 묻던 질문도 정리돼요.",
+      "speech": "두 사람의 승인이 모이자 검토봇 비가 담당자로 정해졌어요. 권한을 묻던 질문도 정리돼요."
+    },
+    {
+      "id": "voice-simulation-0",
+      "filename": "voice-simulation-0.mp3",
+      "start_seconds": 136,
+      "end_seconds": 146,
+      "max_duration_seconds": 9.75,
+      "subtitle": "모임을 조율하는 상황도 볼까요? 에이전트들이 대화를 이어가다가, 사람의 답이 필요한 순간에 기다려요.",
+      "speech": "모임을 조율하는 상황도 볼까요? 에이전트들이 대화를 이어가다가, 사람의 답이 필요한 순간에 기다려요."
+    },
+    {
+      "id": "voice-simulation-1",
+      "filename": "voice-simulation-1.mp3",
+      "start_seconds": 146,
+      "end_seconds": 157,
+      "max_duration_seconds": 10.75,
+      "subtitle": "참석할 수 있는지 선택하고 이유를 남겨요. 사람의 판단이 기록되면 대화를 이어서 실행할 수 있어요.",
+      "speech": "참석할 수 있는지 선택하고 이유를 남겨요. 사람의 판단이 기록되면 대화를 이어서 실행할 수 있어요."
+    },
+    {
+      "id": "voice-simulation-2",
+      "filename": "voice-simulation-2.mp3",
+      "start_seconds": 157,
+      "end_seconds": 165,
+      "max_duration_seconds": 7.75,
+      "subtitle": "답을 받은 에이전트가 다음 대화를 이어가고, 조율 계획의 조건을 하나씩 확인해요.",
+      "speech": "답을 받은 에이전트가 다음 대화를 이어가고, 조율 계획의 조건을 하나씩 확인해요."
+    },
+    {
+      "id": "voice-simulation-3",
+      "filename": "voice-simulation-3.mp3",
+      "start_seconds": 165,
+      "end_seconds": 171,
+      "max_duration_seconds": 5.75,
+      "subtitle": "마지막으로 조율 계획의 완료 상태를 확인해요.",
+      "speech": "마지막으로 조율 계획의 완료 상태를 확인해요."
+    },
+    {
+      "id": "voice-outro-0",
+      "filename": "voice-outro-0.mp3",
+      "start_seconds": 171,
+      "end_seconds": 179,
+      "max_duration_seconds": 7.75,
+      "subtitle": "컬처핏은 근거를 찾고, 권한을 확인하고, 필요한 사람의 판단을 연결해요.",
+      "speech": "컬처핏은 근거를 찾고, 권한을 확인하고, 필요한 사람의 판단을 연결해요."
+    },
+    {
+      "id": "voice-outro-1",
+      "filename": "voice-outro-1.mp3",
+      "start_seconds": 179,
+      "end_seconds": 186,
+      "max_duration_seconds": 6.75,
+      "subtitle": "여러 에이전트가 함께 일할 때, 누가 다음 결정을 맡는지 더 쉽게 살펴보세요.",
+      "speech": "여러 에이전트가 함께 일할 때, 누가 다음 결정을 맡는지 더 쉽게 살펴보세요."
+    }
+  ]
+}

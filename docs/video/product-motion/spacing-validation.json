@@ -1,0 +1,89 @@
+{
+  "method": "Measured Pretendard glyph ink + 14px neon bounds, full connector glow and node glow; every encoded frame above 15% opacity",
+  "intentional_containment": "Protocol labels, CF and ? are placed inside their named node. Icon-internal decorative strokes have no text labels.",
+  "minimum_required_clearance_px": 20,
+  "subtitle_safe_area_top_px": 900,
+  "scenes": {
+    "problem": {
+      "sampled_frames": 480,
+      "text_overlap_count": 0,
+      "out_of_bounds_count": 0,
+      "minimum_clearance_px": {
+        "text": 33.07,
+        "ring": 34.09,
+        "line": 26.8
+      },
+      "minimum_locations": {
+        "text": {
+          "at": 8.4,
+          "labels": [
+            "Who can decide?",
+            "Illustrated example \u00b7 Culture-Fit"
+          ]
+        },
+        "ring": {
+          "at": 1.2,
+          "label": "Agent A",
+          "node": "Agent A"
+        },
+        "line": {
+          "at": 2.3,
+          "label": "Shared context"
+        }
+      },
+      "maximum_text_bottom_px": 882.94
+    },
+    "connections": {
+      "sampled_frames": 240,
+      "text_overlap_count": 0,
+      "out_of_bounds_count": 0,
+      "minimum_clearance_px": {
+        "text": 40.86,
+        "ring": 29.5,
+        "line": 50.51
+      },
+      "minimum_locations": {
+        "text": {
+          "at": 3.0,
+          "labels": [
+            "Culture-Fit",
+            "Human-in-the-Loop"
+          ]
+        },
+        "ring": {
+          "at": 1.7,
+          "label": "Connect your agent workflow.",
+          "node": "protocol-MCP"
+        },
+        "line": {
+          "at": 1.2,
+          "label": "MCP"
+        }
+      },
+      "maximum_text_bottom_px": 878.45
+    },
+    "cta": {
+      "sampled_frames": 390,
+      "text_overlap_count": 0,
+      "out_of_bounds_count": 0,
+      "minimum_clearance_px": {
+        "text": 26.68,
+        "ring": 9999,
+        "line": 9999
+      },
+      "minimum_locations": {
+        "text": {
+          "at": 3.6,
+          "labels": [
+            "github.com/Ontology0/hanium-arbiter",
+            "culture-fit-demo-production.up.railway.app/download"
+          ]
+        },
+        "ring": null,
+        "line": null
+      },
+      "maximum_text_bottom_px": 856.45
+    }
+  },
+  "failures": []
+}

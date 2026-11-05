@@ -1,0 +1,70 @@
+{
+  "engine": "Three.js",
+  "threeRevision": "180",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "durations": {
+    "intro": 16,
+    "why-now": 12,
+    "overview": 8,
+    "authority": 10,
+    "outro": 15
+  },
+  "pageErrors": [],
+  "subtitleSafeArea": "y >= 900px",
+  "renderMethod": "deterministic WebGL canvas frames; headless Chrome; H.264",
+  "encodedFiles": {
+    "intro": {
+      "codec": "h264",
+      "pixelFormat": "yuvj420p",
+      "duration": 16.0,
+      "frameCount": 480,
+      "frameRate": "30/1",
+      "bytes": 310365,
+      "audioStreams": 0,
+      "sha256": "4f3afb53d399d1e930792ea56b190cc27b320c2c1b3b11ff2ad4296bfeb788d1"
+    },
+    "why-now": {
+      "codec": "h264",
+      "pixelFormat": "yuvj420p",
+      "duration": 12.0,
+      "frameCount": 360,
+      "frameRate": "30/1",
+      "bytes": 399212,
+      "audioStreams": 0,
+      "sha256": "2e484a00e8076ee6a3c82e88708e32752b72a7913e134dbf217604b9347a3128"
+    },
+    "overview": {
+      "codec": "h264",
+      "pixelFormat": "yuvj420p",
+      "duration": 8.0,
+      "frameCount": 240,
+      "frameRate": "30/1",
+      "bytes": 256869,
+      "audioStreams": 0,
+      "sha256": "c3ee9e2b77ff56c71f5a17f7f8517bac37bd69e20f403860e5d46c3593444e23"
+    },
+    "authority": {
+      "codec": "h264",
+      "pixelFormat": "yuvj420p",
+      "duration": 10.0,
+      "frameCount": 300,
+      "frameRate": "30/1",
+      "bytes": 454842,
+      "audioStreams": 0,
+      "sha256": "abfb9aaa2122f4f941a8e8fb914943a8e416818d6e230e00a1b606571ccc977f"
+    },
+    "outro": {
+      "codec": "h264",
+      "pixelFormat": "yuvj420p",
+      "duration": 15.0,
+      "frameCount": 450,
+      "frameRate": "30/1",
+      "bytes": 317648,
+      "audioStreams": 0,
+      "sha256": "ec8c3599c84cc41f45d2c80fd063b1fbe744bffbe785806746821cfcb8685c97"
+    }
+  },
+  "spacingValidation": "spacing-validation.json"
+}

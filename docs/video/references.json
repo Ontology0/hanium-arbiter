@@ -1,0 +1,769 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-29",
+  "title": "컬처핏(Culture-Fit) 보존된 186초 시연의 출처와 최신 제품판 안내",
+  "video": "docs/video/culture-fit-demo-1080p.mp4",
+  "duration_seconds": 186,
+  "timeline_source": "docs/video/storyboard.json",
+  "composition_source": "docs/video/render_video.py",
+  "reference_scope": {
+    "literature": "발표·논문·제품 문서는 연결 규격과 기존 HITL의 배경이다. 컬처핏의 정확도·효과·최초성·우월성을 입증하지 않는다.",
+    "project_interpretation": "세 단계의 전환을 생성형 AI 검증·관리라는 목표로 연결하는 설명, 공통 지식과 업무 위임의 구분, 적절한 HITL의 기준은 사용자 요구에 따른 팀의 설계 해석이다.",
+    "visual_evidence": "설명용 Three.js 도식 61초와 실제 로컬 앱 녹화 125초를 구분한다. 실제 UI에서도 입력 대화와 인물·업무는 합성 예제다.",
+    "execution_evidence": "권한 장면은 합성 대화에 대해 이전에 얻은 실제 모델 브리핑을 재사용한다. 촬영 중 새 브리핑 호출은 없으며 시뮬레이션은 스크립트 방식이다.",
+    "approval_scope": "공동 승인은 로컬 운영자가 입력한 기록이다. 원격 소유자의 본인 인증·동의 확인이나 실제 배포 실행을 뜻하지 않는다.",
+    "appropriate_hitl": "언제 누구에게 무엇을 어떤 근거로 물을지와 유효한 답·위임의 재사용은 프로젝트의 설계 기준이다. 사람의 입력에는 정보·선호·전문가 판단·승인이 포함되며 모든 응답이 권한 부여는 아니다.",
+    "global_target_design_goal": "전 세계 에이전트 개발자·운영팀·도메인 전문가가 각자의 기존 환경에 연결해 쓰는 재사용 가능한 오픈소스 연결 계층을 지향한다. 프로토콜·구조화된 상태·근거 추적·HITL을 공통으로 제공하고 분야별 전문 판단과 위임 규칙은 각 전문가가 맡는다는 사용자 요구에 따른 설계 목표다. 글로벌 사용자 확보·해외 성능 검증·다국어 탐지 정확도를 입증한 성과가 아니다."
+  },
+  "sources": [
+    {
+      "id": "initial_outline",
+      "kind": "user_supplied_project_plan",
+      "title": "2026년 한이음 드림업 프로젝트 개요서",
+      "pages": [
+        1,
+        2
+      ],
+      "date": null,
+      "evidence_paths": [
+        "docs/research/project-evolution.md"
+      ],
+      "supports": "1쪽의 문화·역사 고증, KG-RAG·사료 매칭 구상과 2쪽의 역할별 에이전트 검수 기획.",
+      "boundary": "원본은 사용자 첨부 자료다. 기획 방향의 근거이며 현재 구현·완성도·80% 시간 절감의 증거가 아니다."
+    },
+    {
+      "id": "july_report",
+      "kind": "user_supplied_interim_report",
+      "title": "2026年 한이음 드림업 개발보고서",
+      "date": "2026-07-12",
+      "uploaded_filename": "20260713092720755.pdf",
+      "evidence_paths": [
+        "docs/research/project-evolution.md"
+      ],
+      "page_map": {
+        "1": "표지 제목·작성일. 프로젝트명 원문 표기는 ‘컬쳐핏’.",
+        "2-5,10": "GitHub 문서 RAG·Telegram 질의응답과 Accept/Reject/Abstain 지식 충돌 처리 방향.",
+        "3,7-8": "당시 자체 진행 보고와 구조도·화면. 현재 통합 성과로 합산하지 않음.",
+        "13": "한이음 사이트 기준 등록 기간 2026.04.01~2026.10.30. 월별 실제 수행의 증빙은 아님.",
+        "14-15": "지식 신뢰 정책, 불확실성과 실패 분석에 관한 문제의식."
+      },
+      "boundary": "팀이 작성한 중간보고서이며 발행기관의 성능 검증 보고서가 아니다. 현재 권한 관제가 초기 KG-RAG·DPO를 모두 통합한 제품이라는 주장은 하지 않는다."
+    },
+    {
+      "id": "team_design",
+      "kind": "project_design_interpretation",
+      "date": "2026-10-29",
+      "evidence_paths": [
+        "docs/research/source-synthesis.md",
+        "docs/research/project-evolution.md",
+        "docs/development-report.md"
+      ],
+      "sections": [
+        "source-synthesis.md §4.1·§5.1",
+        "development-report.md §1·§6"
+      ],
+      "supports": "생성형 AI 검증·관리라는 전환 맥락, 도메인 전문가가 재사용할 연결 계층이라는 동기, 공유 지식·저장소 접근권한·업무 위임권한의 구분, 적절한 HITL의 프로젝트 정의. 전 세계 개발자·운영팀·도메인 전문가가 기존 환경에 연결해 쓰는 글로벌 오픈소스 목표.",
+      "boundary": "사용자 요구와 팀의 설계 판단이다. 특정 논문의 직접 결론이나 보편적으로 합의된 HITL 표준 정의로 인용하지 않는다.",
+      "planned_global_accessibility": "Historical plan at the 186-second-video cutoff. Current English UI and installation ZIP are deployed; KO/EN product narration is complete. General multilingual detection accuracy remains unverified; see product-references.json."
+    },
+    {
+      "id": "anthropic_mcp",
+      "kind": "official_announcement",
+      "organization": "Anthropic",
+      "title": "Introducing the Model Context Protocol",
+      "date": "2024-11-25",
+      "url": "https://www.anthropic.com/news/model-context-protocol",
+      "supports": "MCP 공개 시점과 AI 응용의 도구·데이터 접근을 위한 공통 연결 규격의 취지.",
+      "boundary": "초기 발표를 현행 규격의 모든 기능 목록으로 사용하지 않는다. 업무별 결정권·공동 승인 문제를 모두 해결했거나 인증·인가가 없다는 주장도 하지 않는다."
+    },
+    {
+      "id": "google_a2a",
+      "kind": "official_announcement",
+      "organization": "Google",
+      "authors": [
+        "Rao Surapaneni",
+        "Miku Jha",
+        "Michael Vakoc",
+        "Todd Segal"
+      ],
+      "title": "Announcing the Agent2Agent Protocol (A2A)",
+      "date": "2025-04-09",
+      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+      "supports": "A2A 공개 시점, 에이전트 간 작업·상태·산출물 교환과 MCP를 보완하는 역할.",
+      "boundary": "원문에는 인증·인가와 사람이 개입할 수 있는 장기 작업도 나온다. 이러한 기능이 기존 표준에 없다는 주장의 근거로 사용하지 않는다."
+    },
+    {
+      "id": "li_xie_2025_v1",
+      "kind": "research_preprint",
+      "authors": [
+        "Qiaomu Li",
+        "Ying Xie"
+      ],
+      "title": "From Glue-Code to Protocols: A Critical Analysis of A2A and MCP Integration for Scalable Agent Systems",
+      "date": "2025-05-06",
+      "identifier": "arXiv:2505.03864v1",
+      "version": "v1",
+      "url": "https://arxiv.org/abs/2505.03864v1",
+      "full_text_url": "https://arxiv.org/pdf/2505.03864v1",
+      "sections": [
+        "3.1",
+        "6"
+      ],
+      "supports": "A2A와 MCP를 함께 사용할 때의 의미 정합성·거버넌스·디버깅과 관측 문제에 관한 분석.",
+      "boundary": "2025년의 분석 논문이다. 현재 시장에 관련 제품이 없다는 증거나 컬처핏 효과의 실험 결과가 아니다. 사람별 위임·공동 승인 규칙은 팀의 별도 설계다."
+    },
+    {
+      "id": "microsoft_hitl",
+      "kind": "official_product_documentation",
+      "organization": "Microsoft",
+      "title": "Microsoft Agent Framework Workflows - Human-in-the-loop (HITL)",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop?pivots=programming-language-csharp",
+      "sections": [
+        "Overview",
+        "Enable Request and Response Handling in a Workflow",
+        "Handling Requests and Responses",
+        "Human-in-the-Loop with Agent Orchestrations"
+      ],
+      "supports": "외부 응답을 기다리는 요청·응답 방식과 C# RequestPort/RequestInfoEvent 예제, 응답 이후 재개. 도구 승인 이외의 추가 정보 수집도 설명한다.",
+      "boundary": "기존 HITL 실행 수단의 선례다. 컬처핏이 최초로 사람 개입을 구현했다거나 질문·소유자·시점의 자동 선택 효과를 입증했다는 근거가 아니다. 해당 업체 이름은 영상 내레이션에 직접 나오지 않는다."
+    },
+    {
+      "id": "palantir_platform",
+      "kind": "official_product_documentation",
+      "organization": "Palantir",
+      "title": "Platform overview",
+      "url": "https://www.palantir.com/docs/foundry/platform-overview/overview",
+      "sections": [
+        "The Ontology",
+        "Decision components",
+        "Actions"
+      ],
+      "supports": "데이터·논리·행동을 연결하는 Ontology, 사용자·에이전트와 조건에 따른 Action 권한, 사람이 AI의 제안을 검토·수정·결정하는 HITL 패턴.",
+      "boundary": "Palantir를 공통 지식창고만 제공하는 제품으로 축약하지 않는다. 컬처핏과의 비교 성능·대체 가능성·최초성은 검증하지 않았다. 영상의 마무리 설계 관점을 뒷받침하는 배경 자료다."
+    },
+    {
+      "id": "palantir_autopilot",
+      "kind": "official_product_documentation",
+      "organization": "Palantir",
+      "title": "Autopilot — Integrations",
+      "url": "https://www.palantir.com/docs/foundry/autopilot/integrations",
+      "sections": [
+        "Workshop — Human-in-the-loop visualization in Autopilot"
+      ],
+      "supports": "사람의 행동이 필요한 위치, 자동화 트리거와의 관계, 사람 결정으로 이루어지는 상태 전이를 보여주는 기존 제품 기능.",
+      "boundary": "적절한 개입을 설계해야 한다는 실무 선례로 사용한다. 해당 UI나 다이어그램을 영상에 복제하지 않았다."
+    },
+    {
+      "id": "local_ui_capture",
+      "kind": "first_party_runtime_capture",
+      "evidence_paths": [
+        "docs/video/record_ui.py",
+        "docs/video/captures/capture-source-hashes.json",
+        "docs/video/captures/browser-network.json",
+        "docs/video/captures/browser-errors.json",
+        "docs/video/validation.json"
+      ],
+      "supports": "격리된 로컬 앱에서 입력·결정 저장·지식맵·권한 갱신을 실제로 조작한 화면.",
+      "boundary": "촬영 시점의 코드 해시는 capture-source-hashes.json에 고정된다. 이후 작업 트리의 소스 해시와 구분한다. 실제 Slack 수신·외부 작업 실행·소유자 인증·사용자 연구를 보여주는 화면은 아니다."
+    },
+    {
+      "id": "briefing_smoke",
+      "kind": "actual_model_smoke_on_synthetic_case",
+      "evidence_paths": [
+        "experiments/results/briefing-smoke/README.md",
+        "experiments/results/briefing-smoke/attempt-1.json",
+        "experiments/results/briefing-smoke/attempt-2.json",
+        "docs/video/captures/authority-briefing-source.json",
+        "docs/video/captures/authority-registry-source.json",
+        "docs/video/captures/authority-after-priority.json"
+      ],
+      "supports": "합성 사례 한 건의 실제 모델 2회 호출 기록. 1차 추출 오류와 2차 approve·소유자 충돌 판정을 보존하고 영상은 저장된 성공 브리핑을 사용한다.",
+      "boundary": "촬영 중 추가 모델 호출이나 독립 탐지 정확도 평가가 아니다. 공동 승인 이후의 변경은 최신 로컬 위임 규칙 재판정이다."
+    },
+    {
+      "id": "controlled_simulation",
+      "kind": "scripted_synthetic_runtime",
+      "evidence_paths": [
+        "docs/video/captures/simulation-completed.json",
+        "docs/video/record_ui.py",
+        "experiments/README.md"
+      ],
+      "supports": "통제된 일정 조율 시나리오의 대기→사람 입력→재개→로컬 완료 상태.",
+      "boundary": "모델을 새로 호출하는 자유 대화가 아니다. 완료는 시나리오의 조건 충족이며 실제 참석·전달·외부 실행을 뜻하지 않는다."
+    },
+    {
+      "id": "implementation_verification",
+      "kind": "completed_verification_summary",
+      "evidence_paths": [
+        "docs/submission/implementation-verification.json"
+      ],
+      "supports": "이전 배포 검증의 182개 테스트·8개 하위검증(10.50초), 공개 HTTPS API 17항목, 공개 Chrome 16항목, 로컬 방문자 UI 15항목의 기록. 촬영과 관련된 앞선 권한 흐름 Chrome 18항목은 별도 이력이다.",
+      "boundary": "pytest 원시 표준출력이 아닌 개발 담당의 완료 실행 요약이다. 각 검증은 범위가 달라 합산 정확도로 해석하지 않는다. 배포 검증이 과거 촬영본과 현재 UI의 동일함을 보증하지 않으며 이 수치를 영상에서 낭독하지 않는다.",
+      "historical_record_location": "docs/submission/implementation-verification.json#historical_deployment_verifications"
+    },
+    {
+      "id": "style_reference",
+      "kind": "user_selected_style_reference",
+      "title_as_supplied": "선적분? 면적분? 벡터미적분 풀코스",
+      "url": "https://www.youtube.com/watch?v=g3aQJvZddS4",
+      "evidence_paths": [
+        "docs/submission/requirements.md"
+      ],
+      "supports": "사용자가 지정한 시각적 참고: 검은 배경, 큰 흰 글자, 노랑·청록 강조, 도식의 단계적 설명.",
+      "boundary": "영상 화면·캐릭터·음악·내레이션 원본을 복제하지 않는다. 내용의 학술·기능 근거가 아니다. 제목은 사용자 제공 기록에 따르며 이번 웹 재조회는 제한되어 제작자·게시일을 추가 확정하지 않았다."
+    },
+    {
+      "id": "threejs",
+      "kind": "rendering_dependency",
+      "title": "Three.js",
+      "version": "0.180.0 / r180",
+      "url": "https://threejs.org/manual/",
+      "repository_url": "https://github.com/mrdoob/three.js/tree/r180",
+      "license": "MIT",
+      "license_url": "https://github.com/mrdoob/three.js/blob/r180/LICENSE",
+      "distribution_urls": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js"
+      ],
+      "evidence_paths": [
+        "docs/video/motion/motion.js",
+        "docs/video/motion/README.md",
+        "docs/video/motion/render-validation.json"
+      ],
+      "boundary": "외부 예제 영상이 아닌 프로젝트가 작성한 WebGL 도식을 렌더하는 라이브러리다. 설명 도식을 실제 앱 UI나 측정 결과로 표시하지 않는다."
+    },
+    {
+      "id": "pretendard",
+      "kind": "font_dependency",
+      "title": "Pretendard",
+      "author": "Kil Hyung-jin / orioncactus",
+      "version": "1.3.9",
+      "url": "https://github.com/orioncactus/pretendard/releases/tag/v1.3.9",
+      "user_requested_discovery_page": "https://noonnu.cc/font_page/694",
+      "license": "SIL Open Font License 1.1",
+      "license_url": "https://raw.githubusercontent.com/orioncactus/pretendard/v1.3.9/LICENSE",
+      "evidence_paths": [
+        "docs/video/fonts/sources.json",
+        "docs/video/fonts/LICENSE"
+      ],
+      "motion_variable_font": {
+        "url": "https://raw.githubusercontent.com/orioncactus/pretendard/v1.3.9/packages/pretendard/dist/public/variable/PretendardVariable.ttf",
+        "bytes": 6739336,
+        "sha256": "3090ccde0442bb347aa7685d9ba8b17436a60682df6e8f92a9a670de14056e22",
+        "verification": "2026-10-29 로컬 motion/work/PretendardVariable.ttf와 공식 v1.3.9 파일의 바이트가 일치함을 확인."
+      },
+      "boundary": "공식 글꼴을 제목·자막·설명 도식에 사용했다. 눈누는 사용자 지정 소개 경로이며 실제 배포 파일과 라이선스는 공식 저장소를 기준으로 한다."
+    },
+    {
+      "id": "elevenlabs_voice",
+      "kind": "generated_narration",
+      "organization": "ElevenLabs",
+      "product": "Web Text to Speech",
+      "language": "Korean",
+      "url": "https://elevenlabs.io/ko/voice-library/natural",
+      "publication_terms_url": "https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform",
+      "evidence_paths": [
+        "docs/video/work/elevenlabs/source.json",
+        "docs/video/work/elevenlabs/culture-fit-harry-kim-v4-generation1.mp3",
+        "docs/video/narration-source.json",
+        "docs/video/narration-alignment.json",
+        "docs/video/validation.json",
+        "docs/video/validation-en.json"
+      ],
+      "generation_confirmed": true,
+      "final_video_import_status": "verified_in_final_korean_and_english_caption_mp4",
+      "publication_note": "확인한 공식 안내상 무료 플랜 결과는 비상업 범위이며 공개 제목에 elevenlabs.io 또는 11.ai 출처가 필요하다. 한국어판·영문 자막판 MP4 제목 메타데이터와 게시용 소개문 제목에 elevenlabs.io를 표기했다. 같은 Harry Kim 한국어 음성을 두 판에 사용했고 영문판 AAC 패킷의 동일성을 확인했다. 외부 게시 완료를 뜻하지 않는다.",
+      "boundary": "허용된 라이브러리 목소리로 프로젝트 대본을 합성했다. 스타일 참고 YouTube 화자의 목소리를 복제하지 않았고 새 음성 복제 모델을 만들지 않았다. 배경음악은 사용하지 않았다.",
+      "voice": "Harry Kim - Conversational",
+      "model_as_recorded_in_generation_receipt": "Eleven v4",
+      "generation": "Generation 1",
+      "original_sha256": "c457aef9b5fbbd0d4955a44f99a7a41365a39d9a6189ec9e73f1eee1573ce705",
+      "original_duration_seconds": 145.005688,
+      "user_selection": "2026-10-29 사용자가 기존 남성 음성 Harry Kim 사용을 최종 확정. 여성 음성은 생성하지 않음.",
+      "alignment_summary": {
+        "cue_count": 22,
+        "playback_speed": 1.0,
+        "duration_seconds": 186,
+        "method": "Local word-timestamp/script alignment with silence padding; original source playback speed preserved."
+      },
+      "published_title_metadata": "Culture-Fit 컬처핏 | Open-source Human-in-the-Loop (HITL) | elevenlabs.io",
+      "english_variant_title_metadata": "Culture-Fit | Human-in-the-Loop (HITL), English captions | elevenlabs.io"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "intro",
+      "range": "00:00–00:16",
+      "start_seconds": 0,
+      "end_seconds": 16,
+      "visual_kind": "original_threejs_explanatory_diagram",
+      "source_ids": [
+        "initial_outline",
+        "july_report",
+        "team_design",
+        "threejs"
+      ],
+      "claim": "문화·역사 고증 기획→7월 GitHub RAG·지식 충돌→현재 에이전트 권한 관제라는 전환.",
+      "on_screen": [
+        "초기 기획",
+        "7월 개발보고",
+        "현재 구현",
+        "재사용 가능한 연결 계층"
+      ],
+      "boundary": "세 단계 모두가 현재 동작하는 하나의 완성품이라는 뜻이 아니다. 생성형 AI 검증·관리라는 연결 설명은 팀의 해석이다."
+    },
+    {
+      "id": "timeliness",
+      "range": "00:16–00:28",
+      "start_seconds": 16,
+      "end_seconds": 28,
+      "visual_kind": "original_threejs_explanatory_diagram",
+      "source_ids": [
+        "anthropic_mcp",
+        "google_a2a",
+        "li_xie_2025_v1",
+        "team_design",
+        "threejs"
+      ],
+      "claim": "도구·데이터 연결과 에이전트 간 작업 교환의 공통 규격이 구체화되었다.",
+      "on_screen": [
+        "MCP · 2024",
+        "도구·데이터 연결",
+        "A2A · 2025",
+        "작업·상태 교환",
+        "Anthropic 2024 · Google 2025 · Li & Xie 2025"
+      ],
+      "project_interpretation": "‘누가 결정할 수 있죠?’는 이러한 환경에서 팀이 다루는 설계 질문이다. 기존 규격에 인증·인가·HITL이 없다는 의미가 아니다."
+    },
+    {
+      "id": "intake",
+      "range": "00:28–00:47",
+      "start_seconds": 28,
+      "end_seconds": 47,
+      "visual_kind": "actual_local_ui_recording_with_synthetic_input",
+      "source_ids": [
+        "local_ui_capture",
+        "team_design"
+      ],
+      "evidence_paths": [
+        "docs/video/captures/01-intake.png"
+      ],
+      "on_screen": [
+        "01 합성 대화 가져오기"
+      ],
+      "claim": "두 에이전트의 합성 대화를 가져와 확인 약속과 후속 담당·전달 상태를 살펴본다.",
+      "boundary": "실제 Slack 계정에서 대화를 수신한 장면이 아니다. 긴 대화의 실패율·무한루프 발생을 측정한 자료도 아니다."
+    },
+    {
+      "id": "overview",
+      "range": "00:47–01:04",
+      "start_seconds": 47,
+      "end_seconds": 64,
+      "visual_segments": [
+        {
+          "start_seconds": 47,
+          "end_seconds": 55,
+          "kind": "original_threejs_explanatory_diagram"
+        },
+        {
+          "start_seconds": 55,
+          "end_seconds": 64,
+          "kind": "actual_local_ui_recording"
+        }
+      ],
+      "source_ids": [
+        "local_ui_capture",
+        "team_design",
+        "threejs"
+      ],
+      "evidence_paths": [
+        "docs/video/captures/02-overview.png",
+        "docs/video/captures/03-current-questions.png",
+        "docs/video/captures/04-original-transcript.png"
+      ],
+      "on_screen": [
+        "확인 약속",
+        "질문 전달",
+        "사람의 결정",
+        "실행 근거",
+        "02 현황과 원문 확인"
+      ],
+      "claim": "남은 결정과 질문을 확인하고 원문 발화로 돌아가 근거를 살펴볼 수 있다.",
+      "boundary": "설명 도식의 네 단계가 모두 실제로 완료되었다는 뜻은 아니다. 원문 인용 존재가 의미 해석의 정확성을 보증하지 않는다."
+    },
+    {
+      "id": "decision",
+      "range": "01:04–01:27",
+      "start_seconds": 64,
+      "end_seconds": 87,
+      "visual_kind": "actual_local_ui_recording",
+      "source_ids": [
+        "local_ui_capture",
+        "team_design"
+      ],
+      "evidence_paths": [
+        "docs/video/captures/05-human-decision-entry.png",
+        "docs/video/captures/06-decision-saved.png",
+        "docs/video/captures/import-after-decision.json"
+      ],
+      "on_screen": [
+        "03 사람의 판단과 다음 행동 기록"
+      ],
+      "claim": "미해결 요청에 담당자와 다음 행동을 입력하고 저장된 결정을 확인한다.",
+      "boundary": "담당자가 실제 배포 책임자에게 연락했거나 승인을 받았다는 증거는 아니다. 로컬 기록 저장과 외부 작업 완료를 구분한다."
+    },
+    {
+      "id": "knowledge",
+      "range": "01:27–01:39",
+      "start_seconds": 87,
+      "end_seconds": 99,
+      "visual_kind": "actual_local_ui_recording",
+      "source_ids": [
+        "local_ui_capture",
+        "team_design"
+      ],
+      "evidence_paths": [
+        "docs/video/captures/07-knowledge-graph.png"
+      ],
+      "on_screen": [
+        "04 대화·약속·결정의 관계"
+      ],
+      "claim": "대화·확인 약속·사람 결정 사이의 기록 관계를 지식맵으로 확인한다.",
+      "boundary": "현재의 경량 관계 모델이다. 초기 문화·역사 KG-RAG의 통합 완성이나 RDF/OWL 표준 준수·자동 사실 검증의 증거가 아니다."
+    },
+    {
+      "id": "authority",
+      "range": "01:39–02:16",
+      "start_seconds": 99,
+      "end_seconds": 136,
+      "visual_segments": [
+        {
+          "start_seconds": 99,
+          "end_seconds": 109,
+          "kind": "original_threejs_explanatory_diagram"
+        },
+        {
+          "start_seconds": 109,
+          "end_seconds": 119,
+          "kind": "actual_local_ui_recording_of_saved_model_brief_and_conflict"
+        },
+        {
+          "start_seconds": 119,
+          "end_seconds": 130,
+          "kind": "actual_local_ui_approval_recording_retimed_from_7_2_seconds"
+        },
+        {
+          "start_seconds": 130,
+          "end_seconds": 136,
+          "kind": "actual_local_ui_updated_authority_result"
+        }
+      ],
+      "source_ids": [
+        "team_design",
+        "local_ui_capture",
+        "briefing_smoke",
+        "implementation_verification",
+        "threejs"
+      ],
+      "evidence_paths": [
+        "docs/video/captures/08-recorded-model-briefing.png",
+        "docs/video/captures/09-owner-conflict.png",
+        "docs/video/captures/10-joint-approval-entry.png",
+        "docs/video/captures/11-authority-updated.png",
+        "docs/video/captures/authority-after-priority.json"
+      ],
+      "on_screen": [
+        "로컬 운영자 입력",
+        "권한 충돌",
+        "공동 승인 기록",
+        "2 / 2",
+        "검토봇 B 담당"
+      ],
+      "claim": "같은 업무 승인 권한이 다른 소유자의 에이전트에 겹친 상태에서 공동 승인·우선권을 기록하면 검토봇 B가 담당자로 판정된다.",
+      "project_interpretation": "같은 사실을 아는 것과 그 결정을 승인하도록 위임받은 것은 별개다. 공통 저장소에 위임 기록을 담을 수 있지만 해당 결정에 대한 유효성 판정이 필요하다.",
+      "boundary": "두 소유자 승인은 운영자 입력이다. 정확히 연결된 권한 질문만 재질문 대상에서 제외하며 원본 pending 요청·무관한 질문을 지우거나 가짜 사람 응답을 만들지 않는다. B가 실제 배포 작업을 실행한 것은 아니다."
+    },
+    {
+      "id": "simulation",
+      "range": "02:16–02:51",
+      "start_seconds": 136,
+      "end_seconds": 171,
+      "visual_kind": "actual_local_ui_recording_of_scripted_simulation",
+      "source_ids": [
+        "controlled_simulation",
+        "local_ui_capture",
+        "team_design"
+      ],
+      "evidence_paths": [
+        "docs/video/captures/12-simulation-waiting.png",
+        "docs/video/captures/13-simulation-human-decision.png",
+        "docs/video/captures/14-simulation-complete.png",
+        "docs/video/captures/15-simulation-completion.png",
+        "docs/video/captures/simulation-completed.json"
+      ],
+      "on_screen": [
+        "06 통제 시뮬레이션 · 중단 → 사람 결정 → 재개"
+      ],
+      "claim": "사람에게 참석 여부·이유를 받은 뒤 시나리오를 재개하고 조율 조건의 완료 상태를 확인한다.",
+      "boundary": "스크립트 시나리오의 실제 앱 실행이다. 사람의 응답은 선호·정보 입력을 포함하며 모든 응답이 새 위임은 아니다. 이 장면 하나로 개입 최적성·시간 절감·실제 일정 완료를 입증하지 않는다."
+    },
+    {
+      "id": "outro",
+      "range": "02:51–03:06",
+      "start_seconds": 171,
+      "end_seconds": 186,
+      "visual_kind": "original_threejs_explanatory_diagram_with_end_credits",
+      "source_ids": [
+        "team_design",
+        "anthropic_mcp",
+        "google_a2a",
+        "li_xie_2025_v1",
+        "microsoft_hitl",
+        "palantir_platform",
+        "palantir_autopilot",
+        "threejs",
+        "elevenlabs_voice"
+      ],
+      "on_screen": [
+        "원문 근거",
+        "위임 권한",
+        "사람의 결정",
+        "다음 행동",
+        "필요한 순간,",
+        "필요한 사람에게",
+        "Human-in-the-Loop (HITL)",
+        "전 세계 개발자를 위한 오픈소스 연결 계층"
+      ],
+      "end_credits": {
+        "start_seconds": 183,
+        "end_seconds": 186,
+        "preview_path": ".runtime/report-review/final-video-credits.png",
+        "preview_verified": true,
+        "text": [
+          "출처: Anthropic (2024) · Google (2025) · Li & Xie (2025) | 음성: ElevenLabs"
+        ],
+        "composite_status": "verified_in_final_mp4",
+        "preview_note": "최신 한국어판과 영문 자막판의 184.5초 프레임을 직접 확인했다. Human-in-the-Loop(HITL), 글로벌 오픈소스 목표 문구, 원래 Three.js 엔딩 도식과 작은 회색 1줄 출처가 보인다. 출처와 하단 설명 자막은 겹치지 않는다. 큰 카드·서지 목록·파일 경로는 없다.",
+        "layout": {
+          "line_count": 1,
+          "y": 860,
+          "font": "Pretendard Regular",
+          "font_size_px": 24,
+          "color": "gray",
+          "observed_glyph_y_range": [
+            863,
+            889
+          ],
+          "caption_area_begins_y": 912
+        },
+        "frame_inspected_at_seconds": 184.5
+      },
+      "claim": "근거·권한·사람의 결정·다음 행동을 연결하고 필요한 순간에 필요한 사람의 입력을 받는다는 프로젝트 지향점.",
+      "boundary": "Microsoft·Palantir는 적절한 HITL의 배경 선례다. 업체명이 내레이션에 등장하거나 해당 제품을 이 영상에서 시연했다는 뜻은 아니다. 효용의 정량 실증을 주장하지 않으며 현재 배포·코드 공개 상태는 별도 기록으로 구분한다."
+    }
+  ],
+  "visual_attribution": {
+    "style_source_id": "style_reference",
+    "rendering_source_id": "threejs",
+    "font_source_id": "pretendard",
+    "audio_source_id": "elevenlabs_voice",
+    "copied_reference_video_frames": false,
+    "copied_reference_music": false,
+    "copied_reference_narrator_voice": false,
+    "background_music": "none",
+    "original_motion_seconds": 61,
+    "actual_ui_recording_seconds": 125,
+    "retiming": "공동 승인 입력의 실제 7.2초 녹화를 11초로 늘려 읽을 시간을 확보했다. 앱의 결과·상태를 합성하지 않았다.",
+    "full_source_location": "상세 URL·버전·해석 범위는 이 JSON에 제공한다. 화면의 짧은 출처 줄이 논문의 전체 주장을 재현하는 것은 아니다."
+  },
+  "related_public_demo": {
+    "url": "https://culture-fit-demo-production.up.railway.app/workspace",
+    "status": "Railway deployment completed; public HTTPS and browser checks recorded",
+    "evidence_paths": [
+      "docs/railway-deployment.md",
+      "docs/submission/implementation-verification.json"
+    ],
+    "relationship_to_video": "공개 체험은 촬영 이후 추가 배포한 구현이다. 영상은 당시 로컬 전용 DB의 고정 촬영본이며 현재 공개 UI와 동일함을 주장하지 않는다.",
+    "scope": "합성 대화·과거 모델 분석 재생, 방문자 쿠키별 SQLite 격리·자기 초기화. 새 모델 호출·Slack 수신 차단, 외부 실행 없음.",
+    "boundary": "방문자 쿠키는 소유자 신원·동의 인증이 아니다. 체험 웹 배포와 main의 개발 소스 공개는 완료했으며 버전 릴리스와 구분한다."
+  },
+  "code_publication": {
+    "repository_url": "https://github.com/Ontology0/hanium-arbiter",
+    "development_branch": "feat/ontology-hitl",
+    "development_branch_url": "https://github.com/Ontology0/hanium-arbiter/tree/feat/ontology-hitl",
+    "commit": "11802bd031bf95606522089792735f6e85bcb724",
+    "verification": "2026-10-29 direct git ls-remote main and fetched merge log verified.",
+    "main_status": "PR #2 merged; development source published on main",
+    "excluded_from_code_commit": [
+      "보고서",
+      "영상",
+      "개인자료"
+    ],
+    "boundary": "이 파일의 docs/video 및 보고서 근거 경로는 제출 자료의 로컬 경로이며 공개 코드에서 모든 제출 자료가 내려받아진다는 의미가 아니다.",
+    "license": "MIT",
+    "license_url": "https://github.com/Ontology0/hanium-arbiter/blob/11802bd031bf95606522089792735f6e85bcb724/LICENSE",
+    "license_verification": "MIT LICENSE at fetched main merge commit directly inspected.",
+    "pull_request_url": "https://github.com/Ontology0/hanium-arbiter/pull/2",
+    "main_url": "https://github.com/Ontology0/hanium-arbiter/tree/main",
+    "development_branch_commit": "86d64140128ca49bc64c9d811c4e5b8484592861"
+  },
+  "final_artifact_verification": {
+    "verified_at": "2026-10-29T14:55:48.996431+09:00",
+    "sha256": "a6dd44eacd45757ceaf296db1640ba5207839e4e282d3cf2bf418ce84d9b4626",
+    "bytes": 8622674,
+    "video_duration_seconds": 186.0,
+    "audio_duration_seconds": 186.0,
+    "container_duration_seconds": 186.0,
+    "video_frames": 5580,
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30/1",
+    "selectable_subtitle_default": 0,
+    "validation_record": "docs/video/validation.json",
+    "checks_from_validation_record": [
+      "Full FFmpeg decode passed",
+      "Video/audio/container duration186.000s and5580 video frames checked",
+      "UI assertions: imported decision persisted; cross-owner conflict -> authorized; simulation waiting -> completed",
+      "Twelve-frame contact sheet generated for visual review",
+      "22 narration cues preserve original ElevenLabs playback speed; script alignment and silence boundaries inspected"
+    ],
+    "independent_reference_audit": "Final Korean and English MP4 hashes and sizes matched their validation records. Original audio hash and 22 original-speed cue records checked; both MP4 AAC packet hashes independently matched. Final 184.5-second frames directly inspected for Human-in-the-Loop(HITL), global open-source target label, one-line credit and subtitle separation."
+  },
+  "global_target_context": {
+    "origin": "2026-10-29 사용자가 재강조한 글로벌 오픈소스 목표",
+    "explicitly_narrated_as_global_in_video": false,
+    "relationship_to_video": "전 세계 개발자가 재사용할 연결 계층이라는 목표를 엔딩 상단에 표시했고 Human-in-the-Loop(HITL) 전체 명칭을 추가했다. 한국어 원고·Harry Kim 음성·시연 내용은 유지했다. 별도 영문 자막 영상과 영문 SRT·영한 소개문을 제공하며 해외 사용 실적이나 제품 전체의 국제화 완료를 뜻하지 않는다.",
+    "current_evidence": "MIT main publication, English UI, KO/EN conversation input, installation ZIP and completed KO/EN product narration; general multilingual accuracy and overseas user outcomes remain unverified.",
+    "future_work": "Version releases, stronger English examples/contribution guidance, Windows runtime and multilingual/international usability evaluation.",
+    "current_video_accessibility": {
+      "english_caption_video": "docs/video/culture-fit-demo-en-1080p.mp4",
+      "english_srt": "docs/video/culture-fit-demo.en.srt",
+      "bilingual_description": "docs/video/upload-description.txt",
+      "scope": "Narration captions and introduction translated into English; Korean narration, recorded UI, motion-diagram labels and editorial headings retained."
+    }
+  },
+  "english_caption_variant": {
+    "video": "docs/video/culture-fit-demo-en-1080p.mp4",
+    "scope": "Only the narration captions are translated into English. Korean UI, Three.js diagrams and editorial labels, and the original Korean Harry Kim narration remain. This is a separate video, so Korean and English narration captions do not overlap. It is not a claim of a fully localized product or multilingual detection accuracy.",
+    "verification": {
+      "verified_at": "2026-10-29T14:55:48.996431+09:00",
+      "sha256": "de5b774076e8cc12917eea0acb89131de6d1436e7e8da573532296908e6faf5c",
+      "bytes": 8881400,
+      "video_duration_seconds": 186.0,
+      "audio_duration_seconds": 186.0,
+      "container_duration_seconds": 186.0,
+      "video_frames": 5580,
+      "width": 1920,
+      "height": 1080,
+      "frame_rate": "30/1",
+      "selectable_subtitle_default": 0,
+      "validation_record": "docs/video/validation-en.json",
+      "checks_from_validation_record": [
+        "Full FFmpeg decode passed",
+        "186 seconds for video/audio/container;5580 frames",
+        "Last frame185.95s extracted",
+        "English mov_text default0",
+        "AAC packet hash matches approved Korean version",
+        "English captions fit two lines with44px or more bottom margin"
+      ]
+    },
+    "audio": {
+      "same_as_korean_version": true,
+      "new_tts_generation": false,
+      "reencoded": false,
+      "independently_verified_aac_packet_sha256": "207101f3c0076bf19cf532addcafa41c401fd2f4ec491fefcfb21b92ce518911"
+    },
+    "caption_source": {
+      "path": "docs/video/culture-fit-demo.en.srt",
+      "sha256": "cd1339ac4efb7549f0f3025d91650cb3ceb84dfa4fe3ad1a310d44dbff40e5ee",
+      "cue_count": 22,
+      "timing_identical_to_korean": true,
+      "standalone_line_breaks": "Standalone SRT may contain more than two lines; the burned-caption compositor independently wraps to at most two lines."
+    },
+    "burned_caption_layout": {
+      "font": "Pretendard ExtraBold",
+      "size_px": 44,
+      "max_lines": 2,
+      "minimum_text_bottom_margin_px": 48
+    },
+    "independent_visual_review": {
+      "frames_seconds": [
+        100,
+        184.5
+      ],
+      "paths": [
+        ".runtime/report-review/final-video-en-authority.png",
+        ".runtime/report-review/final-video-en-credits.png"
+      ],
+      "clipping_or_overlap_found": false
+    },
+    "publication": {
+      "uploaded": false,
+      "bilingual_description": "docs/video/upload-description.txt",
+      "description_sha256": "bc918820f36cf6fd36371b53d65dd52aaf3d898ee93b4d67ade22fe2458e6618"
+    }
+  },
+  "artifact_revision_status": {
+    "status": "previous_completed_version_preserved",
+    "scope": "This record preserves the earlier 186-second Korean-UI demo and English-caption variant. Current 180-second product videos with English UI, installation and first-run capture, distinct KO/EN narration are documented in product-references.json.",
+    "replacement_completed": true,
+    "replacement_hashes_recorded": true,
+    "report_process_history": "Planning and development evolution remain in the development and final reports."
+  },
+  "current_deployment_verification": {
+    "relationship_to_preserved_video": "Later implementation/deployment verification; does not certify earlier Korean-UI capture or general detection accuracy. Current completed product editions are documented separately in product-references.json.",
+    "summary_path": "docs/submission/implementation-verification.json",
+    "completed_pytest": {
+      "passed": 199,
+      "subtests_passed": 8,
+      "seconds": 10.32,
+      "source": ".runtime/verification-legacy-bilingual.json",
+      "raw_stdout": false
+    },
+    "distinct_checks": {
+      "public_https_api": 29,
+      "public_chrome_ui": 27,
+      "explicit_english_mutual_wait_rule_case": 13,
+      "isolated_legacy_alias_chrome_ui": 33
+    },
+    "download_install": {
+      "macos_zip_extract_launch_verified": true,
+      "windows_runtime_verified": false
+    },
+    "source_zip": {
+      "bytes": 390899,
+      "files": 95,
+      "sha256": "58b0bf0c92cfe22870143898d5782f5940f36f5558a7d96e7b2b07723a0a181a"
+    },
+    "language_scope": "English interface with no UI language selector; English and Korean conversation analysis inputs; original user text and source quotation language preserved. Not a multilingual detection-accuracy evaluation.",
+    "legacy_display": "English display aliases preserve stored owner/approval identifiers; isolated 33-check reproduction also preserves unrelated user original text.",
+    "railway_deployment_id": "acdc3d30-f7e6-4a93-855b-512279cc6177"
+  },
+  "publication_authorization": {
+    "youtube_visibility": "public",
+    "user_authorized": true,
+    "scope": "Both completed replacement product videos",
+    "publication_complete": false,
+    "final_urls_pending": true,
+    "english_public_url": "https://youtu.be/oP9F6zEm9RM",
+    "status": "English product video public; Korean product video private draft pending user publication."
+  },
+  "current_product_edition": {
+    "provenance": "docs/video/product-references.json",
+    "duration_seconds_each": 180,
+    "actual_ui_seconds": 143,
+    "original_threejs_seconds": 37,
+    "ko": {
+      "path": "docs/video/culture-fit-product-ko-1080p.mp4",
+      "sha256": "fed0bbe45aa32a13b5c491653000ba6f641eef0ccb6be77823f24923061151a5",
+      "bytes": 9758959
+    },
+    "en": {
+      "path": "docs/video/culture-fit-product-en-1080p.mp4",
+      "sha256": "a71b233351b46055cefabfe13aa7d75ed0f56897e20e60659227f2412368bf14",
+      "bytes": 10176755,
+      "public_url": "https://youtu.be/oP9F6zEm9RM"
+    },
+    "voice_scope": "New ElevenLabs Harry Kim Conversational Korean and Daniel Radio news host English, Eleven v4; distinct original-speed narration and captions; see product provenance for receipts and original audio hashes."
+  }
+}
